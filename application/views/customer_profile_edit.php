@@ -1,29 +1,45 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
-?>
-<html>
+  foreach ($CUSTOMER as $row) {
+  ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mom House Barber | Customer</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleCust.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <div class="edit_profile_container">
+      <div class="edit_profile">
+        <div class="edit_profile__image">
+          <img class="edit_profile_image_img" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>">
+        </div>
 
-    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+        <div class="edit_profile_info">
+          <div class="edit_profile_info_top">
+            <h1 class="edit_profile_info_top-h1"><?php echo $row->Username . br(1); ?></h1>
+          </div>
 
-</head>
+          <div class="edit_profile_info_center">
 
-<body>
+            <?php echo form_open('Customer_Con/save_profile');
+            echo form_hidden('C_ID', set_value('C_ID', $row->C_ID));
+            echo form_label('ชื่อเล่น :', 'C_Nickname') . br(2);
+            echo form_label('ชื่อจริง :', 'C_Name') . br(2);
+            echo form_label('นามสกุล :', 'C_Lname') . br(2);
+            echo form_label('เพศ :', 'C_Sex') . br(2);
+            echo form_label('เบอร์โทร :', 'C_Phone') . br(2);
+            echo form_label('Facebook :', 'C_Facebook') . br(2);
+            ?>
+            <a class="back" href="http://localhost/Mom_House_Barber/index.php/Customer_Con/show_profile">Back</a>
+          </div>
+         </div>
 
-    <?php
-    include("header/customer_navbar.php");
-    include("banner/all_banner.php");
-    include("customer_get_profile_edit.php");
-    include("footer/footer.php");
-    ?>
-
-</body>
-
-</html>
+          <div class="edit_profile_infos">
+          <?php echo form_hidden('C_ID', set_value('C_ID', $row->C_ID));
+          echo form_input('C_Nickname', set_value('C_Nickname', $row->C_Nickname), 'class="form_label"') . br(2);
+          echo form_input('C_Name', set_value('C_Name', $row->C_Name), 'class="form_label"') . br(2);
+          echo form_input('C_Lname', set_value('C_Lname', $row->C_Lname), 'class="form_label"') . br(2);
+          echo form_input('C_Sex', set_value('C_Sex', $row->C_Sex), 'class="form_label"') . br(2);
+          echo form_input('C_Phone', set_value('C_Phone', $row->C_Phone), 'class="form_label"') . br(2);
+          echo form_input('C_Facebook', set_value('C_Facebook', $row->C_Facebook), 'class="form_label"') . br(2);
+          echo form_submit('btnSave', 'Save', 'class="save"');
+          echo form_close();
+         }
+          ?>
+          </div>
+      </div>
+    </div>

@@ -1,29 +1,31 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
-?>
-<html>
+<div class="container_Add_portfolio">
+    <div class="teat_Add_portfolio">เพิ่มผลงาน</div>
+    <div class="Add_portfolio">
+        <div class="Add_icon">
+            <div class="add_img">
+                <div class="add_imge">
+                    <img class="add_imge" src="<?php echo base_url(); ?>/img/HairStyle1_1.jpg" alt="" />
+                </div>
+                <div class="add_imge">
+                    <i class="far fa-plus-square"></i>
+                </div>
+                <div class="add_imge">
+                    <i class="far fa-plus-square"></i>
+                </div>
+                <div class="add_imge">
+                    <i class="far fa-plus-square"></i>
+                </div>
+            </div>
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Mom House Barber | Barber</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleBarber.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+            <div class="form-group">
+                <label class="textAreaRemark" for="textAreaRemark">Caption</label><br>
+                <textarea class="form-control" name="remark" id="textAreaRemark" rows="2" placeholder="Detail..."></textarea>
+                <br><br>
+                <button class="add_btn" type="submit">Save</button>
+            </div>
 
-	<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+        </div>
+    </div>
 
-</head>
 
-<body>
-<?php
-	include("header/barber_navbar.php");
-	include("banner/b_banner.php");
-	?>
-	<h1>Add portfolio</h1>
-	<?php
-	include("footer/footer.php");
-	?>	
-</body>
-
-</html>
+</div>

@@ -252,6 +252,9 @@
 .banner {
 	height: 10vh;
 }
+.banner_all{
+	height: 10vh;
+}
 .banner-container {
 	padding: 60px 30px;
 	display: flex;
@@ -546,7 +549,6 @@
   .barber-queue .td-barber-queue:last-child {
     font-size: 0.95em;
     line-height: 1.4;
-    text-align: left;
   }
   .barber-queue .th-barber-queue {
     background-color: #643b0f;
@@ -624,6 +626,314 @@
   }  
 
 /*-------------------------------- end barber queue table ---------------------------------*/
+
+/*--------------------------------------- end Add_portfolio --------------------------------------*/
+
+.container_Add_portfolio {
+    box-sizing: border-box;
+	margin: 5% 10% 10% 10%;
+  }
+  
+  .teat_Add_portfolio {
+    color: #643b0f;
+    font-size: 1.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .Add_portfolio {
+    border: 1px solid #dadada;
+    border-radius: 7px;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    max-width: calc(100% - 2em);
+    margin: 1em auto;
+    overflow: hidden;
+    width: 65%;
+	
+  }
+
+.Add_icon {
+	height: 400px;
+	background-color: #e4e4e479;
+	
+}
+
+.add_img {
+	align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+.add_imge {
+	width: 200px;
+	height: 200px;
+	margin-top: 1em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+
+}
+
+.add_imge i {
+	color: #000;
+
+}
+
+.form-control {
+	width: 500px;
+	height: 70px;
+}
+
+.form-group {
+	margin-left: 8em;
+}
+.add_btn {
+	width: 80px;
+    font-weight: 500;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	background-color: rgba(196, 120, 6, 0.726);
+	padding: 3px 6px;
+	border: 2px solid rgba(255, 251, 3, 0.938);
+	border-radius: 40px;
+	cursor: pointer;
+    font-size: 18px;
+}
+  /*--------------------------------------- end footer --------------------------------------*/
+
+/*--------------------------------------- barber_admin portfile --------------------------------------*/
+
+.barber_admin_container{
+	max-width: 800px;
+	width: 100%;
+	margin: 0px auto 100px auto;
+	padding: 10px;
+	grid-gap: 1.5em;
+	align-content: center;
+}
+
+.barber_admin_portfolio {
+    color: #1a0f05;
+    font-size: 2.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+	margin-top: 1em;
+  }
+
+.barber_admin {
+	margin: 1em;
+	display: flex;
+	justify-self: center;
+	background-color: #f3f3f3d0;
+	height: 350px;
+}
+
+.barber_admin_image {
+	margin: 3em;
+}
+
+.barber_admin_image_img {
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+    object-position: 10% 50%;
+	margin: 0em 1em 0em 8em;
+} 
+
+.barber_admin_info {
+	margin-top: 2em;
+}
+
+.barber_admin_info_top {
+	display: flex;
+	max-width: 500px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.barber_admin_info_top-h1 {
+	font-weight: 500;
+	padding: 15px 10px 10px 5px;
+}
+
+/*--------------------------------------- end barber_admin portfile --------------------------------------*/
+
+/*--------------------------------------- barber portfile --------------------------------------*/
+
+.barber_container {
+    max-width: 800px;
+	width: 100%;
+	margin: 20px auto 10px auto;
+	padding: 10px;
+	grid-gap: 1.5em;
+	align-content: center;
+ }
+
+.barber_profile {
+    margin: 1em;
+    display: flex;
+    margin-bottom: 5em;
+    background-color: #f3f3f3d0;
+	height: 300px;
+ }
+
+.barber_profile_info {
+    margin-top: 2em;
+	width: 50px;
+ }
+    
+.barber_profile_info_top {
+	display: flex;
+	max-width: 500px;
+	justify-content: space-between;
+	align-items: center;
+ }
+    
+.barber_profile_image_img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        object-position: 20% 70%;
+        margin-right: 3em;
+    }
+
+.barber_profile_image {
+        margin: 3em;
+    }
+.barber_profile_h1 {
+        font-weight: 500;
+        padding: 15px 10px 10px 5px;
+        margin-top: 0.5em;
+    }
+    
+	.profile_b_edit {
+		font-weight: 500;
+        text-decoration: none;
+        color: rgb(247, 4, 4);
+        padding: 1px 10px 1px 10px;
+        border: 3px solid rgb(136, 3, 3);
+        background: transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 18px;
+	}
+
+/*--------------------------------------- end barber portfile --------------------------------------*/
+
+/*----------------------------------- Edit_profile ------------------------------------*/
+
+.edit_profile_container {
+    max-width: 940px;
+    width: 100%;
+	margin: 5em auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.edit_profile {
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10em;
+    background-color: #f3f3f3d0;
+    width: 1000px;
+    height: 700px;
+}
+
+.edit_profile_image {
+    margin: 3em;
+}
+
+.edit_profile_image_img {
+    border-radius: 80%;
+    width: 120px;
+    margin-right: 4em;
+    margin-top: 2em;
+}
+
+
+.edit_profile_info {
+margin-top: 1em;
+}
+.edit_profile_infos {
+    margin-top: 5.5em;
+    
+    }
+
+.edit_profile_info_top {
+    display: flex;
+    max-width: 500px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.edit_profile_info_top-h1 {
+    font-weight: 500;
+    padding: 21px 10px 10px 5px;
+}
+
+.edit_profile_info_center {
+    font-size: 19px;
+}
+
+.save {
+    width: 80px;
+    font-weight: 500;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	background-color: rgba(196, 120, 6, 0.726);
+	padding: 4px 8px;
+	border: 3px solid rgba(255, 251, 3, 0.938);
+	border-radius: 40px;
+	cursor: pointer;
+    font-size: 18px;
+    
+}
+.back1 {
+    width: 100px;
+    height: 50px;
+    font-weight: 500;
+	text-decoration: none;
+	color: #333;
+    background-color: rgba(173, 169, 169, 0.644);
+	padding: 3px 15px;
+	border: 3px solid rgb(99, 99, 99);
+	border-radius: 40px;
+	cursor: pointer;
+    font-size: 18px;
+}
+.back2 {
+	width: 100px;
+	height: 50px;
+    font-weight: 500;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	background-color: rgba(196, 120, 6, 0.726);
+	padding: 3px 15px;
+	border: 2px solid rgba(255, 251, 3, 0.938);
+	border-radius: 40px;
+	cursor: pointer;
+    font-size: 20px;
+}
+
+.form-group {
+    margin-left: 3em;
+	
+}
+
+.form-control {
+	width: 200px;
+    height: 33px;
+}
+
+/*----------------------------------- end Edit_profile  ------------------------------------*/
 
 /*----------------------------------------- footer ----------------------------------------*/
 

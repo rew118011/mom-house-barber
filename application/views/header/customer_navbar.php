@@ -2,29 +2,26 @@
   <div class="content">
     <div class="logo">
       <img class="header-logo" src="<?php echo base_url(); ?>/img/Logo.png">
-      <a href="http://localhost/Mom_House_Barber/index.php/Login_Con/customer_page">Mom House Barber</a>
+      <a href="<?php echo site_url('Login_Con/customer_page'); ?>">Mom House Barber</a>
     </div>
     <ul class="menu-list">
       <div class="icon cancel-btn">
         <i class="fas fa-times"></i>
       </div>
-      <li><a class="item" href="#">Booking</a></li>
-      <li><a class="item" href="http://localhost/Mom_House_Barber/index.php/Customer_Con/customer_look_all_barber">Barber</a></li>
-      <li><a class="item" href="http://localhost/Mom_House_Barber/index.php/Page_Con/customer_hair_page">HairStyle</a></li>
-      <li><a class="item" href="#">My booking</a></li>
+      <li><a class="item" href="<?php echo site_url('Booking_Con/Booking'); ?>">Booking</a></li>
+      <li><a class="item" href="<?php echo site_url('Customer_Con/getAllBarberByCustomer'); ?>">Barber</a></li>
+      <li><a class="item" href="<?php echo site_url('Customer_Con/getHairStyle'); ?>">HairStyle</a></li>
+    <?php
+      foreach ($CUSTOMER as $row) { ?>
+      <li><a class="item" href="<?php echo site_url('Customer_Con/show_bookingqueue/'.$row->C_ID); ?>">My booking</a></li>
+    <?php } ?>
       <li>
         <p>|</p>
       </li>
       <li>
-
-        <a class="item button username" href="http://localhost/Mom_House_Barber/index.php/Customer_Con/get_profile_customer">Hi ' <?php echo $this->session->userdata('Username'); ?></a>
+        <a class="item button username" href="<?php echo site_url('Customer_Con/getProfile'); ?>">Hi ' <?php echo $this->session->userdata('Username'); ?></a>
       </li>
-      <?php
-      $classLogout1 = array('class' => 'item');
-      $classLogout2 = array('class' => 'button');
-      $classLogout3 = array('class' => 'logout');
-      ?>
-      <li><?php echo anchor('Login_Con/logout', 'Log out', $classLogout1, $classLogout2, $classLogout3); ?></li>
+      <li><a class="item button logout" href="<?php echo site_url('Login_Con/logout'); ?>">Log out</a></li>
     </ul>
     <div class="icon menu-btn">
       <i class="fas fa-bars"></i>

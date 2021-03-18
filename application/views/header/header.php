@@ -2,7 +2,7 @@
     <div class="content">
       <div class="logo">
         <img class="header-logo" src="<?php echo base_url(); ?>/img/Logo.png">
-        <a href="/Mom_House_Barber">Mom House Barber</a>
+        <a href="<?php echo site_url(); ?>">Mom House Barber</a>
       </div>
       <ul class="menu-list">
         <div class="icon cancel-btn">
@@ -10,6 +10,9 @@
         </div>
         <li><a class="item" href="http://localhost/Mom_House_Barber/index.php/Calendar_Con/calendar">Calendar</a></li>
         <li><a class="item" href="http://localhost/Mom_House_Barber/index.php/Page_Con/hair_page">HairStyle</a></li>
+        <li>
+          <p>|</p>
+        </li>
         <li><a class="item button login" id="button" href="#">Log in</a></li>
         <li><a class="item button regis" id="button-reg" href="#">Sign Up</a></li>
       </ul>
@@ -21,7 +24,6 @@
 
   <div class="popup">
     <div class="popup-content">
-
       <div class="close">
         <i class="fas fa-times"></i>
       </div>

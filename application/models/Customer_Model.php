@@ -26,15 +26,15 @@ class Customer_Model extends CI_Model
 		$query = $this->db->insert('customer', $data);
 		if ($query) //เมื่อ query สำเร็จ
 		{
-
-			echo "<script language=\"JavaScript\">";
-			echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว')";
-			echo "</script>";
+			return TRUE;
 		} else {
-			echo "<script language=\"JavaScript\">";
-			echo "alert('ไม่สามารถบันทึกข้อมูลได้ค่ะเกิดข้อผิดพลาด')";
-			echo "</script>";
+			return FALSE;
 		}
+	}
+	function checkRegisterDuplicate($Username){
+		$query = $this->db->where('Username', $Username)
+            ->count_all_results('login');
+        return $query;
 	}
 
 	function register_login($data1)
@@ -43,20 +43,14 @@ class Customer_Model extends CI_Model
 		$query = $this->db->insert('login', $data1);
 		if ($query) //เมื่อ query สำเร็จ
 		{
-
-			echo "<script language=\"JavaScript\">";
-			echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว')";
-			echo "</script>";
+			return TRUE;
 		} else {
-			echo "<script language=\"JavaScript\">";
-			echo "alert('ไม่สามารถบันทึกข้อมูลได้ค่ะเกิดข้อผิดพลาด')";
-			echo "</script>";
+			return FALSE;
 		}
 	}
 
 	function getProfile($sess)
 	{
-
 		$this->db->select('*')
 			->from('customer')
 			->join('login', 'login.Username = customer.Username', 'left')
@@ -73,19 +67,34 @@ class Customer_Model extends CI_Model
 			->update('customer', $data); //จากนั้นอัปเดรตข้อมูล
 		if ($query) //เมื่อ query สำเร็จ
 		{
-			echo "<script language=\"JavaScript\">";
-			echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว')";
-			echo "</script>";
+			return TRUE;
 		} else {
-			echo "<script language=\"JavaScript\">";
-			echo "alert('ไม่สามารถบันทึกข้อมูลได้ค่ะเกิดข้อผิดพลาด')";
-			echo "</script>";
+			return FALSE;
 		}
 	}
 	function getBarberByCustomer($id) //ฟังก์ชั่น getBarberByCustomer โดยรับค่าพารามิเตอร์ $id มาจาก Customer_Con
 	{
 		$query = $this->db->where('B_ID', $id) //จากนั้นทำการค้นหาแบบกำหนดเงื่อนไขจากฟิลด์ B_ID ถ้า $id ที่รับมาตรงกับ B_ID
-						  ->get('barber'); //ให้ทำการค้นหาจากตาราง barber
+			->get('barber'); //ให้ทำการค้นหาจากตาราง barber
 		return $query->row(); //จากนั้นนำค่า $query ส่งค่าเป็น object โดยจะส่งข้อมูลออกมาเพียง เรคอร์ดเดียว กลับไปที่ Customer_Con
+	}
+	function getBookingQueue($c_id){
+		$this->db->select('*')
+		->from('booking')
+		->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+		->where('customer.C_ID', $c_id);
+		$query = $this->db->get()->result();
+		return $query;
+	}
+	function cancelBooking($id)
+	{
+		$query = $this->db->where('BK_ID', $id)
+			->delete('booking');
+			if($query){
+				return TRUE;
+			}else{
+				return FALSE;
+			}
 	}
 }

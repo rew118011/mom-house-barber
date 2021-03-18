@@ -7,11 +7,13 @@ class Upload extends CI_Controller
 	{
 		parent::__construct();
 	}
+
 	public function index()
 	{
 		$data = array('error' => '');
 		$this->load->view('form_view', $data); //แสดงฟอร์มสำหรับอัพโหลดไฟล์
 	}
+	
 	public function do_upload()	//ฟังก์ชั่น Upload ไฟล์เดียว
 	{
 		$config['upload_path']          = 'uploads'; //โฟลเดอร์สำหรับอัปโหลดอยู่ที่ C:\Appserv\www\Test\uploads
@@ -32,9 +34,6 @@ class Upload extends CI_Controller
 			$this->load->view('success_view', $data);	//ส่งค่ารายละเอียดของไฟล์ที่ได้ แสดงออกจากไฟล์ View
 		}
 	}
-
-
-
 
 	public function index1()
 	{

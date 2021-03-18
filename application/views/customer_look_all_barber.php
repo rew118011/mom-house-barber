@@ -1,28 +1,33 @@
-</html>
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
-?>
-<html>
+<div class="c_profilebraber_container">
+    <h1 class="c_profilebraber_h1">All Braber</h1>
+    <div class="flexbox_">
+        <?php
+        foreach ($Barber as $row) {
+        ?>
+            <div class="item_">
+                <div class="content_">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mom House Barber | Customer</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleCust.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+                    <div class="c_profilebraber_info_top">
+                        <img class="c_profilebraber_image" src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>">
+                    </div>
+                    <div class="c_profilebraber_info_center">
+                        <div class="c_profilebraber_font">
+                            <font size=4>นาย </font><?php echo $row->B_Name; ?> <?php echo $row->B_Lname; ?>
+                            <font size=4>ช่าง : <?php echo $row->B_Nickname; ?> </font>
+                        </div>
+                        <div>
+                            <font size=4>เบอร์โทร : </font><?php echo $row->B_Phone; ?>
+                        </div>
+                    </div>
+                    <div class="c_profilebraber_info_bottom">
+                        <?php echo anchor('Customer_Con/getBarberByCustomer/' . $row->B_ID, 'Profile', 'class="c_lookprofilebraber botton_p"'); ?>
+                        <a class="c_profilebraber_a botton_p" href="http://localhost/Mom_House_Barber/index.php/Login_Con/customer_page">Booking</a>
+                    </div>
 
-    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-    <?php
-    include("header/customer_navbar.php");
-    include("banner/banner.php");
-    include("customer_get_all_barber.php");
-    include("footer/footer.php");
-    ?>
-</body>
-
-</html>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+    </div>
+</div>

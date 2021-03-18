@@ -67,7 +67,7 @@ body {
 .menu-list li {
 	list-style: none;
 }
-.menu-list li a:not(.logout) {
+.menu-list li a {
 	color: #fff;
 	font-size: 18px;
 	font-weight: 500;
@@ -79,6 +79,14 @@ body {
 	color: #3b1f0a;
 	background-color: #fff;
 	border-radius: 50px;
+}
+.menu-list li p {
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	padding: 0px 15px;
 }
 .icon {
 	color: #fff;
@@ -593,6 +601,9 @@ form .btn input[type="submit"] {
 .banner {
 	height: 70vh;
 }
+.banner_all{
+	height: 10vh;
+}
 .banner-container {
 	padding: 60px 30px;
 	display: flex;
@@ -880,9 +891,12 @@ form .btn input[type="submit"] {
 /*--------------------------------------- index -------------------------------------------*/
 
 .container-box {
-	padding: 75px 175px;
-	width: 80%;
-	margin: 0 auto;
+	width: 70%;
+	margin: 50px auto;
+	background-color: #f7f7f7;
+	padding: 4% 5%;
+	border-radius: 10px;
+	box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
 }
 
 .tr-hair-style {
@@ -892,7 +906,7 @@ form .btn input[type="submit"] {
 }
 
 .i-hair-style {
-	width: 350px;
+	width: 300px;
 	padding: 10px;
 }
 
@@ -977,6 +991,11 @@ form .btn input[type="submit"] {
 /*--------------------------------------- end index ---------------------------------------*/
 
 /*--------------------------------------- calendar ----------------------------------------*/
+.container-calendar {
+	display: flex;
+	width: 60%;
+	margin: 5% 20%;
+}
 
 tbody {
 	display: table;
@@ -1049,10 +1068,6 @@ td {
 /*-------------------------------------- end calendar -------------------------------------*/
 
 /*-------------------------------------- hairstyle ----------------------------------------*/
-
-.container-box {
-	padding: 50px 175px;
-}
 
 .tr-hair-style {
 	display: flex;
@@ -1256,7 +1271,629 @@ strong{
     padding-top: 0;
 }
 
+.tb_2btn{
+	color: #1b1b1b;
+}
+
 /*------------------------------------- end profile --------------------------------------*/
+
+/*------------------------------------ skill barber ---------------------------------------*/
+
+.profile_arrea {
+    margin-top: 0;
+}
+.container {
+    max-width: 500px;
+    width: 100%;
+	margin: 1em auto;
+    padding: 10px;
+    margin-top: 0;;
+    grid-gap: 1.5em;
+    align-content: center;
+}
+
+.h1 {
+    max-width: 940px;
+	margin: 5em auto;
+    margin-top: 0;
+    
+}
+
+.profile {
+    display: flex;
+    justify-self: center;
+   
+}
+
+.profile_info {
+    margin-top: 2em;
+    }
+    
+.profile_info_top {
+        display: flex;
+        max-width: 500px;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+    }
+
+.profile_image_img {
+        border-radius: 10%;
+        width: 350px;
+    }
+
+.profile_info_center {
+    text-align: center;
+}
+
+.profile_font {
+    font-size: 20px;
+}
+
+.profile_info_bottom {
+    margin-top: 2em;
+    max-width: 400px;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.font {
+    color:red;
+}
+
+.profile_info_a {
+    font-weight: 450;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    padding: 4px 8px;
+    border: 3px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.du {
+    font-weight: 450;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    padding: 4px 8px;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*----------------------------------- end skill barber ------------------------------------*/
+
+/*------------------------------------ barber queue table ----------------------------------*/
+
+.container-table {
+    box-sizing: border-box;
+	margin: 5% 10% 10% 10%;
+  }
+  
+  .header-barber-queue {
+    color: #643b0f;
+    font-size: 1.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .img-barber-queue {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+  }
+  
+  .table-barber-queue {
+    border: 1px solid #dadada;
+    border-radius: 7px;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    max-width: calc(100% - 2em);
+    margin: 1em auto;
+    overflow: hidden;
+    width: 70%;
+  }
+  
+  .barber-queue {
+    width: 100%;
+  }
+  .barber-queue .td-barber-queue,
+  .barber-queue .th-barber-queue {
+    color: #643b0f;
+    padding: 10px;
+  }
+  .barber-queue .td-barber-queue {
+    text-align: center;
+    vertical-align: middle;
+  }
+  .barber-queue .td-barber-queue:last-child {
+    font-size: 0.95em;
+    line-height: 1.4;
+  }
+  .barber-queue .th-barber-queue {
+    background-color: #643b0f;
+    font-weight: 300;
+	color: #fff;
+  }
+  .barber-queue .tr-barber-queue:nth-child(2n) {
+    background-color: white;
+  }
+  .barber-queue .tr-barber-queue:nth-child(2n + 1) {
+    background-color: #fffde3;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .barber-queue,
+    .tr-barber-queue,
+    .td-barber-queue {
+      display: block;
+      width: max-content;
+    }
+  
+    .img-barber-queue {
+      border-radius: 50%;
+      height: 80px;
+      width: 80px;
+    }
+  
+    .td-barber-queue:first-child {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100px;
+      left: 0;
+    }
+    .td-barber-queue:not(:first-child) {
+      clear: both;
+      left: 120px;
+      padding: 4px 20px 4px 90px;
+      position: relative;
+      text-align: left;
+    }
+    .td-barber-queue:not(:first-child):before {
+      color: #6c441a;
+      content: "";
+      display: block;
+      left: 0px;
+      position: absolute;
+    }
+    .td-barber-queue:nth-child(2):before {
+      content: "Nickname:";
+    }
+    .td-barber-queue:nth-child(3):before {
+      content: "Phone:";
+    }
+    .td-barber-queue:nth-child(4):before {
+      content: "Date:";
+    }
+    .td-barber-queue:nth-child(5):before {
+      content: "Time:";
+    }
+    .td-barber-queue:nth-child(6):before {
+      content: "Status:";
+    }
+  
+    .tr-barber-queue {
+      padding: 10px 0;
+      position: relative;
+    }
+    .td-barber-queue {
+      width: 510px;
+    }
+    .tr-barber-queue:first-child {
+      display: none;
+    }
+  }  
+
+/*-------------------------------- end barber queue table ---------------------------------*/
+
+/*------------------------------------- profile ------------------------------------------*/
+
+.profile_c_container{
+	max-width: 800px;
+	width: 100%;
+	margin: 20px auto 10px auto;
+	padding: 10px;
+	grid-gap: 1.5em;
+	align-content: center;
+}
+.profile_c_container_bottom {
+    max-width: 800px;
+	width: 100%;
+	margin: 1em auto 50px auto;
+	padding: 10px;
+	grid-gap: 1.5em;
+	align-content: center;
+}
+.profile_c {
+	margin: 1em;
+	display: flex;
+	justify-self: center;
+	background-color: #f3f3f3d0;
+}
+
+.profile_c_image {
+	margin: 3em;
+}
+
+.profile_c_image_img {
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+    object-position: 10% 50%;
+}
+
+.profile_c_info {
+	margin-top: 2em;
+}
+
+.profile_c_info_top {
+	display: flex;
+	max-width: 500px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.profile_c_info_top-h1 {
+	font-weight: 500;
+	padding: 15px 10px 10px 5px;
+}
+.profile_c_edit {
+	font-weight: 500;
+	text-decoration: none;
+	color: #333;
+	padding: 4px 4px 10px 10px;
+	border: 3px solid #333;
+	background: transparent;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.profile_c_info_top a.gear {
+	color: #333;
+	margin-top: -35px;
+	margin-left: -15px;
+}
+
+.profile_c_info_bottom {
+	margin-top: 2em;
+	max-width: 400px;
+	margin-bottom: 1em;
+}
+
+.profile_c_tabs {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0 auto;
+	position: relative;
+	background-color: #f3f3f3d0;
+    margin-bottom: 30px;
+    height: 350px;;
+}
+
+.profile_c_tabs::before {
+	content: "";
+    position: absolute;
+    width: 100%;
+    top: 8px;
+    border-top: 1px solid #aca8a8;
+}
+
+.profile_c_icon {
+	cursor: pointer;
+	margin-top: 1.5em;
+}
+
+.profile_c_strong {
+	text-align: center;
+	padding: 4px 4px 10px 10px;
+}
+
+.sam:before {
+	content: "\f00a";
+	color: rgb(39, 36, 36);
+	font-size: 18px;
+}
+
+
+/*------------------------------------- end profile --------------------------------------*/
+
+/*----------------------------------- Edit_profile ------------------------------------*/
+
+.edit_profile_container {
+    max-width: 940px;
+    width: 100%;
+	margin: 5em auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.edit_profile {
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10em;
+    background-color: #f3f3f3d0;
+    width: 700px;
+    height: 480px;
+}
+
+.edit_profile_image {
+    margin: 3em;
+}
+
+.edit_profile_image_img {
+    border-radius: 80%;
+    width: 120px;
+    margin-right: 4em;
+    margin-top: 2em;
+}
+
+
+.edit_profile_info {
+margin-top: 1em;
+}
+.edit_profile_infos {
+    margin-top: 5.5em;
+    
+    }
+
+.edit_profile_info_top {
+    display: flex;
+    max-width: 500px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.edit_profile_info_top-h1 {
+    font-weight: 500;
+    padding: 21px 10px 10px 5px;
+}
+
+.edit_profile_info_center {
+    font-size: 19px;
+}
+
+.save {
+    width: 80px;
+    font-weight: 500;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	background-color: rgba(196, 120, 6, 0.726);
+	padding: 4px 8px;
+	border: 3px solid rgba(255, 251, 3, 0.938);
+	border-radius: 40px;
+	cursor: pointer;
+    font-size: 18px;
+    
+}
+.back {
+    width: 100px;
+    height: 50px;
+    font-weight: 500;
+	text-decoration: none;
+	color: #333;
+    background-color: rgba(173, 169, 169, 0.644);
+	padding: 3px 15px;
+	border: 3px solid rgb(99, 99, 99);
+	border-radius: 40px;
+	cursor: pointer;
+    font-size: 18px;
+}
+
+.form_label {
+    margin-left: 3em;
+    border: 3px solid rgba(180, 180, 180, 0.856);
+	width: 200px;
+    height: 33px;
+
+}
+
+/*----------------------------------- end Edit_profile  ------------------------------------*/
+
+/*------------------------------------ all_barber ---------------------------------------*/
+
+
+.c_profilebraber_container {
+	padding: 10px;
+	grid-gap: 1.5em;
+	align-content: center;
+    margin: 3em 15% 10em 15%;
+    width: 70%;
+}
+
+.c_profilebraber_h1 {
+	margin: 2em auto;
+    text-align: center;
+}
+
+.c_profilebraber {
+	justify-self: center;
+}
+
+.c_profilebraber_info {
+	margin-top: 2em;
+}
+
+
+
+.c_profilebraber_image {
+	width: 300px;
+    height: 300px;
+    object-fit: cover;
+    object-position: 20% 70%; /* try 20px 10px */ 
+}
+
+.c_profilebraber_info_center {
+	text-align: center;
+}
+
+.c_profilebraber_font {
+	font-size: 20px;
+}
+
+.c_profilebraber_info_bottom {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.c_profilebraber_font {
+	color: red;
+}
+
+.c_profilebraber_a {
+	font-weight: 450;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	background-color: #2e2d2d;
+	padding: 4px 8px;
+	border: 3px solid #000000;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.botton_p {
+    padding: 5px 15px;
+}
+
+.c_lookprofilebraber {
+	font-weight: 450;
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	padding: 4px 8px;
+	border: 3px solid rgb(0, 0, 0);
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+
+.flexbox_ {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    box-sizing: border-box;
+    margin: 3px -10px;
+  }
+  
+  .item_ {
+    box-sizing: border-box;
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+  }
+  
+  .content_ {
+    color: #242424;
+    font-weight: 600;
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%;
+    max-width: 1550px;
+    margin: auto;
+  }
+
+/*----------------------------------- end all_barber ------------------------------------*/
+/*----------------------------------- customer_look_barber_profile ------------------------------------*/
+
+.B_container {
+    max-width: 800px;
+	width: 100%;
+	margin: 20px auto 10px auto;
+	padding: 10px;
+	grid-gap: 1.5em;
+	align-content: center;
+ }
+
+.B_profile {
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10em;
+    background-color: #f3f3f3d0;
+ }
+
+.B_profile_info {
+    margin-top: 2em;
+ }
+    
+.B_profile_info_top {
+	display: flex;
+	max-width: 500px;
+	justify-content: space-between;
+	align-items: center;
+ }
+    
+.B_profile_image_img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        object-position: 20% 70%;
+        margin-right: 3em;
+    }
+
+.profile_B_image {
+        margin: 3em;
+    }
+.profile_c_info_top-h1 {
+        font-weight: 500;
+        padding: 15px 10px 10px 5px;
+        margin-top: 0.5em;
+    }
+    
+.B_profile_font {
+        font-size: 20px;
+    }
+    
+.B_profile_info_bottom {
+        margin-top: 2em;
+        max-width: 400px;
+        margin-bottom: 1em;
+        text-align: center;
+    } 
+
+/*----------------------------------- end customer_look_barber_profile ------------------------------------*/
+
+/*----------------------------------------- your queue -----------------------------------------------*/
+
+.c-my-booking-container{
+    width: 70%;
+    margin: 5% 15%;
+    text-align: center;
+}
+.c-my-booking-container h1 {
+    margin: 10px;
+}
+.c-my-booking-container p {
+    letter-spacing: 1px;
+    font-size: 18px;
+    margin: 10px;
+}
+.c-my-booking-container p:nth-child(2) {
+    margin-bottom: 50px;
+}
+.c-my-booking-container .my-booking-date p {
+    padding: 10px 50px;
+}
+.c-my-booking-container .my-booking-date p:nth-child(2) {
+    margin-bottom: 50px;
+}
+.c-my-booking-container .my-booking-date a {
+    color: #fafafa;
+    background-color: red;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/*---------------------------- end your queue --------------------------------------------------*/
 
 /*------------------------------------- footer -------------------------------------------*/
 

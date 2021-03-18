@@ -22,7 +22,6 @@ foreach ($HS->result_array() as $row) {
                 <td><img class="i-hair-style" src="<?php echo base_url(); ?>img/<?= $row['H_Img4']; ?>"></td>
             </div>
         </tr>
-        <br /><br />
     </div>
 <?php
 }

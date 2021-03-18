@@ -7,12 +7,30 @@ class Customer_Con extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Customer_Model', 'CM');
-        $this->load->model('Admin_Model','AM');
+        $this->load->model('Barber_Model', 'BM');
+        $this->load->model('Admin_Model', 'AM');
+        $this->load->model('Booking_Model', 'BKM');
     }
     function index() //ฟังก์ชั่น index
     {
         $this->load->view('index'); //เรีียกใช้งานหน้า index
     }
+
+    public function getHairStyle()
+    {
+        $result['HS'] = $this->AM->get_HairStyle();  //เรียกใช้งานฟังก์ชั่น model แล้วดึงค่า result เก็บข้อมูลในตัวแปรชื่อว่า HS
+
+        $sess =  $this->session->userdata('Username');
+        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+
+        $this->load->view('head_html/c_head');
+        $this->load->view('header/customer_navbar', $datasess);
+        $this->load->view('banner/all_banner');
+        $this->load->view('customer_hair_view', $result);
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/c_footer');
+    }
+
     function register() //ฟังก์ชั่น register
     {
         $this->load->view('register_view'); //เรียกใช้งานหน้า register
@@ -20,19 +38,13 @@ class Customer_Con extends CI_Controller
     function insert_regis() //ฟังก์ชั่น insert customer
     {
         //สร้างกฏสำหรับ C_Name 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('C_Name', 'ชื่อจริง', 'required');
+        $this->form_validation->set_rules('C_Name', 'ชื่อ', 'required');
         //สร้างกฏสำหรับ C_Lname 'required'คือต้องไม่เป็นค่าว่าง
         $this->form_validation->set_rules('C_Lname', 'นามสกุล', 'required');
-        //สร้างกฏสำหรับ C_Nickname 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('C_Nickname', 'ชื่อเล่น', 'required');
         //สร้างกฏสำหรับ C_Sex 'required'คือต้องไม่เป็นค่าว่าง
         $this->form_validation->set_rules('C_Sex', 'เพศ', 'required');
         //สร้างกฏสำหรับ C_Phone 'required|is_natural|exact_length[10]'คือต้องไม่เป็นค่าว่าง หรือ เป็นตัวเลขจำนวนเต็ม หรือ และต้องตัวอักษรเท่ากับ 10
         $this->form_validation->set_rules('C_Phone', 'เบอร์โทร', 'required|is_natural|exact_length[10]');
-        //สร้างกฏสำหรับ C_Img 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('C_Facebook', 'เฟสบุ๊ค', 'required');
-        //สร้างกฏสำหรับ C_Img 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('C_Img', 'รูป', 'required');
         //สร้างกฏสำหรับ Username 'required'คือต้องไม่เป็นค่าว่าง หรือ มีตัวอักษรอย่างน้อย 6 ตัว หรือ ตัวอักษรและตัวเลข
         $this->form_validation->set_rules('Username', 'รหัสผู้ใช้', 'required|min_length[6]|alpha_numeric');
         //สร้างกฏสำหรับ Password 'required'คือต้องไม่เป็นค่าว่าง หรือ มีตัวอักษรอย่่างน้อย 6 ตัว
@@ -48,21 +60,35 @@ class Customer_Con extends CI_Controller
                     'Username' => $this->input->post("Username"),
                     'C_Name' => $this->input->post("C_Name"),
                     'C_Lname' => $this->input->post("C_Lname"),
-                    'C_Nickname' => $this->input->post("C_Nickname"),
                     'C_Sex' => $this->input->post("C_Sex"),
                     'C_Phone' => $this->input->post("C_Phone"),
-                    'C_Facebook' => $this->input->post("C_Facebook"),
-                    'C_Img' => $this->input->post("C_Img")
                 );
                 $data1 = array(
                     'Username' => $this->input->post("Username"),
                     'Password' => $this->input->post("Password"),
                     'S_ID' => $this->input->post("S_ID"),
                 );
-                $this->CM->register_login($data1);   //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
-                $this->CM->register($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
-
-                redirect('Page_Con/index', 'refresh');
+                $Username = $this->input->post("Username");
+                $checkRegisterLoginDuplicate = $this->CM->checkRegisterDuplicate($Username);
+                if ($checkRegisterLoginDuplicate == 1) {
+                    echo "<center>ข้อมูลที่คุณกรอกเข้ามาเคยลงทะเบียนแล้วค่ะ !</center>";
+                } else {
+                   $checkLogin = $this->CM->register_login($data1);   //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
+                   $checkRegister = $this->CM->register($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล  
+                        if($checkLogin && $checkRegister == TRUE){
+                    echo "<script language=\"JavaScript\">";
+                    echo "alert('สมัครสมาชิกสำเร็จ')";
+                    echo "</script>";
+                        }else{
+                    echo "<script language=\"JavaScript\">";
+                    echo "alert('ไม่สามารถสมัครสมาชิกได้ค่ะกรุณาสมัครเข้ามาใหม่ !')";
+                    echo "</script>";
+                        }
+                }
+                //redirect('Page_Con/index', 'refresh');
+            echo "<script language=\"JavaScript\">";
+            echo "setTimeout(function(){window.location.href='http://localhost/Mom_House_Barber/index.php/Page_Con/index'},3000)";
+            echo "</script>";
             } else { //กรอกข้อมูลไม่ถูกต้องตามกฏ
                 $this->session->set_flashdata('msg_error', 'กรุณากรอกข้อมูลครบค่ะ !');
                 $this->load->view('register_view');
@@ -72,32 +98,35 @@ class Customer_Con extends CI_Controller
         }
     }
 
-    function customer_profile() //ฟังก์ชั่นดู โปรไฟล์ customer
+    function getProfile() //ฟังก์ชั่นดู โปรไฟล์ customer 
     {
         $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
         $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
-        $this->load->view('customer_get_profile', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า profile_view
-    }
 
-    function get_profile_customer() //ฟังก์ชั่นดู โปรไฟล์ customer 
-    {
-        $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
-        $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
+        $sess =  $this->session->userdata('Username');
+        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+
+        $this->load->view('head_html/c_head');
+        $this->load->view('header/customer_navbar', $datasess);
+        $this->load->view('banner/all_banner');
         $this->load->view('customer_profile', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า customer_get_profile
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/c_footer');
     }
 
-    function edit_profile_customer() //ฟังก์ชั่น แก้ไขโปรไฟล์ customer
+    function setProfile() //ฟังก์ชั่น แก้ไขโปรไฟล์ customer
     {
         $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
         $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
+
+        $sess =  $this->session->userdata('Username');
+        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+        $this->load->view('head_html/c_head');
+        $this->load->view('header/customer_navbar', $datasess);
+        $this->load->view('banner/all_banner');
         $this->load->view('customer_profile_edit', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า profile_view
-    }
-
-    function customer_profile_edit() //ฟังก์ชั่น แก้ไขโปรไฟล์ customer
-    {
-        $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
-        $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
-        $this->load->view('customer_get_profile_edit', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า profile_view
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/c_footer');
     }
 
     function save_profile() //ฟังก์ชั่น update customer
@@ -113,25 +142,77 @@ class Customer_Con extends CI_Controller
         $this->CM->setProfile($data);
         $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
         $data1['CUSTOMER'] = $this->CM->getProfile($sess);
-        $this->load->view('customer_profile', $data1);
+
+        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+
+        $this->load->view('head_html/c_head');
+        $this->load->view('header/customer_navbar', $datasess);
+        $this->load->view('banner/all_banner');
+        $this->load->view('customer_profile', $data1);          //นำข้อมูลที่ได้ส่งไปที่หน้า customer_get_profile
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/c_footer');
     }
 
-    function show_barber(){ //ฟังก์ชั่น show_barber
+    function getAllBarberByCustomer()
+    { //ฟังก์ชั่น customer_look_all_barber
         $data['Barber'] = $this->AM->getBarberAll(); //ดึงข้อมูลมาจาก Admin_Model จากนั้นเรียกใช้ฟังก์ชั่น getBarberAll ใน Admin_Model
-        $this->load->view('customer_get_all_barber', $data); //เรียกใช้หน้า selecting_Barber_view แล้วส่งค่าไปยังหน้า selecting_Barber_view
-    }
-    function customer_look_all_barber(){ //ฟังก์ชั่น customer_look_all_barber
-        $data['Barber'] = $this->AM->getBarberAll(); //ดึงข้อมูลมาจาก Admin_Model จากนั้นเรียกใช้ฟังก์ชั่น getBarberAll ใน Admin_Model
+
+        $sess =  $this->session->userdata('Username');
+        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+
+        $this->load->view('head_html/c_head');
+        $this->load->view('header/customer_navbar', $datasess);
+        $this->load->view('banner/all_banner');
         $this->load->view('customer_look_all_barber', $data); //เรียกใช้หน้า selecting_Barber_view แล้วส่งค่าไปยังหน้า selecting_Barber_view
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/c_footer');
     }
 
-    function detail_profilebarber($id){ //ฟังก์ชั่น detail_profilebarber โดยรับ object $id มาจาก show_barber
-        $data['ID'] = $this->CM->getBarberByCustomer($id); //เรียกใช้งานฟังก์ชั่น getBarberByCustomer มาจาก Admin_Model จากนั้นส่ง พารามิเตอร์ $id ไป
-        $this->load->view('customer_get_barber_profile', $data); //เรียกใช้งานหน้า customer_get_barber_profile แล้วนำข้อมูล data ที่เก็บไว้ โดยชื่อว่า ID ไปที่หน้า customer_get_barber_profile
+    function getBarberByCustomer($id)
+    { //ฟังก์ชั่น detail_profilebarber โดยรับ object $id มาจาก show_barber
+        $data['ID'] = $this->CM->getBarberByCustomer($id); //ดึงข้อมูลมาจาก Admin_Model จากนั้นเรียกใช้ฟังก์ชั่น getBarberAll ใน Admin_Model
+
+        $sess =  $this->session->userdata('Username');
+        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+
+        $this->load->view('head_html/c_head');
+        $this->load->view('header/customer_navbar', $datasess);
+        $this->load->view('banner/all_banner');
+        $this->load->view('customer_look_barber_profile', $data); //เรียกใช้งานหน้า customer_get_barber_profile แล้วนำข้อมูล data ที่เก็บไว้ โดยชื่อว่า ID ไปที่หน้า customer_get_barber_profile
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/c_footer');
     }
 
-    function customer_look_barber_profile($id){ //ฟังก์ชั่น detail_profilebarber โดยรับ object $id มาจาก show_barber
-        $data['ID'] = $this->CM->getBarberByCustomer($id); //เรียกใช้งานฟังก์ชั่น getBarberByCustomer มาจาก Admin_Model จากนั้นส่ง พารามิเตอร์ $id ไป
-        $this->load->view('customer_look_barber_profile', $data); //เรียกใช้งานหน้า customer_look_barber_profile แล้วนำข้อมูล data ที่เก็บไว้ โดยชื่อว่า ID ไปที่หน้า customer_look_barber_profile
+    function show_bookingqueue($c_id)
+    {
+        $data['BOOKING'] = $this->CM->getBookingQueue($c_id);
+
+        $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
+        $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
+
+        $sess =  $this->session->userdata('Username');
+        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+        
+        $this->load->view('head_html/c_head');
+        $this->load->view('header/customer_navbar', $datasess);
+        $this->load->view('banner/all_banner');
+        $this->load->view('showbookingqueue_view', $data);
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/c_footer');
+        
+    }
+    function del_booking($id)
+    {
+        $check = $this->CM->cancelBooking($id);
+        if ($check) {
+            echo "<script language=\"JavaScript\">";
+            echo "alert('ลบคิวที่คุณจองเรียบร้อยแล้วค่ะ')";
+            echo "</script>";
+            redirect('Booking_Con/Booking', 'refresh');
+        } else {
+            echo "<script language=\"JavaScript\">";
+            echo "alert('ไม่สามารถลบข้อมูลได้ค่ะ !')";
+            echo "</script>";
+        }
     }
 }

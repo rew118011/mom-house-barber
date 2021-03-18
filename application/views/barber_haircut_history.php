@@ -1,29 +1,55 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
-?>
-<html>
-
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Mom House Barber | Barber</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleBarber.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-
-	<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-	<?php
-	include("header/barber_navbar.php");
-	include("banner/b_banner.php");
-	?>
-	<h1>Haircut history</h1>
-	<?php
-	include("footer/footer.php");
-	?>
-</body>
-
-</html>
+<div class="container-table">
+    <div class="header-barber-queue">Your entire queue table</div>
+    <div class="table-barber-queue">
+      <table class="barber-queue" cellspacing="0">
+        <tr class="tr-barber-queue">
+          <th class="th-barber-queue">Picture</th>
+          <th class="th-barber-queue">Nickname</th>
+          <th class="th-barber-queue">Phone</th>
+          <th class="th-barber-queue">Date</th>
+          <th class="th-barber-queue">Time</th>
+          <th class="th-barber-queue">Price</th>
+        </tr>
+        <tr class="tr-barber-queue">
+          <td class="td-barber-queue">
+            <img class="img-barber-queue" src="https://unsplash.com/photos/rDEOVtE7vOs" alt="" />
+          </td>
+          <td class="td-barber-queue">Noch</td>
+          <td class="td-barber-queue">0651134910</td>
+          <td class="td-barber-queue">05 / 03 / 2564</td>
+          <td class="td-barber-queue">12:00 - 13:00</td>
+          <td class="td-barber-queue">150</td>
+        </tr>
+        <tr class="tr-barber-queue">
+          <td class="td-barber-queue">
+            <img class="img-barber-queue" src="https://unsplash.com/photos/rDEOVtE7vOs" alt="" />
+          </td>
+          <td class="td-barber-queue">Noch</td>
+          <td class="td-barber-queue">0651134910</td>
+          <td class="td-barber-queue">05 / 03 / 2564</td>
+          <td class="td-barber-queue">12:00 - 13:00</td>
+          <td class="td-barber-queue">150</td>
+        </tr>
+        <tr class="tr-barber-queue">
+          <td class="td-barber-queue">
+            <img class="img-barber-queue" src="https://unsplash.com/photos/rDEOVtE7vOs" alt="" />
+          </td>
+          <td class="td-barber-queue">Noch</td>
+          <td class="td-barber-queue">0651134910</td>
+          <td class="td-barber-queue">05 / 03 / 2564</td>
+          <td class="td-barber-queue">12:00 - 13:00</td>
+          <td class="td-barber-queue">150</td>
+        </tr>
+        <tr class="tr-barber-queue">
+          <td class="td-barber-queue">
+            <img class="img-barber-queue" src="https://unsplash.com/photos/rDEOVtE7vOs" alt="" />
+          </td>
+          <td class="td-barber-queue">Noch</td>
+          <td class="td-barber-queue">0651134910</td>
+          <td class="td-barber-queue">05 / 03 / 2564</td>
+          <td class="td-barber-queue">12:00 - 13:00</td>
+          <td class="td-barber-queue">150</td>
+        </tr>
+      </table>
+    </div>
+  </div>

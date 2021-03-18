@@ -2,20 +2,20 @@
   <div class="content">
     <div class="logo">
       <img class="header-logo" src="<?php echo base_url(); ?>/img/Logo.png">
-      <a href="http://localhost/Mom_House_Barber/index.php/Login_Con/barber_page">Mom House Barber</a>
+      <a href="<?php echo site_url('Login_Con/barber_page'); ?>">Mom House Barber</a>
     </div>
     <ul class="menu-list">
       <div class="icon cancel-btn">
         <i class="fas fa-times"></i>
       </div>
-      <li><a class="item" href="http://localhost/Mom_House_Barber/index.php/Page_Con/barber_haircut_history">Haircut history</a></li>
-      <li><a class="item" href="http://localhost/Mom_House_Barber/index.php/Page_Con/barber_add_portfolio">Add portfolio</a></li>
-      <li><a class="item" href="http://localhost/Mom_House_Barber/index.php/Page_Con/barber_view_admin">Admin</a></li>
+      <li><a class="item" href="<?php echo site_url('Page_Con/barber_haircut_history'); ?>">Haircut history</a></li>
+      <li><a class="item" href="<?php echo site_url('Page_Con/barber_add_portfolio'); ?>">Add portfolio</a></li>
+      <li><a class="item" href="<?php echo site_url('Page_Con/barber_view_admin'); ?>">Admin Profile</a></li>
       <li>
         <p>|</p>
       </li>
       <li>
-        <a class="item button username" href="http://localhost/Mom_House_Barber/index.php/Barber_Con/get_profile_barber">Hi ' <?php echo $this->session->userdata('Username'); ?></a>
+        <a class="item button username" href="<?php echo site_url('Page_Con/barber_profile'); ?>">Hi ' <?php echo $this->session->userdata('Username'); ?></a>
       </li>
       <li><a class="item button logout" herf="#"><?php echo anchor('Login_Con/logout', 'Log out'); ?></a></li>
     </ul>

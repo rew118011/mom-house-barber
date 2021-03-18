@@ -12,45 +12,30 @@ class Page_Con extends CI_Controller
     public function index()
     {
         $result['HS'] = $this->AM->get_HairStyle();  //เรียกใช้งานฟังก์ชั่น model แล้วดึงค่า result เก็บข้อมูลในตัวแปรชื่อว่า HS
-		$this->load->view('index',$result);
+
+        $config = array(
+			'start_day' => 'monday', //เริ่มวันต้น วันจันทร์
+			'month_type' => 'long', //ขนาดของชื่อเต็มเดือน long = ความยาว
+			'day_type' => 'long', //ขนาดของชื่อเต็มเดือน //long = ความยาว
+			'show_next_prev' => TRUE, //มีลูกศพให้กดในการเชื่อมโยงเดือน
+			'next_prev_url' => site_url('Calendar_Con/calendar') //เลื่อนเดือนหรือย้อนหลังกลับไป
+		);
+		$events = array(
+			1 => base_url() . 'index.php/Login_Con/login', //มีการเชื่อมโยงหน้าเวลากดที่วันที่
+			10 => base_url() . 'index.php/Login_Con/login', //มีการเชื่อมโยงหน้าเวลากดที่วันที่
+		);
+		$this->load->library('calendar', $config); //เรียกใช้งาน calendar ใน library
+		//รองรับ parameterแรกที่เป็น URI Segment
+		$data['minicalendar'] = $this->calendar->generate($this->uri->segment(3), $this->uri->segment(4), $events);
+
+		$this->load->view('head_html/n_head');
+        $this->load->view('header/header');
+        $this->load->view('banner/banner');
+		$this->load->view('n_calendar', $data);
+        $this->load->view('non_cus_hair_style',$result);
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/n_footer');
     }
-
-	public function non_cus_hair_style()
-    {
-        $result['HS'] = $this->AM->get_HairStyle();  //เรียกใช้งานฟังก์ชั่น model แล้วดึงค่า result เก็บข้อมูลในตัวแปรชื่อว่า HS
-		$this->load->view('non_cus_hair_style',$result);
-    }
-
-    public function header()
-	{
-		$this->load->view('header'); //เรียกใช้หน้า index
-	}
-
-	public function customer_navbar()
-	{
-		$result['HS'] = $this->AM->get_HairStyle();  //เรียกใช้งานฟังก์ชั่น model แล้วดึงค่า result เก็บข้อมูลในตัวแปรชื่อว่า HS
-		$this->load->view('customer_navbar',$result); //เรียกใช้หน้า index
-	}
-
-	public function all_banner()
-	{
-		$this->load->view('all_banner'); //เรียกใช้หน้า index
-	}
-
-	public function admin_navbar()
-	{
-		$this->load->view('admin_navbar'); //เรียกใช้หน้า index
-	}
-
-	public function non_customer_navbar()
-	{
-		$this->load->view('non_customer_navbar'); //เรียกใช้หน้า index
-	}
-
-	public function banner()
-	{
-		$this->load->view('banner'); //เรียกใช้หน้า index
-	}
 
 	public function calendar()
 	{
@@ -72,8 +57,29 @@ class Page_Con extends CI_Controller
 
     public function hair_page()
     {
-        $result['HS'] = $this->AM->get_HairStyle();  //เรียกใช้งานฟังก์ชั่น model แล้วดึงค่า result เก็บข้อมูลในตัวแปรชื่อว่า HS
-        $this->load->view('hair_view', $result); //โหลดหน้าทรงผม แล้วนำข้อมูลไปใช้งาน ใน hair_view
+		$result['HS'] = $this->AM->get_HairStyle();  //เรียกใช้งานฟังก์ชั่น model แล้วดึงค่า result เก็บข้อมูลในตัวแปรชื่อว่า HS
+
+        $config = array(
+			'start_day' => 'monday', //เริ่มวันต้น วันจันทร์
+			'month_type' => 'long', //ขนาดของชื่อเต็มเดือน long = ความยาว
+			'day_type' => 'long', //ขนาดของชื่อเต็มเดือน //long = ความยาว
+			'show_next_prev' => TRUE, //มีลูกศพให้กดในการเชื่อมโยงเดือน
+			'next_prev_url' => site_url('Calendar_Con/calendar') //เลื่อนเดือนหรือย้อนหลังกลับไป
+		);
+		$events = array(
+			1 => base_url() . 'index.php/Login_Con/login', //มีการเชื่อมโยงหน้าเวลากดที่วันที่
+			10 => base_url() . 'index.php/Login_Con/login', //มีการเชื่อมโยงหน้าเวลากดที่วันที่
+		);
+		$this->load->library('calendar', $config); //เรียกใช้งาน calendar ใน library
+		//รองรับ parameterแรกที่เป็น URI Segment
+		$data['minicalendar'] = $this->calendar->generate($this->uri->segment(3), $this->uri->segment(4), $events);
+
+		$this->load->view('head_html/n_head');
+        $this->load->view('header/header');
+        $this->load->view('banner/banner');
+        $this->load->view('non_cus_hair_style',$result);
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/n_footer');
     }
     
     public function customer_hair_page()
@@ -84,27 +90,59 @@ class Page_Con extends CI_Controller
 
 	public function barber_haircut_history()
     {
-		$this->load->view('barber_haircut_history'); //โหลดหน้าทรงผม แล้วนำข้อมูลไปใช้งาน ใน hair_view
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('banner/b_banner');
+        $this->load->view('barber_haircut_history');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
     }
 
 	public function barber_add_portfolio()
     {
-		$this->load->view('barber_add_portfolio'); //โหลดหน้าทรงผม แล้วนำข้อมูลไปใช้งาน ใน hair_view
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('banner/b_banner');
+        $this->load->view('barber_add_portfolio');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
     }
 
 	public function barber_view_admin()
     {
-		$this->load->view('barber_view_admin'); //โหลดหน้าทรงผม แล้วนำข้อมูลไปใช้งาน ใน hair_view
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('banner/b_banner');
+        $this->load->view('barber_view_admin');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
     }
 
-	public function test_login()
+	public function barber_profile()
     {
-		$this->load->view('test_login'); //โหลดหน้าทรงผม แล้วนำข้อมูลไปใช้งาน ใน hair_view
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('banner/b_banner');
+        $this->load->view('barber_profile');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
     }
 
-	public function get_admin_queue()
-	{
-		$this->load->view('barber_admin_table');
-	}
+	public function edit_barber_profile()
+    {
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('banner/b_banner');
+        $this->load->view('barber_profile_edit');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
+    }
 
+    public function nav()
+    {
+
+        $result['HS'] = $this->AM->get_HairStyle();
+
+		$this->load->view('admin_nav_leftbar', $result);
+    }
 }

@@ -23,6 +23,12 @@ class Calendar_Con extends CI_Controller
 		$this->load->library('calendar', $config); //เรียกใช้งาน calendar ใน library
 		//รองรับ parameterแรกที่เป็น URI Segment
 		$data['minicalendar'] = $this->calendar->generate($this->uri->segment(3), $this->uri->segment(4), $events);
-		$this->load->view('calendar_view', $data);
+		
+		$this->load->view('head_html/n_head');
+        $this->load->view('header/header');
+        $this->load->view('banner/banner');
+		$this->load->view('n_calendar', $data);
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/n_footer');
 	}
 }

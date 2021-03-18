@@ -1,29 +1,32 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
-?>
-<html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mom House Barber | Customer</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleBarber.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-
-    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-
-    <?php
-    include("header/barber_navbar.php");
-    include("banner/b_banner.php");
-    include("barber_get_profile.php");
-    include("footer/footer.php");
-    ?>
-
-</body>
-
-</html>
+<div class="barber_container">
+    <div class="barber_profile">
+        <div class="barber_profile_image">
+            <img class="barber_profile_image_img" src="/img/barber.jpg"> <br>
+        </div>
+        <div class="barber_profile_info">
+            <div class="barber_profile_info_top">
+                <h1 class="barber_profile_h1">Username</h1>
+                <a class="profile_b_edit" href="<?php echo site_url('Page_Con/edit_barber_profile'); ?>"> Editprofile</a>
+            </div>
+            
+            <div class="barber_profile_info_top">
+                <h1 class="barber_profilesh1"><font size=3>ช่าง : </font> </h1>
+            </div>
+            <div class="barber_profile_info_center">
+                <div>
+                    <font size=3>นาย </font>
+                </div>
+                <div>
+                    <font size=3>เบอร์โทร : </font>
+                </div>
+                <div>
+                    <font size=3>ที่อยู่ : </font>
+                </div>
+                <div>
+                    <font size=3>Skill : </font>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

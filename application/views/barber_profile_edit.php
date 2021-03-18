@@ -1,29 +1,63 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
-?>
-<html>
+<div class="edit_profile_container">
+    <div class="edit_profile">
+        <div class="edit_profile__image">
+            <img class="edit_profile_image_img" src="/img/barber.jpg">
+        </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mom House Barber | Customer</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleCus.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+        <div class="edit_profile_info">
+            <div class="edit_profile_info_top">
+                <h1 class="edit_profile_info_top-h1">Username</h1>
+            </div>
+        
+        <div class="form-group">
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" id="inputName" name="name" placeholder="Your name" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="inputEmail">Lastname</label>
+            <input type="Lastname" class="form-control" id="inputLastname" name="Lastname" placeholder="Lastname" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="inputPhone">Nickname</label>
+            <input type="Nickname" class="form-control" id="inputNickname" name="Nickname" placeholder="Nickname" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="inputName">Sex</label>
+            <input type="Sex" class="form-control" id="inputSex" name="Sex" placeholder="Sex" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="inputEmail">Phone</label>
+            <input type="tel" class="form-control" id="inputPhone" name="phone" placeholder="099xxxxxxx" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="inputPhone">Address</label>
+            <input type="Address" class="form-control" id="inputAddress" name="Address" placeholder="Address" />
+        </div>
+        <br><div class="form-group">
+            <label for="inputPhone">Skill</label>
+            <input type="Skill" class="form-control" id="inputSkill" name="Skill" placeholder="Skill" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="inputName">Percent</label>
+            <input type="Percent" class="form-control" id="inputPercent" name="Percent" placeholder="Percent" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="inputEmail">Total</label>
+            <input type="Total" class="form-control" id="inputTotal" name="Total" placeholder="Total" />
+        </div>
+        <br>
 
-    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-
-    <?php
-    include("header/barber_navbar.php");
-    include("banner/b_banner.php");
-    include("edit_view.php");
-    include("footer/footer.php");
-    ?>
-
-</body>
-
-</html>
+        <a class="back1" href="http://localhost/Mom_House_Barber/index.php/Customer_Con/show_profile">Back</a>
+        <a class="back2" href="http://localhost/Mom_House_Barber/index.php/Customer_Con/show_profile">Save</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
