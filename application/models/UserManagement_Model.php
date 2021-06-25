@@ -54,9 +54,9 @@ class UserManagement_Model extends CI_Model
 	{    //ฟังชั่น deleteBarber จากนั้น รับตัวแปร $id มา
 		$query = $this->db->where('B_ID', $id) // เรียกใช้ฟังชั่น where จากนั้น กำหนดเงื่อนไขจากฟิล B_ID แล้วทำการเช็กตัวแปร $id ว่าตรงกับข้อมูลในฟิลไหม
 			->delete('barber'); // เรียกใชฟังชั่น delete โดยลบจากตาราง barber
-		if($query){
+		if ($query) {
 			return TRUE;
-		}else{
+		} else {
 			return FALSE;
 		}
 	}
@@ -70,15 +70,18 @@ class UserManagement_Model extends CI_Model
 	}
 	function setBarber($data)
 	{
-		$query = $this->db->where('B_ID',$data['B_ID'])
-			->update('barber',$data);
-		if($query){
+		$query = $this->db->where('B_ID', $data['B_ID'])
+			->update('barber', $data);
+		if ($query) {
 			return TRUE;
-		}
-		else{
+		} else {
 			return FALSE;
 		}
 	}
-
-	
+	function saveBarber($data)
+	{
+		$B_ID =  $this->session->userdata('B_ID');
+		$this->db->where('B_ID', $B_ID);
+		$this->db->update('barber', $data);
+	}
 }

@@ -1,5 +1,5 @@
 <div class="container-table">
-    <div class="header-barber-queue">Your entire queue table</div>
+    <div class="header-barber-queue">ตารางคิวที่รอตัดกับคุณ</div>
     <div class="table-barber-queue">
       <table class="barber-queue" cellspacing="0">
         <tr class="tr-barber-queue">
@@ -12,7 +12,7 @@
         </tr>
         <tr class="tr-barber-queue">
           <td class="td-barber-queue">
-            <img class="img-barber-queue" src="https://unsplash.com/photos/rDEOVtE7vOs" alt="" />
+            <img class="img-barber-queue" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" alt="" />
           </td>
           <td class="td-barber-queue">Noch</td>
           <td class="td-barber-queue">0651134910</td>
@@ -22,7 +22,7 @@
         </tr>
         <tr class="tr-barber-queue">
           <td class="td-barber-queue">
-            <img class="img-barber-queue" src="https://unsplash.com/photos/rDEOVtE7vOs" alt="" />
+            <img class="img-barber-queue" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" alt="" />
           </td>
           <td class="td-barber-queue">Noch</td>
           <td class="td-barber-queue">0651134910</td>
@@ -32,7 +32,7 @@
         </tr>
         <tr class="tr-barber-queue">
           <td class="td-barber-queue">
-            <img class="img-barber-queue" src="https://unsplash.com/photos/rDEOVtE7vOs" alt="" />
+            <img class="img-barber-queue" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" alt="" />
           </td>
           <td class="td-barber-queue">Noch</td>
           <td class="td-barber-queue">0651134910</td>
@@ -42,7 +42,7 @@
         </tr>
         <tr class="tr-barber-queue">
           <td class="td-barber-queue">
-            <img class="img-barber-queue" src="https://unsplash.com/photos/rDEOVtE7vOs" alt="" />
+            <img class="img-barber-queue" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" alt="" />
           </td>
           <td class="td-barber-queue">Noch</td>
           <td class="td-barber-queue">0651134910</td>

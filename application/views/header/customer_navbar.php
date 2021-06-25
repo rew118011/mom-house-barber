@@ -11,14 +11,15 @@
       <li><a class="item" href="<?php echo site_url('Booking_Con/Booking'); ?>">Booking</a></li>
       <li><a class="item" href="<?php echo site_url('Customer_Con/getAllBarberByCustomer'); ?>">Barber</a></li>
       <li><a class="item" href="<?php echo site_url('Customer_Con/getHairStyle'); ?>">HairStyle</a></li>
-    <?php
+      <?php
       foreach ($CUSTOMER as $row) { ?>
-      <li><a class="item" href="<?php echo site_url('Customer_Con/show_bookingqueue/'.$row->C_ID); ?>">My booking</a></li>
-    <?php } ?>
+        <li><a class="item" href="<?php echo site_url('Customer_Con/show_bookingqueue/' . $row->C_ID); ?>">My booking</a></li>
+      <?php } ?>
       <li>
         <p>|</p>
       </li>
-      <li>
+      <li class="username-container">
+        <img class="profile_img--nav" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>">
         <a class="item button username" href="<?php echo site_url('Customer_Con/getProfile'); ?>">Hi ' <?php echo $this->session->userdata('Username'); ?></a>
       </li>
       <li><a class="item button logout" href="<?php echo site_url('Login_Con/logout'); ?>">Log out</a></li>

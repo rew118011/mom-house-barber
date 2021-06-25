@@ -14,4 +14,9 @@ class Hair_Con extends CI_Controller
 		$result['HS'] = $this->AM->get_HairStyle();
 		$this->load->view('hair_view', $result);
 	}
+	public function del_hair_style($id)
+    {
+        $data['HS'] = $this->AM->deleteHairstyle($id);
+        redirect('Admin_Con/admin_see_barber_profile($id)', 'refresh');
+    }
 }

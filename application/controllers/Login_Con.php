@@ -95,11 +95,9 @@ class Login_Con extends CI_Controller
     {
         $data['BOOKING'] = $this->AM->getBooking();
 
-        $this->load->view('head_html/a_head');
-        $this->load->view('header/admin_navbar');
-        $this->load->view('banner/all_banner');
-        $this->load->view('admin_queue_table', $data);
-        $this->load->view('footer_html/a_footer');
+        $this->load->view('Admin/Header');
+        $this->load->view('Admin/Queue_Table', $data);
+        $this->load->view('Admin/Footer');
     }
     function barber_page()
     {

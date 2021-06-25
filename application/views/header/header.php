@@ -63,6 +63,12 @@
                 <div class="signup-link">Not a member? <a href="">Signup now</a></div>
               </form>
               <form action="http://localhost/Mom_House_Barber/index.php/Customer_Con/insert_regis" class="signup" method="post">
+                <div class="field">
+                  <input type="text" name="Username" placeholder="Username (At least 6)" required>
+                </div>
+                <div class="field">
+                  <input type="password" name="Password" placeholder="Password" required>
+                </div>
                 <div class="field C_Name Display-non">
                   <input type="text" name="C_Name" value="ไม่มีข้อมูล" placeholder="First name" required>
                 </div>
@@ -104,13 +110,7 @@
                   <input type="text" name="C_Facebook" value="ไม่มีข้อมูล" placeholder="Facebook" required>
                 </div>
                 <div class="field C_Img Display-non">
-                  <input type="text" name="C_Img" value="img_user_placeholder.jpg" placeholder="CusImg" required>
-                </div>
-                <div class="field">
-                  <input type="text" name="Username" placeholder="Username (At least 6)" required>
-                </div>
-                <div class="field">
-                  <input type="password" name="Password" placeholder="Password" required>
+                  <input type="text" name="C_Img" value="user.png" placeholder="CusImg" required>
                 </div>
                 <div class="field s_id Display-non">
                   <input type="text" name="S_ID" value="3" required>

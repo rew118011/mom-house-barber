@@ -1,13 +1,12 @@
-<div class="barber_admin_portfolio"> Portfolio admin</div> 
+<div class="barber_admin_portfolio">แอดมิน "Zbew"</div> 
 <div class="barber_admin_container">
     <div class="barber_admin">
       <div class="barber_admin_image">
-        <img class="barber_admin_image_img" src="/img/barber.jpg">
+        <img class="barber_admin_image_img" src="<?php echo base_url(); ?>img/zbew.jpg">
       </div>
       <div class="barber_admin_info">
         <div class="barber_admin_info_top">
-          <h1 class="barber_admin_info_top-h1">Admin</h1>
-          
+          <h1 class="barber_admin_info_top-h1">Username Admin</h1>
         </div>
         <div class="barber_admin_info_center">
           <div>

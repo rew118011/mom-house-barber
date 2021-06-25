@@ -17,7 +17,9 @@ class UserManagement_Con extends CI_Controller
     }
     function create_barber() //ฟังก์ชั่น เพิมชาง
     {
-        $this->load->view('crebarber_view'); //เรียกใช้งานหน้า เพิมชาง
+        $this->load->view('Admin/Header');
+        $this->load->view('Admin/Create_Barber'); //เรียกใช้งานหน้า เพิมชาง
+        $this->load->view('Admin/Footer');
     }
     function insert_barber()
     {
@@ -29,6 +31,20 @@ class UserManagement_Con extends CI_Controller
         $this->form_validation->set_rules('B_Nickname', 'ชื่อเล่น', 'required');
         //สร้างกฏสำหรับ C_Sex 'required'คือต้องไม่เป็นค่าว่าง
         $this->form_validation->set_rules('B_Sex', 'เพศ', 'required');
+        //สร้างกฏสำหรับ B_Img 'required'คือต้องไม่เป็นค่าว่าง
+        $this->form_validation->set_rules('B_Img', 'รูป', 'required');
+        //สร้างกฏสำหรับ B_Skill1 'required'คือต้องไม่เป็นค่าว่าง
+        $this->form_validation->set_rules('B_Skill1', 'สกิล1', 'required');
+        //สร้างกฏสำหรับ B_Skill2 'required'คือต้องไม่เป็นค่าว่าง
+        $this->form_validation->set_rules('B_Skill2', 'สกิล2', 'required');
+        //สร้างกฏสำหรับ B_Skill3 'required'คือต้องไม่เป็นค่าว่าง
+        $this->form_validation->set_rules('B_Skill3', 'สกิล3', 'required');
+        //สร้างกฏสำหรับ B_Skill_Score1 'required'คือต้องไม่เป็นค่าว่าง
+        $this->form_validation->set_rules('B_Skill_Score1', 'คะแนนสกิล1', 'required');
+        //สร้างกฏสำหรับ B_Skill_Score2 'required'คือต้องไม่เป็นค่าว่าง
+        $this->form_validation->set_rules('B_Skill_Score2', 'คะแนนสกิล2', 'required');
+        //สร้างกฏสำหรับ B_Skill_Score3 'required'คือต้องไม่เป็นค่าว่าง
+        $this->form_validation->set_rules('B_Skill_Score3', 'คะแนนสกิล3', 'required');
         //สร้างกฏสำหรับ C_Phone 'required|is_natural|exact_length[10]'คือต้องไม่เป็นค่าว่าง หรือ เป็นตัวเลขจำนวนเต็ม หรือ และต้องตัวอักษรเท่ากับ 10
         $this->form_validation->set_rules('B_Phone', 'เบอร์โทร', 'required|is_natural|exact_length[10]');
         //สร้างกฏสำหรับ Username 'required'คือต้องไม่เป็นค่าว่าง หรือ มีตัวอักษรอย่างน้อย 6 ตัว หรือ ตัวอักษรและตัวเลข
@@ -49,6 +65,13 @@ class UserManagement_Con extends CI_Controller
                     'B_Phone' => $this->input->post("B_Phone"),
                     'B_Address' => $this->input->post("B_Address"),
                     'Username' => $this->input->post("Username"),
+                    'B_Img' => $this->input->post("B_Img"),
+                    'B_Skill1' => $this->input->post("B_Skill1"),
+                    'B_Skill2' => $this->input->post("B_Skill2"),
+                    'B_Skill3' => $this->input->post("B_Skill3"),
+                    'B_Skill_Score1' => $this->input->post("B_Skill_Score1"),
+                    'B_Skill_Score2' => $this->input->post("B_Skill_Score2"),
+                    'B_Skill_Score3' => $this->input->post("B_Skill_Score3")
                 );
                 $data1 = array(
                     'Username' => $this->input->post("Username"),
@@ -60,10 +83,10 @@ class UserManagement_Con extends CI_Controller
                 redirect('Admin_Con/admin_seebarberall', 'refresh');
             } else { //กรอกข้อมูลไม่ถูกต้องตามกฏ
                 $this->session->set_flashdata('msg_error', 'กรุณากรอกข้อมูลครบค่ะ !');
-                $this->load->view('crebarber_view');
+                $this->load->view('Create_Barber.php');
             }
-        } else { //กลับไปหน้าล็อคอิน
-            redirect('UserManagement_Con/crebarber_view');
+        } else { //กลับไปหน้าช่างทั้งหมด
+            redirect('Admin_Con/admin_seebarberall');
         }
     }
 
@@ -71,13 +94,17 @@ class UserManagement_Con extends CI_Controller
     function admin_editbarber($id)
     {
         $data['BARBER'] = $this->UMM->selecting_OneBarberEdit($id);
-        $this->load->view('admin_editbarber_view', $data);
+
+        $this->load->view('Admin/Header');
+        $this->load->view('Admin/Edit_Barber', $data);
+        $this->load->view('Admin/Footer');
     }
 
     function save_barber()
     {
         $data = array(
             'B_ID' => $this->input->post("B_ID"),
+            'B_Nickname' => $this->input->post("B_Nickname"),
             'B_Name' => $this->input->post("B_Name"),
             'B_Lname' => $this->input->post("B_Lname"),
             'B_Sex' => $this->input->post("B_Sex"),
@@ -91,7 +118,7 @@ class UserManagement_Con extends CI_Controller
             echo "<script language=\"JavaScript\">";
             echo "alert('ไม่สามารถบันทึกข้อมูลได้ค่ะเกิดข้อผิดพลาด')";
             echo "</script>";
-            redirect('UserManagement_Con/admin_editbarber');
+            redirect('Admin_Con/admin_seebarberall');
         }
     }
     public function del_barber($id)
