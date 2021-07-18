@@ -55,6 +55,9 @@ class Booking_Con extends CI_Controller
         $data['CUSTOMER'] = $this->CM->getProfile($sess);
         $data['BARBER'] = $this->BKM->selectBarber1();
         $data['TIMESLOT'] = $this->BKM->selectTimeSlot();
+
+        $data['Barber'] = $this->AM->getBarberAll(); //ดึงข้อมูลมาจาก Admin_Model จากนั้นเรียกใช้ฟังก์ชั่น getBarberAll ใน Admin_Model
+        
         //$barber = 'B00003';
         //$data['BARBER'] = $this->BKM->selectBarber();
         //$data['TIMESLOT'] = $this->BKM->getTimeSlotByBarberID($barber);

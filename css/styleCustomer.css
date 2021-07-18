@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+	--main-color: #b07c4d;
+	--main-color-dark: #925a2a;
+	--main-color-super-dark: #754419;
+	--color-dark: #1d2231;
+	--grey-light: #d8d8d8;
+	--dark-grey: #3f3f3f;
+	--text-grey: #7a7c80;
+	--background--white: #fffefe;
+	--background--dark--white: #f3f3f3;
+	--text--color--dark: #291f1d;
+	--text--color--light: #ffffff;
+}
 
 * {
 	margin: 0;
@@ -489,6 +503,271 @@ form .btn input[type="submit"] {
 /* end radio button */
 
 /* end popup */
+
+/*---------------------------------------------------------- ! booking --------------------------------------------------------*/
+
+.select {
+	margin: 5%;
+	font-family: "Prompt", sans-serif;
+}
+
+.in-select {
+	margin: 3%;
+}
+
+.select p {
+	font-family: "Prompt", sans-serif;
+	font-weight: 500;
+	font-size: 28px;
+	margin: 1%;
+	color: var(--text--color--dark);
+}
+
+/*------------------------------------ booking date -----------------------------------------*/
+
+.booking-form-inner form .field {
+	height: 40px;
+	width: 100%;
+}
+.booking-form-inner form .field input {
+	height: 100%;
+	width: 10%;
+	outline: none;
+	border-radius: 5px;
+	border: 1px solid lightgrey;
+	border-bottom-width: 2px;
+	font-size: 17px;
+	transition: all 0.3s ease;
+}
+
+.booking-form-inner form .dropdown-barber {
+	margin: 0 0.5%;
+	height: 40px;
+	width: 17.5%;
+	outline: none;
+	padding: 0 20px;
+	border-radius: 10px;
+	border: 1px solid lightgrey;
+	border-bottom-width: 2px;
+	font-size: 16px;
+	color: #474747;
+	transition: all 0.3s ease;
+	font-family: "Prompt", sans-serif;
+}
+
+.booking-form-inner form .dropdown-barber .selectBarber {
+	font-family: "Prompt", sans-serif;
+}
+
+.booking-form-inner form .field .submitOffWork {
+	font-family: "Prompt", sans-serif;
+	color: #ffffff;
+	background-color: #48c148;
+}
+.booking-form-inner form .field .submitOffWork:hover {
+	background-color: #349034;
+}
+.booking-form-inner form .field .submitOffWork:focus {
+	background-color: #125a12;
+}
+
+/*------------------------------------ end booking date -------------------------------------*/
+
+/*------------------------------------ booking_barber ---------------------------------------*/
+
+.select.barber .in-select {
+	display: flex;
+	width: 80%;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.select.barber .in-select .item {
+	box-sizing: border-box;
+	width: 50%;
+	margin-bottom: 20px;
+	padding: 0px 10px;
+}
+
+.select.barber .in-select .item .content {
+	color: #242424;
+	font-weight: 600;
+	text-align: center;
+	box-sizing: border-box;
+	height: 100%;
+	max-width: 1550px;
+	margin: auto;
+	background: #ffffff;
+	border: 1px solid var(--grey-light);
+	border-radius: 15px;
+	padding: 5%;
+}
+
+.select.barber .in-select .image {
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+}
+
+.select.barber .in-select .image img {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: 20% 70%; /* try 20px 10px */
+}
+
+.select.barber .in-select .name p {
+	font-size: 16px;
+	text-align: center;
+}
+
+.select.barber .in-select .name p:nth-child(1) {
+	font-size: 18px;
+	text-align: center;
+}
+
+.select.barber .in-select .skill {
+	width: 95%;
+	margin: 0 auto;
+	padding: 0 0 5px 0;
+	box-sizing: border-box;
+}
+
+.select.barber .in-select .skill p {
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: 500;
+	text-align: left;
+}
+
+.select.barber .in-select .skillBox {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.select.barber .in-select .skillBox p:nth-child(1) {
+	font-size: 12px;
+	font-weight: 400;
+	text-align: start;
+	margin-top: 2px;
+}
+
+
+.select.barber .in-select .skillBox p:nth-child(2) {
+	float: right;
+	position: relative;
+	top: -17px;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.select.barber .in-select p {
+	text-transform: uppercase;
+	margin: 0 0 10px;
+	padding: 0;
+	letter-spacing: 1px;
+}
+
+.select.barber .in-select p:nth-child(1) {
+	margin: 10px 0 0 0;
+	font-family: "Prompt", sans-serif;
+	font-weight: 500;
+}
+
+.select.barber .in-select .skillBox .skill {
+	background: var(--text--color--dark);
+	padding: 3px 4px;
+	box-sizing: border-box;
+	width: 100%;
+	margin-left: 0;
+	border-radius: 4px;
+}
+
+.select.barber .in-select .skillBox .skill .skill_level {
+	background: var(--background--white);
+	width: 100%;
+	height: 10px;
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+}
+
+.select.barber .in-select .button-select {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.select.barber .in-select .button-select a {
+	font-family: "Prompt", sans-serif;
+	font-weight: 450;
+	text-decoration: none;
+	color: var(--text--color--dark);
+	padding: 4px 20px;
+	border: 1px solid var(--grey-light);
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.select.barber .in-select .button-select button {
+	font-family: "Prompt", sans-serif;
+	font-weight: 450;
+	text-decoration: none;
+	color: var(--text--color--dark);
+	padding: 4px 30px;
+	border: 1px solid var(--grey-light);
+	border-radius: 20px;
+	cursor: pointer;
+	background: #ffffff;
+}
+
+.select.barber .in-select .button-select button:focus {
+	background: #aa6666;
+}
+
+
+/*----------------------------------- end booking_barber ------------------------------------*/
+
+/*----------------------------------- booking slottime ------------------------------------*/
+
+.card-slottime {
+	width: 70%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	box-sizing: border-box;
+	margin: 0px -10px;
+}
+
+.card-slottime .item {
+	box-sizing: border-box;
+	width: 20%;
+	margin-bottom: 20px;
+	padding: 0px 10px;
+}
+
+.card-slottime .content button {
+	font-size: 16px;
+	font-weight: 400;
+	color: #242424;
+	background: #ffffff;
+	border: 1px solid var(--grey-light);
+	border-radius: 25px;
+	text-align: center;
+	box-sizing: border-box;
+	width: 150%;
+	padding: 5px;
+	cursor: pointer;
+}
+
+/*----------------------------------- end booking slottime ------------------------------------*/
+
+/*--------------------------------------------------- ! end booking ----------------------------------------------------------*/
+
 @media (max-width: 1320px) {
 	.content {
 		padding: 0 60px;
@@ -638,7 +917,7 @@ form .btn input[type="submit"] {
 .banner {
 	height: 70vh;
 }
-.banner_all{
+.banner_all {
 	height: 10vh;
 }
 .banner-container {
@@ -1138,177 +1417,178 @@ td {
 /*------------------------------------- profile ------------------------------------------*/
 
 .container-profile {
-    max-width: 940px;
-    width: 100%;
+	max-width: 940px;
+	width: 100%;
 	margin: 5em auto;
-    padding: 10px;
+	padding: 10px;
 }
 
 .profile {
-    display: flex;
-    justify-self: center;
+	display: flex;
+	justify-self: center;
 }
 
 .profile_image {
-    margin: 3em;
+	margin: 3em;
 }
 
 .profile_image_img {
-    border-radius: 80%;
-    width: 150px;
+	border-radius: 80%;
+	width: 150px;
 }
 
 .profile_imagz {
-    width: 300px;
+	width: 300px;
 }
 
 .profile_info {
-margin-top: 2em;
+	margin-top: 2em;
 }
 
 .profile_info_top {
-    display: flex;
-    max-width: 500px;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	max-width: 500px;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .profile_info_top-h1 {
-    font-weight: 500;
-    padding: 15px 10px 10px 5px;
+	font-weight: 500;
+	padding: 15px 10px 10px 5px;
 }
 .edit {
-    font-weight: 500;
-    text-decoration: none;
-    color: #333;
-    padding: 4px 8px;
-    border: 3px solid #333;
-    background: transparent;
-    border-radius: 4px;
-    cursor: pointer;
+	font-weight: 500;
+	text-decoration: none;
+	color: #333;
+	padding: 4px 8px;
+	border: 3px solid #333;
+	background: transparent;
+	border-radius: 4px;
+	cursor: pointer;
 }
 .profile_info_top a.gear {
-    color: #333;
-    margin-top: -35px;
-    margin-left: -15px;
+	color: #333;
+	margin-top: -35px;
+	margin-left: -15px;
 }
 
 .profile_info_top a.gear .fas {
-    margin: 40px 0 0 25px;
+	margin: 40px 0 0 25px;
 }
 
 .profile_info_bottom {
-    margin-top: 2em;
-    max-width: 400px;
-    margin-bottom: 1em;
+	margin-top: 2em;
+	max-width: 400px;
+	margin-bottom: 1em;
 }
 
 .tabs {
-    max-width: 960px;
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    position: relative;
+	max-width: 960px;
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0 auto;
+	position: relative;
 }
 
 .tabs::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    top: 16px;
-    border-top: 1px solid #e4e4e4;
+	content: "";
+	position: absolute;
+	width: 100%;
+	top: 16px;
+	border-top: 1px solid #e4e4e4;
 }
 
 .tab-item {
-    cursor: pointer;
-    margin-top: 30px;
+	cursor: pointer;
+	margin-top: 30px;
 }
 
 .tab-item .fas {
-    padding: 0 10px;
+	padding: 0 10px;
 }
 
 .gallery-grid {
-    margin: 1em 0;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: repeat(3, 300px);
-    grid-gap: 1.5em;
-    justify-content: center;
-    align-content: center;
+	margin: 1em 0;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-rows: repeat(3, 300px);
+	grid-gap: 1.5em;
+	justify-content: center;
+	align-content: center;
 }
 
 .grid-img img {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .grid-img {
-    position: relative;
-    cursor: pointer;
+	position: relative;
+	cursor: pointer;
 }
 
 .grid-img:hover {
-    content: "";
-    top: 0;
-    z-index: 10;
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    background: rgb(0, 0, 0, 0.5);
+	content: "";
+	top: 0;
+	z-index: 10;
+	width: 50%;
+	height: 50%;
+	position: absolute;
+	background: rgb(0, 0, 0, 0.5);
 }
 
 .grid-img-icon {
-    top: 50%;
-    left: 50%;
-    z-index: 99;
-    display: none;
-    position: absolute;
-    transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	z-index: 99;
+	display: none;
+	position: absolute;
+	transform: translate(-50%, -50%);
 }
 
 .grid-img:hover .grid-img-icon {
-    display: block;
+	display: block;
 }
 
 .grid-img-icon span {
-    color:#fff;
-    max-width: 0 .5em;
+	color: #fff;
+	max-width: 0 0.5em;
 }
 
 .tabs-content-item {
-    max-width: 940px;
-    width: 50%;
+	max-width: 940px;
+	width: 50%;
 	margin: 5em auto;
-    padding: 10px;
+	padding: 10px;
 }
 
-strong{
-    font-size: 18px;
-    font-weight: 500;
-    color: rgb(74, 74, 74);
+strong {
+	font-size: 18px;
+	font-weight: 500;
+	color: rgb(74, 74, 74);
 }
 
 .fas:before {
-    content: "\f00a";
-    color: rgb(74, 74, 74);
-    font-size: 25px;
+	content: "\f00a";
+	color: rgb(74, 74, 74);
+	font-size: 25px;
 }
 
-.fa, .fas {
-    font-weight: 500;
-    margin-top: -50px;
-    padding-top: 0;
+.fa,
+.fas {
+	font-weight: 500;
+	margin-top: -50px;
+	padding-top: 0;
 }
 
 .fa-cogs:before {
-    content: "\f085";
-    margin-top: 0px;
-    padding-top: 0;
+	content: "\f085";
+	margin-top: 0px;
+	padding-top: 0;
 }
 
-.tb_2btn{
+.tb_2btn {
 	color: #1b1b1b;
 }
 
@@ -1317,88 +1597,86 @@ strong{
 /*------------------------------------ skill barber ---------------------------------------*/
 
 .profile_arrea {
-    margin-top: 0;
+	margin-top: 0;
 }
 .container {
-    max-width: 500px;
-    width: 100%;
+	max-width: 500px;
+	width: 100%;
 	margin: 1em auto;
-    padding: 10px;
-    margin-top: 0;;
-    grid-gap: 1.5em;
-    align-content: center;
+	padding: 10px;
+	margin-top: 0;
+	grid-gap: 1.5em;
+	align-content: center;
 }
 
 .h1 {
-    max-width: 940px;
+	max-width: 940px;
 	margin: 5em auto;
-    margin-top: 0;
-    
+	margin-top: 0;
 }
 
 .profile {
-    display: flex;
-    justify-self: center;
-   
+	display: flex;
+	justify-self: center;
 }
 
 .profile_info {
-    margin-top: 2em;
-    }
-    
+	margin-top: 2em;
+}
+
 .profile_info_top {
-        display: flex;
-        max-width: 500px;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
-    }
+	display: flex;
+	max-width: 500px;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+}
 
 .profile_image_img {
-        border-radius: 10%;
-        width: 350px;
-    }
+	border-radius: 10%;
+	width: 350px;
+}
 
 .profile_info_center {
-    text-align: center;
+	text-align: center;
 }
 
 .profile_font {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 .profile_info_bottom {
-    margin-top: 2em;
-    max-width: 400px;
-    margin-bottom: 1em;
-    text-align: center;
+	margin-top: 2em;
+	max-width: 400px;
+	margin-bottom: 1em;
+	text-align: center;
 }
 
 .font {
-    color:red;
+	color: red;
 }
 
 .profile_info_a {
-    font-weight: 450;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    padding: 4px 8px;
-    border: 3px solid #333;
-    border-radius: 4px;
-    cursor: pointer;
+	font-weight: 450;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 0);
+	padding: 4px 8px;
+	border: 3px solid #333;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 .du {
-    font-weight: 450;
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    padding: 4px 8px;
-    border: 3px solid rgb(0, 0, 0);
-    border-radius: 4px;
-    cursor: pointer;
+	font-weight: 450;
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	padding: 4px 8px;
+	border: 3px solid rgb(0, 0, 0);
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 /*----------------------------------- end skill barber ------------------------------------*/
@@ -1406,130 +1684,130 @@ strong{
 /*------------------------------------ barber queue table ----------------------------------*/
 
 .container-table {
-    box-sizing: border-box;
+	box-sizing: border-box;
 	margin: 5% 10% 10% 10%;
-  }
-  
-  .header-barber-queue {
-    color: #643b0f;
-    font-size: 1.5em;
-    padding: 1rem;
-    text-align: center;
-    text-transform: uppercase;
-  }
-  
-  .img-barber-queue {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-  }
-  
-  .table-barber-queue {
-    border: 1px solid #dadada;
-    border-radius: 7px;
-    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
-    max-width: calc(100% - 2em);
-    margin: 1em auto;
-    overflow: hidden;
-    width: 70%;
-  }
-  
-  .barber-queue {
-    width: 100%;
-  }
-  .barber-queue .td-barber-queue,
-  .barber-queue .th-barber-queue {
-    color: #643b0f;
-    padding: 10px;
-  }
-  .barber-queue .td-barber-queue {
-    text-align: center;
-    vertical-align: middle;
-  }
-  .barber-queue .td-barber-queue:last-child {
-    font-size: 0.95em;
-    line-height: 1.4;
-  }
-  .barber-queue .th-barber-queue {
-    background-color: #643b0f;
-    font-weight: 300;
+}
+
+.header-barber-queue {
+	color: #643b0f;
+	font-size: 1.5em;
+	padding: 1rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.img-barber-queue {
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+}
+
+.table-barber-queue {
+	border: 1px solid #dadada;
+	border-radius: 7px;
+	box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+	max-width: calc(100% - 2em);
+	margin: 1em auto;
+	overflow: hidden;
+	width: 70%;
+}
+
+.barber-queue {
+	width: 100%;
+}
+.barber-queue .td-barber-queue,
+.barber-queue .th-barber-queue {
+	color: #643b0f;
+	padding: 10px;
+}
+.barber-queue .td-barber-queue {
+	text-align: center;
+	vertical-align: middle;
+}
+.barber-queue .td-barber-queue:last-child {
+	font-size: 0.95em;
+	line-height: 1.4;
+}
+.barber-queue .th-barber-queue {
+	background-color: #643b0f;
+	font-weight: 300;
 	color: #fff;
-  }
-  .barber-queue .tr-barber-queue:nth-child(2n) {
-    background-color: white;
-  }
-  .barber-queue .tr-barber-queue:nth-child(2n + 1) {
-    background-color: #fffde3;
-  }
-  
-  @media screen and (max-width: 650px) {
-    .barber-queue,
-    .tr-barber-queue,
-    .td-barber-queue {
-      display: block;
-      width: max-content;
-    }
-  
-    .img-barber-queue {
-      border-radius: 50%;
-      height: 80px;
-      width: 80px;
-    }
-  
-    .td-barber-queue:first-child {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100px;
-      left: 0;
-    }
-    .td-barber-queue:not(:first-child) {
-      clear: both;
-      left: 120px;
-      padding: 4px 20px 4px 90px;
-      position: relative;
-      text-align: left;
-    }
-    .td-barber-queue:not(:first-child):before {
-      color: #6c441a;
-      content: "";
-      display: block;
-      left: 0px;
-      position: absolute;
-    }
-    .td-barber-queue:nth-child(2):before {
-      content: "Nickname:";
-    }
-    .td-barber-queue:nth-child(3):before {
-      content: "Phone:";
-    }
-    .td-barber-queue:nth-child(4):before {
-      content: "Date:";
-    }
-    .td-barber-queue:nth-child(5):before {
-      content: "Time:";
-    }
-    .td-barber-queue:nth-child(6):before {
-      content: "Status:";
-    }
-  
-    .tr-barber-queue {
-      padding: 10px 0;
-      position: relative;
-    }
-    .td-barber-queue {
-      width: 510px;
-    }
-    .tr-barber-queue:first-child {
-      display: none;
-    }
-  }  
+}
+.barber-queue .tr-barber-queue:nth-child(2n) {
+	background-color: white;
+}
+.barber-queue .tr-barber-queue:nth-child(2n + 1) {
+	background-color: #fffde3;
+}
+
+@media screen and (max-width: 650px) {
+	.barber-queue,
+	.tr-barber-queue,
+	.td-barber-queue {
+		display: block;
+		width: max-content;
+	}
+
+	.img-barber-queue {
+		border-radius: 50%;
+		height: 80px;
+		width: 80px;
+	}
+
+	.td-barber-queue:first-child {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100px;
+		left: 0;
+	}
+	.td-barber-queue:not(:first-child) {
+		clear: both;
+		left: 120px;
+		padding: 4px 20px 4px 90px;
+		position: relative;
+		text-align: left;
+	}
+	.td-barber-queue:not(:first-child):before {
+		color: #6c441a;
+		content: "";
+		display: block;
+		left: 0px;
+		position: absolute;
+	}
+	.td-barber-queue:nth-child(2):before {
+		content: "Nickname:";
+	}
+	.td-barber-queue:nth-child(3):before {
+		content: "Phone:";
+	}
+	.td-barber-queue:nth-child(4):before {
+		content: "Date:";
+	}
+	.td-barber-queue:nth-child(5):before {
+		content: "Time:";
+	}
+	.td-barber-queue:nth-child(6):before {
+		content: "Status:";
+	}
+
+	.tr-barber-queue {
+		padding: 10px 0;
+		position: relative;
+	}
+	.td-barber-queue {
+		width: 510px;
+	}
+	.tr-barber-queue:first-child {
+		display: none;
+	}
+}
 
 /*-------------------------------- end barber queue table ---------------------------------*/
 
 /*------------------------------------- profile ------------------------------------------*/
 
-.profile_c_container{
+.profile_c_container {
 	max-width: 800px;
 	width: 100%;
 	margin: 20px auto 10px auto;
@@ -1538,7 +1816,7 @@ strong{
 	align-content: center;
 }
 .profile_c_container_bottom {
-    max-width: 800px;
+	max-width: 800px;
 	width: 100%;
 	margin: 1em auto 50px auto;
 	padding: 10px;
@@ -1561,7 +1839,7 @@ strong{
 	width: 150px;
 	height: 150px;
 	object-fit: cover;
-    object-position: 10% 50%;
+	object-position: 10% 50%;
 }
 
 .profile_c_info {
@@ -1607,16 +1885,16 @@ strong{
 	margin: 0 auto;
 	position: relative;
 	background-color: #f3f3f3d0;
-    margin-bottom: 30px;
-    height: 350px;;
+	margin-bottom: 30px;
+	height: 350px;
 }
 
 .profile_c_tabs::before {
 	content: "";
-    position: absolute;
-    width: 100%;
-    top: 8px;
-    border-top: 1px solid #aca8a8;
+	position: absolute;
+	width: 100%;
+	top: 8px;
+	border-top: 1px solid #aca8a8;
 }
 
 .profile_c_icon {
@@ -1635,70 +1913,66 @@ strong{
 	font-size: 18px;
 }
 
-
 /*------------------------------------- end profile --------------------------------------*/
 
 /*----------------------------------- Edit_profile ------------------------------------*/
 
 .edit_profile_container {
-    max-width: 940px;
-    width: 100%;
+	max-width: 940px;
+	width: 100%;
 	margin: 5em auto;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
 }
 
 .edit_profile {
-    margin: 1em;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10em;
-    background-color: #f3f3f3d0;
-    width: 700px;
-    height: 480px;
+	margin: 1em;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10em;
+	background-color: #f3f3f3d0;
+	width: 700px;
+	height: 480px;
 }
 
 .edit_profile_image {
-    margin: 3em;
+	margin: 3em;
 }
 
 .edit_profile_image_img {
-    border-radius: 80%;
-    width: 120px;
-    margin-right: 4em;
-    margin-top: 2em;
+	border-radius: 80%;
+	width: 120px;
+	margin-right: 4em;
+	margin-top: 2em;
 }
-
 
 .edit_profile_info {
-margin-top: 1em;
+	margin-top: 1em;
 }
 .edit_profile_infos {
-    margin-top: 5.5em;
-    
-    }
-
-.edit_profile_info_top {
-    display: flex;
-    max-width: 500px;
-    justify-content: space-between;
-    align-items: center;
+	margin-top: 5.5em;
 }
 
+.edit_profile_info_top {
+	display: flex;
+	max-width: 500px;
+	justify-content: space-between;
+	align-items: center;
+}
 
 .edit_profile_info_top-h1 {
-    font-weight: 500;
-    padding: 21px 10px 10px 5px;
+	font-weight: 500;
+	padding: 21px 10px 10px 5px;
 }
 
 .edit_profile_info_center {
-    font-size: 19px;
+	font-size: 19px;
 }
 
 .save {
-    width: 80px;
-    font-weight: 500;
+	width: 80px;
+	font-weight: 500;
 	text-decoration: none;
 	color: rgb(255, 255, 255);
 	background-color: rgba(196, 120, 6, 0.726);
@@ -1706,47 +1980,44 @@ margin-top: 1em;
 	border: 3px solid rgba(255, 251, 3, 0.938);
 	border-radius: 40px;
 	cursor: pointer;
-    font-size: 18px;
-    
+	font-size: 18px;
 }
 .back {
-    width: 100px;
-    height: 50px;
-    font-weight: 500;
+	width: 100px;
+	height: 50px;
+	font-weight: 500;
 	text-decoration: none;
 	color: #333;
-    background-color: rgba(173, 169, 169, 0.644);
+	background-color: rgba(173, 169, 169, 0.644);
 	padding: 3px 15px;
 	border: 3px solid rgb(99, 99, 99);
 	border-radius: 40px;
 	cursor: pointer;
-    font-size: 18px;
+	font-size: 18px;
 }
 
 .form_label {
-    margin-left: 3em;
-    border: 3px solid rgba(180, 180, 180, 0.856);
+	margin-left: 3em;
+	border: 3px solid rgba(180, 180, 180, 0.856);
 	width: 200px;
-    height: 33px;
-
+	height: 33px;
 }
 
 /*----------------------------------- end Edit_profile  ------------------------------------*/
 
 /*------------------------------------ all_barber ---------------------------------------*/
 
-
 .c_profilebraber_container {
 	padding: 10px;
 	grid-gap: 1.5em;
 	align-content: center;
-    margin: 3em 15% 10em 15%;
-    width: 70%;
+	margin: 3em 15% 10em 15%;
+	width: 70%;
 }
 
 .c_profilebraber_h1 {
 	margin: 2em auto;
-    text-align: center;
+	text-align: center;
 }
 
 .c_profilebraber {
@@ -1757,13 +2028,11 @@ margin-top: 1em;
 	margin-top: 2em;
 }
 
-
-
 .c_profilebraber_image {
 	width: 300px;
-    height: 300px;
-    object-fit: cover;
-    object-position: 20% 70%; /* try 20px 10px */ 
+	height: 300px;
+	object-fit: cover;
+	object-position: 20% 70%; /* try 20px 10px */
 }
 
 .c_profilebraber_info_center {
@@ -1795,7 +2064,7 @@ margin-top: 1em;
 }
 
 .botton_p {
-    padding: 5px 15px;
+	padding: 5px 15px;
 }
 
 .c_lookprofilebraber {
@@ -1809,125 +2078,151 @@ margin-top: 1em;
 	cursor: pointer;
 }
 
-
 .flexbox_ {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    box-sizing: border-box;
-    margin: 3px -10px;
-  }
-  
-  .item_ {
-    box-sizing: border-box;
-    width: 50%;
-    margin-bottom: 20px;
-    padding: 0px 10px;
-  }
-  
-  .content_ {
-    color: #242424;
-    font-weight: 600;
-    text-align: center;
-    box-sizing: border-box;
-    height: 100%;
-    max-width: 1550px;
-    margin: auto;
-  }
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	box-sizing: border-box;
+	margin: 3px -10px;
+}
+
+.item_ {
+	box-sizing: border-box;
+	width: 50%;
+	margin-bottom: 20px;
+	padding: 0px 10px;
+}
+
+.content_ {
+	color: #242424;
+	font-weight: 600;
+	text-align: center;
+	box-sizing: border-box;
+	height: 100%;
+	max-width: 1550px;
+	margin: auto;
+}
 
 /*----------------------------------- end all_barber ------------------------------------*/
 /*----------------------------------- customer_look_barber_profile ------------------------------------*/
 
 .B_container {
-    max-width: 800px;
+	max-width: 800px;
 	width: 100%;
 	margin: 20px auto 10px auto;
 	padding: 10px;
 	grid-gap: 1.5em;
 	align-content: center;
- }
+}
 
 .B_profile {
-    margin: 1em;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10em;
-    background-color: #f3f3f3d0;
- }
+	margin: 1em;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10em;
+	background-color: #f3f3f3d0;
+}
 
 .B_profile_info {
-    margin-top: 2em;
- }
-    
+	margin-top: 2em;
+}
+
 .B_profile_info_top {
 	display: flex;
 	max-width: 500px;
 	justify-content: space-between;
 	align-items: center;
- }
-    
+}
+
 .B_profile_image_img {
-        border-radius: 50%;
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-        object-position: 20% 70%;
-        margin-right: 3em;
-    }
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	object-position: 20% 70%;
+	margin-right: 3em;
+}
 
 .profile_B_image {
-        margin: 3em;
-    }
+	margin: 3em;
+}
 .profile_c_info_top-h1 {
-        font-weight: 500;
-        padding: 15px 10px 10px 5px;
-        margin-top: 0.5em;
-    }
-    
+	font-weight: 500;
+	padding: 15px 10px 10px 5px;
+	margin-top: 0.5em;
+}
+
 .B_profile_font {
-        font-size: 20px;
-    }
-    
+	font-size: 20px;
+}
+
 .B_profile_info_bottom {
-        margin-top: 2em;
-        max-width: 400px;
-        margin-bottom: 1em;
-        text-align: center;
-    } 
+	margin-top: 2em;
+	max-width: 400px;
+	margin-bottom: 1em;
+	text-align: center;
+}
 
 /*----------------------------------- end customer_look_barber_profile ------------------------------------*/
 
 /*----------------------------------------- your queue -----------------------------------------------*/
 
-.c-my-booking-container{
-    width: 70%;
-    margin: 5% 15%;
-    text-align: center;
+.c-my-booking-container {
+	width: 70%;
+	margin: 5% 15%;
+	text-align: center;
 }
 .c-my-booking-container h1 {
-    margin: 10px;
+	margin: 10px;
 }
 .c-my-booking-container p {
-    letter-spacing: 1px;
-    font-size: 18px;
-    margin: 10px;
+	letter-spacing: 1px;
+	font-size: 18px;
+	margin: 10px;
 }
 .c-my-booking-container p:nth-child(2) {
-    margin-bottom: 50px;
+	margin-bottom: 50px;
 }
 .c-my-booking-container .my-booking-date p {
-    padding: 10px 50px;
+	padding: 10px 50px;
 }
 .c-my-booking-container .my-booking-date p:nth-child(2) {
-    margin-bottom: 50px;
+	margin-bottom: 50px;
 }
 .c-my-booking-container .my-booking-date a {
-    color: #fafafa;
-    background-color: red;
-    padding: 10px 15px;
-    border-radius: 5px;
+	color: #fafafa;
+	background-color: red;
+	padding: 10px 15px;
+	border-radius: 5px;
+}
+
+.flexbox {
+	display: none;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	box-sizing: border-box;
+	margin: 3px -10px;
+}
+
+.flexbox .item {
+	box-sizing: border-box;
+	width: 50%;
+	margin-bottom: 20px;
+	padding: 0px 10px;
+}
+
+.flexbox .content {
+	color: #242424;
+	font-weight: 600;
+	text-align: center;
+	box-sizing: border-box;
+	height: 100%;
+	max-width: 1550px;
+	margin: auto;
 }
 
 /*---------------------------- end your queue --------------------------------------------------*/
@@ -1964,7 +2259,6 @@ margin-top: 1em;
 	margin: 1.5%;
 }
 
-
 .fab.fa-facebook.icon-footer {
 	font-size: 50px;
 	font-weight: 400;
@@ -1973,13 +2267,13 @@ margin-top: 1em;
 	margin-top: 15px;
 }
 
-.fas.icon-footer.fa-mobile-alt:before{
+.fas.icon-footer.fa-mobile-alt:before {
 	font-size: 50px;
 	color: white;
 	padding: 0 25px;
 }
 
-.fas.icon-footer.fa-map-marked-alt:before{
+.fas.icon-footer.fa-map-marked-alt:before {
 	font-size: 50px;
 	color: white;
 	padding: 0 25px;
