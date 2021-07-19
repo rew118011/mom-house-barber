@@ -33,27 +33,16 @@ class Booking_Model extends CI_Model
     function getTimeSlot($barber)
     {
         $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE B_ID = '$barber')");
-        return $query->result();  
+        return $query->result();
     }
-    function getTimeSlotByBarberID($barber){
-        $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE B_ID = '$barber')");
-        $result = $query->result_array(); 
-        //print_r($result);
-        $arr1 = array();
-        foreach ($result as $row) {
-            $arr1[$row['ST_ID']] = $row['ST_Time'];
-        }
-        $arr1[''] = '---Select Time Slot---';
-        return $arr1;
-    }
-    
+
     function checkBookingDuplicate($customer)
     {
         $query = $this->db->where('C_ID', $customer)
             ->count_all_results('booking');
         return $query;
     }
-    function checkTimeBarber($time,$barber)
+    function checkTimeBarber($time, $barber)
     {
         $query = $this->db->where('ST_ID', $time)
             ->where('B_ID', $barber)
@@ -98,35 +87,37 @@ class Booking_Model extends CI_Model
     {
     }
 
-    function selectBarber()
+    function getBarber()
     {
-    /*    $query = $this->db->select('B_ID,B_Nickname')->get('barber')->result_array();
-        $arr = array();
-        foreach ($query as $row) {
-            $arr[$row['B_ID']] = $row['B_Nickname'];
-        }
-        $arr[''] = '---Select Barber---';
-        return $arr;*/
-
-        $this->db->select('B_ID,B_Nickname');
-        $query = $this->db->get('barber');
-
+        $this->db->order_by("B_Nickname", "DESC");
+        $query = $this->db->get("barber");
         return $query->result();
-        
     }
+
+    function getTimeSlotByBarberID($B_ID)
+    {
+        $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE B_ID = '$B_ID')");
+        $output = '<input type="radio" name="ST_ID" id="Time_Slot">';
+        foreach ($query->result() as $row) {
+            $output .= '<input type="radio" name="select" id="option-' . $row->ST_ID . '" value="' . $row->ST_ID . '"><label for="option-' . $row->ST_ID . '" class="option option-' . $row->ST_ID . '">
+         <div class="dot"></div>
+         <span>' . $row->ST_Time . '</span>
+       </label>';
+        }
+        return $output;
+    }
+
     function selectBarber1()
     {
-   $query = $this->db->select('B_ID,B_Nickname')->get('barber')->result_array();
-
-        $arr = array();
-        foreach ($query as $row) {
-            $arr[$row['B_ID']] = $row['B_Nickname'];
-        }
-        $arr[''] = '---Select Barber---';
-        return $arr;
-
-       
-        
+        $this->db->select('B_Nickname');
+        $query = $this->db->get('barber');
+        return $query->result_array();
     }
 
+    function getYearAll()
+    {
+        $this->db->select('*');
+        $query = $this->db->get('all_year');
+        return $query->result();
+    }
 }

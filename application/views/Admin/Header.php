@@ -11,6 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/test.css">
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
   <script src="https://kit.fontawesome.com/fc529a0756.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 

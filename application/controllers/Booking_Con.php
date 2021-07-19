@@ -7,60 +7,18 @@ class Booking_Con extends CI_Controller
         parent::__construct();
         $this->load->model('Booking_Model', 'BKM');
         $this->load->model('Customer_Model', 'CM');
+        $this->load->model('Barber_Model', 'BM');
         $this->load->model('Admin_Model', 'AM');
-    }
-    function select_day()
-    {
-        $days = array(0 => '---Select Days---');
-        for ($d = 1; $d <= 31; $d++) {
-            $days[] = $d;
-        }
-        return $days;
-    }
-    function select_month()
-    {
-        $month = array(
-            0 => '---Select Month---', 1 => 'มกราคม', 2 => 'กุมภาพันธ์', 3 => 'มีนาคม', 4 => 'เมษายน', 5 => 'พฤกภาคม', 6 => 'มิถุนายน',
-            7 => 'กรกฎาคม', 8 => 'สิงหาคม', 9 => 'กันยายน', 10 => 'ตุลาคม', 11 => 'พฤศจิกายน', 12 => 'ธันวาคม'
-        );
-        for ($m = 13; $m <= 12; $m++) {
-            $month[] = $m;
-        }
-        return $month;
-    }
-    function select_year()
-    {
-        $year = array(0 => '---Select Year---', 2021 => '2021');
-        for ($y = 2021; $y < 2021; $y++) {
-
-            $year[] = $y;
-        }
-        return $year;
-    }
-
-    function getNumberOfDays($month, $year)
-    {
-        $numday = 31;
-        if ($month == 4 || $month == 6 || $month == 9 || $month == 11) {
-            $numday = 30;
-        } else if ($month == 2) {
-            $numday = $year % 4 != 0 || ($year % 100 == 0 && $year % 400 != 0) ? $numday = 28 : 29;
-        }
-        return $numday;
     }
 
     function Booking()
     {
         $sess =  $this->session->userdata('Username');
         $data['CUSTOMER'] = $this->CM->getProfile($sess);
-        $data['BARBER'] = $this->BKM->selectBarber1();
-        $data['TIMESLOT'] = $this->BKM->selectTimeSlot();
-
-        $data['Barber'] = $this->AM->getBarberAll(); //ดึงข้อมูลมาจาก Admin_Model จากนั้นเรียกใช้ฟังก์ชั่น getBarberAll ใน Admin_Model
-        
-        //$barber = 'B00003';
+        $data['BARBER'] = $this->BKM->getBarber();
+    
+        //$barber = 'B00002';
         //$data['BARBER'] = $this->BKM->selectBarber();
-        //$data['TIMESLOT'] = $this->BKM->getTimeSlotByBarberID($barber);
 
         $sess =  $this->session->userdata('Username');
         $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
@@ -73,6 +31,12 @@ class Booking_Con extends CI_Controller
         $this->load->view('footer_html/c_footer');
     }
 
+    function fetch_Barber()
+    {
+        if ($this->input->post('B_ID')) {
+            echo $this->BKM->getTimeSlotByBarberID($this->input->post('B_ID'));
+        }
+    }
 
     function ins_Booking()
     {
@@ -83,7 +47,7 @@ class Booking_Con extends CI_Controller
         {
             $checkBookingDuplicate = $this->BKM->checkBookingDuplicate($customer);
             $checkTimeBarber = $this->BKM->checkTimeBarber($time, $barber);
-            if ($this->input->post('BK_Year') == 0 || $this->input->post('BK_Month') == 0 || $this->input->post('BK_Day') == 0 || $this->input->post('ST_ID') == 0 || $this->input->post('B_ID') == '') {
+            if ($this->input->post('BK_Month') == 0 || $this->input->post('BK_Day') == 0 || $this->input->post('ST_ID') == 0 || $this->input->post('B_ID') == '') {
                 echo "<script language=\"JavaScript\">";
                 echo "alert('กรุณากรอกข้อมูลด้วยค่ะ !')";
                 echo "</script>";
@@ -125,7 +89,9 @@ class Booking_Con extends CI_Controller
                     'BK_Day' => $this->input->post('BK_Day'),
                     'BK_Month' => $this->input->post('BK_Month'),
                     'BK_Year' => $this->input->post('BK_Year'),
-                    'ST_ID' => $this->input->post('ST_ID')
+                    'ST_ID' => $this->input->post('ST_ID'),
+                    'BKS_ID' => $this->input->post('BKS_ID'),
+
                 );
                 $check = $this->BKM->createBookingQueueByCustomer($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
                 $c_id = $this->input->post('C_ID');
@@ -145,4 +111,5 @@ class Booking_Con extends CI_Controller
             }
         }
     }
+  
 }
