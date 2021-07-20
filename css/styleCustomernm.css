@@ -576,7 +576,6 @@ form .btn input[type="submit"] {
 
 /*------------------------------------ booking_barber ---------------------------------------*/
 
-
 .select.barber .in-select {
 	margin: 5% auto;
 	display: flex;
@@ -659,7 +658,6 @@ form .btn input[type="submit"] {
 	margin-top: 2px;
 }
 
-
 .select.barber .in-select .skillBox p:nth-child(2) {
 	float: right;
 	position: relative;
@@ -730,7 +728,6 @@ form .btn input[type="submit"] {
 	background: #aa6666;
 }
 
-
 /*----------------------------------- end booking_barber ------------------------------------*/
 
 /*----------------------------------- booking slottime ------------------------------------*/
@@ -744,68 +741,46 @@ form .btn input[type="submit"] {
 
 .select.slottime .in-select .card-slottime .content input {
 	margin: 10px;
-}
-
-.select.slottime .in-select .card-slottime .content input:nth-child(1) {
 	display: none;
 	position: absolute;
 }
 
 /* radio button */
 
-
-
-
-
-  
-
-.signup .field:nth-child(2) {
-	margin-bottom: 17px;
-}
-
-.input-sex {
-	font-size: 20px;
-	font-weight: 400;
-	width: 200px;
-	margin-right: 5%;
-	margin-left: 5%;
-	color: rgb(76, 76, 76);
-}
-
-.sex-radio-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.sex-radio-container .sex-item {
-	display: inline-flex;
-	align-items: center;
-	justify-content: space-evenly;
+.card-slottime .content {
+	display: grid;
+	grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+	justify-items: stretch;
+	align-items: stretch;
+	column-gap: 20px;
+	row-gap: 20px;
+	height: 90px;
+	width: 30%;
 	border-radius: 5px;
-	height: 50px;
-	width: 95%;
+	padding: 20px 15px;
 }
-.sex-radio-container .option {
+.card-slottime .option {
 	background: #fff;
 	height: 100%;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	margin: 0 10px;
-	border-radius: 5px;
+	margin: 0;
+	border-radius: 15px;
 	cursor: pointer;
 	padding: 0 10px;
 	border: 2px solid lightgrey;
 	transition: all 0.3s ease;
 }
-.sex-radio-container .option .sex-dot {
+.card-slottime .option .dot {
 	height: 20px;
 	width: 20px;
+	background: var(--grey-light);
 	border-radius: 50%;
 	position: relative;
 }
-.sex-radio-container .option .sex-dot::before {
+.card-slottime .option .dot::before {
 	position: absolute;
 	content: "";
 	top: 4px;
@@ -818,33 +793,69 @@ form .btn input[type="submit"] {
 	transform: scale(1.5);
 	transition: all 0.3s ease;
 }
-.radio-sex {
-	display: none;
-}
+
 #option-1:checked:checked ~ .option-1,
 #option-2:checked:checked ~ .option-2,
-#option-3:checked:checked ~ .option-3 {
+#option-3:checked:checked ~ .option-3,
+#option-4:checked:checked ~ .option-4,
+#option-5:checked:checked ~ .option-5,
+#option-6:checked:checked ~ .option-6,
+#option-7:checked:checked ~ .option-7,
+#option-8:checked:checked ~ .option-8,
+#option-9:checked:checked ~ .option-9,
+#option-10:checked:checked ~ .option-10 {
 	border-color: #643b0f;
 	background: #643b0f;
 }
-#option-1:checked:checked ~ .option-1 .sex-dot,
-#option-2:checked:checked ~ .option-2 .sex-dot,
-#option-3:checked:checked ~ .option-3 .sex-dot {
+
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot,
+#option-3:checked:checked ~ .option-3 .dot,
+#option-4:checked:checked ~ .option-4 .dot,
+#option-5:checked:checked ~ .option-5 .dot,
+#option-6:checked:checked ~ .option-6 .dot,
+#option-7:checked:checked ~ .option-7 .dot,
+#option-8:checked:checked ~ .option-8 .dot,
+#option-9:checked:checked ~ .option-9 .dot,
+#option-10:checked:checked ~ .option-10 .dot {
 	background: #fff;
 }
-#option-1:checked:checked ~ .option-1 .sex-dot::before,
-#option-2:checked:checked ~ .option-2 .sex-dot::before,
-#option-3:checked:checked ~ .option-3 .sex-dot::before {
+
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before,
+#option-3:checked:checked ~ .option-3 .dot::before,
+#option-4:checked:checked ~ .option-4 .dot::before,
+#option-5:checked:checked ~ .option-5 .dot::before,
+#option-6:checked:checked ~ .option-6 .dot::before,
+#option-7:checked:checked ~ .option-7 .dot::before,
+#option-8:checked:checked ~ .option-8 .dot::before,
+#option-9:checked:checked ~ .option-9 .dot::before,
+#option-10:checked:checked ~ .option-10 .dot::before {
 	opacity: 1;
 	transform: scale(1);
 }
-.sex-radio-container .option span {
+.card-slottime .option span {
+	margin-left: 5px;
 	font-size: 20px;
 	color: #808080;
 }
 #option-1:checked:checked ~ .option-1 span,
 #option-2:checked:checked ~ .option-2 span,
-#option-3:checked:checked ~ .option-3 span {
+#option-3:checked:checked
+	~ .option-3
+	span
+	#option-1:checked:checked
+	~ .option-1
+	span,
+#option-2:checked:checked ~ .option-2 span,
+#option-3:checked:checked ~ .option-3 span,
+#option-4:checked:checked ~ .option-4 span,
+#option-5:checked:checked ~ .option-5 span,
+#option-6:checked:checked ~ .option-6 span,
+#option-7:checked:checked ~ .option-7 span,
+#option-8:checked:checked ~ .option-8 span,
+#option-9:checked:checked ~ .option-9 span,
+#option-10:checked:checked ~ .option-10 span {
 	color: #fff;
 }
 

@@ -77,7 +77,7 @@ foreach ($BARBER as $row) {
                                     </div>
                                     <div class="item">
                                         <div class="field">
-                                            <p class="txt"><?php echo $row->B_ID; ?></p>
+                                            <input type="text" name="B_ID" value="<?php echo $row->B_ID; ?>" readonly />
                                         </div>
                                         <div class="field">
                                             <p class="txt"><?php echo $row->Username; ?></p>
@@ -123,8 +123,8 @@ foreach ($BARBER as $row) {
                                 </div>
                             </div>
                             <div class="field btn">
-								<input class="submit" type="submit" name="btnSave" value="ยืนยัน">
-							</div>
+                                <input class="submit" type="submit" name="btnSave" value="ยืนยัน">
+                            </div>
                         </form>
                     <?php
                     }
