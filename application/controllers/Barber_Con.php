@@ -10,13 +10,63 @@ class Barber_Con extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('index');
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('Barber/b_banner');
+        $this->load->view('Barber/Queue_Table');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
 	}
-	
-	public function get_barber_queue()
-	{
-		$this->load->view('barber_queue_table');
-	}
+
+    public function barber_haircut_history()
+    {
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('Barber/b_banner');
+        $this->load->view('Barber/Haircut_History');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
+    }
+
+    public function barber_add_portfolio()
+    {
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('Barber/b_banner');
+        $this->load->view('Barber/Add_Portfolio.php');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
+    }
+
+    public function barber_view_admin()
+    {
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('Barber/b_banner');
+        $this->load->view('Barber/Admin_Profile');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
+    }
+
+    public function barber_profile()
+    {
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('Barber/b_banner');
+        $this->load->view('Barber/Profile');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
+    }
+
+    public function edit_barber_profile()
+    {
+		$this->load->view('head_html/b_head');
+        $this->load->view('header/barber_navbar');
+        $this->load->view('Barber/b_banner');
+        $this->load->view('Barber/Edit_Profile');
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/b_footer');
+    }
 
 	function show_profilebarber() //ฟังก์ชั่นดู โปรไฟล์ customer
     {

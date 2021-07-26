@@ -88,56 +88,6 @@ class Page_Con extends CI_Controller
 		$this->load->view('customer_hair_view',$result); //โหลดหน้าทรงผม แล้วนำข้อมูลไปใช้งาน ใน hair_view
     }
 
-	public function barber_haircut_history()
-    {
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('banner/b_banner');
-        $this->load->view('barber_haircut_history');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
-    }
-
-	public function barber_add_portfolio()
-    {
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('banner/b_banner');
-        $this->load->view('barber_add_portfolio');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
-    }
-
-	public function barber_view_admin()
-    {
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('banner/b_banner');
-        $this->load->view('barber_view_admin');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
-    }
-
-	public function barber_profile()
-    {
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('banner/b_banner');
-        $this->load->view('barber_profile');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
-    }
-
-	public function edit_barber_profile()
-    {
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('banner/b_banner');
-        $this->load->view('barber_profile_edit');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
-    }
-
     public function nav()
     {
 

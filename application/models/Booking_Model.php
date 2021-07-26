@@ -94,18 +94,44 @@ class Booking_Model extends CI_Model
         return $query->result();
     }
 
-    function getTimeSlotByBarberID($B_ID)
+    /*function getTimeSlotByBarberID($B_ID)
     {
+        //$query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE BK_Year = '$BK_Year' & BK_Month = '$BK_Month' & BK_Day = '$BK_Day' & B_ID = '$B_ID')");
         $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE B_ID = '$B_ID')");
-        $output = '<input type="radio" name="ST_ID" id="Time_Slot">';
+        $output = '';
         foreach ($query->result() as $row) {
-            $output .= '<input type="radio" name="select" id="option-' . $row->ST_ID . '" value="' . $row->ST_ID . '"><label for="option-' . $row->ST_ID . '" class="option option-' . $row->ST_ID . '">
-         <div class="dot"></div>
-         <span>' . $row->ST_Time . '</span>
-       </label>';
+            $output .= '
+            <input type="radio" name="ST_ID" id="option-' . $row->ST_ID . '" value="' . $row->ST_ID . '">
+            <label for="option-' . $row->ST_ID . '" class="option option-' . $row->ST_ID . '">
+                <div class="dot"></div>
+                <span>' . $row->ST_Time . '</span>
+            </label>
+            ';
         }
         return $output;
+    }*/
+
+    function getTimeSlotByBarberID($B_ID)
+    {
+
+        //$query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE BK_Year = '$BK_Year' & BK_Month = '$BK_Month' & BK_Day = '$BK_Day' & B_ID = '$B_ID')");
+        $response  = array();
+        $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE B_ID = '$B_ID')");
+        $response  = $query->result_array();
+        return  $response ;
     }
+
+    function getTimeSlotBy_YearMonthDay($BK_Year,$BK_Month,$BK_Day)
+    {
+        $response  = array();
+        $query = $this->db->query("SELECT * FROM barber WHERE B_ID NOT IN(
+            SELECT B_ID FROM booking WHERE (BK_Year = '$BK_Year' and BK_Month = '$BK_Month' and BK_Day = '$BK_Day')
+            group by b_id
+            having (count(B_ID) = 10))");
+        $response  = $query->result_array();
+        return  $response ;
+    }
+
 
     function selectBarber1()
     {

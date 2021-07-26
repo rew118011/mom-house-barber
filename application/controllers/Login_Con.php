@@ -46,7 +46,7 @@ class Login_Con extends CI_Controller
                     } else if ($status->S_ID == 2) {
                         $data = array('Username' => $Username, 'S_ID' => $status, 'logged' => TRUE); //$data เก็บค่า Usermae และ Status เป็น array
                         $this->session->set_userdata($data); //สร้างตัวแปร session
-                        redirect('Login_Con/barber_page'); //ไปหน้า barber_view
+                        redirect('Barber_Con/index'); //ไปหน้า barber_view
                     } else {
                         $data = array('Username' => $Username, 'S_ID' => $status, 'logged' => TRUE); //$data เก็บค่า Usermae และ Status เป็น array
                         $this->session->set_userdata($data); //สร้างตัวแปร session
@@ -99,15 +99,7 @@ class Login_Con extends CI_Controller
         $this->load->view('Admin/Queue_Table', $data);
         $this->load->view('Admin/Footer');
     }
-    function barber_page()
-    {
-        $this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('banner/b_banner');
-        $this->load->view('barber_queue_table');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
-    }
+
     function customer_page()
     {
         $result['HS'] = $this->AM->get_HairStyle();

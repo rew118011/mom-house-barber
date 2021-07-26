@@ -54,8 +54,8 @@
         </div>
         <br>
 
-        <a class="back1" href="http://localhost/Mom_House_Barber/index.php/Customer_Con/show_profile">Back</a>
-        <a class="back2" href="http://localhost/Mom_House_Barber/index.php/Customer_Con/show_profile">Save</a>
+        <a class="back1" href="<?php echo site_url('Barber_Con/barber_profile'); ?>">Back</a>
+        <a class="back2" href="<?php echo site_url('Barber_Con/barber_profile'); ?>">Save</a>
         </div>
     </div>
 </div>

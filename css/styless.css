@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+    --main-color-light: #cc9768;
+    --main-color: #b07c4d;
+    --main-color-dark: #925a2a;
+    --main-color-super-dark: #754419;
+    --color-dark: #1d2231;
+    --grey-light: #d8d8d8;
+    --dark-grey: #3f3f3f;
+    --text-grey: #7a7c80;
+    --background--white: #fffefe;
+    --background--dark--white: #f3f3f3;
+    --text--color--dark: #291f1d;
+    --text--color--light: #ffffff;
+}
+
+.select.barber .in-select {
+    margin: 1% auto;
+    display: flex;
+    width: 70%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.select.barber .in-select>.content {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.select.barber .in-select .item {
+    box-sizing: border-box;
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+}
+
+.select.barber .in-select .item .content {
+    height: 100%;
+    max-width: 1550px;
+    padding: 1%;
+}
+
+.select.barber .in-select .item .content input[type="radio"] {
+    display: none;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:not(:disabled)~label {
+    cursor: pointer;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:disabled~label {
+    color: #bcc2bf;
+    border-color: #bcc2bf;
+    box-shadow: none;
+}
+
+.select.barber .in-select .item .content label {
+    display: block;
+    background: white;
+    border: 1px solid var(--main-color-light);
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    box-shadow: 0px 3px 10px -2px rgba(161, 170, 166, 0.5);
+    position: relative;
+    transition-duration: .75s;
+    width: 215px;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:checked+label {
+    background: var(--main-color-light);
+    color: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 15px;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:checked+label::after {
+    color: #3d3f43;
+    font-family: FontAwesome;
+    border: 2px solid var(--main-color-light);
+    content: "\f00c";
+    font-size: 24px;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
+}
+
+.select.barber .in-select .image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.select.barber .in-select .image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 20% 70%;
+    /* try 20px 10px */
+}
+
+.select.barber .in-select .name p {
+    font-size: 16px;
+    text-align: center;
+}
+
+.select.barber .in-select .name p:nth-child(1) {
+    font-size: 18px;
+    text-align: center;
+}
+
+.select.barber .in-select .skill {
+    width: 95%;
+    margin: 0 auto;
+    padding: 0 0 5px 0;
+    box-sizing: border-box;
+}
+
+.select.barber .in-select .skill p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.select.barber .in-select .skillBox {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.select.barber .in-select .skillBox p:nth-child(1) {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: start;
+    margin-top: 2px;
+}
+
+.select.barber .in-select .skillBox p:nth-child(2) {
+    float: right;
+    position: relative;
+    top: -15px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.select.barber .in-select p {
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    padding: 0;
+    letter-spacing: 1px;
+}
+
+.select.barber .in-select p:nth-child(1) {
+    margin: 10px 0 0 0;
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+}
+
+.select.barber .in-select .skillBox .skill {
+    background: var(--text--color--dark);
+    padding: 3px 4px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: 0;
+    border-radius: 4px;
+}
+
+.select.barber .in-select .skillBox .skill .skill_level {
+    background: var(--background--white);
+    width: 100%;
+    height: 10px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+@media only screen and (max-width: 700px) {
+    section {
+        flex-direction: column;
+    }
+}

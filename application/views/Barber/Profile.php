@@ -7,7 +7,7 @@
         <div class="barber_profile_info">
             <div class="barber_profile_info_top">
                 <h1 class="barber_profile_h1">Username</h1>
-                <a class="profile_b_edit" href="<?php echo site_url('Page_Con/edit_barber_profile'); ?>"> Editprofile</a>
+                <a class="profile_b_edit" href="<?php echo site_url('Barber_Con/edit_barber_profile'); ?>"> Editprofile</a>
             </div>
             
             <div class="barber_profile_info_top">
