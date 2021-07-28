@@ -10,62 +10,59 @@ class Barber_Con extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('Barber/b_banner');
+		$this->load->view('Barber/Header');
+        $this->load->view('Barber/ItemStories');
         $this->load->view('Barber/Queue_Table');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
+        $this->load->view('Barber/Footer');
 	}
 
-    public function barber_haircut_history()
+    public function getHaircutHistory()
     {
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('Barber/b_banner');
+        $this->load->view('Barber/Header');
+        $this->load->view('Barber/ItemStories');
         $this->load->view('Barber/Haircut_History');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
+        $this->load->view('Barber/Footer');
     }
 
-    public function barber_add_portfolio()
+    public function addPortfolio()
     {
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('Barber/b_banner');
-        $this->load->view('Barber/Add_Portfolio.php');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
+		$this->load->view('Barber/Header');
+        $this->load->view('Barber/ItemStories');
+        $this->load->view('Barber/Add_Portfolio');
+        $this->load->view('Barber/Footer');
     }
 
-    public function barber_view_admin()
+    public function getAddminProfile()
     {
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('Barber/b_banner');
+		$this->load->view('Barber/Header');
+        $this->load->view('Barber/ItemStories');
         $this->load->view('Barber/Admin_Profile');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
+        $this->load->view('Barber/Footer');
     }
 
-    public function barber_profile()
+    public function getProfileBarber()
     {
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('Barber/b_banner');
-        $this->load->view('Barber/Profile');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
+        $sess =  $this->session->userdata('Username');              //นำข้อมูล session เก็บไว้ในตัวแปร $sess
+        $data['BARBER'] = $this->BM->getProfileBarber($sess);       //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
+
+
+		$this->load->view('Barber/Header');
+        $this->load->view('Barber/ItemStories');
+        $this->load->view('Barber/Profile', $data);
+        $this->load->view('Barber/Portfolio');
+        $this->load->view('Barber/Footer');
     }
 
-    public function edit_barber_profile()
+    public function setProfileBarber()
     {
-		$this->load->view('head_html/b_head');
-        $this->load->view('header/barber_navbar');
-        $this->load->view('Barber/b_banner');
-        $this->load->view('Barber/Edit_Profile');
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/b_footer');
+        $sess =  $this->session->userdata('Username');              //นำข้อมูล session เก็บไว้ในตัวแปร $sess
+        $data['BARBER'] = $this->BM->getProfileBarber($sess);       //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
+
+
+		$this->load->view('Barber/Header');
+        $this->load->view('Barber/ItemStories');
+        $this->load->view('Barber/Edit_Profile', $data);
+        $this->load->view('Barber/Footer');
     }
 
 	function show_profilebarber() //ฟังก์ชั่นดู โปรไฟล์ customer

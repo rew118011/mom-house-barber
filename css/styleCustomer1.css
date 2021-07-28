@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap");
 :root {
+    --main-color-super-light: #fff4eb;
     --main-color-light: #cc9768;
     --main-color: #b07c4d;
     --main-color-dark: #925a2a;
@@ -9,10 +10,12 @@
     --grey-light: #d8d8d8;
     --dark-grey: #3f3f3f;
     --text-grey: #7a7c80;
+    --background: #fafafa;
     --background--white: #fffefe;
     --background--dark--white: #f3f3f3;
     --text--color--dark: #291f1d;
     --text--color--light: #ffffff;
+    --yellow-dark: #f79b31;
 }
 
 * {
@@ -574,6 +577,30 @@ form .btn input[type="submit"] {
 
 /*---------------------------------------------------------- ! booking --------------------------------------------------------*/
 
+.booking-form-inner {
+    margin: 7.5% 15%;
+    padding: 4% 1.5% 1% 1.5%;
+    border: 1px solid #000;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background: #ffffff;
+    animation-name: trabsitionInBookingForm;
+    animation-duration: 0.5s;
+    transition-duration: 0.9s;
+}
+
+@keyframes trabsitionInBookingForm {
+    0% {
+        transform: translateY(50%);
+    }
+    50% {
+        transform: translateY(-10%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
 .select {
     margin: 1%;
     font-family: "Prompt", sans-serif;
@@ -599,6 +626,7 @@ form .btn input[type="submit"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .booking-form-inner .select.date p:nth-child(2) {
@@ -623,9 +651,9 @@ form .btn input[type="submit"] {
 }
 
 .booking-form-inner form .dropdown-date {
-    margin: 0 0.5%;
+    margin: 0 1%;
     height: 40px;
-    width: 17.5%;
+    width: 20%;
     outline: none;
     padding: 0 20px;
     border-radius: 10px;
@@ -635,13 +663,20 @@ form .btn input[type="submit"] {
     color: #474747;
     transition: all 0.3s ease;
     font-family: "Prompt", sans-serif;
+    position: relative;
+    cursor: pointer;
+    animation-name: trabsitionInButton;
+    animation-duration: 0.5s;
+    transition-duration: 0.9s;
 }
 
 .booking-form-inner form .dropdown-date option {
+    cursor: pointer;
     color: var(--main-color-super-dark);
 }
 
-.booking-form-inner form .dropdown-date option:hover {
+.booking-form-inner form .dropdown-date option::before {
+    cursor: pointer;
     background: var(--main-color-super-dark);
 }
 
@@ -672,6 +707,19 @@ form .btn input[type="submit"] {
     width: 50%;
     margin-bottom: 20px;
     padding: 0px 10px;
+    position: relative;
+    animation: animatop 0.9s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
+}
+
+@keyframes animatop {
+    0% {
+        opacity: 0;
+        bottom: -100px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 0px;
+    }
 }
 
 .select.barber .in-select .item .content {
@@ -705,7 +753,7 @@ form .btn input[type="submit"] {
     box-shadow: 0px 3px 10px -2px rgba(161, 170, 166, 0.5);
     position: relative;
     transition-duration: .75s;
-    width: 250px;
+    width: 225px;
 }
 
 .select.barber .in-select .item .content input[type="radio"]:checked+label {
@@ -715,10 +763,25 @@ form .btn input[type="submit"] {
     border-radius: 15px;
 }
 
+.select.barber .in-select .item .content input[type="radio"]:checked+label .data-barber .name p,
+.select.barber .in-select .item .content input[type="radio"]:checked+label .skill p,
+.select.barber .in-select .item .content input[type="radio"]:checked+label .skill .skillBox p {
+    color: white;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:checked+label .skill .skillBox .skill {
+    background: var(--background--white);
+    padding: 1px 3px;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:checked+label .skill .skillBox .skill .skill_level {
+    background: var(--text--color--dark);
+}
+
 .select.barber .in-select .item .content input[type="radio"]:checked+label::after {
     color: #3d3f43;
     font-family: FontAwesome;
-    border: 2px solid var(--main-color-light);
+    border: 2px solid var(--main-color);
     content: "\f00c";
     font-size: 24px;
     position: absolute;
@@ -735,8 +798,8 @@ form .btn input[type="submit"] {
 }
 
 .select.barber .in-select .image {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     margin: 0 auto;
 }
 
@@ -746,6 +809,8 @@ form .btn input[type="submit"] {
     border-radius: 50%;
     object-fit: cover;
     object-position: 20% 70%;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
     /* try 20px 10px */
 }
 
@@ -769,13 +834,17 @@ form .btn input[type="submit"] {
 .select.barber .in-select .skill p {
     margin-bottom: 10px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     text-align: left;
 }
 
 .select.barber .in-select .skillBox {
     box-sizing: border-box;
     width: 100%;
+}
+
+.select.barber .in-select .skillBox {
+    margin-top: 10px;
 }
 
 .select.barber .in-select .skillBox p:nth-child(1) {
@@ -809,9 +878,9 @@ form .btn input[type="submit"] {
 .select.barber .in-select .skillBox .skill {
     background: var(--text--color--dark);
     padding: 3px 4px;
+    margin: 3px 0;
     box-sizing: border-box;
     width: 100%;
-    margin-left: 0;
     border-radius: 4px;
 }
 
@@ -877,6 +946,18 @@ form .btn input[type="submit"] {
     position: absolute;
 }
 
+.select.slottime .in-select .card-slottime {
+    margin: 0 auto 30px 12.5%;
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
 
 /* radio button */
 
@@ -892,30 +973,21 @@ form .btn input[type="submit"] {
 }
 
 .card-slottime .content {
-    display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    column-gap: 20px;
-    row-gap: 20px;
-    height: 90px;
-    width: 40%;
-    border-radius: 5px;
-    padding: 20px 15px;
+    margin: 0;
+    padding: 0;
 }
 
 .card-slottime .content .option {
     background: #fff;
     height: 100%;
-    width: 155px;
+    width: 135px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin: 0;
+    margin: 8px;
     border-radius: 25px;
     cursor: pointer;
-    padding: 0 10px;
+    padding: 3px 6px;
     border: 2px solid var(--main-color-dark);
     transition: all 0.3s ease;
     animation-name: trabsitionIn;
@@ -930,8 +1002,9 @@ form .btn input[type="submit"] {
 }
 
 .card-slottime .content .option .dot {
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
+    margin: 0;
     background: var(--main-color);
     border-radius: 50%;
     position: relative;
@@ -940,11 +1013,11 @@ form .btn input[type="submit"] {
 .card-slottime .content .option .dot::before {
     position: absolute;
     content: "";
-    top: 4px;
-    left: 4px;
-    width: 12px;
-    height: 12px;
-    background: var(--main-color-super-dark);
+    top: 3px;
+    left: 3px;
+    width: 9px;
+    height: 9px;
+    background: var(--main-color-dark);
     border-radius: 50%;
     opacity: 0;
     transform: scale(1.5);
@@ -961,8 +1034,8 @@ form .btn input[type="submit"] {
 #option-8:checked:checked~.option-8,
 #option-9:checked:checked~.option-9,
 #option-10:checked:checked~.option-10 {
-    border-color: var(--main-color-super-dark);
-    background: var(--main-color-super-dark);
+    border-color: var(--main-color-dark);
+    background: var(--main-color-dark);
 }
 
 #option-1:checked:checked~.option-1 .dot,
@@ -993,11 +1066,11 @@ form .btn input[type="submit"] {
 }
 
 .card-slottime .option span {
-    padding: 10px 0;
-    margin-left: 5px;
-    font-size: 16px;
+    padding: 7.5px 0;
+    font-size: 14px;
+    margin: 0;
     color: var(--main-color-dark);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .card-slottime .option span:hover {
@@ -1068,13 +1141,28 @@ form .btn input[type="submit"] {
 .booking-form-inner form .field {
     display: flex;
     justify-content: center;
-    margin: 100px 0;
+    margin: 0 0 50px 0;
+}
+
+@keyframes trabsitionInButton {
+    0% {
+        transform: scale(0.5, 0.5);
+        transform: translateY(100%);
+    }
+    100% {
+        transform: scale(1.1, 1.1);
+        transform: translateY(0%);
+    }
 }
 
 .booking-form-inner form .field .booking {
     font-family: "Prompt", sans-serif;
     color: #ffffff;
     background-color: #48c148;
+    position: relative;
+    animation-name: trabsitionInButton;
+    animation-duration: 0.5s;
+    transition-duration: 0.9s;
 }
 
 .booking-form-inner form .field .booking:hover {

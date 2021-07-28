@@ -8,7 +8,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1" />
   <title>Mom House Barber | Barber</title>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/test.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleAdmin.css">
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
   <script src="https://kit.fontawesome.com/fc529a0756.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -20,7 +20,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <div class="slidebar">
     <div class="slidebar-brand">
       <span>
-        <a href="<?php echo site_url('Login_Con/admin_page'); ?>">
+        <a href="<?php echo site_url('Admin_Con'); ?>">
           <h2><span><i class="las la-cut"></i></span> <span>
               <p>Mom House Barber</p>
             </span></h2>
@@ -31,28 +31,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="slidebar-menu">
       <ul>
         <li>
-          <a href="<?php echo site_url('Login_Con/admin_page'); ?>">
+          <a href="<?php echo site_url('Admin_Con'); ?>">
             <span class="las la-igloo"></span>
             <span class="span-title">หน้าแรก</span>
           </a>
         </li>
 
         <li>
-          <a href="<?php echo site_url('Admin_Con/admin_seebookingqueueall'); ?>">
+          <a href="<?php echo site_url('Admin_Con/getWaitingQueue'); ?>">
             <span class="las la-users"></span>
             <span class="span-title">จัดการปฏิทิน</span>
           </a>
         </li>
 
         <li>
-          <a href="<?php echo site_url('Admin_Con/admin_seebarberall'); ?>">
+          <a href="<?php echo site_url('Admin_Con/getBarberAll'); ?>">
             <span class="las la-clipboard-list"></span>
             <span class="span-title">จัดการช่าง</span>
           </a>
         </li>
 
         <li>
-          <a href="<?php echo site_url('Admin_Con/admin_seecustomerall'); ?>">
+          <a href="<?php echo site_url('Admin_Con/getCustomerAll'); ?>">
             <span class="las la-shopping-bag"></span>
             <span class="span-title">จัดการลูกค้า</span>
           </a>

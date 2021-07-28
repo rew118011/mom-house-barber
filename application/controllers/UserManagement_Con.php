@@ -15,7 +15,7 @@ class UserManagement_Con extends CI_Controller
     {
         $this->load->view('index');
     }
-    function create_barber() //ฟังก์ชั่น เพิมชาง
+    function createBarber() //ฟังก์ชั่น เพิมชาง
     {
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Create_Barber'); //เรียกใช้งานหน้า เพิมชาง
@@ -80,18 +80,18 @@ class UserManagement_Con extends CI_Controller
                 );
                 $this->UMM->createBarberlogin($data1);
                 $this->UMM->createBarber($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
-                redirect('Admin_Con/admin_seebarberall', 'refresh');
+                redirect('Admin_Con/getBarberAll', 'refresh');
             } else { //กรอกข้อมูลไม่ถูกต้องตามกฏ
                 $this->session->set_flashdata('msg_error', 'กรุณากรอกข้อมูลครบค่ะ !');
                 $this->load->view('Create_Barber.php');
             }
         } else { //กลับไปหน้าช่างทั้งหมด
-            redirect('Admin_Con/admin_seebarberall');
+            redirect('Admin_Con/getBarberAll', 'refresh');
         }
     }
 
 
-    function admin_editbarber($id)
+    function setBarber($id)
     {
         $data['BARBER'] = $this->UMM->selecting_OneBarberEdit($id);
 
@@ -113,17 +113,17 @@ class UserManagement_Con extends CI_Controller
         );
         $check = $this->UMM->setBarber($data);
         if ($check == TRUE) {
-            redirect('Admin_Con/admin_seebarberall', 'refresh');
+            redirect('Admin_Con/getBarberAll', 'refresh');
         } else {
             echo "<script language=\"JavaScript\">";
             echo "alert('ไม่สามารถบันทึกข้อมูลได้ค่ะเกิดข้อผิดพลาด')";
             echo "</script>";
-            redirect('Admin_Con/admin_seebarberall');
+            redirect('Admin_Con/getBarberAll', 'refresh');
         }
     }
-    public function del_barber($id)
+    public function deleteBarber($id)
     {
         $data['BARBER'] = $this->UMM->deleteBarber($id);
-        redirect('Admin_Con/admin_seebarberall', 'refresh');
+        redirect('Admin_Con/getBarberAll', 'refresh');
     }
 }

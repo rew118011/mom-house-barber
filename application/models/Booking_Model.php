@@ -111,12 +111,12 @@ class Booking_Model extends CI_Model
         return $output;
     }*/
 
-    function getTimeSlotByBarberID($B_ID)
+    function getTimeSlotByBarberID($BK_Year,$BK_Month,$BK_Day,$B_ID)
     {
 
         //$query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE BK_Year = '$BK_Year' & BK_Month = '$BK_Month' & BK_Day = '$BK_Day' & B_ID = '$B_ID')");
         $response  = array();
-        $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE B_ID = '$B_ID')");
+        $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN( SELECT ST_ID FROM booking WHERE (BK_Year = '$BK_Year' and BK_Month = '$BK_Month' and BK_Day = '$BK_Day' AND B_ID = '$B_ID'))");
         $response  = $query->result_array();
         return  $response ;
     }

@@ -31,7 +31,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       foreach ($BARBER as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
       ?>
         <div class="barber-profile">
-          <a href="<?php echo site_url('Admin_Con/admin_see_barber_profile/') . $row->B_ID; ?>" class="menu-btn">
+          <a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $row->B_ID; ?>" class="menu-btn">
             <div>
               <p><?php echo $row->B_Nickname; ?></p>
               <span>14520 ฿</span>
@@ -54,7 +54,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <div class="card-header">
             <h3>ช่างตัดผมในร้าน</h3>
             <div>
-              <a href="<?php echo site_url('UserManagement_Con/create_barber'); ?>"><button><i class="fas fa-user-plus"></i> เพิ่มช่างตัดผม <span class="las la-arrow-right"></span></button></a>
+              <a href="<?php echo site_url('UserManagement_Con/createBarber'); ?>"><button><i class="fas fa-user-plus"></i> เพิ่มช่างตัดผม <span class="las la-arrow-right"></span></button></a>
             </div>
           </div>
 
@@ -85,21 +85,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <td class="td-barber-queue">
                         <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
                       </td>
-                      <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/admin_see_barber_profile/B00001'); ?>">ช่าง<?php echo $row->B_Nickname; ?></a></td>
+                      <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $row->B_ID; ?>">ช่าง<?php echo $row->B_Nickname; ?></a></td>
                       <td class="td-barber-queue"><?php echo $row->B_Name; ?></td>
                       <td class="td-barber-queue"><?php echo $row->B_Lname; ?></td>
                       <td class="td-barber-queue"><?php echo $row->B_Phone; ?></td>
                       <td class="td-barber-queue">
-                        <a class="queue-income" href="<?php echo site_url('Admin_Con/admin_see_barber_income'); ?>"><i class="fas fa-search-dollar"></i></a>
+                        <a class="queue-income" href="<?php echo site_url('Admin_Con/getBarberIncome'); ?>"><i class="fas fa-search-dollar"></i></a>
                       </td>
                       <td class="td-barber-queue">
                         <a class="queue-check" href="#"><i class="far fa-calendar-alt"></i></a>
                       </td>
                       <td class="td-barber-queue">
-                        <a class="queue-edit" href="<?php echo site_url('UserManagement_Con/admin_editbarber/' . $row->B_ID); ?>"><i class="fas fa-pen-square"></i></a>
+                        <a class="queue-edit" href="<?php echo site_url('UserManagement_Con/setBarber/' . $row->B_ID); ?>"><i class="fas fa-pen-square"></i></a>
                       </td>
                       <td class="td-barber-queue">
-                        <a class="queue-cancel" href="<?php echo site_url('UserManagement_Con/del_barber/' . $row->B_ID); ?>"><i class="fas fa-window-close"></i></a>
+                        <a class="queue-cancel" href="<?php echo site_url('UserManagement_Con/deleteBarber/' . $row->B_ID); ?>" onclick="return confirm('ยืนยัน');"><i class="fas fa-window-close"></i></a>
                       </td>
                       <td></td>
                     </tr>

@@ -1,55 +1,257 @@
-<div class="container-table">
-    <div class="header-barber-queue">ประวัติการตัดของคุณ</div>
-    <div class="table-barber-queue">
-      <table class="barber-queue" cellspacing="0">
-        <tr class="tr-barber-queue">
-          <th class="th-barber-queue">Picture</th>
-          <th class="th-barber-queue">Nickname</th>
-          <th class="th-barber-queue">Phone</th>
-          <th class="th-barber-queue">Date</th>
-          <th class="th-barber-queue">Time</th>
-          <th class="th-barber-queue">Price</th>
-        </tr>
-        <tr class="tr-barber-queue">
-          <td class="td-barber-queue">
-            <img class="img-barber-queue" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" alt="" />
-          </td>
-          <td class="td-barber-queue">Noch</td>
-          <td class="td-barber-queue">0651134910</td>
-          <td class="td-barber-queue">05 / 03 / 2564</td>
-          <td class="td-barber-queue">12:00 - 13:00</td>
-          <td class="td-barber-queue">150</td>
-        </tr>
-        <tr class="tr-barber-queue">
-          <td class="td-barber-queue">
-            <img class="img-barber-queue" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" alt="" />
-          </td>
-          <td class="td-barber-queue">Noch</td>
-          <td class="td-barber-queue">0651134910</td>
-          <td class="td-barber-queue">05 / 03 / 2564</td>
-          <td class="td-barber-queue">12:00 - 13:00</td>
-          <td class="td-barber-queue">150</td>
-        </tr>
-        <tr class="tr-barber-queue">
-          <td class="td-barber-queue">
-            <img class="img-barber-queue" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" alt="" />
-          </td>
-          <td class="td-barber-queue">Noch</td>
-          <td class="td-barber-queue">0651134910</td>
-          <td class="td-barber-queue">05 / 03 / 2564</td>
-          <td class="td-barber-queue">12:00 - 13:00</td>
-          <td class="td-barber-queue">150</td>
-        </tr>
-        <tr class="tr-barber-queue">
-          <td class="td-barber-queue">
-            <img class="img-barber-queue" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" alt="" />
-          </td>
-          <td class="td-barber-queue">Noch</td>
-          <td class="td-barber-queue">0651134910</td>
-          <td class="td-barber-queue">05 / 03 / 2564</td>
-          <td class="td-barber-queue">12:00 - 13:00</td>
-          <td class="td-barber-queue">150</td>
-        </tr>
-      </table>
+<!--   #posts start -->
+<div class="posts queue">
+  <!-- .post start -->
+  <div class="container queue">
+    <div class="item queue">
+      <div class="content Slot_time_1">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : โนช</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item queue">
+      <div class="content Slot_time_2">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : เอิร์ธ</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item queue">
+      <div class="content Slot_time_3">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : บิว</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item queue">
+      <div class="content Slot_time_4">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : ริว</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item queue">
+      <div class="content Slot_time_5">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : มิ้ว</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item queue">
+      <div class="content Slot_time_6">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : เดฟ</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item queue">
+      <div class="content Slot_time_7">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : เปา</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item queue">
+      <div class="content Slot_time_8">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : โด้</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item queue">
+      <div class="content Slot_time_9">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : กาย</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item queue">
+      <div class="content Slot_time_10">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : บาส</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <!-- .post finish -->
+</div>
+<!--   #posts finish -->

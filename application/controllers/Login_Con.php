@@ -42,11 +42,11 @@ class Login_Con extends CI_Controller
                     if ($status->S_ID == 1) {     //ถ้าสเตตัส = 1
                         $data = array('Username' => $Username, 'S_ID' => $status, 'logged' => TRUE); //$data เก็บค่า Usermae และ Status เป็น array
                         $this->session->set_userdata($data); //สร้างตัวแปร session
-                        redirect('Login_Con/admin_page'); //ไปหน้า admin_view
+                        redirect('Admin_Con', 'refresh'); //ไปหน้า admin_view
                     } else if ($status->S_ID == 2) {
                         $data = array('Username' => $Username, 'S_ID' => $status, 'logged' => TRUE); //$data เก็บค่า Usermae และ Status เป็น array
                         $this->session->set_userdata($data); //สร้างตัวแปร session
-                        redirect('Barber_Con/index'); //ไปหน้า barber_view
+                        redirect('Barber_Con', 'refresh'); //ไปหน้า barber_view
                     } else {
                         $data = array('Username' => $Username, 'S_ID' => $status, 'logged' => TRUE); //$data เก็บค่า Usermae และ Status เป็น array
                         $this->session->set_userdata($data); //สร้างตัวแปร session
@@ -83,21 +83,7 @@ class Login_Con extends CI_Controller
         //รองรับ parameterแรกที่เป็น URI Segment
         $data['minicalendar'] = $this->calendar->generate($this->uri->segment(3), $this->uri->segment(4), $events);
 
-        $this->load->view('head_html/n_head');
-        $this->load->view('header/header');
-        $this->load->view('banner/banner');
-        $this->load->view('n_calendar', $data);
-        $this->load->view('non_cus_hair_style', $result);
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/n_footer');
-    }
-    function admin_page()
-    {
-        $data['BOOKING'] = $this->AM->getBooking();
-
-        $this->load->view('Admin/Header');
-        $this->load->view('Admin/Queue_Table', $data);
-        $this->load->view('Admin/Footer');
+        redirect('', 'refresh');
     }
 
     function customer_page()

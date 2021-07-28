@@ -33,8 +33,12 @@ class Booking_Con extends CI_Controller
 
     public function fetch_TimeSlot()
     {
+        $BK_Year = $this->input->post('BK_Year');
+        $BK_Month = $this->input->post('BK_Month');
+        $BK_Day = $this->input->post('BK_Day');
+        $B_ID = $this->input->post('B_ID');
         // get data 
-        $data = $this->BKM->getTimeSlotByBarberID($this->input->post('B_ID'));
+        $data = $this->BKM->getTimeSlotByBarberID($BK_Year,$BK_Month,$BK_Day,$B_ID);
         echo json_encode($data);
     }
 

@@ -136,7 +136,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="card">
                     <div class="card-header">
                         <h3>ชำระเงินแล้ว / วันนี้</h3>
-                        <a href="<?php echo site_url('Admin_Con/admin_see_all_orders'); ?>">
+                        <a href="<?php echo site_url('Admin_Con/getSuccessfulQueue'); ?>">
                             <button>
                                 รายการทั้งหมด <span class="las la-arrow-right"></span>
                             </button>

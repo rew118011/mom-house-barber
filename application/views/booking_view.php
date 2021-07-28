@@ -31,26 +31,21 @@
 			</div>
 		</div>
 
-
-
-
-
-
-
+		<!-- select barber start -->
 		<div class="select slottime">
 			<div class="in-select">
-				<div class="card-slottime">
-					<div id="Time_Slot" class="content">
+				<div id="Time_Slot" class="card-slottime">
 
-					</div>
 				</div>
 			</div>
 		</div>
+		<!-- select barber finish -->
 
-
+		<!-- select slot time start -->
 		<div class="field btn">
 			<input class="booking" type="submit" name="btnBooking" value="ตกลง">
 		</div>
+		<!-- select slot time finish -->
 
 	</form>
 </div>
@@ -101,6 +96,7 @@
 							$('#Time_Slot').find('input[type="radio"]').remove();
 							$('#Time_Slot').find('.input.slottime').remove();
 							$('#Time_Slot').find('.option.slottime').remove();
+							$('#Time_Slot').find('.option.slottime').remove();
 							$.each(response, function(index, data) {
 								$('#barber').append('<div class="item barber"><div class="content"><input class="bb" type="radio" name="B_ID" value="' + data['B_ID'] + '" id="' + data['B_ID'] + '" class"barber_slottime" /><label class="Nbarber" for="' + data['B_ID'] + '"><div class="image"><img src="http://localhost/Mom_House_Barber/img/' + data['B_Img'] + '"></div><div class="data-barber"><div class="name"><p>ช่าง' + data['B_Nickname'] + '</p></div></div><div class="skill"><p>ความชำนาญในแต่ละด้าน</p><div class="skillBox"><p>' + data['B_Skill1'] + '</p><p>' + data['B_Skill_Score1'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score1'] + '%;"></div></div></div><div class="skillBox"><p>' + data['B_Skill2'] + '</p><p>' + data['B_Skill_Score2'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score2'] + '%;"></div></div></div><div class="skillBox"><p>' + data['B_Skill3'] + '</p><p>' + data['B_Skill_Score3'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score3'] + '%;"></div></div></div></div></label></div></div>');
 							});
@@ -112,15 +108,19 @@
 									method: "POST",
 									dataType: 'json',
 									data: {
+										BK_Year: BK_Year,
+										BK_Month: BK_Month,
+										BK_Day: BK_Day,
 										B_ID: B_ID
 									},
 
 									success: function(response) {
+										$('#Time_Slot').find('.content').remove();
 										$('#Time_Slot').find('input[type="radio"]').remove();
 										$('#Time_Slot').find('.input.slottime').remove();
 										$('#Time_Slot').find('.option.slottime').remove();
 										$.each(response, function(index, data) {
-											$('#Time_Slot').append('<input class="input slottime" type="radio" name="ST_ID" id="option-' + data['ST_ID'] + '" value="' + data['ST_ID'] + '"><label for="option-' + data['ST_ID'] + '" class="option option-' + data['ST_ID'] + ' slottime"><div class="dot"></div><span>' + data['ST_Time'] + '</span></label>  ');
+											$('#Time_Slot').append('<div class="content"><input class="input slottime" type="radio" name="ST_ID" id="option-' + data['ST_ID'] + '" value="' + data['ST_ID'] + '"><label for="option-' + data['ST_ID'] + '" class="option option-' + data['ST_ID'] + ' slottime"><div class="dot"></div><span>' + data['ST_Time'] + '</span></label></div> ');
 										});
 
 									}
