@@ -2,7 +2,7 @@
 <div class="barber_container">
     <div class="barber_profile">
         <div class="barber_profile_image">
-            <img class="barber_profile_image_img" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg"> <br>
+            <img class="barber_profile_image_img" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg"  onerror="this.src='<?php echo base_url(); ?>img/user.png'"> <br>
         </div>
         <div class="barber_profile_info">
             <div class="barber_profile_info_top">

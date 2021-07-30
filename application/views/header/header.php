@@ -22,7 +22,7 @@
     </div>
   </nav>
 
-  <div class="popup">
+  <div class="popup" style="display: flex;">
     <div class="popup-content">
       <div class="close">
         <i class="fas fa-times"></i>
@@ -45,13 +45,20 @@
               <label for="signup" class="slide signup" id="label-signup">Signup</label>
               <div class="slider-tab"></div>
             </div>
+            <?php
+            if ($this->session->flashdata('msg_error')) {
+              echo '<p style="font-size: 16px; color: #ff3f40; font-family: "Prompt", sans-serif;">';
+              echo $this->session->flashdata('msg_error');
+              echo '</p>';
+            }
+            ?>
             <div class="form-inner">
-              <form action="http://localhost/Mom_House_Barber/index.php/Login_Con/check_login" class="login" method="post">
+              <form action="<?php echo site_url('Login_Con/check_login');?>" class="login" method="post">
                 <div class="field">
-                  <input type="text" name="Username" placeholder="Username" required>
+                  <input type="text" name="Username" placeholder="Username" require>
                 </div>
                 <div class="field">
-                  <input type="password" name="Password" placeholder="Password" required>
+                  <input type="password" name="Password" placeholder="Password" require>
                 </div>
                 <div class="pass-link"><a href="#">
                     <!-- Forgot password? -->
@@ -62,12 +69,12 @@
                 </div>
                 <div class="signup-link">Not a member? <a href="">Signup now</a></div>
               </form>
-              <form action="http://localhost/Mom_House_Barber/index.php/Customer_Con/insert_regis" class="signup" method="post">
+              <form action="<?php echo site_url('Customer_Con/insert_regis');?>" class="signup" method="post">
                 <div class="field">
-                  <input type="text" name="Username" placeholder="Username (At least 6)" required>
+                  <input type="text" name="Username" placeholder="Username (At least 6)" maxlength="20" minlength="6" required>
                 </div>
                 <div class="field">
-                  <input type="password" name="Password" placeholder="Password" required>
+                  <input type="password" name="Password" placeholder="Password (At least 6)" maxlength="20" minlength="6" required>
                 </div>
                 <div class="field C_Name Display-non">
                   <input type="text" name="C_Name" value="ไม่มีข้อมูล" placeholder="First name" required>
@@ -76,7 +83,7 @@
                   <input type="text" name="C_Lname" value="ไม่มีข้อมูล" placeholder="Last name" required>
                 </div>
                 <div class="field C_Nickname">
-                  <input type="text" name="C_Nickname" placeholder="Nickname" required>
+                  <input type="text" name="C_Nickname" placeholder="Nickname" maxlength="20" required>
                 </div>
                 <div class="raido-sex-button C_Sex Display-non">
                   <div class="sex-radio-container">
@@ -104,7 +111,7 @@
                   </div>
                 </div>
                 <div class="field C_Phone">
-                  <input type="text" name="C_Phone" placeholder="Phone" required>
+                  <input type="tel" name="C_Phone" placeholder="Phone (0651459563)" maxlength="10" pattern="[0]{1}[0-9]{9}" required>
                 </div>
                 <div class="field C_Facebook Display-non">
                   <input type="text" name="C_Facebook" value="ไม่มีข้อมูล" placeholder="Facebook" required>

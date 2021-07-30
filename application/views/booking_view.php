@@ -177,7 +177,8 @@
 		function AdjustDays() {
 			var year = BK_Year.val();
 			var month = parseInt(BK_Month.val()); //parseInt แปลงตัวเลข
-
+				
+			BK_Day.empty();
 
 
 			var days = new Date(year, month, 0).getDate(); //วันสุดท้ายของ ในเดือนและปีนั้น

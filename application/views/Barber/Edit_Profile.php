@@ -1,7 +1,7 @@
 <div class="edit_profile_container">
     <div class="edit_profile">
         <div class="edit_profile__image">
-            <img class="edit_profile_image_img" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg">
+            <img class="edit_profile_image_img" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg"  onerror="this.src='<?php echo base_url(); ?>img/user.png'">
         </div>
 
         <div class="edit_profile_info">

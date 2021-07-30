@@ -34,7 +34,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="profile">
         <div class="image">
           <a href="<?php echo site_url('Barber_Con/getProfileBarber'); ?>">
-            <img src="<?php echo base_url(); ?>/img/me.jpg" alt="" />
+            <img src="<?php echo base_url(); ?>/img/me.jpg" alt=""  onerror="this.src='<?php echo base_url(); ?>img/user.png'" />
           </a>
         </div>
         <a href="<?php echo site_url('Barber_Con/getProfileBarber'); ?>" class="username">Barber Noch</a>

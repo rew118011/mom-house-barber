@@ -4,7 +4,7 @@
         <div class="Add_icon">
             <div class="add_img">
                 <div class="add_imge">
-                    <img class="add_imge" src="<?php echo base_url(); ?>/img/HairStyle1_1.jpg" alt="" />
+                    <img class="add_imge" src="<?php echo base_url(); ?>/img/HairStyle1_1.jpg" alt=""  onerror="this.src='<?php echo base_url(); ?>img/user.png'" />
                 </div>
                 <div class="add_imge">
                     <i class="far fa-plus-square"></i>

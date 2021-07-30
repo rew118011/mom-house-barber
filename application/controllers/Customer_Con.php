@@ -11,9 +11,36 @@ class Customer_Con extends CI_Controller
         $this->load->model('Admin_Model', 'AM');
         $this->load->model('Booking_Model', 'BKM');
     }
-    function index() //ฟังก์ชั่น index
+    function index()
     {
-        $this->load->view('index'); //เรีียกใช้งานหน้า index
+        $result['HS'] = $this->AM->get_HairStyle();
+
+        $config = array(
+            'start_day' => 'monday', //เริ่มวันต้น วันจันทร์
+            'month_type' => 'long', //ขนาดของชื่อเต็มเดือน long = ความยาว
+            'day_type' => 'long', //ขนาดของชื่อเต็มเดือน //long = ความยาว
+            'show_next_prev' => TRUE, //มีลูกศพให้กดในการเชื่อมโยงเดือน
+            'next_prev_url' => site_url('Calendar_Con/calendar') //เลื่อนเดือนหรือย้อนหลังกลับไป
+        );
+        $events = array(
+            1 => base_url() . 'index.php/Login_Con/login', //มีการเชื่อมโยงหน้าเวลากดที่วันที่
+            10 => base_url() . 'index.php/Login_Con/login', //มีการเชื่อมโยงหน้าเวลากดที่วันที่
+        );
+        $this->load->library('calendar', $config); //เรียกใช้งาน calendar ใน library
+        //รองรับ parameterแรกที่เป็น URI Segment
+        $datacalendar['minicalendar'] = $this->calendar->generate($this->uri->segment(3), $this->uri->segment(4), $events);
+
+        $sess =  $this->session->userdata('Username');
+        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+
+
+        $this->load->view('head_html/c_head');
+        $this->load->view('header/customer_navbar', $datasess);
+        $this->load->view('banner/banner');
+        $this->load->view('c_calendar', $datacalendar);
+        $this->load->view('customer_hair_view', $result);
+        $this->load->view('footer/footer');
+        $this->load->view('footer_html/c_footer');
     }
 
     public function getHairStyle()
@@ -31,10 +58,6 @@ class Customer_Con extends CI_Controller
         $this->load->view('footer_html/c_footer');
     }
 
-    function register() //ฟังก์ชั่น register
-    {
-        $this->load->view('register_view'); //เรียกใช้งานหน้า register
-    }
     function insert_regis() //ฟังก์ชั่น insert customer
     {
         //สร้างกฏสำหรับ Username 'required'คือต้องไม่เป็นค่าว่าง หรือ มีตัวอักษรอย่างน้อย 6 ตัว หรือ ตัวอักษรและตัวเลข
@@ -82,28 +105,28 @@ class Customer_Con extends CI_Controller
                 if ($checkRegisterLoginDuplicate == 1) {
                     echo "<center>ข้อมูลที่คุณกรอกเข้ามาเคยลงทะเบียนแล้วค่ะ !</center>";
                 } else {
-                   $checkLogin = $this->CM->register_login($data1);   //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
-                   $checkRegister = $this->CM->register($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล  
-                        if($checkLogin && $checkRegister == TRUE){
-                    echo "<script language=\"JavaScript\">";
-                    echo "alert('สมัครสมาชิกสำเร็จ')";
-                    echo "</script>";
-                        }else{
-                    echo "<script language=\"JavaScript\">";
-                    echo "alert('ไม่สามารถสมัครสมาชิกได้ค่ะกรุณาสมัครเข้ามาใหม่ !')";
-                    echo "</script>";
-                        }
+                    $checkLogin = $this->CM->register_login($data1);   //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
+                    $checkRegister = $this->CM->register($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล  
+                    if ($checkLogin && $checkRegister == TRUE) {
+                        echo "<script language=\"JavaScript\">";
+                        echo "alert('สมัครสมาชิกสำเร็จ')";
+                        echo "</script>";
+                    } else {
+                        echo "<script language=\"JavaScript\">";
+                        echo "alert('ไม่สามารถสมัครสมาชิกได้ค่ะกรุณาสมัครเข้ามาใหม่ !')";
+                        echo "</script>";
+                    }
                 }
                 //redirect('Page_Con/index', 'refresh');
-            echo "<script language=\"JavaScript\">";
-            echo "setTimeout(function(){window.location.href='http://localhost/Mom_House_Barber/index.php/Page_Con/index'},3000)";
-            echo "</script>";
+                echo "<script language=\"JavaScript\">";
+                echo "setTimeout(function(){window.location.href='http://localhost/Mom_House_Barber/index.php/Page_Con/index'},500)";
+                echo "</script>";
             } else { //กรอกข้อมูลไม่ถูกต้องตามกฏ
                 $this->session->set_flashdata('msg_error', 'กรุณากรอกข้อมูลครบค่ะ !');
-                $this->load->view('register_view');
+                redirect('');
             }
         } else { //กลับไปหน้าล็อคอิน
-            redirect('Customer_Con/register_view');
+            redirect('');
         }
     }
 
@@ -140,13 +163,31 @@ class Customer_Con extends CI_Controller
 
     function save_profile() //ฟังก์ชั่น update customer
     {
+        $config['upload_path'] = 'img/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size']  = 100024;
+        $config['max_width'] = 6000;
+        $config['max_height'] = 6000;
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('C_Img')) {
+            $C_Img = '';
+        } else {
+            $fileData = $this->upload->data();
+            $C_Img = $data['C_Img'] = $fileData['file_name'];
+        }
+
         $data = array(
             'C_ID' => $this->input->post("C_ID"),
+            'C_Nickname' => $this->input->post("C_Nickname"),
             'C_Name' => $this->input->post("C_Name"),
             'C_Lname' => $this->input->post("C_Lname"),
             'C_Sex' => $this->input->post("C_Sex"),
             'C_Phone' => $this->input->post("C_Phone"),
-            'C_Facebook' => $this->input->post("C_Facebook")
+            'C_Facebook' => $this->input->post("C_Facebook"),
+            'C_Img' => $C_Img
         );
         $this->CM->setProfile($data);
         $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
@@ -201,14 +242,13 @@ class Customer_Con extends CI_Controller
 
         $sess =  $this->session->userdata('Username');
         $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-        
+
         $this->load->view('head_html/c_head');
         $this->load->view('header/customer_navbar', $datasess);
         $this->load->view('banner/all_banner');
         $this->load->view('showbookingqueue_view', $data);
         $this->load->view('footer/footer');
         $this->load->view('footer_html/c_footer');
-        
     }
     function del_booking($id)
     {

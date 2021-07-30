@@ -8,7 +8,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mom House Barber | Customer</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleCustomer1.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleCustomer4.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/progress-circle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
@@ -20,6 +21,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
     <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 

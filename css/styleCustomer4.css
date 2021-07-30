@@ -16,6 +16,8 @@
     --text--color--dark: #291f1d;
     --text--color--light: #ffffff;
     --yellow-dark: #f79b31;
+    --yellow-light: #e5f89e;
+    --green-light: #48c148;
 }
 
 * {
@@ -325,7 +327,7 @@ body {
     left: 0;
     z-index: 0;
     border-radius: 5px;
-    background: -webkit-linear-gradient(left, var(--main-color-super-dark), #e4b04a);
+    background: -webkit-linear-gradient( left, var(--main-color-super-dark), #e4b04a);
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -752,12 +754,13 @@ form .btn input[type="submit"] {
     text-align: center;
     box-shadow: 0px 3px 10px -2px rgba(161, 170, 166, 0.5);
     position: relative;
-    transition-duration: .75s;
+    transition-duration: 0.75s;
     width: 225px;
 }
 
 .select.barber .in-select .item .content input[type="radio"]:checked+label {
-    background: var(--main-color-light);
+    background-color: var(--yellow-dark);
+    background: radial-gradient(#e5f89e, var(--yellow-dark));
     color: white;
     border: 1px solid var(--grey-light);
     border-radius: 15px;
@@ -2781,3 +2784,357 @@ strong {
 
 
 /*----------------------------------------- end footer ------------------------------------*/
+
+
+/* ------------------- ! Your Queue Start ---------------------------------- */
+
+.container.yourQueue {
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 5% 0;
+}
+
+img {
+    max-width: 100%;
+    filter: drop-shadow(1px 1px 3px #a6a6a6);
+}
+
+
+/* ----- Queue Section ----- */
+
+.container.yourQueue .queue {
+    display: grid;
+    grid-template-columns: 0.9fr 1fr;
+    margin: auto;
+    padding: 2.5em 0;
+    min-width: 600px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+
+/* ----- Photo Section ----- */
+
+.container.yourQueue .queue .barber__photo {
+    position: relative;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container {
+    position: absolute;
+    left: -2.5em;
+    display: grid;
+    grid-template-rows: 1fr;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    box-shadow: 4px 4px 25px -2px rgba(0, 0, 0, 0.3);
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .photo-main {
+    border-radius: 6px 6px 0 0;
+    background-color: var(--yellow-dark);
+    background: radial-gradient(var(--yellow-light), var(--yellow-dark));
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .photo-main .controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8em;
+    color: #fff;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .photo-main .controls a {
+    margin: 0;
+    font-family: "Prompt", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px 35px;
+    border-radius: 25px;
+    text-decoration: none;
+    background: #ffffff;
+    color: var(--yellow-dark);
+    border: 2px solid #ffffff;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .photo-main .controls a:hover {
+    border: 2px solid var(--yellow-dark);
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .photo-main img {
+    position: absolute;
+    left: -2.5em;
+    top: 4.5em;
+    max-width: 100%;
+    filter: saturate(150%) contrast(120%) hue-rotate(10deg) drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .photo-main img:hover {
+    box-shadow: 0 0 20px var(--yellow-dark);
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    transition-duration: 0.2s;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .photo-main img:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-animation: colorload 2s;
+    animation: colorload 2s;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album {
+    padding: 0.7em 1em;
+    border-radius: 0 0 6px 6px;
+    background-color: #fff;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album li {
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album li span {
+    font-size: 16px;
+    color: var(--dark-grey);
+    font-family: "Prompt", sans-serif;
+}
+
+
+/* ----------------------! Circle Percent Skill Start -------------------------*/
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album {
+    font-size: 14px;
+    padding: 4px;
+    display: inline-block;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album .progress-circle {
+    position: relative;
+    margin-bottom: 5px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: #ebebeb;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album .progress-circle:hover {
+    box-shadow: 0 0 20px var(--yellow-dark);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album .progress-circle:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-animation: colorload 2s;
+    animation: colorload 2s;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album .progress-circle span {
+    font-size: 18px;
+    color: #dddddd;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    border-radius: 50%;
+    background: rgb(48, 47, 47);
+    z-index: 1;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    cursor: default;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album .progress-circle span:hover {
+    box-shadow: 0 0 20px var(--yellow-dark);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .skill-album .progress-circle span:after {
+    content: "%";
+    font-weight: 600;
+    color: #dddddd;
+}
+
+@keyframes colorload {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+
+
+/*# sourceMappingURL=progress-circle.css.map */
+
+
+/* ----------------------! Circle Percent Skill Finish -------------------------*/
+
+
+/* ----- Informations Section ----- */
+
+.container.yourQueue .queue .queue__info {
+    padding: 20px 0;
+    margin: 0 0 20px 0;
+}
+
+.container.yourQueue .queue .queue__info .title p {
+    margin: 0 0 20px 0;
+    color: var(--dark-grey);
+    font-family: "Prompt", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.container.yourQueue .queue .queue__info .price {
+    color: var(--green-light);
+    font-size: 1.2em;
+    margin: 20px 0;
+    margin-left: 10px;
+}
+
+.container.yourQueue .queue .queue__info .price p {
+    padding-left: 0.15em;
+    font-size: 42px;
+    font-weight: 400;
+}
+
+.container.yourQueue .queue .queue__info .price span {
+    font-size: 46px;
+    font-weight: 500;
+}
+
+.container.yourQueue .queue .queue__info .date-time {
+    overflow: auto;
+    padding: 10px;
+}
+
+.container.yourQueue .queue .queue__info .date-time p:nth-child(1) {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--dark-grey);
+    font-family: "Prompt", sans-serif;
+}
+
+.container.yourQueue .queue .queue__info .date-time p:nth-child(2) {
+    margin: 20px 0 10px 10px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #ff3f40;
+    font-family: "Poppins", sans-serif;
+}
+
+.container.yourQueue .queue .queue__info .date-time p:nth-child(2) i {
+    font-size: 32px;
+}
+
+.container.yourQueue .queue .queue__info .date-time p:nth-child(2) span {
+    font-family: "Prompt", sans-serif;
+    font-size: 38px;
+    margin-left: 5px;
+    font-weight: 400;
+}
+
+.container.yourQueue .queue .queue__info .date-time p:nth-child(3) {
+    margin-bottom: 10px;
+    margin-left: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--dark-grey);
+}
+
+.container.yourQueue .queue .queue__info .date-time li {
+    float: left;
+    width: 35px;
+    height: 35px;
+    padding: 3px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.container.yourQueue .queue .queue__info .description {
+    clear: left;
+    padding: 10px;
+}
+
+.container.yourQueue .queue .queue__info .description p {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--dark-grey);
+    font-family: "Prompt", sans-serif;
+    margin: 15px 0;
+}
+
+.container.yourQueue .queue .queue__info .description ul {
+    margin-left: 10px;
+    margin-bottom: 40px;
+}
+
+.container.yourQueue .queue .queue__info .description li {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--dark-grey);
+    font-family: "Prompt", sans-serif;
+    list-style: none;
+}
+
+.container.yourQueue .queue .queue__info .cancel--btn {
+    margin: 10px 20px;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 7px;
+    font-family: "Prompt", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.3px;
+    color: #ff3f40;
+    background-color: #fff;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.container.yourQueue .queue .queue__info .cancel--btn:hover {
+    font-family: "Prompt", sans-serif;
+    color: #fff;
+    background-color: #ff3f40;
+}
+
+.container.yourQueue .queue .queue__info .cancel--btn:active {
+    transform: scale(0.97);
+}
+
+
+/* ------------------- ! Your Queue Finish ---------------------------------- */

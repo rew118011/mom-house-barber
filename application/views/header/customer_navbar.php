@@ -19,7 +19,7 @@
         <p>|</p>
       </li>
       <li class="username-container">
-        <img class="profile_img--nav" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>">
+        <img class="profile_img--nav" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>"  onerror="this.src='<?php echo base_url(); ?>img/user.png'">
         <a class="item button username" href="<?php echo site_url('Customer_Con/getProfile'); ?>">Hi ' <?php echo $this->session->userdata('Username'); ?></a>
       </li>
       <li><a class="item button logout" href="<?php echo site_url('Login_Con/logout'); ?>">Log out</a></li>

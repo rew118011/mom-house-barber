@@ -5,7 +5,7 @@ foreach ($CUSTOMER as $row) {
   <div class="profile_c_container">
     <div class="profile_c">
       <div class="profile_c_image">
-        <img class="profile_c_image_img" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>">
+        <img class="profile_c_image_img" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" onerror="this.src='<?php echo base_url(); ?>img/user.png'">
       </div>
       <div class="profile_c_info">
         <div class="profile_c_info_top">
