@@ -251,6 +251,32 @@
         </div>
       </div>
     </div>
+
+    <div class="item queue">
+      <div class="content Slot_time_10">
+        <div class="card">
+          <div class="firstinfo">
+            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
+            <div class="profileinfo">
+              <div class="date">
+                <p>24/07/2021</p>
+                <p>12:00 - 13:00</p>
+              </div>
+              <div class="data">
+                <p>ชื่อเล่น : บาส</p>
+                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badgescard">
+          <div class="phone">
+            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
   <!-- .post finish -->
 </div>

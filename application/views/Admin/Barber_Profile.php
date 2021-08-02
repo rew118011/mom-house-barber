@@ -73,7 +73,7 @@ foreach ($BARBER as $row) {
                                     <div class="profile_info--bottom">
                                         <p>
                                             เพศ : <?php echo $ID->B_Sex; ?> <br>
-                                            เบอร์โทร : <?php echo $ID->B_Phone; ?> <br>
+                                              เบอร์โทร : <?php echo $ID->B_Phone; ?> <br>
                                             ที่อยู่ : <?php echo $ID->B_Address; ?>
                                         </p>
                                     </div>

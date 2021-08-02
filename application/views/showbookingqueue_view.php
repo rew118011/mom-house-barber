@@ -1,7 +1,7 @@
-<?php
-foreach ($BOOKING as $row) {
-?>
 <div class="container yourQueue">
+    <?php
+    foreach ($BOOKING as $row) {
+    ?>
         <section class="queue">
             <div class="barber__photo">
                 <div class="photo-container">
@@ -13,9 +13,15 @@ foreach ($BOOKING as $row) {
                     </div>
                     <div class="skill-album">
                         <ul>
-                            <li><div class="progress-circle progress-<?= $row->B_Skill_Score1; ?>"><span><?= $row->B_Skill_Score1; ?></span></div><span>ตัดซอย</span></li>
-                            <li><div class="progress-circle progress-<?= $row->B_Skill_Score2; ?>"><span><?= $row->B_Skill_Score2; ?></span></div><span>ตัดมือ</span></li>
-                            <li><div class="progress-circle progress-<?= $row->B_Skill_Score3; ?>"><span><?= $row->B_Skill_Score3; ?></span></div><span>แต่งลาย</span></li>
+                            <li>
+                                <div class="progress-circle progress-<?= $row->B_Skill_Score1; ?>"><span><?= $row->B_Skill_Score1; ?></span></div><span>ตัดซอย</span>
+                            </li>
+                            <li>
+                                <div class="progress-circle progress-<?= $row->B_Skill_Score2; ?>"><span><?= $row->B_Skill_Score2; ?></span></div><span>ตัดมือ</span>
+                            </li>
+                            <li>
+                                <div class="progress-circle progress-<?= $row->B_Skill_Score3; ?>"><span><?= $row->B_Skill_Score3; ?></span></div><span>แต่งลาย</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -43,7 +49,7 @@ foreach ($BOOKING as $row) {
                 <a class="cancel--btn" href="<?php echo site_url('Customer_Con/del_booking/' . $row->BK_ID); ?>" onclick="return confirm('คุณต้องการยกเลิกคิวที่จองใช่หรือไม่ ?');">ยกเลิกคิวที่จอง</a>
             </div>
         </section>
-    </div>
-<?php
-}
-?>
+    <?php
+    }
+    ?>
+</div>

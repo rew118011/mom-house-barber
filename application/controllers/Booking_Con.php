@@ -74,14 +74,17 @@ class Booking_Con extends CI_Controller
                 $check = $this->BKM->createBookingQueueByCustomer($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
                 $c_id = $this->input->post('C_ID');
                 if ($check == TRUE) {
-                    $data['BOOKING'] = $this->BKM->getBookingQueueByCustomer($c_id);
+                    $data['BOOKING'] = $this->CM->getBookingQueue($c_id);
 
+                    $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
+                    $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
+            
                     $sess =  $this->session->userdata('Username');
                     $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-
+            
                     $this->load->view('head_html/c_head');
                     $this->load->view('header/customer_navbar', $datasess);
-                    $this->load->view('banner/banner');
+                    $this->load->view('banner/all_banner');
                     $this->load->view('showbookingqueue_view', $data);
                     $this->load->view('footer/footer');
                     $this->load->view('footer_html/c_footer');

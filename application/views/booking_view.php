@@ -23,6 +23,7 @@
 					<option value="BK_Day" selected="selected"> กรุณาเลือกวัน... </option>
 				</select>
 			</div>
+			
 		</div>
 
 		<div class="select barber">

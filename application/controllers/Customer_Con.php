@@ -163,31 +163,16 @@ class Customer_Con extends CI_Controller
 
     function save_profile() //ฟังก์ชั่น update customer
     {
-        $config['upload_path'] = 'img/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['max_size']  = 100024;
-        $config['max_width'] = 6000;
-        $config['max_height'] = 6000;
-        $config['encrypt_name'] = true;
-
-        $this->load->library('upload', $config);
-
-        if (!$this->upload->do_upload('C_Img')) {
-            $C_Img = '';
-        } else {
-            $fileData = $this->upload->data();
-            $C_Img = $data['C_Img'] = $fileData['file_name'];
-        }
-
         $data = array(
             'C_ID' => $this->input->post("C_ID"),
-            'C_Nickname' => $this->input->post("C_Nickname"),
+            'Username' => $this->input->post("Username"),
             'C_Name' => $this->input->post("C_Name"),
             'C_Lname' => $this->input->post("C_Lname"),
+            'C_Nickname' => $this->input->post("C_Nickname"),
             'C_Sex' => $this->input->post("C_Sex"),
             'C_Phone' => $this->input->post("C_Phone"),
-            'C_Facebook' => $this->input->post("C_Facebook"),
-            'C_Img' => $C_Img
+            'C_Facebook' => $this->input->post("C_Facebook")
+
         );
         $this->CM->setProfile($data);
         $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess

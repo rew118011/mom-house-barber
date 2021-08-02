@@ -2,7 +2,7 @@
   <div class="content">
     <div class="logo">
       <img class="header-logo" src="<?php echo base_url(); ?>/img/Logo.png">
-      <a href="<?php echo site_url('Login_Con/customer_page'); ?>">Mom House Barber</a>
+      <a href="<?php echo site_url('Customer_Con'); ?>">Mom House Barber</a>
     </div>
     <ul class="menu-list">
       <div class="icon cancel-btn">
