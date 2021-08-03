@@ -15,32 +15,16 @@ class Customer_Con extends CI_Controller
     {
         $result['HS'] = $this->AM->get_HairStyle();
 
-        $config = array(
-            'start_day' => 'monday', //เริ่มวันต้น วันจันทร์
-            'month_type' => 'long', //ขนาดของชื่อเต็มเดือน long = ความยาว
-            'day_type' => 'long', //ขนาดของชื่อเต็มเดือน //long = ความยาว
-            'show_next_prev' => TRUE, //มีลูกศพให้กดในการเชื่อมโยงเดือน
-            'next_prev_url' => site_url('Calendar_Con/calendar') //เลื่อนเดือนหรือย้อนหลังกลับไป
-        );
-        $events = array(
-            1 => base_url() . 'index.php/Login_Con/login', //มีการเชื่อมโยงหน้าเวลากดที่วันที่
-            10 => base_url() . 'index.php/Login_Con/login', //มีการเชื่อมโยงหน้าเวลากดที่วันที่
-        );
-        $this->load->library('calendar', $config); //เรียกใช้งาน calendar ใน library
-        //รองรับ parameterแรกที่เป็น URI Segment
-        $datacalendar['minicalendar'] = $this->calendar->generate($this->uri->segment(3), $this->uri->segment(4), $events);
-
         $sess =  $this->session->userdata('Username');
         $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
 
 
-        $this->load->view('head_html/c_head');
-        $this->load->view('header/customer_navbar', $datasess);
-        $this->load->view('banner/banner');
-        $this->load->view('c_calendar', $datacalendar);
-        $this->load->view('customer_hair_view', $result);
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/c_footer');
+        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Navbar', $datasess);
+        $this->load->view('Customer/Banner');
+        $this->load->view('Customer/Calendar');
+        $this->load->view('Customer/Hairstyle', $result);
+        $this->load->view('Customer/Footer');
     }
 
     public function getHairStyle()
@@ -50,12 +34,11 @@ class Customer_Con extends CI_Controller
         $sess =  $this->session->userdata('Username');
         $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
 
-        $this->load->view('head_html/c_head');
-        $this->load->view('header/customer_navbar', $datasess);
-        $this->load->view('banner/all_banner');
-        $this->load->view('customer_hair_view', $result);
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/c_footer');
+        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Navbar', $datasess);
+        $this->load->view('Customer/Banner1');
+        $this->load->view('Customer/Hairstyle', $result);
+        $this->load->view('Customer/Footer');
     }
 
     function insert_regis() //ฟังก์ชั่น insert customer
@@ -138,12 +121,11 @@ class Customer_Con extends CI_Controller
         $sess =  $this->session->userdata('Username');
         $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
 
-        $this->load->view('head_html/c_head');
-        $this->load->view('header/customer_navbar', $datasess);
-        $this->load->view('banner/all_banner');
-        $this->load->view('customer_profile', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า customer_get_profile
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/c_footer');
+        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Navbar', $datasess);
+        $this->load->view('Customer/Banner1');
+        $this->load->view('Customer/Profile', $data);   
+        $this->load->view('Customer/Footer');
     }
 
     function setProfile() //ฟังก์ชั่น แก้ไขโปรไฟล์ customer
@@ -153,12 +135,12 @@ class Customer_Con extends CI_Controller
 
         $sess =  $this->session->userdata('Username');
         $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-        $this->load->view('head_html/c_head');
-        $this->load->view('header/customer_navbar', $datasess);
-        $this->load->view('banner/all_banner');
-        $this->load->view('customer_profile_edit', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า profile_view
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/c_footer');
+
+        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Navbar', $datasess);
+        $this->load->view('Customer/Banner1');
+        $this->load->view('Customer/EditProfile', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า profile_view
+        $this->load->view('Customer/Footer');
     }
 
     function save_profile() //ฟังก์ชั่น update customer
@@ -175,17 +157,7 @@ class Customer_Con extends CI_Controller
 
         );
         $this->CM->setProfile($data);
-        $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
-        $data1['CUSTOMER'] = $this->CM->getProfile($sess);
-
-        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-
-        $this->load->view('head_html/c_head');
-        $this->load->view('header/customer_navbar', $datasess);
-        $this->load->view('banner/all_banner');
-        $this->load->view('customer_profile', $data1);          //นำข้อมูลที่ได้ส่งไปที่หน้า customer_get_profile
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/c_footer');
+        redirect('Customer_Con/getProfile', 'refresh'); //ไปหน้า customer_view
     }
 
     function getAllBarberByCustomer()
@@ -195,12 +167,11 @@ class Customer_Con extends CI_Controller
         $sess =  $this->session->userdata('Username');
         $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
 
-        $this->load->view('head_html/c_head');
-        $this->load->view('header/customer_navbar', $datasess);
-        $this->load->view('banner/all_banner');
-        $this->load->view('customer_look_all_barber', $data); //เรียกใช้หน้า selecting_Barber_view แล้วส่งค่าไปยังหน้า selecting_Barber_view
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/c_footer');
+        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Navbar', $datasess);
+        $this->load->view('Customer/Banner1');
+        $this->load->view('Customer/AllBarber', $data);
+        $this->load->view('Customer/Footer');
     }
 
     function getBarberByCustomer($id)
@@ -210,12 +181,11 @@ class Customer_Con extends CI_Controller
         $sess =  $this->session->userdata('Username');
         $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
 
-        $this->load->view('head_html/c_head');
-        $this->load->view('header/customer_navbar', $datasess);
-        $this->load->view('banner/all_banner');
-        $this->load->view('customer_look_barber_profile', $data); //เรียกใช้งานหน้า customer_get_barber_profile แล้วนำข้อมูล data ที่เก็บไว้ โดยชื่อว่า ID ไปที่หน้า customer_get_barber_profile
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/c_footer');
+        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Navbar', $datasess);
+        $this->load->view('Customer/Banner1');
+        $this->load->view('Customer/BarberProfile', $data);
+        $this->load->view('Customer/Footer');
     }
 
     function show_bookingqueue($c_id)
@@ -228,12 +198,11 @@ class Customer_Con extends CI_Controller
         $sess =  $this->session->userdata('Username');
         $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
 
-        $this->load->view('head_html/c_head');
-        $this->load->view('header/customer_navbar', $datasess);
-        $this->load->view('banner/all_banner');
-        $this->load->view('showbookingqueue_view', $data);
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/c_footer');
+        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Navbar', $datasess);
+        $this->load->view('Customer/Banner1');
+        $this->load->view('Customer/ShowQueue', $data);
+        $this->load->view('Customer/Footer');
     }
     function del_booking($id)
     {

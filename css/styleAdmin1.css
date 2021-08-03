@@ -467,10 +467,6 @@ td {
     width: 40px;
 }
 
-.barber-queue .td-barber-queue .queue-complete {
-    background-color: #48c148;
-}
-
 .barber-queue .td-barber-queue,
 .barber-queue .tr-barber-queue {
     text-align: center;
@@ -495,8 +491,11 @@ td {
 
 .barber-queue .td-barber-queue .queue-complete {
     margin-top: 0px;
-    padding: 10px 14px;
-    background-color: #48c148;
+    padding: 13px 14px;
+    background: #48c148;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .barber-queue .td-barber-queue .queue-complete:hover {

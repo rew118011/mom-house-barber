@@ -27,7 +27,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <main>
         <div class="cards">
-        <div class="card-single">
+            <div class="card-single">
                 <div>
                     <p>1278 <strong>คิว</strong></p>
                     <span>ชำระเงินแล้วทั้งหมด</span>
@@ -105,17 +105,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
                                 ?>
                                     <tbody>
-                                        <tr class="tr-barber-queue">
+                                        <tr id="<?php echo $row->BK_ID; ?>" class="tr-barber-queue">
                                             <td></td>
                                             <td class="td-barber-queue"><img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" /></td>
-                                            <td class="td-barber-queue customer-name"><a href="#">โนช</a></td>
-                                            <td class="td-barber-queue">0651134910</td>
+                                            <td class="td-barber-queue customer-name"><a href="#"><?php echo $row->C_Nickname; ?></a></td>
+                                            <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
                                             <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
                                             <td class="td-barber-queue"><?php echo $row->ST_Time; ?></td>
-                                            <td class="td-barber-queue booking-with"><a href="#">ช่างเอิร์ธ</a></td>
-                                            <td class="td-barber-queue status">กำลังรอคิว...</td>
+                                            <td class="td-barber-queue booking-with"><a href="#"><?php echo $row->B_Nickname; ?></a></td>
+                                            <td value="<?php echo $row->Q_ID; ?>" class="td-barber-queue status"><?php echo $row->Q_Status; ?></td>
                                             <td class="td-barber-queue">
-                                                <a class="queue-complete" href="#"><i class="fas fa-check-square"></i></a>
+                                                <button id="btnPay" name="BK_ID" class="queue-complete" value="<?php echo $row->BK_ID; ?>"><i class="fas fa-check-square"></i></button>
                                             </td>
                                             <td class="td-barber-queue">
                                                 <a class="queue-cancel" href="#"><i class="fas fa-window-close"></i></a>
@@ -142,116 +142,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </button>
                         </a>
                     </div>
-
                     <div class="card-body">
-                        <div class="customer">
-                            <div class="info">
-                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" />
-                                <div>
-                                    <h4>โนช</h4>
-                                    <small>0651134910</small>
+                        <?php
+                        foreach ($BOOKING_SUCCESS as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                        ?>
+                            <div class="customer">
+                                <div class="info">
+                                    <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="" />
+                                    <div>
+                                        <h4><?php echo $row->C_Nickname; ?></h4>
+                                        <small><?php echo $row->C_Phone; ?></small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <small>
+                                        <?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?>
+                                    </small>
+                                    <br>
+                                    <small>
+                                        <?php echo $row->ST_Time; ?>
+                                    </small>
+
                                 </div>
                             </div>
-                            <div class="contact">
-                                <small>
-                                    <?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?>
-                                </small>
-                                <br>
-                                <small>
-                                    <?php echo $row->ST_Time; ?>
-                                </small>
-                            </div>
-                        </div>
-                        <div class="customer">
-                            <div class="info">
-                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" />
-                                <div>
-                                    <h4>โนช</h4>
-                                    <small>0651134910</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <small>
-                                    <?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?>
-                                </small>
-                                <br>
-                                <small>
-                                    <?php echo $row->ST_Time; ?>
-                                </small>
-                            </div>
-                        </div>
-                        <div class="customer">
-                            <div class="info">
-                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" />
-                                <div>
-                                    <h4>โนช</h4>
-                                    <small>0651134910</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <small>
-                                    <?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?>
-                                </small>
-                                <br>
-                                <small>
-                                    <?php echo $row->ST_Time; ?>
-                                </small>
-                            </div>
-                        </div>
-                        <div class="customer">
-                            <div class="info">
-                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" />
-                                <div>
-                                    <h4>โนช</h4>
-                                    <small>0651134910</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <small>
-                                    <?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?>
-                                </small>
-                                <br>
-                                <small>
-                                    <?php echo $row->ST_Time; ?>
-                                </small>
-                            </div>
-                        </div>
-                        <div class="customer">
-                            <div class="info">
-                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" />
-                                <div>
-                                    <h4>โนช</h4>
-                                    <small>0651134910</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <small>
-                                    <?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?>
-                                </small>
-                                <br>
-                                <small>
-                                    <?php echo $row->ST_Time; ?>
-                                </small>
-                            </div>
-                        </div>
-                        <div class="customer">
-                            <div class="info">
-                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" />
-                                <div>
-                                    <h4>โนช</h4>
-                                    <small>0651134910</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <small>
-                                    <?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?>
-                                </small>
-                                <br>
-                                <small>
-                                    <?php echo $row->ST_Time; ?>
-                                </small>
-                            </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -268,4 +184,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
             menuItem[i].className = "active"
         }
     }
+</script>
+<script>
+    $(document).ready(function() {
+        $('#btnPay').click(function() {
+            var BK_ID = $(this).val();
+
+            $.ajax({
+                url: "<?php echo base_url(); ?>index.php/Booking_Con/dynamically_KeepQueue",
+                method: "POST",
+                dataType: 'json',
+                data: {
+                    BK_ID: BK_ID,
+
+                },
+                success: function(response) {
+                    $("#<?php echo $row->BK_ID; ?>").html(response);
+                    $('#<?php echo $row->BK_ID; ?> tr').remove();
+                    location.reload();
+                }
+            });
+
+        });
+    });
 </script>

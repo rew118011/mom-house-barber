@@ -38,7 +38,7 @@
                             <label for="inputNickname">ชื่อเล่น</label><input type="text" name="C_Nickname" value="<?php echo $row->C_Nickname; ?>">
                         </div>
                         <div class="edit name">
-                            <label for="inputPhone">เบอร์โทรศัพท์</label><input type="text" name="C_Phone" value="<?php echo $row->C_Phone; ?>">
+                            <label for="inputPhone">เบอร์โทรศัพท์</label><input type="text" name="C_Phone" maxlength="10" pattern="[0]{1}[0-9]{9}" value="<?php echo $row->C_Phone; ?>">
                         </div>
                         <div class="edit name">
                             <label for="inputFacebook">Facebook</label><input type="text" name="C_Facebook" value="<?php echo $row->C_Facebook; ?>">

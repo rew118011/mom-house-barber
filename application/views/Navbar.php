@@ -8,8 +8,8 @@
         <div class="icon cancel-btn">
           <i class="fas fa-times"></i>
         </div>
-        <li><a class="item" href="http://localhost/Mom_House_Barber/index.php/Calendar_Con/calendar">Calendar</a></li>
-        <li><a class="item" href="http://localhost/Mom_House_Barber/index.php/Page_Con/hair_page">HairStyle</a></li>
+        <li><a class="item" href="<?php echo site_url('Page_Con/calendar');?>">Calendar</a></li>
+        <li><a class="item" href="<?php echo site_url('Page_Con/hair_page');?>">HairStyle</a></li>
         <li>
           <p>|</p>
         </li>

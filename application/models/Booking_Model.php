@@ -87,29 +87,21 @@ class Booking_Model extends CI_Model
     {
     }
 
+    function setQueue($id)
+    {
+        //$response = $this->db->query("UPDATE booking SET Q_ID = '2' WHERE booking.`BK_ID` = '.$id.'");
+        $response = $this->db->where('BK_ID',$id)
+                     ->set('Q_ID','2')
+                    ->update('booking');
+        return  $response;
+    }
+
     function getBarber()
     {
         $this->db->order_by("B_Nickname", "DESC");
         $query = $this->db->get("barber");
         return $query->result();
     }
-
-    /*function getTimeSlotByBarberID($B_ID)
-    {
-        //$query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE BK_Year = '$BK_Year' & BK_Month = '$BK_Month' & BK_Day = '$BK_Day' & B_ID = '$B_ID')");
-        $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE B_ID = '$B_ID')");
-        $output = '';
-        foreach ($query->result() as $row) {
-            $output .= '
-            <input type="radio" name="ST_ID" id="option-' . $row->ST_ID . '" value="' . $row->ST_ID . '">
-            <label for="option-' . $row->ST_ID . '" class="option option-' . $row->ST_ID . '">
-                <div class="dot"></div>
-                <span>' . $row->ST_Time . '</span>
-            </label>
-            ';
-        }
-        return $output;
-    }*/
 
     function getTimeSlotByBarberID($BK_Year,$BK_Month,$BK_Day,$B_ID)
     {

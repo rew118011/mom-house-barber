@@ -104,7 +104,7 @@
                                     </tr>
                                 </thead>
                                 <?php
-                                foreach ($CUSTOMER as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                                foreach ($BOOK_HISTRORY as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
                                 ?>
                                     <tbody>
                                         <tr class="tr-barber-queue">
@@ -116,90 +116,10 @@
                                             <td class="td-barber-queue"><?php echo $row->C_Name; ?></td>
                                             <td class="td-barber-queue"><?php echo $row->C_Lname; ?></td>
                                             <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
-                                            <td class="td-barber-queue">09 / 06 / 2564</td>
-                                            <td class="td-barber-queue">12:00 - 13:00</td>
-                                            <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/admin_see_barber_profile/B00001'); ?>">ช่างเอิร์ธ</a></td>
-                                            <td class="td-barber-queue status_all_orders">ชำระเงินแล้ว</td>
-                                            <td class="td-barber-queue">150 ฿</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="tr-barber-queue">
-                                            <td></td>
-                                            <td class="td-barber-queue">
-                                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
-                                            </td>
-                                            <td class="td-barber-queue"><a href="#"><?php echo $row->C_Nickname; ?></a></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Name; ?></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Lname; ?></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
-                                            <td class="td-barber-queue">09 / 06 / 2564</td>
-                                            <td class="td-barber-queue">12:00 - 13:00</td>
-                                            <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/admin_see_barber_profile/B00001'); ?>">ช่างเอิร์ธ</a></td>
-                                            <td class="td-barber-queue status_all_orders">ชำระเงินแล้ว</td>
-                                            <td class="td-barber-queue">150 ฿</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="tr-barber-queue">
-                                            <td></td>
-                                            <td class="td-barber-queue">
-                                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
-                                            </td>
-                                            <td class="td-barber-queue"><a href="#"><?php echo $row->C_Nickname; ?></a></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Name; ?></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Lname; ?></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
-                                            <td class="td-barber-queue">09 / 06 / 2564</td>
-                                            <td class="td-barber-queue">12:00 - 13:00</td>
-                                            <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/admin_see_barber_profile/B00001'); ?>">ช่างเอิร์ธ</a></td>
-                                            <td class="td-barber-queue status_all_orders">ชำระเงินแล้ว</td>
-                                            <td class="td-barber-queue">150 ฿</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="tr-barber-queue">
-                                            <td></td>
-                                            <td class="td-barber-queue">
-                                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
-                                            </td>
-                                            <td class="td-barber-queue"><a href="#"><?php echo $row->C_Nickname; ?></a></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Name; ?></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Lname; ?></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
-                                            <td class="td-barber-queue">09 / 06 / 2564</td>
-                                            <td class="td-barber-queue">12:00 - 13:00</td>
-                                            <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/admin_see_barber_profile/B00001'); ?>">ช่างเอิร์ธ</a></td>
-                                            <td class="td-barber-queue status_all_orders">ชำระเงินแล้ว</td>
-                                            <td class="td-barber-queue">150 ฿</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="tr-barber-queue">
-                                            <td></td>
-                                            <td class="td-barber-queue">
-                                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
-                                            </td>
-                                            <td class="td-barber-queue"><a href="#"><?php echo $row->C_Nickname; ?></a></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Name; ?></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Lname; ?></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
-                                            <td class="td-barber-queue">09 / 06 / 2564</td>
-                                            <td class="td-barber-queue">12:00 - 13:00</td>
-                                            <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/admin_see_barber_profile/B00001'); ?>">ช่างเอิร์ธ</a></td>
-                                            <td class="td-barber-queue status_all_orders">ชำระเงินแล้ว</td>
-                                            <td class="td-barber-queue">150 ฿</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="tr-barber-queue">
-                                            <td></td>
-                                            <td class="td-barber-queue">
-                                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
-                                            </td>
-                                            <td class="td-barber-queue"><a href="#"><?php echo $row->C_Nickname; ?></a></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Name; ?></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Lname; ?></td>
-                                            <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
-                                            <td class="td-barber-queue">09 / 06 / 2564</td>
-                                            <td class="td-barber-queue">12:00 - 13:00</td>
-                                            <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/admin_see_barber_profile/B00001'); ?>">ช่างเอิร์ธ</a></td>
-                                            <td class="td-barber-queue status_all_orders">ชำระเงินแล้ว</td>
+                                            <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
+                                            <td class="td-barber-queue"><?php echo $row->ST_Time; ?></td>
+                                            <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/admin_see_barber_profile/' . $row->B_ID); ?>">ช่างเอิร์ธ</a></td>
+                                            <td class="td-barber-queue status_all_orders"><?php echo $row->Q_Status ; ?></td>
                                             <td class="td-barber-queue">150 ฿</td>
                                             <td></td>
                                         </tr>

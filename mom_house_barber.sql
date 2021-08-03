@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 13, 2021 at 03:13 PM
+-- Generation Time: Aug 02, 2021 at 11:35 PM
 -- Server version: 8.0.17
 -- PHP Version: 7.3.10
 
@@ -89,18 +89,25 @@ CREATE TABLE `booking` (
   `ST_ID` int(11) NOT NULL,
   `BK_Month` int(11) NOT NULL,
   `BK_Year` int(11) NOT NULL,
-  `BK_Time` varchar(5) NOT NULL,
-  `BK_Status` varchar(1) NOT NULL
+  `BK_Date` varchar(10) NOT NULL,
+  `Q_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`BK_ID`, `C_ID`, `B_ID`, `BK_Day`, `ST_ID`, `BK_Month`, `BK_Year`, `BK_Time`, `BK_Status`) VALUES
-('BK000001', 'C00002', 'B00003', 1, 4, 6, 2564, '', ''),
-('BK000002', 'C00003', 'B00002', 1, 5, 6, 2564, '', ''),
-('BK000003', 'C00004', 'B00002', 1, 6, 6, 2564, '', '');
+INSERT INTO `booking` (`BK_ID`, `C_ID`, `B_ID`, `BK_Day`, `ST_ID`, `BK_Month`, `BK_Year`, `BK_Date`, `Q_ID`) VALUES
+('BK000001', 'C00005', 'B00003', 1, 1, 8, 2021, '2021-08-01', 1),
+('BK000002', 'C00005', 'B00003', 1, 2, 8, 2021, '2021-08-01', 1),
+('BK000003', 'C00005', 'B00003', 1, 3, 8, 2021, '2021-08-01', 1),
+('BK000004', 'C00005', 'B00003', 1, 4, 8, 2021, '2021-08-01', 1),
+('BK000005', 'C00005', 'B00003', 1, 5, 8, 2021, '2021-08-01', 1),
+('BK000006', 'C00005', 'B00003', 1, 6, 8, 2021, '2021-08-01', 1),
+('BK000007', 'C00005', 'B00003', 1, 7, 8, 2021, '2021-08-01', 1),
+('BK000008', 'C00005', 'B00003', 1, 8, 8, 2021, '2021-08-01', 1),
+('BK000009', 'C00005', 'B00003', 1, 9, 8, 2021, '2021-08-01', 1),
+('BK000010', 'C00005', 'B00003', 1, 10, 8, 2021, '2021-08-01', 1);
 
 -- --------------------------------------------------------
 
@@ -129,7 +136,7 @@ INSERT INTO `customer` (`C_ID`, `Username`, `C_Name`, `C_Lname`, `C_Nickname`, `
 ('C00002', 'thanayut', 'ธนายุทธ', 'สามสังข์', 'ยุทธ', 'ชาย', '0871630903', 'Thanayut Samsang', 'me.jpg'),
 ('C00003', 'earth1', 'วรวัฒน์', 'รัตนโนสถ', 'เอิร์ท', 'ชาย', '0871630903', 'Worrawat Rattanosod', 'earth.jpg'),
 ('C00004', 'youknowme', 'ยุทธนา', 'สามสังข์', 'ยุทธ', 'ชาย', '0651134910', 'Yutthana Samsang', 'baberNoch.jpg'),
-('C00005', 'TheNoch', 'ธนทัช', 'สอนดี', 'บาส', 'ชาย', '0651134910', 'Bas Thanathat', 'user.png');
+('C00005', 'TheNoch', 'ธนทัช', 'สอนดี', 'บาส', 'ชาย', '0651134900', 'Bas Thanathat', 'baberNoch.jpg');
 
 -- --------------------------------------------------------
 
@@ -155,6 +162,22 @@ CREATE TABLE `hair_style` (
 
 INSERT INTO `hair_style` (`H_ID`, `H_Name`, `H_Detail1`, `H_Detail2`, `H_Detail3`, `H_Img1`, `H_Img2`, `H_Img3`, `H_Img4`) VALUES
 ('', 'ผมทรงทวิสต์เอาท์ Twist-out', 'ทรงผมสุดคูล สำหรับชาวฮิปฮอป', 'สาวกฮิปฮอปต้องคุ้นตากับผมทรงนี้แน่นอน สำหรับทรงผมชายทรงทวิสต์เอาท์ Twist-out ที่บอกเลยว่าสุดคูล!ทรงนี้จะไว้ผมที่ความยาวระดับปานกลาง', 'โดยจะหยิบเอาผมช่อเล็กมาบิดหรือปั่นเป็นเกลียว คล้ายกับเดรดร็อกแต่จะไม่แน่นและมีขนาดสั้นกว่า นอกจากนี้แล้ว ยังเพิ่มลูกเล่นด้วยการไถไล่เฟดด้านข้าง', 'HairStyle1_1.jpg', 'HairStyle1_2.jpg', 'HairStyle1_3.jpg', 'HairStyle1_4.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history_queue`
+--
+
+CREATE TABLE `history_queue` (
+  `HTR_ID` int(11) NOT NULL,
+  `BK_ID` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `C_ID` varchar(6) NOT NULL,
+  `B_ID` varchar(6) NOT NULL,
+  `BK_Date` varchar(10) NOT NULL,
+  `ST_ID` int(11) NOT NULL,
+  `Q_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -186,41 +209,12 @@ INSERT INTO `login` (`Username`, `Password`, `S_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `month`
---
-
-CREATE TABLE `month` (
-  `M_ID` int(11) NOT NULL,
-  `M_Th_Name` varchar(20) NOT NULL,
-  `M_Eng_Name` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `month`
---
-
-INSERT INTO `month` (`M_ID`, `M_Th_Name`, `M_Eng_Name`) VALUES
-(1, 'มกราคม', 'January'),
-(2, 'กุมภาพันธ์', 'February'),
-(3, 'มีนาคม', 'March'),
-(4, 'เมษายน', 'April'),
-(5, 'พฤษภาคม', 'May'),
-(6, 'มิถุนายน', 'June'),
-(7, 'กรกฎาคม', 'July'),
-(8, 'สิงหาคม', 'August'),
-(9, 'กันยายน', 'September'),
-(10, 'ตุลาคม', 'October'),
-(11, 'พฤศจิกายน', 'November'),
-(12, 'ธันวาคม', 'December');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `offwork`
 --
 
 CREATE TABLE `offwork` (
-  `B_ID` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `OW_ID` varchar(6) NOT NULL,
+  `B_ID` varchar(6) NOT NULL,
   `starting_Date` date NOT NULL,
   `ending_Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -284,6 +278,25 @@ INSERT INTO `status` (`S_ID`, `S_Name`) VALUES
 ('2', 'BARBER'),
 ('3', 'CUSTOMER');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status_queue`
+--
+
+CREATE TABLE `status_queue` (
+  `Q_ID` int(11) NOT NULL,
+  `Q_Status` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `status_queue`
+--
+
+INSERT INTO `status_queue` (`Q_ID`, `Q_Status`) VALUES
+(1, 'กำลังรอ...'),
+(2, 'ชำระเงินแล้ว');
+
 --
 -- Indexes for dumped tables
 --
@@ -308,7 +321,8 @@ ALTER TABLE `booking`
   ADD PRIMARY KEY (`BK_ID`),
   ADD KEY `C_ID` (`C_ID`),
   ADD KEY `B_ID` (`B_ID`),
-  ADD KEY `ST_ID` (`ST_ID`);
+  ADD KEY `ST_ID` (`ST_ID`),
+  ADD KEY `Q_ID` (`Q_ID`);
 
 --
 -- Indexes for table `customer`
@@ -324,6 +338,17 @@ ALTER TABLE `hair_style`
   ADD PRIMARY KEY (`H_ID`);
 
 --
+-- Indexes for table `history_queue`
+--
+ALTER TABLE `history_queue`
+  ADD PRIMARY KEY (`HTR_ID`),
+  ADD KEY `BK_ID` (`BK_ID`),
+  ADD KEY `C_ID` (`C_ID`),
+  ADD KEY `B_ID` (`B_ID`),
+  ADD KEY `ST_ID` (`ST_ID`),
+  ADD KEY `Q_ID` (`Q_ID`);
+
+--
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
@@ -331,16 +356,10 @@ ALTER TABLE `login`
   ADD KEY `S_ID` (`S_ID`);
 
 --
--- Indexes for table `month`
---
-ALTER TABLE `month`
-  ADD PRIMARY KEY (`M_ID`);
-
---
 -- Indexes for table `offwork`
 --
 ALTER TABLE `offwork`
-  ADD PRIMARY KEY (`B_ID`);
+  ADD PRIMARY KEY (`OW_ID`);
 
 --
 -- Indexes for table `portfolio`
@@ -361,14 +380,20 @@ ALTER TABLE `status`
   ADD PRIMARY KEY (`S_ID`);
 
 --
+-- Indexes for table `status_queue`
+--
+ALTER TABLE `status_queue`
+  ADD PRIMARY KEY (`Q_ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `month`
+-- AUTO_INCREMENT for table `history_queue`
 --
-ALTER TABLE `month`
-  MODIFY `M_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+ALTER TABLE `history_queue`
+  MODIFY `HTR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -386,7 +411,8 @@ ALTER TABLE `barber`
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`C_ID`) REFERENCES `customer` (`C_ID`),
   ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`B_ID`) REFERENCES `barber` (`B_ID`),
-  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`ST_ID`) REFERENCES `slot_time` (`ST_ID`);
+  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`ST_ID`) REFERENCES `slot_time` (`ST_ID`),
+  ADD CONSTRAINT `booking_ibfk_4` FOREIGN KEY (`Q_ID`) REFERENCES `status_queue` (`Q_ID`);
 
 --
 -- Constraints for table `customer`
@@ -396,16 +422,20 @@ ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `login` (`Username`);
 
 --
+-- Constraints for table `history_queue`
+--
+ALTER TABLE `history_queue`
+  ADD CONSTRAINT `history_queue_ibfk_1` FOREIGN KEY (`BK_ID`) REFERENCES `booking` (`BK_ID`),
+  ADD CONSTRAINT `history_queue_ibfk_2` FOREIGN KEY (`C_ID`) REFERENCES `customer` (`C_ID`),
+  ADD CONSTRAINT `history_queue_ibfk_3` FOREIGN KEY (`B_ID`) REFERENCES `barber` (`B_ID`),
+  ADD CONSTRAINT `history_queue_ibfk_4` FOREIGN KEY (`ST_ID`) REFERENCES `slot_time` (`ST_ID`),
+  ADD CONSTRAINT `history_queue_ibfk_5` FOREIGN KEY (`Q_ID`) REFERENCES `status_queue` (`Q_ID`);
+
+--
 -- Constraints for table `login`
 --
 ALTER TABLE `login`
   ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`S_ID`) REFERENCES `status` (`S_ID`);
-
---
--- Constraints for table `offwork`
---
-ALTER TABLE `offwork`
-  ADD CONSTRAINT `offwork_ibfk_1` FOREIGN KEY (`B_ID`) REFERENCES `barber` (`B_ID`);
 
 --
 -- Constraints for table `portfolio`

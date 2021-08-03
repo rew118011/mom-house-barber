@@ -9,3 +9,6 @@
         <a href="#"><i class="fas fa-map-marked-alt icon-footer"></i></a>
     </div>
 </footer>
+</body>
+
+</html>

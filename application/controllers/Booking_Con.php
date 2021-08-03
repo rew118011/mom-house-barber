@@ -16,19 +16,18 @@ class Booking_Con extends CI_Controller
         $sess =  $this->session->userdata('Username');
         $data['CUSTOMER'] = $this->CM->getProfile($sess);
         $data['BARBER'] = $this->BKM->getBarber();
-    
+
         //$barber = 'B00002';
         //$data['BARBER'] = $this->BKM->selectBarber();
 
         $sess =  $this->session->userdata('Username');
         $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
 
-        $this->load->view('head_html/c_head');
-        $this->load->view('header/customer_navbar', $datasess);
-        $this->load->view('banner/all_banner');
-        $this->load->view('booking_view', $data);
-        $this->load->view('footer/footer');
-        $this->load->view('footer_html/c_footer');
+        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Navbar', $datasess);
+        $this->load->view('Customer/Banner1');
+        $this->load->view('Customer/Booking', $data);
+        $this->load->view('Customer/Footer');
     }
 
     public function fetch_TimeSlot()
@@ -38,7 +37,7 @@ class Booking_Con extends CI_Controller
         $BK_Day = $this->input->post('BK_Day');
         $B_ID = $this->input->post('B_ID');
         // get data 
-        $data = $this->BKM->getTimeSlotByBarberID($BK_Year,$BK_Month,$BK_Day,$B_ID);
+        $data = $this->BKM->getTimeSlotByBarberID($BK_Year, $BK_Month, $BK_Day, $B_ID);
         echo json_encode($data);
     }
 
@@ -48,10 +47,16 @@ class Booking_Con extends CI_Controller
         $BK_Month = $this->input->post('BK_Month');
         $BK_Day = $this->input->post('BK_Day');
         // get data 
-        $data = $this->BKM->getTimeSlotBy_YearMonthDay($BK_Year,$BK_Month,$BK_Day);
+        $data = $this->BKM->getTimeSlotBy_YearMonthDay($BK_Year, $BK_Month, $BK_Day);
         echo json_encode($data);
     }
 
+    public function dynamically_KeepQueue()
+    {
+        $id = $this->input->post('BK_ID');
+        $data = $this->BKM->setQueue($id);
+        echo json_encode($data);
+    }
 
     function ins_Booking()
     {
@@ -59,8 +64,7 @@ class Booking_Con extends CI_Controller
         $time = $this->input->post('ST_ID');
         $barber = $this->input->post('B_ID');
         if ($this->input->post('btnBooking')) //มีการคลิกปุ่ม สมัครสมาชิก
-        {
-            {
+        { {
                 $id = $this->BKM->GenerateId();
                 $data = array(
                     'BK_ID' => $id,
@@ -78,19 +82,17 @@ class Booking_Con extends CI_Controller
 
                     $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
                     $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
-            
+
                     $sess =  $this->session->userdata('Username');
                     $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-            
-                    $this->load->view('head_html/c_head');
-                    $this->load->view('header/customer_navbar', $datasess);
-                    $this->load->view('banner/all_banner');
-                    $this->load->view('showbookingqueue_view', $data);
-                    $this->load->view('footer/footer');
-                    $this->load->view('footer_html/c_footer');
+
+                    $this->load->view('Customer/Header');
+                    $this->load->view('Customer/Navbar', $datasess);
+                    $this->load->view('Customer/Banner1');
+                    $this->load->view('Customer/ShowQueue', $data);
+                    $this->load->view('Customer/Footer');
                 }
             }
         }
     }
-  
 }

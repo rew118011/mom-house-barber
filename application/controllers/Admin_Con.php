@@ -1,17 +1,21 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Admin_Con extends CI_Controller {
+class Admin_Con extends CI_Controller
+{
 
-	function __construct(){
-		parent::__construct();
-		$this->load->model('Admin_Model','AM');
-		$this->load->helper('url');
-	}
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Admin_Model', 'AM');
+        $this->load->model('Booking_Model', 'BK');
+        $this->load->helper('url');
+    }
 
     function index()
     {
         $data['BOOKING'] = $this->AM->getBooking();
+        $data['BOOKING_SUCCESS'] = $this->AM->getBookingSuccess();
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Queue_Table', $data);
@@ -21,6 +25,7 @@ class Admin_Con extends CI_Controller {
     public function getWaitingQueue()
     {
         $data['BOOKING'] = $this->AM->getBooking();
+        $data['BOOKING_SUCCESS'] = $this->AM->getBookingSuccess();
         
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Queue_Table', $data);
@@ -45,7 +50,7 @@ class Admin_Con extends CI_Controller {
 
     public function getSuccessfulQueue()
     {
-        $data['CUSTOMER'] = $this->AM->getCustomer();
+        $data['BOOK_HISTRORY'] = $this->AM->getBookingSuccess();
         
         $this->load->view('Admin/Header');
         $this->load->view('Admin/All_Orders',$data);

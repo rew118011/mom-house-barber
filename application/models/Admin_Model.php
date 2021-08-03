@@ -20,10 +20,25 @@ class Admin_Model extends CI_Model
 	function getBooking()
 	{
 		$this->db->select('*')
-		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left');
+		->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+		->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+		->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+		->where('status_queue.Q_ID','1');
 		$query = $this->db->get('booking');
 		return $query->result();
 	}
+	function getBookingSuccess()
+	{
+		$this->db->select('*')
+		->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+		->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+		->where('status_queue.Q_ID','2');
+		$query = $this->db->get('booking');
+		return $query->result();
+	}
+
 
     function get_HairStyle()
     {
