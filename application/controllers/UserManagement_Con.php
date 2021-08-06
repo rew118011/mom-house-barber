@@ -110,6 +110,14 @@ class UserManagement_Con extends CI_Controller
             'B_Sex' => $this->input->post("B_Sex"),
             'B_Phone' => $this->input->post("B_Phone"),
             'B_Address' => $this->input->post("B_Address"),
+            'B_Skill1' => $this->input->post("B_Skill1"),
+            'B_Skill_Score1' => $this->input->post("B_Skill_Score1"),
+            'B_Skill2' => $this->input->post("B_Skill2"),
+            'B_Skill_Score2' => $this->input->post("B_Skill_Score2"),
+            'B_Skill3' => $this->input->post("B_Skill3"),
+            'B_Skill_Score3' => $this->input->post("B_Skill_Score3"),
+            'B_Percent' => $this->input->post("B_Percent"),
+            'B_Salary' => $this->input->post("B_Salary")
         );
         $check = $this->UMM->setBarber($data);
         if ($check == TRUE) {

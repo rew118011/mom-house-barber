@@ -4,16 +4,21 @@
         <div class="Add_icon">
             <div class="add_img">
                 <div class="add_imge">
-                    <img class="add_imge" src="<?php echo base_url(); ?>/img/HairStyle1_1.jpg" alt=""  onerror="this.src='<?php echo base_url(); ?>img/user.png'" />
+                    <img class="add_imge1" src="" alt="" onerror="this.src='<?php echo base_url(); ?>img/addPhoto2.png'" />
+                    <input class="inputImg1" onchange="previewFile()" type="file" name="C_Img" value="" accept="image/*" hidden>
                 </div>
                 <div class="add_imge">
-                    <i class="far fa-plus-square"></i>
+                    <img class="add_imge" src="" alt="Image preview..." onerror="this.src='<?php echo base_url(); ?>img/addPhoto2.png'">
+                    <input class="inputImg" onchange="previewFile()" type="file" name="C_Img" value="" accept="image/*" hidden>
+                   
                 </div>
                 <div class="add_imge">
-                    <i class="far fa-plus-square"></i>
+                <img class="add_imge2" src="" alt="Image preview..." onerror="this.src='<?php echo base_url(); ?>img/addPhoto2.png'">
+                    
                 </div>
                 <div class="add_imge">
-                    <i class="far fa-plus-square"></i>
+                <img class="add_imge2" src="" alt="Image preview..." onerror="this.src='<?php echo base_url(); ?>img/addPhoto2.png'">
+                    
                 </div>
             </div>
 
@@ -26,6 +31,29 @@
 
         </div>
     </div>
-
-
 </div>
+
+<script>
+    const dropArea = document.querySelector(".Add_icon"),
+        input = dropArea.querySelector(".inputImg1"),
+        img = dropArea.querySelector(".add_imge1");
+    img.onclick = () => {
+        input.click();
+    }
+
+    function previewFile() {
+        const preview = document.querySelector('.add_imge1');
+        const file = document.querySelector('.inputImg1').files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function() {
+            // convert image file to base64 string
+            preview.src = reader.result;
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+
+</script>

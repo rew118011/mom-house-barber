@@ -79,3 +79,4 @@
     <!-- .post finish -->
 </div>
 <!--   #posts finish -->
+</div>

@@ -48,7 +48,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       ?>
     </div>
 
-    <div class="recent-grid">
+    <div class="recent-grid barber-income">
       <div class="projects">
         <div class="card">
           <div class="card-header">
@@ -85,15 +85,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <td class="td-barber-queue">
                         <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
                       </td>
-                      <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $row->B_ID; ?>">ช่าง<?php echo $row->B_Nickname; ?></a></td>
+                      <td class="td-barber-queue booking-with">
+                        <a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $row->B_ID; ?>">ช่าง<?php echo $row->B_Nickname; ?></a>
+                      </td>
                       <td class="td-barber-queue"><?php echo $row->B_Name; ?></td>
                       <td class="td-barber-queue"><?php echo $row->B_Lname; ?></td>
                       <td class="td-barber-queue"><?php echo $row->B_Phone; ?></td>
                       <td class="td-barber-queue">
-                        <a class="queue-income" href="<?php echo site_url('Admin_Con/getBarberIncome'); ?>"><i class="fas fa-search-dollar"></i></a>
+                        <a class="queue-income" href="<?php echo site_url('Admin_Con/getBarberIncome/' . $row->B_ID); ?>"><i class="fas fa-search-dollar"></i></a>
                       </td>
                       <td class="td-barber-queue">
-                        <a class="queue-check" href="#"><i class="far fa-calendar-alt"></i></a>
+                        <a class="queue-check" href="<?php echo site_url('Admin_Con/getBarberQueue/' . $row->B_ID); ?>"><i class="far fa-calendar-alt"></i></a>
                       </td>
                       <td class="td-barber-queue">
                         <a class="queue-edit" href="<?php echo site_url('UserManagement_Con/setBarber/' . $row->B_ID); ?>"><i class="fas fa-pen-square"></i></a>
@@ -113,48 +115,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
       </div>
 
-      <div class="customers">
-        <div class="card">
-          <div class="card-header">
-            <h3>ลาหยุด / ช่าง</h3>
-            <a href="#"><button><i class="fas fa-calendar-times"></i> &nbsp;ดูวันหยุดช่าง <span class="las la-arrow-right"></span></button></a>
-          </div>
-
-          <div class="card-body">
-            <div class="form-inner">
-              <form class="login" method="post">
-                <select class="dropdown-barber">
-                  <option value="volvo">เลือกช่าง...</option>
-                  <?php
-                  foreach ($BARBER as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
-                  ?>
-                    <option value="saab" class="selectBarber"><?php echo $row->B_Nickname; ?></option>
-                  <?php
-                  }
-                  ?>
-                </select>
-
-                <input class="dropdown-barber" type="date" id="selectDate" name="selectDate" ฃ>
-                <div class="field btn">
-                  <input class="submitOffWork" type="submit" name="btnLogin" value="ยืนยัน">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 </div>
 </main>
 </div>
 
-<script type="text/javascript">
-  const currentLocation = location.href;
-  const menuItem = document.querySelectorAll('a');
-  const menuLength = menuItem.length
-  for (let i = 0; i < menuLength; i++) {
-    if (menuItem[i].href === currentLocation) {
-      menuItem[i].className = "active"
-    }
-  }
-</script>

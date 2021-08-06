@@ -1,33 +1,3 @@
-<?php
-/*
-foreach ($BARBER as $row) {
-?>
-
-<?php echo form_open('UserManagement_Con/save_barber');
-    echo form_hidden('B_ID', set_value('B_ID', $row->B_ID));
-
-    echo form_label('ชื่อ', 'B_Name') . br(1);
-    echo form_input('B_Name', set_value('B_Lname', $row->B_Name)) . br(1);
-
-    echo form_label('นามสกุล', 'B_Lname') . br(1);
-    echo form_input('B_Lname', set_value('B_Lname', $row->B_Lname)) . br(1);
-
-    echo form_label('เพศ', 'B_Sex') . br(1);
-    echo form_input('B_Sex', set_value('B_Lname', $row->B_Sex)) . br(1);
-
-    echo form_label('เบอร์โทร', 'B_Phone') . br(1);
-    echo form_input('B_Phone', set_value('B_Phone', $row->B_Phone)) . br(1);
-
-    echo form_label('ที่อยู่', 'B_Address') . br(1);
-    echo form_input('B_Address', set_value('B_Address', $row->B_Address)) . br(1);
-
-    echo form_submit('btnSave', 'บันทึก');
-    echo form_close();
-}
-*/
-?>
-
-
 <div class="main-content">
     <header>
         <h2>
@@ -66,15 +36,18 @@ foreach ($BARBER as $row) {
                                 <div class="profile_info">
                                     <div class="profile_info--top">
                                         <h1><?php echo $ID->Username; ?></h1>
+                                        <div class="profile-edit">
+                                            <a href="<?php echo site_url('UserManagement_Con/setBarber/'  . $ID->B_ID); ?>"> แก้ไขโปรไฟล์ <i class="fas fa-cog"></i> </a>
+                                        </div>
                                     </div>
                                     <div class="profile_info--center">
                                         <p><?php echo $ID->B_Nickname; ?> <span>&nbsp;|&nbsp;</span> <?php echo $ID->B_Name; ?> &nbsp; <?php echo $ID->B_Lname; ?></p><br>
                                     </div>
                                     <div class="profile_info--bottom">
                                         <p>
-                                            เพศ : <?php echo $ID->B_Sex; ?> <br>
-                                              เบอร์โทร : <?php echo $ID->B_Phone; ?> <br>
-                                            ที่อยู่ : <?php echo $ID->B_Address; ?>
+                                            <i class="las la-transgender"></i> : <?php echo $ID->B_Sex; ?> <br>
+                                            <i class="las la-phone-volume"></i> : <?php echo $ID->B_Phone; ?> <br>
+                                            <i class="las la-map-marked-alt"></i> : <?php echo $ID->B_Address; ?>
                                         </p>
                                     </div>
                                 </div>
@@ -106,30 +79,54 @@ foreach ($BARBER as $row) {
                             <div class="saraly">
                                 <div class="cards">
                                     <div class="card-single">
-                                        <div>
-                                            <p>292 <strong>คน</strong></p>
-                                            <span>ลูกค้าทั้งหมด</span>
+                                        <div class="skill-album">
+                                            <ul>
+                                                <li>
+                                                    <div class="item">
+                                                        <span><?= $ID->B_Percent; ?>%</span>
+                                                    </div>
+                                                    <span>เปอร์เซ็นต์ที่รับ</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
 
                                     <div class="card-single">
-                                        <div>
-                                            <p>256 <strong>คน</strong></p>
-                                            <span>ลูกค้าเพศชาย</span>
+                                        <div class="skill-album">
+                                            <ul>
+                                                <li>
+                                                    <div class="item">
+                                                        <span><?= $ID->B_Salary; ?></span>
+                                                    </div>
+                                                    <span>เงินเดือนหลัก</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
 
                                     <div class="card-single">
-                                        <div>
-                                            <p>36 <strong>คน</strong></p>
-                                            <span>ลูกค้าเพศหญิง</span>
+                                        <div class="skill-album">
+                                            <ul>
+                                                <li>
+                                                    <div class="item">
+                                                        <span>9000฿</span>
+                                                    </div>
+                                                    <span>รายได้เดือนนี้</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
 
                                     <div class="card-single">
-                                        <div>
-                                            <p>?????? <strong>?</strong></p>
-                                            <span>????????????</span>
+                                        <div class="skill-album">
+                                            <ul>
+                                                <li>
+                                                    <div class="item">
+                                                        <span>6500฿</span>
+                                                    </div>
+                                                    <span>รายได้ทั้งหมด</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -140,15 +137,7 @@ foreach ($BARBER as $row) {
                         <div class="container">
                             <div class="tabs">
                                 <div class="tab-item active">
-                                    <span></span>
-                                </div>
-                                <div class="tab-item">
-                                    <span></span>
-                                </div>
-                                <div class="tab-item">
-                                    <span></span>
-                                </div>
-                                <div class="tab-item">
-                                    </i> <span></span>
+                                    <i class="las la-border-all"></i>
+                                    <span> ผลงานของช่าง<?php echo $ID->B_Nickname; ?></span>
                                 </div>
                             </div>

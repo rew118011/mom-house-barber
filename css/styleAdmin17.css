@@ -9,6 +9,7 @@
     --grey-light: #d8d8d8;
     --dark-grey: #3f3f3f;
     --text-grey: #7a7c80;
+    --text-grey-light: #a5a5a5;
     --background--white: #fffefe;
     --background--dark--white: #f3f3f3;
     --text--color--dark: #291f1d;
@@ -22,6 +23,11 @@
     list-style-type: none;
     text-decoration: none;
     font-family: "Poppins", sans-serif;
+}
+
+a:hover {
+    font-weight: 500;
+    color: var(--main-color);
 }
 
 .slidebar {
@@ -354,6 +360,10 @@ main {
     margin-top: 0rem;
 }
 
+.card-header .manage-booking i {
+    color: #df3c37;
+}
+
 .projects .card .card-body {
     padding: 0rem 1rem 1rem 1rem;
 }
@@ -376,11 +386,14 @@ main {
     border-bottom: 1px solid #f0f0f0;
 }
 
-.card-header h3 {
+.card-header.barber-income img {
+    margin-left: 1rem;
+}
+
+.recent-grid .card .card-header h3 {
     font-weight: 400;
     font-family: "Prompt", sans-serif;
     margin-left: 15px;
-    margin-top: 5px;
 }
 
 .card-header .span {
@@ -424,6 +437,17 @@ main {
 
 .card-body table {
     width: 100%;
+}
+
+.card-body.manage-booking p {
+    font-family: "Prompt", sans-serif;
+    padding: 0;
+    margin-left: 1.5rem;
+    margin-bottom: 0.313rem;
+}
+
+.card-body.manage-booking p i {
+    font-size: 1.125rem;
 }
 
 table {
@@ -649,9 +673,17 @@ tr td:last-child {
     font-family: "Prompt", sans-serif;
 }
 
+.info h4 a {
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
 .info small {
     font-weight: 400;
     color: var(--text-grey);
+    font-family: "Prompt", sans-serif;
 }
 
 .contact span {
@@ -662,7 +694,46 @@ tr td:last-child {
 }
 
 
-/*------- ! barber oof work ----------*/
+/* --------------! barber queue start --------------- */
+
+.card-header.barber-queue {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-header.barber-queue .title {
+    display: flex;
+    align-items: center;
+}
+
+.recent-grid .card .card-header.barber-queue a {
+    font-weight: 500;
+    font-family: "Prompt", sans-serif;
+    margin-left: 0.313rem;
+    margin-top: 5px;
+    color: #444444;
+    text-decoration: underline;
+}
+
+.recent-grid .card .card-header.barber-queue img {
+    margin-left: 15px;
+    width: 2.5rem;
+}
+
+.recent-grid .card .card-body.success-queue a {
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+
+/* --------------! barber queue finish --------------- */
+
+
+/*------- ! barber off work ----------*/
 
 .form-inner form .field {
     height: 50px;
@@ -684,7 +755,7 @@ tr td:last-child {
 }
 
 .form-inner form .dropdown-barber {
-    margin-top: 5%;
+    margin-bottom: 5%;
     margin-left: 5%;
     height: 50px;
     width: 90%;
@@ -715,6 +786,76 @@ tr td:last-child {
 
 .form-inner form .field .submitOffWork:focus {
     background-color: #125a12;
+}
+
+.recent-grid.barber-off-work {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.main-content.barber-off-work .cards .barber-profile .img {
+    display: flex;
+    align-items: center;
+}
+
+.main-content.barber-off-work .cards .barber-profile a {
+    display: flex;
+    justify-content: space-between;
+    background: var(--background--white);
+    padding: 1.9rem;
+    border-radius: 5px;
+}
+
+.main-content.barber-off-work .cards .barber-profile .img img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.main-content.barber-off-work .cards .barber-profile p {
+    padding: 0rem;
+    margin-bottom: -0.625rem;
+}
+
+.main-content.barber-off-work .cards .barber-profile .count-off-work {
+    line-height: 1.8rem;
+}
+
+.main-content.barber-off-work .cards .barber-profile .date-off-work {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 1.5rem;
+    color: var(--text--color--light);
+    background: var(--main-color);
+}
+
+.main-content.barber-off-work .recent-grid.barber-off-work .card {
+    margin: 1.125rem;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recent-grid.barber-off-work .card-header img {
+    margin-left: 1rem;
+}
+
+.recent-grid.barber-off-work .th-barber-queue span {
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    font-size: 1.055rem;
+}
+
+.recent-grid.barber-off-work .tr-barber-queue .off-work {
+    border-radius: 1.25rem;
+    padding: 0.5rem 1rem;
+    background: var(--main-color);
+    color: var(--text--color--light);
+    font-weight: 500;
+    font-size: 1.055rem;
+}
+
+.recent-grid.barber-off-work .tr-barber-queue .off-work i {
+    margin: 0 0.625rem;
 }
 
 
@@ -753,34 +894,47 @@ tr td:last-child {
     margin-top: 20px;
 }
 
+.flexbox .item .field p {
+    margin-left: 2rem;
+    font-family: "Prompt", sans-serif;
+    color: var(--dark-grey);
+    font-weight: 400;
+}
+
+.flexbox .item .field textarea,
 .flexbox .item .field input {
     margin-left: 5%;
     height: 100%;
     width: 90%;
     outline: none;
     padding-left: 15px;
-    border-radius: 5px;
-    border: 1px solid lightgrey;
-    border-bottom-width: 2px;
-    font-size: 17px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid lightgrey;
+    font-size: 16px;
+    font-weight: 300;
     transition: all 0.3s ease;
     font-family: "Prompt", sans-serif;
-    color: var(--dark-grey);
+    color: var(--text-grey-light);
+}
+
+.flexbox .item .field input.B_ID:focus {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.flexbox .item .field textarea:focus,
+.flexbox .item .field input:focus {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    color: var(--text-grey);
+    font-weight: 400;
 }
 
 .flexbox .item .field textarea {
-    margin-left: 5%;
-    height: 120%;
-    width: 90%;
-    outline: none;
-    padding-left: 15px;
-    border-radius: 5px;
-    border: 1px solid lightgrey;
-    border-bottom-width: 2px;
-    font-size: 17px;
-    transition: all 0.3s ease;
-    font-family: "Prompt", sans-serif;
-    color: var(--dark-grey);
+    padding-top: 0.75rem;
 }
 
 .flexbox .item .field .txt {
@@ -960,6 +1114,7 @@ tr td:last-child {
 .sex-radio-container .option span {
     font-size: 20px;
     color: #808080;
+    font-family: "Prompt", sans-serif;
 }
 
 #option-1:checked:checked~.option-1 span,
@@ -1031,6 +1186,17 @@ tr td:last-child {
 .profile_area .container .profile .profile_info .profile_info--top .profile-edit {
     display: flex;
     align-items: center;
+}
+
+.profile_area .container .profile .profile_info .profile_info--top .profile-edit a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    padding: 8px 10px;
+    border: 1px solid #333;
+    background: transparent;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .profile_area .container .profile .profile_info .profile_info--top .profile-edit a.edit {
@@ -1115,6 +1281,140 @@ tr td:last-child {
     font-weight: 400;
 }
 
+
+/* --------------! salsry -----------------*/
+
+.main-content .recent-grid.create-barber .saraly {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-content .recent-grid.create-barber .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    margin-top: 0.5rem;
+    width: 70%;
+}
+
+.main-content .recent-grid.create-barber .cards .card-single {
+    display: flex;
+    justify-content: center;
+    background: var(--background--white);
+    padding: 0.1rem;
+    border-radius: 5px;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album {
+    padding: 0.7em 1em;
+    border-radius: 0 0 6px 6px;
+    background-color: #fff;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album li {
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album li span {
+    font-size: 16px;
+    color: var(--dark-grey);
+    font-family: "Prompt", sans-serif;
+}
+
+
+/* ----------------------! Circle Percent Skill Start -------------------------*/
+
+.main-content .recent-grid.create-barber .saraly .skill-album {
+    font-size: 14px;
+    padding: 4px;
+    display: inline-block;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album .item {
+    position: relative;
+    margin-bottom: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--text--color--dark);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album .item:hover {
+    box-shadow: 0 0 20px var(--yellow-dark);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album .item:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-animation: colorload 2s;
+    animation: colorload 2s;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album .item span {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text--color--dark);
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    border-radius: 50%;
+    background: var(--background--white);
+    z-index: 1;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    cursor: default;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album .item span:hover {
+    box-shadow: 0 0 20px var(--yellow-dark);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+@keyframes colorload {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+
+
+/*# sourceMappingURL=progress-circle.css.map */
+
 .profile_area .container p {
     text-transform: uppercase;
     margin: 0 0 10px;
@@ -1157,6 +1457,7 @@ tr td:last-child {
     justify-content: space-evenly;
     margin: 0 auto;
     position: relative;
+    margin-bottom: 2rem;
 }
 
 .tabs_area .container .tabs::before {
@@ -1181,8 +1482,9 @@ tr td:last-child {
 }
 
 .tabs_area .container .tabs .tab-item span {
-    font-weight: 500;
+    font-weight: 300;
     color: #5f5f5f;
+    font-family: "Prompt", sans-serif;
 }
 
 .tabs_area .container .tabs .tab-item i {
@@ -1195,7 +1497,7 @@ tr td:last-child {
 }
 
 .tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box {
-    border: 1px solid var(--text-grey);
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
     margin: 10px 2.5%;
     border-radius: 5px;
     width: 95%;
@@ -1295,3 +1597,740 @@ tr td:last-child {
 
 
 /* ---------------! end all orders ---------------------------*/
+
+
+/* ---------------! customer profile start ------------------- */
+
+.recent-grid.customer-profile {
+    margin-top: 2.5rem;
+    margin-left: 7.5%;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 90% auto;
+}
+
+.recent-grid.customer-profile .profile_area .container p {
+    text-transform: none;
+    margin: 0 0 10px;
+    padding: 0;
+    letter-spacing: 1px;
+}
+
+
+/* ---------------! customer profile finish ------------------ */
+
+
+/* ---------------! manage booking start ----------------------- */
+
+
+/*---------------------------------------------------------- ! booking --------------------------------------------------------*/
+
+.booking-form-inner {
+    padding: 1% 1.5% 1% 1.5%;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background: #ffffff;
+}
+
+.select {
+    margin: 1%;
+    font-family: "Prompt", sans-serif;
+}
+
+.in-select {
+    margin: 3%;
+}
+
+.select p {
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    margin: 1%;
+    color: var(--text--color--dark);
+    text-align: center;
+}
+
+
+/*------------------------------------ booking date -----------------------------------------*/
+
+.booking-form-inner .select.date .in-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.booking-form-inner .select.date p:nth-child(2) {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.booking-form-inner form .field {
+    height: 40px;
+    width: 100%;
+}
+
+.booking-form-inner form .field input {
+    height: 100%;
+    width: 10%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+.booking-form-inner form .dropdown-date {
+    margin: 0 1%;
+    height: 40px;
+    width: 30%;
+    outline: none;
+    padding: 0 20px;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 16px;
+    color: #474747;
+    transition: all 0.3s ease;
+    font-family: "Prompt", sans-serif;
+    position: relative;
+    cursor: pointer;
+}
+
+.booking-form-inner form .dropdown-date option {
+    cursor: pointer;
+    color: var(--main-color-super-dark);
+}
+
+.booking-form-inner form .dropdown-date option::before {
+    cursor: pointer;
+    background: var(--main-color-super-dark);
+}
+
+
+/*------------------------------------ end booking date -------------------------------------*/
+
+
+/*------------------------------------ booking_barber ---------------------------------------*/
+
+.select.barber .in-select {
+    margin: 5% auto 0 auto;
+    display: flex;
+    width: 70%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.select.barber .in-select>.content {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.select.barber .in-select .item {
+    box-sizing: border-box;
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    position: relative;
+    animation-name: animatop;
+    animation-duration: 0.5s;
+    transition-duration: 0.09s;
+}
+
+@keyframes animatop {
+    0% {
+        transform: scale(0.5, 0.5);
+        transform: translateY(-20%);
+    }
+    100% {
+        transform: scale(1.1, 1.1);
+        transform: translateY(0%);
+    }
+}
+
+.select.barber .in-select .item .content {
+    height: 100%;
+    padding: 1%;
+}
+
+.select.barber .in-select .item .content input[type="radio"] {
+    display: none;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:not(:disabled)~label {
+    cursor: pointer;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:disabled~label {
+    color: #bcc2bf;
+    border-color: #bcc2bf;
+    box-shadow: none;
+}
+
+.select.barber .in-select .item .content label {
+    display: block;
+    background: white;
+    border: 1px solid var(--main-color-light);
+    border-radius: 5px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    box-shadow: 0px 3px 10px -2px rgba(161, 170, 166, 0.5);
+    position: relative;
+    transition-duration: 0.75s;
+    width: 150px;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:checked+label {
+    background: var(--main-color);
+    color: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 15px;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:checked+label .name p,
+.select.barber .in-select .item .content input[type="radio"]:checked+label .skill p,
+.select.barber .in-select .item .content input[type="radio"]:checked+label .skill .skillBox p {
+    color: white;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:checked+label .skill .skillBox .skill {
+    background: var(--background--white);
+    padding: 1px 3px;
+}
+
+.select.barber .in-select .item .content input[type="radio"]:checked+label .skill .skillBox .skill .skill_level {
+    background: var(--text--color--dark);
+}
+
+.select.barber .in-select .item .content input[type="radio"]:checked+label::after {
+    color: #3d3f43;
+    font-family: FontAwesome;
+    border: 2px solid var(--main-color);
+    content: "\f00c";
+    font-size: 24px;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
+}
+
+.select.barber .in-select .image {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+}
+
+.select.barber .in-select .image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 20% 70%;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
+    /* try 20px 10px */
+}
+
+.select.barber .in-select .name p {
+    font-size: 16px;
+    text-align: center;
+}
+
+.select.barber .in-select .name p:nth-child(1) {
+    font-size: 1rem;
+    text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+    section {
+        flex-direction: column;
+    }
+}
+
+
+/*----------------------------------- end booking_barber ------------------------------------*/
+
+
+/*----------------------------------- booking slottime ------------------------------------*/
+
+.select.slottime,
+.select.slottime .in-select {
+    margin: 0;
+}
+
+.select.slottime .in-select .card-slottime .content input {
+    display: none;
+    position: absolute;
+}
+
+.select.slottime .in-select .card-slottime {
+    margin: 0 auto 30px 12.5%;
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+
+/* radio button */
+
+@keyframes trabsitionIn {
+    0% {
+        transform: scale(0.5, 0.5);
+        transform: translateY(-75%);
+    }
+    100% {
+        transform: scale(1.1, 1.1);
+        transform: translateY(0%);
+    }
+}
+
+.card-slottime .content {
+    margin: 0;
+    padding: 0;
+}
+
+.card-slottime .content .option {
+    background: #fff;
+    height: 100%;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 8px;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 3px 6px;
+    border: 2px solid var(--main-color-dark);
+    transition: all 0.3s ease;
+    animation-name: trabsitionIn;
+    animation-duration: 0.5s;
+    transition-duration: 0.09s;
+}
+
+.card-slottime .content .option:hover {
+    border-color: var(--main-color);
+    transform: scale(0.97);
+    box-shadow: 0px 0px 1px 2px rgba(109, 82, 59, 0.2);
+}
+
+.card-slottime .content .option .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0;
+    background: var(--main-color);
+    border-radius: 50%;
+    position: relative;
+}
+
+.card-slottime .content .option .dot::before {
+    position: absolute;
+    content: "";
+    top: 3px;
+    left: 3px;
+    width: 9px;
+    height: 9px;
+    background: var(--main-color-dark);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+}
+
+#option-1:checked:checked~.option-1,
+#option-2:checked:checked~.option-2,
+#option-3:checked:checked~.option-3,
+#option-4:checked:checked~.option-4,
+#option-5:checked:checked~.option-5,
+#option-6:checked:checked~.option-6,
+#option-7:checked:checked~.option-7,
+#option-8:checked:checked~.option-8,
+#option-9:checked:checked~.option-9,
+#option-10:checked:checked~.option-10 {
+    border-color: var(--main-color-dark);
+    background: var(--main-color-dark);
+}
+
+#option-1:checked:checked~.option-1 .dot,
+#option-2:checked:checked~.option-2 .dot,
+#option-3:checked:checked~.option-3 .dot,
+#option-4:checked:checked~.option-4 .dot,
+#option-5:checked:checked~.option-5 .dot,
+#option-6:checked:checked~.option-6 .dot,
+#option-7:checked:checked~.option-7 .dot,
+#option-8:checked:checked~.option-8 .dot,
+#option-9:checked:checked~.option-9 .dot,
+#option-10:checked:checked~.option-10 .dot {
+    background: #fff;
+}
+
+#option-1:checked:checked~.option-1 .dot::before,
+#option-2:checked:checked~.option-2 .dot::before,
+#option-3:checked:checked~.option-3 .dot::before,
+#option-4:checked:checked~.option-4 .dot::before,
+#option-5:checked:checked~.option-5 .dot::before,
+#option-6:checked:checked~.option-6 .dot::before,
+#option-7:checked:checked~.option-7 .dot::before,
+#option-8:checked:checked~.option-8 .dot::before,
+#option-9:checked:checked~.option-9 .dot::before,
+#option-10:checked:checked~.option-10 .dot::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card-slottime .option span {
+    padding: 7.5px 0;
+    font-size: 14px;
+    margin: 0;
+    color: var(--main-color-dark);
+    font-weight: 500;
+}
+
+.card-slottime .option span:hover {
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+#option-1:checked:checked~.option-1 span,
+#option-2:checked:checked~.option-2 span,
+#option-3:checked:checked~.option-3 span,
+#option-4:checked:checked~.option-4 span,
+#option-5:checked:checked~.option-5 span,
+#option-6:checked:checked~.option-6 span,
+#option-7:checked:checked~.option-7 span,
+#option-8:checked:checked~.option-8 span,
+#option-9:checked:checked~.option-9 span,
+#option-10:checked:checked~.option-10 span {
+    color: #fff;
+    content: "515";
+}
+
+
+/* end radio button */
+
+
+/*----------------------------------- end booking slottime ------------------------------------*/
+
+.booking-form-inner form .field {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 50px 0;
+}
+
+@keyframes trabsitionInButton {
+    0% {
+        transform: scale(0.5, 0.5);
+        transform: translateY(100%);
+    }
+    100% {
+        transform: scale(1.1, 1.1);
+        transform: translateY(0%);
+    }
+}
+
+.booking-form-inner form .field .booking {
+    font-family: "Prompt", sans-serif;
+    color: #ffffff;
+    background-color: #48c148;
+    position: relative;
+}
+
+.booking-form-inner form .field .booking:hover {
+    background-color: #349034;
+}
+
+.booking-form-inner form .field .booking:focus {
+    background-color: #125a12;
+}
+
+
+/*--------------------------------------------------- ! end booking ----------------------------------------------------------*/
+
+
+/*----------------! manage booking finish ---------------------- */
+
+
+/* ---------------! closed strat ---------------------------------- */
+
+.recent-grid.manage-hairstyle {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.manage-hairstyle .card .card-body {
+    padding: 1rem;
+}
+
+.recent-grid.closed {
+    margin-top: 0;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.closed:last-child {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.closed i {
+    color: #349034;
+}
+
+.recent-grid.closed:last-child i {
+    color: #df3c37;
+}
+
+.recent-grid.closed .card-body {
+    padding: 2rem;
+}
+
+.recent-grid.closed .card-body .card-single {
+    display: flex;
+    justify-content: space-between;
+    background: var(--background--white);
+    box-shadow: 2px 2px 7px 1px rgba(52, 144, 52, 0.25);
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.recent-grid.closed:last-child .card-body .card-single {
+    box-shadow: 2px 2px 7px 1px rgba(223, 60, 55, 0.25);
+}
+
+.recent-grid.closed .card-single:last-child strong {
+    font-size: 26px;
+    font-weight: 600;
+    font-family: "Prompt", sans-serif;
+    color: var(--background--white);
+}
+
+.recent-grid.closed .card-single div:first-child span {
+    color: var(--text-grey);
+}
+
+.recent-grid.closed .card-single div:last-child span {
+    color: var(--main-color);
+    font-size: 3rem;
+}
+
+.recent-grid.closed .card-single:last-child {
+    color: var(--background--white);
+}
+
+.recent-grid.closed .card-single:last-child p {
+    color: #000;
+}
+
+.recent-grid.closed .card-single:last-child div:first-child span {
+    color: var(--text-grey);
+}
+
+
+/* ----------------! closed finish ---------------------------------- */
+
+
+/* ----------------! manage hairstyle start ---------------------- */
+
+.recent-grid.manage-hairstyle .card-body {
+    margin: 0;
+    width: 100%;
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box {
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px 2.5%;
+    border-radius: 5px;
+    width: 95%;
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box .item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box .comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box .comment p {
+    padding: 10px 20px;
+    font-weight: 600;
+    font-family: "Prompt", sans-serif;
+    width: 80%;
+    color: var(--dark-grey);
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box .comment p span {
+    font-family: "Prompt", sans-serif;
+    font-weight: 300;
+    color: var(--text-grey);
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box .comment .menu {
+    margin-right: 1rem;
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box .comment .menu .queue-edit,
+.recent-grid.manage-hairstyle .card-body .gallery-box .comment .menu .queue-cancel {
+    border-radius: 25px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box .comment .menu .queue-edit {
+    margin-top: 0px;
+    padding: 10px 14px;
+    background-color: #f1c840;
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box .comment .menu .queue-edit:hover {
+    background-color: #e1b936;
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box .comment .menu .queue-cancel {
+    margin-top: 0px;
+    padding: 10px 13px;
+    background-color: #df3c37;
+}
+
+.recent-grid.manage-hairstyle .card-body .gallery-box .comment .menu .queue-cancel:hover {
+    background-color: #ac2e29;
+}
+
+.recent-grid.manage-hairstyle .card-body .grid-img {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.recent-grid.manage-hairstyle .card-body .grid-img img {
+    width: 100%;
+}
+
+.card-header .manage-hairstyle i {
+    color: #df3c37;
+}
+
+.customers .card-body.manage-hairstyle p {
+    font-family: "Prompt", sans-serif;
+    padding: 0;
+    margin-left: 1.5rem;
+    margin-bottom: 0.313rem;
+}
+
+.customers .card-body.manage-hairstyle p i {
+    font-size: 1.125rem;
+}
+
+.customers .card-body.manage-hairstyle .item {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    font-family: "Prompt", sans-serif;
+}
+
+.customers .card-body.manage-hairstyle .item.image {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    font-family: "Prompt", sans-serif;
+}
+
+.customers .card-body.manage-hairstyle .item.image .field {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.customers .card-body.manage-hairstyle .item .field {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.customers .card-body.manage-hairstyle .item .field p {
+    margin-left: 2rem;
+    font-family: "Prompt", sans-serif;
+    color: var(--dark-grey);
+    font-weight: 400;
+}
+
+.customers .card-body.manage-hairstyle .item .field textarea,
+.customers .card-body.manage-hairstyle .item .field input {
+    margin-left: 5%;
+    height: 100%;
+    width: 90%;
+    outline: none;
+    padding-left: 15px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid lightgrey;
+    font-size: 16px;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    font-family: "Prompt", sans-serif;
+    color: var(--text-grey-light);
+}
+
+.customers .card-body.manage-hairstyle .item .field textarea:focus,
+.customers .card-body.manage-hairstyle .item .field input:focus {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    color: var(--text-grey);
+    font-weight: 400;
+}
+
+.customers .card-body.manage-hairstyle .item .field textarea {
+    padding-top: 0.75rem;
+}
+
+
+/* ----------------! manage hairstyle finish --------------------- */

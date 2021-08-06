@@ -60,9 +60,6 @@ class Booking_Con extends CI_Controller
 
     function ins_Booking()
     {
-        $customer = $this->input->post('C_ID');
-        $time = $this->input->post('ST_ID');
-        $barber = $this->input->post('B_ID');
         if ($this->input->post('btnBooking')) //มีการคลิกปุ่ม สมัครสมาชิก
         { {
                 $id = $this->BKM->GenerateId();
@@ -73,7 +70,8 @@ class Booking_Con extends CI_Controller
                     'BK_Day' => $this->input->post('BK_Day'),
                     'BK_Month' => $this->input->post('BK_Month'),
                     'BK_Year' => $this->input->post('BK_Year'),
-                    'ST_ID' => $this->input->post('ST_ID')
+                    'ST_ID' => $this->input->post('ST_ID'),
+                    'Q_ID' => $this->input->post('Q_ID')
                 );
                 $check = $this->BKM->createBookingQueueByCustomer($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
                 $c_id = $this->input->post('C_ID');

@@ -23,11 +23,11 @@
   </header>
 
   <main>
-    <div class="cards">
+  <div class="cards">
       <div class="card-single">
         <div>
-          <p>256 <strong>คน</strong></p>
-          <span>จำนวนการตัด</span>
+          <p>9 <strong>คิว</strong></p>
+          <span>ตัดแล้วในเดือนนี้</span>
         </div>
         <div>
           <span>
@@ -38,36 +38,36 @@
 
       <div class="card-single">
         <div>
-          <p>30 <strong>%</strong></p>
-          <span>เปอร์เซ็นต์</span>
+          <p>57 <strong>คิว</strong></p>
+          <span>ตัดแล้วในสัปดาห์นี้</span>
         </div>
         <div>
           <span>
-            <i class="las la-percent"></i>
+            <i class="las la-users"></i>
           </span>
         </div>
       </div>
 
       <div class="card-single">
         <div>
-          <p>3000 <strong>฿</strong></p>
-          <span>เงินเดือน</span>
+          <p>198 <strong>คิว</strong></p>
+          <span>ตัดแล้วในเดือนนี้</span>
         </div>
         <div>
           <span>
-            <i class="las la-coins"></i>
+            <i class="las la-users"></i>
           </span>
         </div>
       </div>
 
       <div class="card-single">
         <div>
-          <p>14520 <strong>฿</strong></p>
-          <span>รายได้รวม</span>
+          <p>326 <strong>คิว</strong></p>
+          <span>ตัดแล้วทั้งหมด</span>
         </div>
         <div>
           <span>
-            <i class="las la-receipt"></i>
+            <i class="las la-users"></i>
           </span>
         </div>
       </div>
@@ -77,8 +77,8 @@
       <div class="projects">
         <div class="card">
           <div class="card-header barber-income">
-            <h3>รายละเอียดการตัดผมของ<span class="span">ช่างโนช</span>&nbsp;&nbsp;</h3>
-            <img class="img-barber-profile-small" src="<?php echo base_url(); ?>img/baberNoch.jpg" alt="BarberProfile">
+            <h3>รายละเอียดการตัดผมของ<a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $ID->B_ID; ?>"><span class="span">ช่าง<?php echo $ID->B_Nickname; ?></span></a></h3>
+            <img class="img-barber-profile-small" src="<?php echo base_url(); ?>img/<?php echo $ID->B_Img; ?>" alt="BarberProfile">
           </div>
 
           <div class="card-body">
@@ -107,7 +107,7 @@
                       <td class="td-barber-queue">
                         <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
                       </td>
-                      <td class="td-barber-queue"><a href="#"><?php echo $row->C_Nickname; ?></a></td>
+                      <td class="td-barber-queue"><a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>"><?php echo $row->C_Nickname; ?></a></td>
                       <td class="td-barber-queue"><?php echo $row->C_Name; ?></td>
                       <td class="td-barber-queue"><?php echo $row->C_Lname; ?></td>
                       <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
@@ -127,17 +127,8 @@
       </div>
 
     </div>
+    
 </div>
 </main>
 </div>
 
-<script type="text/javascript">
-  const currentLocation = location.href;
-  const menuItem = document.querySelectorAll('a');
-  const menuLength = menuItem.length
-  for (let i = 0; i < menuLength; i++) {
-    if (menuItem[i].href === currentLocation) {
-      menuItem[i].className = "active"
-    }
-  }
-</script>

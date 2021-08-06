@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="comment">
-                        <p><?php echo $ID->Username; ?> : <span><?= $row['H_Detail1'] ?> <?= $row['H_Detail2'] ?></span></p>
+                        <p><?php echo $ID->Username; ?> : <span> <?= $row['H_Detail'] ?></span></p>
                         <!--
                         <div class="menu">
                             <a class="queue-edit" href="<?php echo site_url('UserManagement_Con/admin_editbarber/'); ?>"><i class="fas fa-pen-square"></i></a>
@@ -43,13 +43,3 @@
 </main>
 </div>
 
-<script type="text/javascript">
-    const currentLocation = location.href;
-    const menuItem = document.querySelectorAll('a');
-    const menuLength = menuItem.length
-    for (let i = 0; i < menuLength; i++) {
-        if (menuItem[i].href === currentLocation) {
-            menuItem[i].className = "active"
-        }
-    }
-</script>

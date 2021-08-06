@@ -1,54 +1,3 @@
-<?php
-/*if($this->session->flashdata('msg_error'))
-	{
-		echo '<p><font color=red>';
-		echo $this->session->flashdata('msg_error');
-		echo '</font></p>';
-	}
-	
-	echo form_open('UserManagement_Con/insert_barber');
-
-	echo form_label('ชื่อ','B_Name'). '<br />';
-	echo form_error('B_Name', '<font color=red>','</font><br />');
-	echo form_input('B_Name', set_value('B_Name')).'<br />';
-
-	echo form_label('นามสกุล','B_Lname'). '<br />';
-	echo form_error('B_Lname', '<font color=red>','</font><br />');
-	echo form_input('B_Lname', set_value('B_Lname')).'<br />';
-
-    echo form_label('ชื่อเล่น','B_Nickname'). '<br />';
-	echo form_error('B_Nickname', '<font color=red>','</font><br />');
-	echo form_input('B_Nickname', set_value('B_Nickname')).'<br />';
-
-	echo form_label('เพศ','B_Sex'). '<br />';
-	echo form_error('B_Sex', '<font color=red>','</font><br />');
-	echo form_radio('B_Sex', 'ชาย').'ชาย';
-	echo form_radio('B_Sex', 'หญิง').'หญิง'.'<br />';
-
-	echo form_label('เบอร์โทร','B_Phone'). '<br />';
-	echo form_error('B_Phone', '<font color=red>','</font><br />');
-	echo form_input('B_Phone', set_value('B_Phone')).'<br />';
-
-	echo form_label('ที่อยู่','B_Address'). '<br />';
-	echo form_error('B_Address', '<font color=red>','</font><br />');
-	echo form_textarea('B_Address', set_value('B_Address')).'<br />';
-
-	echo form_label('รหัสผู้ใช้','Username'). '<br />';
-	echo form_error('Username', '<font color=red>','</font><br />');
-	echo form_input('Username', set_value('Username')).'<br />';
-
-	echo form_label('รหัสผ่าน','Password'). '<br />';
-	echo form_error('Password', '<font color=red>','</font><br />');
-	echo form_password('Password', set_value('Password')).'<br />';
-	
-	echo form_hidden('S_ID',set_value('S_ID','2'));
-
-	echo form_submit('btnRegister','เพิ่มช่าง');
-	echo form_close();
-	
-	*/ ?>
-<!--<a class="register" href="../Page_Con/index">ยกเลิก</a>-->
-
 <div class="main-content">
 	<header>
 		<h2>
@@ -250,13 +199,3 @@
 	</main>
 </div>
 
-<script type="text/javascript">
-	const currentLocation = location.href;
-	const menuItem = document.querySelectorAll('a');
-	const menuLength = menuItem.length
-	for (let i = 0; i < menuLength; i++) {
-		if (menuItem[i].href === currentLocation) {
-			menuItem[i].className = "active"
-		}
-	}
-</script>

@@ -5,6 +5,9 @@ class Admin_Model extends CI_Model
 {
     function getCustomer()
 	{
+        $query = $this->db->query("SELECT * FROM `customer` WHERE C_ID NOT IN (SELECT C_ID FROM customer WHERE `C_ID` = 'c00000')");
+        return $query->result();
+
 		$this->db->select('*');
 		$query = $this->db->get('customer');
 		return $query->result();
@@ -60,6 +63,7 @@ class Admin_Model extends CI_Model
 			->get('barber'); //ให้ทำการค้นหาจากตาราง barber
 		return $query->row(); //จากนั้นนำค่า $query ส่งค่าเป็น object โดยจะส่งข้อมูลออกมาเพียง เรคอร์ดเดียว กลับไปที่ Customer_Con
 	}
+
 	function deleteHairstyle($id)
 	{    //ฟังชั่น deleteBarber จากนั้น รับตัวแปร $id มา
 		$query = $this->db->where('H_ID', $id) // เรียกใช้ฟังชั่น where จากนั้น กำหนดเงื่อนไขจากฟิล B_ID แล้วทำการเช็กตัวแปร $id ว่าตรงกับข้อมูลในฟิลไหม
@@ -69,5 +73,12 @@ class Admin_Model extends CI_Model
 		} else {
 			return FALSE;
 		}
+	}
+
+	function getCustomerByAdmin($id) //ฟังก์ชั่น getBarberByCustomer โดยรับค่าพารามิเตอร์ $id มาจาก Customer_Con
+	{
+		$query = $this->db->where('C_ID', $id) //จากนั้นทำการค้นหาแบบกำหนดเงื่อนไขจากฟิลด์ B_ID ถ้า $id ที่รับมาตรงกับ B_ID
+			->get('customer'); //ให้ทำการค้นหาจากตาราง barber
+		return $query->row(); //จากนั้นนำค่า $query ส่งค่าเป็น object โดยจะส่งข้อมูลออกมาเพียง เรคอร์ดเดียว กลับไปที่ Customer_Con
 	}
 }

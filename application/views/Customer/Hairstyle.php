@@ -47,8 +47,8 @@ foreach ($HS->result_array() as $row) {
 
                 <div class="product-detail">
                     <p>ผมทรง <?= $row['H_Name'] ?></p>
-                    <p><?= $row['H_Detail1'] ?></p>
-                    <p><?= $row['H_Detail2'] ?><?= $row['H_Detail3'] ?></p>
+                    
+                    <p><?= $row['H_Detail'] ?></p>
                 </div>
 
                 <div class="purchase-info">

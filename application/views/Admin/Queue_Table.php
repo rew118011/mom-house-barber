@@ -107,7 +107,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <tbody>
                                         <tr id="<?php echo $row->BK_ID; ?>" class="tr-barber-queue">
                                             <td></td>
-                                            <td class="td-barber-queue"><img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" /></td>
+                                            <td class="td-barber-queue"><img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="" /></td>
                                             <td class="td-barber-queue customer-name"><a href="#"><?php echo $row->C_Nickname; ?></a></td>
                                             <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
                                             <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
@@ -150,7 +150,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <div class="info">
                                     <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="" />
                                     <div>
-                                        <h4><?php echo $row->C_Nickname; ?></h4>
+                                        <h4><a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>"><?php echo $row->C_Nickname; ?></a></h4>
                                         <small><?php echo $row->C_Phone; ?></small>
                                     </div>
                                 </div>
@@ -175,36 +175,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </main>
 </div>
 
-<script type="text/javascript">
-    const currentLocation = location.href;
-    const menuItem = document.querySelectorAll('a');
-    const menuLength = menuItem.length
-    for (let i = 0; i < menuLength; i++) {
-        if (menuItem[i].href === currentLocation) {
-            menuItem[i].className = "active"
-        }
-    }
-</script>
+
 <script>
     $(document).ready(function() {
-        $('#btnPay').click(function() {
-            var BK_ID = $(this).val();
+    $('#btnPay').click(function() {
+        var BK_ID = $(this).val();
 
-            $.ajax({
-                url: "<?php echo base_url(); ?>index.php/Booking_Con/dynamically_KeepQueue",
-                method: "POST",
-                dataType: 'json',
-                data: {
-                    BK_ID: BK_ID,
+        $.ajax({
+            url: "<?php echo base_url(); ?>index.php/Booking_Con/dynamically_KeepQueue",
+            method: "POST",
+            dataType: 'json',
+            data: {
+                BK_ID: BK_ID,
 
-                },
-                success: function(response) {
-                    $("#<?php echo $row->BK_ID; ?>").html(response);
-                    $('#<?php echo $row->BK_ID; ?> tr').remove();
-                    location.reload();
-                }
-            });
-
+            },
+            success: function(response) {
+                $("#<?php echo $row->BK_ID; ?>").html(response);
+                $('#<?php echo $row->BK_ID; ?> tr').remove();
+                location.reload();
+            }
         });
+
     });
+});
 </script>

@@ -1,3 +1,8 @@
+<?php $Queue=[
+  ['img'=>"https://randomuser.me/api/portraits/lego/6.jpg",
+
+],
+] ?>
 <!--   #posts start -->
 <div class="posts queue">
   <!-- .post start -->

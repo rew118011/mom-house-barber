@@ -160,6 +160,60 @@ class Customer_Con extends CI_Controller
         redirect('Customer_Con/getProfile', 'refresh'); //ไปหน้า customer_view
     }
 
+    function save_Image() //ฟังก์ชั่น update customer
+    {
+       
+            $config['upload_path'] = 'img/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size']  = 10024; 
+            $config['max_width'] = 3000; 
+            $config['max_height'] = 3000;	
+            $config['encrypt_name'] = true;  
+            
+
+            $this->load->library('upload', $config);
+            if ( ! $this->upload->do_upload('C_Img')) {
+               
+                redirect('Customer_Con/setImage','refresh');
+          }
+          else{
+             $image = $this->upload->data('file_name');
+             $data = array (
+                'C_ID' => $this->input->post("C_ID"),
+                'C_Img' => $image);
+        }
+        $this->CM->setProfile($data);
+        
+        
+        $sess =  $this->session->userdata('Username');
+        $data1['CUSTOMER'] = $this->CM->getProfile($sess);
+
+        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+
+        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Navbar', $datasess);
+        $this->load->view('Customer/Banner1');
+        $this->load->view('Customer/EditProfile', $data1);          //นำข้อมูลที่ได้ส่งไปที่หน้า EditProfile
+        $this->load->view('Customer/Footer');
+    }
+
+    function setImage() //ฟังก์ชั่น แก้ไขรูปโปรไฟล์ customer
+    {
+        $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
+        $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
+
+        $sess =  $this->session->userdata('Username');
+        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+
+        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Navbar', $datasess);
+        $this->load->view('Customer/Banner1');
+        $this->load->view('Customer/EditProfile', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า EditProfile
+        $this->load->view('Customer/Footer');
+        
+    }
+
+
     function getAllBarberByCustomer()
     { //ฟังก์ชั่น customer_look_all_barber
         $data['Barber'] = $this->AM->getBarberAll(); //ดึงข้อมูลมาจาก Admin_Model จากนั้นเรียกใช้ฟังก์ชั่น getBarberAll ใน Admin_Model

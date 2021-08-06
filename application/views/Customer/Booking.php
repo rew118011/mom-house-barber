@@ -42,6 +42,8 @@
 		</div>
 		<!-- select barber finish -->
 
+		<input style="display: none;" type="text" name="Q_ID" value="1" required>
+
 		<!-- select slot time start -->
 		<div class="field btn">
 			<input class="booking" type="submit" name="btnBooking" value="ตกลง">
@@ -51,27 +53,6 @@
 	</form>
 </div>
 
-
-
-
-<!--<script>
-	$(document).ready(function() {
-		$('input[type="radio"]').change(function() {
-			var B_ID = $(this).val();
-			$.ajax({
-				url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_TimeSlot",
-				method: "POST",
-				data: {
-					B_ID: B_ID
-				},
-				success: function(data) {
-					$('#Time_Slot').html(data);
-				}
-
-			});
-		});
-	});
-</script>-->
 
 <script>
 	$(document).ready(function() {

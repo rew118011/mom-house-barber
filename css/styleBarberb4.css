@@ -1,0 +1,2278 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+    --main-color-super-light: #fff4eb;
+    --main-color-light: #cc9768;
+    --main-color: #b07c4d;
+    --main-color-dark: #925a2a;
+    --main-color-super-dark: #754419;
+    --color-dark: #1d2231;
+    --grey-light: #d8d8d8;
+    --dark-grey: #3f3f3f;
+    --text-grey: #7a7c80;
+    --background: #fafafa;
+    --background--white: #fffefe;
+    --background--dark--white: #f3f3f3;
+    --text--color--dark: #291f1d;
+    --text--color--light: #ffffff;
+    --yellow-dark: #f79b31;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    background-color: var(--main-color);
+    transition: 350ms all ease;
+}
+
+.container .sideBar {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    transition: 350ms all ease;
+}
+
+.container .sideBar #logo {
+    margin: 20px auto;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+}
+
+.container .sideBar .profile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .sideBar .profile .image {
+    width: 175px;
+    height: 175px;
+    background-image: linear-gradient(220deg, var(--text--color--light), var(--yellow-dark));
+    border-radius: 100%;
+    margin-bottom: 15px;
+    cursor: pointer;
+    -webkit-animation: imageAnimation 0.6s linear;
+    animation: imageAnimation 0.6s linear;
+}
+
+@-webkit-keyframes imageAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes imageAnimation {
+    0% {
+        transform: scale(1);
+        z-index: 4;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        z-index: 0;
+    }
+}
+
+.container .sideBar .profile .image:hover {
+    -webkit-animation: buttonAnimation 1s linear;
+    animation: buttonAnimation 1s linear;
+}
+
+.container .sideBar .profile .image img {
+    width: 167px;
+    height: 167px;
+    border-radius: 100%;
+    margin: 4px;
+    padding: 1px;
+    border: 5px solid var(--text--color--dark);
+}
+
+.container .sideBar .profile a {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    -webkit-animation: buttonAnimation 0.6s linear;
+    animation: buttonAnimation 0.6s linear;
+}
+
+.container .sideBar .profile .name {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-family: "Prompt", sans-serif;
+    -webkit-animation: buttonAnimation 0.6s linear;
+    animation: buttonAnimation 0.6s linear;
+}
+
+.container .sideBar .profile .info {
+    margin-top: 25px;
+    display: flex;
+}
+
+.container .sideBar .profile .info li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    color: #fff;
+    font-family: "Prompt", sans-serif;
+    -webkit-animation: buttonAnimation 0.6s linear;
+    animation: buttonAnimation 0.6s linear;
+}
+
+.container .sideBar .profile .info li:not(:last-of-type) {
+    border-right: 1px solid rgba(255, 255, 255, 0.342);
+}
+
+.container .sideBar .profile .info li span {
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-family: "Prompt", sans-serif;
+}
+
+.container .sideBar .menu {
+    width: 90%;
+    margin-top: 50px;
+    box-sizing: border-box;
+    margin-right: 10%;
+}
+
+.container .sideBar .menu li {
+    height: 40px;
+    color: #fff;
+    text-transform: capitalize;
+    list-style: none;
+}
+
+.container .sideBar .menu li a.active {
+    background: var(--background);
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.container .sideBar .menu li a.active:hover {
+    transform: scale(1.1);
+    transition-duration: .75s;
+    background: var(--background);
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.container .sideBar .menu li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    transition: 350ms all ease;
+}
+
+.container .sideBar .menu li a:hover {
+    transform: scale(1.1);
+    transition-duration: .75s;
+    background-color: #925b2ab9;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.container .sideBar .menu li i {
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 24px;
+    background: #ffffff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container .sideBar .menu li a.active i {
+    background: var(--main-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container .sideBar .menu li a span {
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #ffffff;
+    font-family: "Prompt", sans-serif;
+}
+
+.container .sideBar .menu li a.active span {
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.container .sideBar .menu li label {
+    margin-left: auto;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.container .content {
+    flex: 1;
+    background-color: var(--background);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.container .content .toggle {
+    width: 50px;
+    height: 50px;
+    background-color: var(--main-color);
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 12px;
+    top: 30px;
+    left: -5px;
+    cursor: pointer;
+}
+
+.container .content .toggle i {
+    font-size: 18px;
+}
+
+.container .content .add-photo.all-story {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 170px;
+    margin-bottom: 10px;
+    background: var(--background--white);
+    box-shadow: 0px 2px 7px 2px var(--main-color);
+    border-radius: 15px;
+}
+
+.container .content .add-photo.all-story:hover {
+    -webkit-animation: add-photoAnimation 0.6s linear;
+    animation: add-photoAnimation 0.6s linear;
+}
+
+@-webkit-keyframes add-photoAnimation {
+    0% {
+        transform: scale(1);
+        z-index: 4;
+    }
+    50% {
+        transform: scale(1.019);
+    }
+    100% {
+        transform: scale(1);
+        z-index: 0;
+    }
+}
+
+@keyframes add-photoAnimation {
+    0% {
+        transform: scale(1);
+        z-index: 4;
+    }
+    50% {
+        transform: scale(1.019);
+    }
+    100% {
+        transform: scale(1);
+        z-index: 0;
+    }
+}
+
+.container .content .add-photo.all-story .stories {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    width: calc(90.5vw - 400px);
+    padding-bottom: 2px;
+    margin: 40px 10px;
+    padding: 0 25px;
+    position: relative;
+    transition: 350ms all ease;
+    overflow: hidden;
+}
+
+.container .content .add-photo.all-story .stories .story {
+    width: 75px;
+    height: 75px;
+    background-image: linear-gradient(70deg, var(--yellow-dark), var(--main-color-light));
+    border-radius: 100%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 350ms all ease;
+}
+
+.container .content .add-photo.all-story .stories .story:hover {
+    -webkit-animation: storyAnimation 0.6s linear;
+    animation: storyAnimation 0.6s linear;
+}
+
+.container .content .add-photo.all-story .stories .story img {
+    width: 69px;
+    height: 69px;
+    border-radius: 100%;
+    margin: 3px;
+    border: 4px solid var(--text--color--dark);
+}
+
+.container .content .add-photo.all-story .button {
+    width: 15%;
+    text-align: center;
+}
+
+.content .add-photo.all-story .button .buttons:hover {
+    -webkit-animation: buttonAnimation 0.6s linear;
+    animation: buttonAnimation 0.6s linear;
+}
+
+.add-photo.all-story .button .buttons #addPhotos {
+    background-image: linear-gradient(70deg, var(--yellow-dark), var(--main-color-light));
+    color: var(--text--color--light);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+}
+
+.add-photo.all-story .button .buttons #addPhotos i {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 16px;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+
+.container .content .posts {
+    width: 100%;
+    display: flex;
+    margin-bottom: 50px;
+    flex-flow: column wrap;
+    max-height: 1200px;
+}
+
+.container .content .post {
+    max-width: calc(33% - 30px);
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.container .content .post:hover .post-image {
+    transform: scale(1.05);
+}
+
+.container .content .post:nth-child(4n+1) .post-image {
+    height: 300px;
+}
+
+.container .content .post:nth-child(4n+2) .post-image {
+    height: 200px;
+}
+
+.container .content .post:nth-child(4n+3) .post-image {
+    height: 450px;
+}
+
+.container .content .post:nth-child(4n+4) .post-image {
+    height: 600px;
+}
+
+.container .content .post .post-image {
+    width: 100%;
+    border-radius: 10px;
+    transition: 350ms all ease;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.container .content .post .owner {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.container .content .post .owner .ownerImage {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    background-image: linear-gradient(70deg, var(--yellow-dark), var(--main-color-light));
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 350ms all ease;
+}
+
+.container .content .post .owner .ownerImage:hover {
+    -webkit-animation: storyAnimation 0.6s linear;
+    animation: storyAnimation 0.6s linear;
+}
+
+.container .content .post .owner .ownerImage img {
+    width: 30.2px;
+    height: 30.2px;
+    border-radius: 100%;
+    margin: 2.5px;
+    border: 2px solid var(--text--color--dark);
+}
+
+.container .content .post .owner .name {
+    color: var(--text--color--dark);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
+
+.container .content .post .owner .name span {
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: "Prompt", sans-serif;
+}
+
+@-webkit-keyframes storyAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes storyAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@-webkit-keyframes buttonAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes buttonAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/*------------------------------------ barber queue table ----------------------------------*/
+
+.add-photo.all-story.queue {
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+.container.queue {
+    display: block;
+    background: var(--background);
+    margin: 0;
+    padding: 0;
+}
+
+.item.queue {
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    height: 124px;
+    padding: 30px 19% 0 19%;
+    font-size: 16px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.item.queue .content {
+    position: relative;
+    animation: animatop 0.9s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
+}
+
+.item.queue .content .card {
+    width: 75%;
+    padding: 0 10%;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    -webkit-animation: buttonAnimation 0.6s linear;
+    animation: buttonAnimation 0.6s linear;
+}
+
+.item.queue .content .card:hover {
+    -webkit-animation: HovernAnimation .75s linear;
+    animation: HovernAnimation .75s linear;
+}
+
+@keyframes HovernAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.item.queue .Slot_time_1 .card:after,
+.item.queue .Slot_time_2 .card:after,
+.item.queue .Slot_time_3 .card:after,
+.item.queue .Slot_time_4 .card:after,
+.item.queue .Slot_time_5 .card:after,
+.item.queue .Slot_time_6 .card:after,
+.item.queue .Slot_time_7 .card:after,
+.item.queue .Slot_time_8 .card:after,
+.item.queue .Slot_time_9 .card:after,
+.item.queue .Slot_time_10 .card:after {
+    content: "";
+    display: block;
+    width: 191px;
+    height: 200px;
+    position: absolute;
+    animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
+    box-sizing: border-box;
+}
+
+.item.queue .Slot_time_1 .card:after,
+.item.queue .Slot_time_6 .card:after {
+    background: #EF597B;
+}
+
+.item.queue .Slot_time_2 .card:after,
+.item.queue .Slot_time_7 .card:after {
+    background: #FF6D31;
+}
+
+.item.queue .Slot_time_3 .card:after,
+.item.queue .Slot_time_8 .card:after {
+    background: #73B66B;
+}
+
+.item.queue .Slot_time_4 .card:after,
+.item.queue .Slot_time_9 .card:after {
+    background: #FFBC18;
+}
+
+.item.queue .Slot_time_5 .card:after,
+.item.queue .Slot_time_10 .card:after {
+    background: #29A2C6;
+}
+
+.item.queue .content .card .firstinfo {
+    flex-direction: row;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.item.queue .content .card .firstinfo img {
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+}
+
+.item.queue .content .card .firstinfo .profileinfo {
+    padding: 0px 10%;
+    width: 100%;
+}
+
+.item.queue .content .card .firstinfo .profileinfo .date,
+.item.queue .content .card .firstinfo .profileinfo .data {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+}
+
+.item.queue .content .card .firstinfo .profileinfo .date p,
+.item.queue .content .card .firstinfo .profileinfo .date p {
+    font-size: 18px;
+}
+
+.item.queue .content .card .firstinfo .profileinfo .date p:nth-child(1) {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.item.queue .content .card .firstinfo .profileinfo .date p:nth-child(2) {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    color: #48c148;
+    font-weight: 700;
+}
+
+.item.queue .content .card .firstinfo .profileinfo .date.success p:nth-child(2) {
+    color: var(--dark-grey);
+    font-weight: 500;
+}
+
+.item.queue .content .card .firstinfo .profileinfo .data p:nth-child(1) {
+    font-family: "Prompt", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--main-color-super-dark);
+}
+
+.item.queue .content .card .firstinfo .profileinfo .data p:nth-child(2) {
+    font-family: "Prompt", sans-serif;
+    font-size: 18px;
+    color: var(--yellow-dark);
+}
+
+.item.queue .content .card .firstinfo .profileinfo .data.success p:nth-child(2) {
+    color: #48c148;
+}
+
+.item.queue .content .badgescard {
+    border-radius: 3px;
+    background-color: #fff;
+    width: 35%;
+    height: 90%;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: -1;
+    left: 70%;
+    top: 5px;
+    animation: animainfos 1.5s;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.item.queue .content .badgescard:hover {
+    transform: scale(1.1);
+    transition-duration: .75s;
+}
+
+.item.queue .Slot_time_1 .badgescard:after,
+.item.queue .Slot_time_2 .badgescard:after,
+.item.queue .Slot_time_3 .badgescard:after,
+.item.queue .Slot_time_4 .badgescard:after,
+.item.queue .Slot_time_5 .badgescard:after,
+.item.queue .Slot_time_6 .badgescard:after,
+.item.queue .Slot_time_7 .badgescard:after,
+.item.queue .Slot_time_8 .badgescard:after,
+.item.queue .Slot_time_9 .badgescard:after,
+.item.queue .Slot_time_10 .badgescard:after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    animation: rotatemagicBadgescard 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
+    box-sizing: border-box;
+}
+
+.item.queue .Slot_time_1 .badgescard:after,
+.item.queue .Slot_time_6 .badgescard:after {
+    background: #EF597B;
+}
+
+.item.queue .Slot_time_2 .badgescard:after,
+.item.queue .Slot_time_7 .badgescard:after {
+    background: #FF6D31;
+}
+
+.item.queue .Slot_time_3 .badgescard:after,
+.item.queue .Slot_time_8 .badgescard:after {
+    background: #73B66B;
+}
+
+.item.queue .Slot_time_4 .badgescard:after,
+.item.queue .Slot_time_9 .badgescard:after {
+    background: #FFBC18;
+}
+
+.item.queue .Slot_time_5 .badgescard:after,
+.item.queue .Slot_time_10 .badgescard:after {
+    background: #29A2C6;
+}
+
+.item.queue .content .badgescard .phone {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-left: 20%;
+    z-index: 3;
+}
+
+.item.queue .content .badgescard .phone i {
+    margin: 0px 6px 0 6px;
+    font-size: 32px;
+    opacity: 0.6;
+}
+
+.item.queue .content .badgescard .phone span {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #fff;
+}
+
+.item.queue .Slot_time_1 .badgescard .phone span,
+.item.queue .Slot_time_6 .badgescard .phone span,
+.item.queue .Slot_time_1 .badgescard .phone i,
+.item.queue .Slot_time_6 .badgescard .phone i {
+    color: #EF597B;
+}
+
+.item.queue .Slot_time_2 .badgescard .phone span,
+.item.queue .Slot_time_7 .badgescard .phone span,
+.item.queue .Slot_time_2 .badgescard .phone i,
+.item.queue .Slot_time_7 .badgescard .phone i {
+    color: #FF6D31;
+}
+
+.item.queue .Slot_time_3 .badgescard .phone span,
+.item.queue .Slot_time_8 .badgescard .phone span,
+.item.queue .Slot_time_3 .badgescard .phone i,
+.item.queue .Slot_time_8 .badgescard .phone i {
+    color: #73B66B;
+}
+
+.item.queue .Slot_time_4 .badgescard .phone span,
+.item.queue .Slot_time_9 .badgescard .phone span,
+.item.queue .Slot_time_4 .badgescard .phone i,
+.item.queue .Slot_time_9 .badgescard .phone i {
+    color: #FFBC18;
+}
+
+.item.queue .Slot_time_5 .badgescard .phone span,
+.item.queue .Slot_time_10 .badgescard .phone span,
+.item.queue .Slot_time_5 .badgescard .phone i,
+.item.queue .Slot_time_10 .badgescard .phone i {
+    color: #29A2C6;
+}
+
+@keyframes animatop {
+    0% {
+        opacity: 0;
+        bottom: -500px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 0px;
+    }
+}
+
+@keyframes animainfos {
+    0% {
+        top: 5px;
+        left: -50px;
+    }
+    100% {
+        top: 5px;
+    }
+}
+
+@keyframes rotatemagic {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+        top: -24px;
+        left: -253px;
+    }
+    100% {
+        transform: rotate(-25deg);
+        top: -24px;
+        left: -78px;
+    }
+}
+
+@keyframes rotatemagicBadgescard {
+    0% {
+        opacity: 0;
+        transform: rotate(20deg);
+        top: -24px;
+        right: -253px;
+    }
+    100% {
+        transform: rotate(20deg);
+        top: -24px;
+        right: -78px;
+    }
+}
+
+
+/*-------------------------------- end barber queue table ---------------------------------*/
+
+
+/*--------------------------------------- end Add_portfolio --------------------------------------*/
+
+.container_Add_portfolio {
+    box-sizing: border-box;
+    margin: 5% 10% 10% 10%;
+}
+
+.teat_Add_portfolio {
+    color: #643b0f;
+    font-size: 1.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.Add_portfolio {
+    border: 1px solid #dadada;
+    border-radius: 7px;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    max-width: calc(100% - 2em);
+    margin: 1em auto;
+    overflow: hidden;
+    width: 85%;
+    height: 90%;
+}
+
+.Add_icon {
+    height: 400px;
+    background-color: #e4e4e479;
+}
+
+.add_img {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.add_imge {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.add_imge img {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.add_imge i {
+    color: #000;
+}
+
+.form-control {
+    width: 500px;
+    height: 70px;
+}
+
+.form-group {
+    margin-left: 8em;
+}
+
+.add_btn {
+    width: 80px;
+    font-weight: 500;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: rgba(196, 120, 6, 0.726);
+    padding: 3px 6px;
+    border: 2px solid rgba(255, 251, 3, 0.938);
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+/*--------------------------------------- end add portfolio --------------------------------------*/
+
+
+/*--------------------------------------- barber_admin portfile --------------------------------------*/
+
+.barber_admin_container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0px auto 100px auto;
+    padding: 10px;
+    grid-gap: 1.5em;
+    align-content: center;
+}
+
+.barber_admin_portfolio {
+    color: #1a0f05;
+    font-size: 2.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 1em;
+}
+
+.barber_admin {
+    margin: 1em;
+    display: flex;
+    justify-self: center;
+    background-color: #f3f3f3d0;
+    height: 350px;
+}
+
+.barber_admin_image {
+    margin: 3em;
+}
+
+.barber_admin_image_img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: 10% 50%;
+    margin: 0em 1em 0em 8em;
+}
+
+.barber_admin_info {
+    margin-top: 2em;
+}
+
+.barber_admin_info_top {
+    display: flex;
+    max-width: 500px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barber_admin_info_top-h1 {
+    font-weight: 500;
+    padding: 15px 10px 10px 5px;
+}
+
+
+/*--------------------------------------- end barber_admin portfile --------------------------------------*/
+
+
+/*--------------------------------------- barber portfile --------------------------------------*/
+
+.card.barberProfile {
+    padding: 10px;
+}
+
+.recent-grid .create-barber .profile_area .container {
+    max-width: 940px;
+    width: 100%;
+    margin: 2em auto 0.5em auto;
+    background: #ffffff;
+}
+
+.tabs_area .containers {
+    max-width: 940px;
+    width: 100%;
+    margin: 0.5em auto 2em auto;
+    text-align: center;
+}
+
+.profile_area .containers .profile {
+    display: flex;
+    justify-content: center;
+}
+
+.profile_area .containers .profile .profile_image {
+    margin: 3em;
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile_area .containers .profile .profile_image img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.profile_area .containers .profile .profile_info {
+    margin-top: 2em;
+    width: 70%;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--top {
+    margin-top: 0.5em;
+    display: flex;
+    max-width: 300px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--top h1 {
+    font-weight: 300;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--top .profile-edit {
+    display: flex;
+    align-items: center;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--top .profile-edit a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    padding: 8px 10px;
+    border: 1px solid #333;
+    background: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--top .profile-edit a.edit {
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    color: #222222;
+    padding: 5px 15px;
+    border: 1px solid #e4e4e4;
+    background: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--top .profile-edit a.gear {
+    font-size: 24px;
+    color: #5f5f5f;
+    padding-left: 10px;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--center {
+    margin-top: 10px;
+    display: flex;
+    max-width: 400px;
+    justify-content: space-between;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--center p {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Prompt", sans-serif;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--center span {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--bottom {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 400px;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--bottom a {
+    color: #003569;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.profile_area .containers .profile .profile_info .profile_info--bottom p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.profile_area .containers .skill {
+    width: 80%;
+    margin: 0 10%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.profile_area .containers .skill p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.profile_area .containers .skillBox {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.profile_area .containers .skillBox p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.profile_area .containers .skillBox p:nth-child(1) {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+/* --------------! salsry -----------------*/
+
+.main-content .recent-grid.create-barber .saraly {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-content .recent-grid.create-barber .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    margin-top: 0.5rem;
+    width: 70%;
+}
+
+.main-content .recent-grid.create-barber .cards .card-single {
+    display: flex;
+    justify-content: center;
+    background: var(--background--white);
+    padding: 0.1rem;
+    border-radius: 5px;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album {
+    padding: 0.7em 1em;
+    border-radius: 0 0 6px 6px;
+    background-color: #fff;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album li {
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album li span {
+    font-size: 16px;
+    color: var(--dark-grey);
+    font-family: "Prompt", sans-serif;
+}
+
+
+/* ----------------------! Circle Percent Skill Start -------------------------*/
+
+.main-content .recent-grid.create-barber .saraly .skill-album {
+    font-size: 14px;
+    padding: 4px;
+    display: inline-block;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album .item {
+    position: relative;
+    margin-bottom: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--text--color--dark);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album .item:hover {
+    box-shadow: 0 0 20px var(--yellow-dark);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album .item:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-animation: colorload 2s;
+    animation: colorload 2s;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album .item span {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text--color--dark);
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    border-radius: 50%;
+    background: var(--background--white);
+    z-index: 1;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    cursor: default;
+}
+
+.main-content .recent-grid.create-barber .saraly .skill-album .item span:hover {
+    box-shadow: 0 0 20px var(--yellow-dark);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+@keyframes colorload {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+
+
+/*# sourceMappingURL=progress-circle.css.map */
+
+.profile_area .container p {
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    padding: 0;
+    letter-spacing: 1px;
+}
+
+.profile_area .container p:nth-child(1) {
+    margin: 10px 0 0 0;
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+}
+
+.profile_area .container p:nth-child(2) {
+    float: right;
+    position: relative;
+    top: -25px;
+}
+
+.profile_area .container .skillBox .skill {
+    background: var(--text--color--dark);
+    padding: 3px 4px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: 0;
+    border-radius: 4px;
+}
+
+.profile_area .container .skillBox .skill .skill_level {
+    background: var(--background--white);
+    width: 100%;
+    height: 10px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.tabs_area .container .tabs {
+    max-width: 940px;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.tabs_area .container .tabs::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 16px;
+    border-top: 1px solid #e4e4e4;
+}
+
+.tabs_area .container .tabs .tab-item {
+    border-top: 1px solid transparent;
+    margin-top: 1em;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.tabs_area .container .tabs .tab-item.active {
+    border-top: 1px solid #000000;
+    padding-top: 10px;
+    z-index: 1;
+}
+
+.tabs_area .container .tabs .tab-item span {
+    font-weight: 300;
+    color: #5f5f5f;
+    font-family: "Prompt", sans-serif;
+}
+
+.tabs_area .container .tabs .tab-item i {
+    color: #5f5f5f;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid {
+    margin: 1em 0;
+    width: 100%;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box {
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px 2.5%;
+    border-radius: 5px;
+    width: 95%;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0 0 0;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment p {
+    padding: 10px 20px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    width: 80%;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment p span {
+    font-family: "Prompt", sans-serif;
+    font-weight: 300;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-edit,
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-cancel {
+    border-radius: 25px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-edit {
+    margin-top: 0px;
+    padding: 10px 14px;
+    background-color: #f1c840;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-edit:hover {
+    background-color: #e1b936;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-cancel {
+    margin-top: 0px;
+    padding: 10px 13px;
+    background-color: #df3c37;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-cancel:hover {
+    background-color: #ac2e29;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .grid-img {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .grid-img img {
+    width: 100%;
+}
+
+
+/* -----------! end barber profile ---------------------------*/
+
+
+/* ---------------! all orders  ------------------------------*/
+
+.recent-grid.barber-income .search-wrapper input {
+    height: 100%;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    background: var(--background--white);
+    font-family: "Prompt", sans-serif;
+}
+
+
+/* ---------------! end all orders ---------------------------*/
+
+
+/* -----------! end barber profile ---------------------------*/
+
+
+/*----------------------------------- Edit profile ------------------------------------*/
+
+.recent-grid.create-barber {
+    margin: 2%;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+    background: #ffffff;
+}
+
+.card {
+    background: var(--background--white);
+    border-radius: 5px;
+}
+
+.card-header,
+.card-body {
+    padding: 1rem;
+    margin-top: 0rem;
+}
+
+.card-header .manage-booking i {
+    color: #df3c37;
+}
+
+.projects .card .card-body {
+    padding: 0rem 1rem 1rem 1rem;
+}
+
+.projects .card .card-body-create-barber {
+    padding: 1rem;
+}
+
+.recent-grid.create-barber .container {
+    background: #ffffff;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-header.barber-income {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-header.barber-income img {
+    margin-left: 1rem;
+}
+
+.recent-grid .card .card-header h3 {
+    font-weight: 400;
+    font-family: "Prompt", sans-serif;
+    margin-left: 15px;
+}
+
+.card-header .span {
+    font-weight: 500;
+    font-family: "Prompt", sans-serif;
+    margin-left: 15px;
+    margin-top: 5px;
+    color: #444444;
+    text-decoration: underline;
+}
+
+.card-header button {
+    background: var(--main-color);
+    border-radius: 10px;
+    color: var(--text--color--light);
+    font-family: "Prompt", sans-serif;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--main-color);
+    cursor: pointer;
+}
+
+.card-header button a {
+    color: var(--text--color--light);
+    font-family: "Prompt", sans-serif;
+}
+
+.img-barber-profile-small {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.card-header button:hover {
+    background: var(--main-color-dark);
+}
+
+.card-header button:focus {
+    background: var(--main-color-super-dark);
+}
+
+.card-body table {
+    width: 100%;
+}
+
+.card-body.manage-booking p {
+    font-family: "Prompt", sans-serif;
+    padding: 0;
+    margin-left: 1.5rem;
+    margin-bottom: 0.313rem;
+}
+
+.card-body.manage-booking p i {
+    font-size: 1.125rem;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+thead tr {
+    padding: 0rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+thead td {
+    font-weight: 400;
+    font-family: "Prompt", sans-serif;
+}
+
+td {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.9rem;
+    color: #222;
+    font-family: "Prompt", sans-serif;
+}
+
+.barber-queue .td-barber-queue {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.barber-queue .td-barber-queue a {
+    text-align: center;
+    vertical-align: middle;
+    color: var(--color-dark);
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.img-barber-queue {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.barber-queue .td-barber-queue,
+.barber-queue .tr-barber-queue {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.barber-queue .td-barber-queue .queue-complete,
+.barber-queue .td-barber-queue .queue-cancel,
+.barber-queue .td-barber-queue .queue-edit,
+.barber-queue .td-barber-queue .queue-income,
+.barber-queue .td-barber-queue .queue-check,
+.barber-queue .td-barber-queue .barber-offWork {
+    border-radius: 25px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.barber-queue .td-barber-queue .queue-complete {
+    margin-top: 0px;
+    padding: 13px 14px;
+    background: #48c148;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.barber-queue .td-barber-queue .queue-complete:hover {
+    background-color: #349034;
+}
+
+.barber-queue .td-barber-queue .queue-edit {
+    margin-top: 0px;
+    padding: 10px 14px;
+    background-color: #f1c840;
+}
+
+.barber-queue .td-barber-queue .queue-edit:hover {
+    background-color: #e1b936;
+}
+
+.barber-queue .td-barber-queue .queue-cancel {
+    margin-top: 0px;
+    padding: 10px 13px;
+    background-color: #df3c37;
+}
+
+.barber-queue .td-barber-queue .queue-cancel:hover {
+    background-color: #ac2e29;
+}
+
+.barber-queue .td-barber-queue .queue-check {
+    margin-top: 0px;
+    font-size: 18px;
+    padding: 7px 11.5px;
+    background-color: var(--main-color);
+}
+
+.barber-queue .td-barber-queue .queue-check:hover {
+    background-color: var(--main-color-dark);
+}
+
+.barber-queue .td-barber-queue .queue-income {
+    margin-top: 0px;
+    font-size: 18px;
+    padding: 7px 11px;
+    background-color: #afafaf;
+}
+
+.barber-queue .td-barber-queue .queue-income:hover {
+    background-color: #8d8d8d;
+}
+
+.barber-queue .td-barber-queue .barber-offWork {
+    margin-top: 0px;
+    font-size: 18px;
+    padding: 6px 10.5px;
+    background-color: var(--main-color);
+}
+
+.barber-queue .td-barber-queue .barber-offWork:hover {
+    background-color: var(--main-color-dark);
+}
+
+.td-barber-queue.customer-name a {
+    font-family: "Prompt", sans-serif;
+    font-weight: 400;
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+.td-barber-queue.customer-name a:hover {
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+.td-barber-queue.status {
+    color: var(--text-grey);
+}
+
+.td-barber-queue.status_all_orders {
+    color: #48c148;
+}
+
+.td-barber-queue.booking-with a {
+    font-family: "Prompt", sans-serif;
+    font-weight: 400;
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+.td-barber-queue.booking-with a:hover {
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+td .status {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+tr td:last-child {
+    display: flex;
+    align-items: center;
+}
+
+.tr-barber-queue .th-barber-queue.del-barber {
+    margin-left: 10px;
+}
+
+.status.purple {
+    background: rebeccapurple;
+}
+
+.status.pink {
+    background: deeppink;
+}
+
+.status.orange {
+    background: orangered;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.customer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.customer small {
+    color: var(--main-color);
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.info img {
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.info h4 {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #222;
+    font-family: "Prompt", sans-serif;
+}
+
+.info h4 a {
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+.info small {
+    font-weight: 400;
+    color: var(--text-grey);
+    font-family: "Prompt", sans-serif;
+}
+
+.contact span {
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-left: 0.5rem;
+    color: var(--main-color);
+}
+
+
+/* --------------! barber queue start --------------- */
+
+.card-header.barber-queue {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-header.barber-queue .title {
+    display: flex;
+    align-items: center;
+}
+
+.recent-grid .card .card-header.barber-queue a {
+    font-weight: 500;
+    font-family: "Prompt", sans-serif;
+    margin-left: 0.313rem;
+    margin-top: 5px;
+    color: #444444;
+    text-decoration: underline;
+}
+
+.recent-grid .card .card-header.barber-queue img {
+    margin-left: 15px;
+    width: 2.5rem;
+}
+
+.recent-grid .card .card-body.success-queue a {
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+
+/* --------------! barber queue finish --------------- */
+
+
+/*------- ! barber off work ----------*/
+
+.form-inner form .field {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-inner form .field input {
+    margin-left: 5%;
+    height: 100%;
+    width: 90%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+.form-inner form .dropdown-barber {
+    margin-bottom: 5%;
+    margin-left: 5%;
+    height: 50px;
+    width: 90%;
+    outline: none;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+    font-family: "Prompt", sans-serif;
+}
+
+.form-inner form .dropdown-barber .selectBarber {
+    font-family: "Prompt", sans-serif;
+}
+
+.form-inner form .field .submitOffWork {
+    font-family: "Prompt", sans-serif;
+    color: #ffffff;
+    background-color: #48c148;
+}
+
+.form-inner form .field .submitOffWork:hover {
+    background-color: #349034;
+}
+
+.form-inner form .field .submitOffWork:focus {
+    background-color: #125a12;
+}
+
+.recent-grid.barber-off-work {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.main-content.barber-off-work .cards .barber-profile .img {
+    display: flex;
+    align-items: center;
+}
+
+.main-content.barber-off-work .cards .barber-profile a {
+    display: flex;
+    justify-content: space-between;
+    background: var(--background--white);
+    padding: 1.9rem;
+    border-radius: 5px;
+}
+
+.main-content.barber-off-work .cards .barber-profile .img img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.main-content.barber-off-work .cards .barber-profile p {
+    padding: 0rem;
+    margin-bottom: -0.625rem;
+}
+
+.main-content.barber-off-work .cards .barber-profile .count-off-work {
+    line-height: 1.8rem;
+}
+
+.main-content.barber-off-work .cards .barber-profile .date-off-work {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 1.5rem;
+    color: var(--text--color--light);
+    background: var(--main-color);
+}
+
+.main-content.barber-off-work .recent-grid.barber-off-work .card {
+    margin: 1.125rem;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recent-grid.barber-off-work .card-header img {
+    margin-left: 1rem;
+}
+
+.recent-grid.barber-off-work .th-barber-queue span {
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    font-size: 1.055rem;
+}
+
+.recent-grid.barber-off-work .tr-barber-queue .off-work {
+    border-radius: 1.25rem;
+    padding: 0.5rem 1rem;
+    background: var(--main-color);
+    color: var(--text--color--light);
+    font-weight: 500;
+    font-size: 1.055rem;
+}
+
+.recent-grid.barber-off-work .tr-barber-queue .off-work i {
+    margin: 0 0.625rem;
+}
+
+
+/*---------- ! end barber off work ------*/
+
+
+/*---------- ! create barber & edit barber ------------*/
+
+.card-body-create-barber .card-header p {
+    font-family: "Prompt", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    box-sizing: border-box;
+    margin: 0px -10px;
+}
+
+.item {
+    box-sizing: border-box;
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    font-family: "Prompt", sans-serif;
+}
+
+.flexbox .item .field {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.flexbox .item .field p {
+    margin-left: 2rem;
+    font-family: "Prompt", sans-serif;
+    color: var(--dark-grey);
+    font-weight: 400;
+}
+
+.flexbox .item .field textarea,
+.flexbox .item .field input {
+    margin-left: 5%;
+    height: 100%;
+    width: 90%;
+    outline: none;
+    padding-left: 15px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid lightgrey;
+    font-size: 16px;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    font-family: "Prompt", sans-serif;
+    color: var(--text-grey-light);
+}
+
+.flexbox .item .field input.B_ID:focus {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.flexbox .item .field textarea:focus,
+.flexbox .item .field input:focus {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    color: var(--text-grey);
+    font-weight: 400;
+}
+
+.flexbox .item .field textarea {
+    padding-top: 0.75rem;
+}
+
+.flexbox .item .field .txt {
+    margin-left: 5%;
+    height: 100%;
+    width: 90%;
+    outline: none;
+    padding-top: 10px;
+    padding-left: 15px;
+    border-bottom: 1px solid lightgray;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    font-family: "Prompt", sans-serif;
+    color: var(--dark-grey);
+}
+
+.flexbox .item .field.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+}
+
+.flexbox .item .field.flex .img-barber-queue {
+    border-radius: 50%;
+    border: 1px solid var(--dark-light);
+    height: 150px;
+    width: 150px;
+    margin-right: 30px;
+}
+
+.flexbox .item .field.flex p {
+    font-family: "Prompt", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #646464;
+    color: var(--text--color--light);
+}
+
+.flexbox .item .field.flex p:hover {
+    font-family: "Prompt", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #5c5c5c;
+    color: var(--text--color--light);
+}
+
+.projects .card .btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.projects .card .field .submit {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 20%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: 1px solid #349034;
+    font-family: "Prompt", sans-serif;
+    color: #ffffff;
+    background-color: #48c148;
+}
+
+.projects .card .field .submit:hover {
+    background-color: #349034;
+}
+
+.projects .card .field .submit:focus {
+    background-color: #125a12;
+}
+
+.Display-non {
+    position: absolute;
+    display: none;
+}
+
+
+/* radio button */
+
+.signup .field:nth-child(2) {
+    margin-bottom: 17px;
+}
+
+.input-sex {
+    font-size: 20px;
+    font-weight: 400;
+    width: 200px;
+    margin-right: 5%;
+    margin-left: 5%;
+    color: rgb(76, 76, 76);
+}
+
+.sex-radio-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sex-radio-container .sex-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    height: 50px;
+    width: 95%;
+}
+
+.sex-radio-container .option {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0 10px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+}
+
+.sex-radio-container .option .sex-dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.sex-radio-container .option .sex-dot::before {
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: #643b0f;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+}
+
+.radio-sex {
+    display: none;
+}
+
+#option-1:checked:checked~.option-1,
+#option-2:checked:checked~.option-2,
+#option-3:checked:checked~.option-3 {
+    border-color: #643b0f;
+    background: #643b0f;
+}
+
+#option-1:checked:checked~.option-1 .sex-dot,
+#option-2:checked:checked~.option-2 .sex-dot,
+#option-3:checked:checked~.option-3 .sex-dot {
+    background: #fff;
+}
+
+#option-1:checked:checked~.option-1 .sex-dot::before,
+#option-2:checked:checked~.option-2 .sex-dot::before,
+#option-3:checked:checked~.option-3 .sex-dot::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.sex-radio-container .option span {
+    font-size: 20px;
+    color: #808080;
+    font-family: "Prompt", sans-serif;
+}
+
+#option-1:checked:checked~.option-1 span,
+#option-2:checked:checked~.option-2 span,
+#option-3:checked:checked~.option-3 span {
+    color: #fff;
+}
+
+
+/* end radio button */
+
+
+/*----------------------------------- end Edit profile  ------------------------------------*/

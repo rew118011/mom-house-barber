@@ -36,7 +36,7 @@
                 <div class="date-time">
                     <p>วันเวลาที่คุณเลือก</p>
                     <p><i class="far fa-clock"></i> <?php echo $row->ST_Time; ?> <span>น.</span></p>
-                    <p><?php echo $row->BK_Day ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Day; ?></p>
+                    <p><?php echo $row->BK_Day ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></p>
                 </div>
                 <div class="description">
                     <p>เปลี่ยนคิว</p>

@@ -31,10 +31,11 @@ class Customer_Model extends CI_Model
 			return FALSE;
 		}
 	}
-	function checkRegisterDuplicate($Username){
+	function checkRegisterDuplicate($Username)
+	{
 		$query = $this->db->where('Username', $Username)
-            ->count_all_results('login');
-        return $query;
+			->count_all_results('login');
+		return $query;
 	}
 
 	function register_login($data1)
@@ -78,13 +79,15 @@ class Customer_Model extends CI_Model
 			->get('barber'); //ให้ทำการค้นหาจากตาราง barber
 		return $query->row(); //จากนั้นนำค่า $query ส่งค่าเป็น object โดยจะส่งข้อมูลออกมาเพียง เรคอร์ดเดียว กลับไปที่ Customer_Con
 	}
-	function getBookingQueue($c_id){
+	function getBookingQueue($c_id)
+	{
+		$where = "customer.C_ID='$c_id' AND Q_ID=1";
 		$this->db->select('*')
-		->from('booking')
-		->join('customer', 'booking.C_ID = customer.C_ID', 'left')
-		->join('barber', 'booking.B_ID = barber.B_ID', 'left')
-		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
-		->where('customer.C_ID', $c_id);
+			->from('booking')
+			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->where($where);
 		$query = $this->db->get()->result();
 		return $query;
 	}
@@ -92,10 +95,10 @@ class Customer_Model extends CI_Model
 	{
 		$query = $this->db->where('BK_ID', $id)
 			->delete('booking');
-			if($query){
-				return TRUE;
-			}else{
-				return FALSE;
-			}
+		if ($query) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
 	}
 }

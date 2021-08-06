@@ -45,7 +45,6 @@ class Barber_Con extends CI_Controller {
         $sess =  $this->session->userdata('Username');              //นำข้อมูล session เก็บไว้ในตัวแปร $sess
         $data['BARBER'] = $this->BM->getProfileBarber($sess);       //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
 
-
 		$this->load->view('Barber/Header');
         $this->load->view('Barber/ItemStories');
         $this->load->view('Barber/Profile', $data);
@@ -71,12 +70,14 @@ class Barber_Con extends CI_Controller {
         $data['BARBER'] = $this->BM->getProfileBarber($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
         $this->load->view('profilebarber_view', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า profile_view
     }
+    
 	function edit_barberpro() //ฟังก์ชั่น แก้ไขโปรไฟล์ customer
     {
         $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
         $data['BARBER'] = $this->BM->getProfileBarber($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
         $this->load->view('editbarberpro', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า profile_view
     }
+
 	function save_profile() //ฟังก์ชั่น update customer
     {
         $data = array(
