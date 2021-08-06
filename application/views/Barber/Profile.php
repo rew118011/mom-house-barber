@@ -9,7 +9,7 @@
                         <div class="containers">
                             <div class="profile">
                                 <div class="profile_image">
-                                    <img src="" alt="">
+                                    <img src="<?php echo base_url();?>img/me.jpg" alt="">
                                 </div>
                                 <div class="profile_info">
                                     <div class="profile_info--top">
