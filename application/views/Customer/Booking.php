@@ -1,3 +1,12 @@
+<?php
+$check = 1;
+if (count($CLOSEALL) == $check) {
+	echo "วันนี้ร้านปิดค่ะ";
+?>
+
+<?php
+}else{
+?>
 <div class="booking-form-inner">
 	<form name="form1" id="form1" method="POST" action="ins_Booking">
 		<?php
@@ -7,7 +16,6 @@
 		<?php
 		}
 		?>
-
 		<div class="select date">
 			<p>จองคิวตัดผม</p>
 			<p>กรุณาเลือกวัน ช่างตัดผม และเวลาที่คุณต้องการหลังจากนั้นกด "ตกลก"</p>
@@ -22,8 +30,9 @@
 				<select class="dropdown-date" name="BK_Day" id="day">
 					<option value="BK_Day" selected="selected"> กรุณาเลือกวัน... </option>
 				</select>
+
 			</div>
-			
+
 		</div>
 
 		<div class="select barber">
@@ -52,6 +61,10 @@
 
 	</form>
 </div>
+<?php
+}
+?>
+
 
 
 <script>
@@ -159,7 +172,7 @@
 		function AdjustDays() {
 			var year = BK_Year.val();
 			var month = parseInt(BK_Month.val()); //parseInt แปลงตัวเลข
-				
+
 			BK_Day.empty();
 
 

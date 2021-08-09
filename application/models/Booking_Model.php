@@ -106,7 +106,7 @@ class Booking_Model extends CI_Model
         return  $response ;
     }
 
-    function getTimeSlotBy_YearMonthDay($BK_Year,$BK_Month,$BK_Day)
+    function getBarberBy_YearMonthDay($BK_Year,$BK_Month,$BK_Day)
     {
         $response  = array();
         $query = $this->db->query("SELECT * FROM barber WHERE B_ID NOT IN(
@@ -115,20 +115,5 @@ class Booking_Model extends CI_Model
             having (count(B_ID) = 10))");
         $response  = $query->result_array();
         return  $response ;
-    }
-
-
-    function selectBarber1()
-    {
-        $this->db->select('B_Nickname');
-        $query = $this->db->get('barber');
-        return $query->result_array();
-    }
-
-    function getYearAll()
-    {
-        $this->db->select('*');
-        $query = $this->db->get('all_year');
-        return $query->result();
     }
 }

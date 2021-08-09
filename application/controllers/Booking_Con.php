@@ -9,6 +9,7 @@ class Booking_Con extends CI_Controller
         $this->load->model('Customer_Model', 'CM');
         $this->load->model('Barber_Model', 'BM');
         $this->load->model('Admin_Model', 'AM');
+        $this->load->model('OffBranch_Model', 'OBM');
     }
 
     function Booking()
@@ -16,6 +17,7 @@ class Booking_Con extends CI_Controller
         $sess =  $this->session->userdata('Username');
         $data['CUSTOMER'] = $this->CM->getProfile($sess);
         $data['BARBER'] = $this->BKM->getBarber();
+        $data['CLOSEALL'] = $this->OBM->getCloseALL();
 
         //$barber = 'B00002';
         //$data['BARBER'] = $this->BKM->selectBarber();
@@ -47,7 +49,7 @@ class Booking_Con extends CI_Controller
         $BK_Month = $this->input->post('BK_Month');
         $BK_Day = $this->input->post('BK_Day');
         // get data 
-        $data = $this->BKM->getTimeSlotBy_YearMonthDay($BK_Year, $BK_Month, $BK_Day);
+        $data = $this->BKM->getBarberBy_YearMonthDay($BK_Year, $BK_Month, $BK_Day);
         echo json_encode($data);
     }
 
@@ -68,7 +70,13 @@ class Booking_Con extends CI_Controller
     function ins_Booking()
     {
         if ($this->input->post('btnBooking')) //มีการคลิกปุ่ม สมัครสมาชิก
-        { {
+        {
+            if ($this->input->post('BK_Year') == '' || $this->input->post('BK_Month') == '' || $this->input->post('BK_Day') == '' ||  $this->input->post('ST_ID') == '') {
+                echo "<script language=\"JavaScript\">";
+                echo "alert('กรุณาเลือกข้อมูลที่กำหนดไว้ค่ะ !')";
+                echo "</script>";
+                redirect('Booking_Con/Booking','refresh');
+            } else {
                 $id = $this->BKM->GenerateId();
                 $data = array(
                     'BK_ID' => $id,
