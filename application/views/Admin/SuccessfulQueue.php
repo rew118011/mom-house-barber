@@ -3,11 +3,11 @@
         <div class="card-single">
             <div>
                 <p>38 <strong>คิว</strong></p>
-                <span>คิวในวั้นนี้</span>
+                <span>ชำระเงินในวั้นนี้</span>
             </div>
             <div>
                 <span>
-                    <i class="las la-users"></i>
+                    <i class="las la-user-check"></i>
                 </span>
             </div>
         </div>
@@ -15,11 +15,11 @@
         <div class="card-single">
             <div>
                 <p>237 <strong>คิว</strong></p>
-                <span>คิวในสัปดาห์นี้</span>
+                <span>ชำระเงินในสัปดาห์นี้</span>
             </div>
             <div>
                 <span>
-                    <i class="las la-users"></i>
+                    <i class="las la-user-check"></i>
                 </span>
             </div>
         </div>
@@ -27,11 +27,11 @@
         <div class="card-single">
             <div>
                 <p>558 <strong>คิว</strong></p>
-                <span>คิวในเดือนนี้</span>
+                <span>ชำระเงินในเดือนนี้</span>
             </div>
             <div>
                 <span>
-                    <i class="las la-users"></i>
+                    <i class="las la-user-check"></i>
                 </span>
             </div>
         </div>
@@ -39,11 +39,11 @@
         <div class="card-single">
             <div>
                 <p>689 <strong>คิว</strong></p>
-                <span>คิวทั้งหมด</span>
+                <span>ชำระเงินทั้งหมด</span>
             </div>
             <div>
                 <span>
-                    <i class="las la-users"></i>
+                    <i class="las la-user-check"></i>
                 </span>
             </div>
         </div>
@@ -53,7 +53,7 @@
         <div class="projects">
             <div class="card">
                 <div class="card-header">
-                    <h3>รายการการจองทั้งหมด</h3>
+                    <h3>รายการที่ชำระเงินแล้วทั้งหมด</h3>
                     <div class="search-wrapper">
                         <span class="las la-search"></span>
                         <input type="search" placeholder="ค้นหาที่นี่" />

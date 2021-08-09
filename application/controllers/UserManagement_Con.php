@@ -96,6 +96,7 @@ class UserManagement_Con extends CI_Controller
         $data['BARBER'] = $this->UMM->selecting_OneBarberEdit($id);
 
         $this->load->view('Admin/Header');
+        $this->load->view('Admin/Navbar');
         $this->load->view('Admin/Edit_Barber', $data);
         $this->load->view('Admin/Footer');
     }

@@ -30,15 +30,9 @@
                     <div class="container">
                         <div class="tabs">
                             <div class="tab-item active">
-                                <a href="#booking" class="booking">
-                                    <i class="las la-bookmark"></i>
-                                    <span> การจองของคุณ<?php echo $ID->C_Nickname; ?></span>
-                                </a>
-                            </div>
-                            <div class="tab-item">
                                 <a href="#history" class="history">
                                     <i class="las la-border-all"></i>
-                                    <span> ประวัติการจองของคุณ<?php echo $ID->C_Nickname; ?></span>
+                                    <span> ประวัติการเพิ่มคิวย้อนหลังของ<?php echo $ID->C_Nickname; ?></span>
                                 </a>
                             </div>
                         </div>

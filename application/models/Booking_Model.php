@@ -71,20 +71,13 @@ class Booking_Model extends CI_Model
         return $query->result();
     }
 
-    function cancelBookingQueueByCustomer()
+    function DeleteQueue($id)
     {
-    }
-
-    function checkStatus($Status)
-    {
-    }
-
-    function setStatus($Status)
-    {
-    }
-
-    function getStatus()
-    {
+        $response = $this->db->where('BK_ID', $id)
+            ->delete('booking');
+            $this->db->where('BK_ID', $id)
+            ->delete('history_queue');
+        return  $response;
     }
 
     function setQueue($id)

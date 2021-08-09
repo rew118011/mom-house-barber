@@ -58,6 +58,13 @@ class Booking_Con extends CI_Controller
         echo json_encode($data);
     }
 
+    public function dynamically_DeleteQueue()
+    {
+        $id = $this->input->post('BK_ID');
+        $data = $this->BKM->DeleteQueue($id);
+        echo json_encode($data);
+    }
+
     function ins_Booking()
     {
         if ($this->input->post('btnBooking')) //มีการคลิกปุ่ม สมัครสมาชิก

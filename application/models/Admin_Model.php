@@ -27,7 +27,12 @@ class Admin_Model extends CI_Model
 		->join('barber', 'booking.B_ID = barber.B_ID', 'left')
 		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
 		->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
-		->where('status_queue.Q_ID','1');
+		->order_by('booking.BK_Year', "ASC")
+		->order_by('booking.BK_Month', "ASC")
+		->order_by('booking.BK_Day', "ASC")
+		->order_by('booking.ST_ID', "ASC")
+		->where('status_queue.Q_ID', '1');
+
 		$query = $this->db->get('booking');
 		return $query->result();
 	}
@@ -35,9 +40,14 @@ class Admin_Model extends CI_Model
 	{
 		$this->db->select('*')
 		->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+		->join('barber', 'booking.B_ID = barber.B_ID', 'left')
 		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
 		->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
-		->where('status_queue.Q_ID','2');
+		->order_by('booking.BK_Year', "ASC")
+		->order_by('booking.BK_Month', "ASC")
+		->order_by('booking.BK_Day', "ASC")
+		->order_by('booking.ST_ID', "ASC")
+		->where('status_queue.Q_ID', '2');
 		$query = $this->db->get('booking');
 		return $query->result();
 	}
@@ -80,5 +90,73 @@ class Admin_Model extends CI_Model
 		$query = $this->db->where('C_ID', $id) //จากนั้นทำการค้นหาแบบกำหนดเงื่อนไขจากฟิลด์ B_ID ถ้า $id ที่รับมาตรงกับ B_ID
 			->get('customer'); //ให้ทำการค้นหาจากตาราง barber
 		return $query->row(); //จากนั้นนำค่า $query ส่งค่าเป็น object โดยจะส่งข้อมูลออกมาเพียง เรคอร์ดเดียว กลับไปที่ Customer_Con
+	}
+
+	function getBarberBooking($id)
+	{
+		$where = "status_queue.Q_ID='1' AND barber.B_ID='$id'";
+
+		$this->db->select('*')
+		->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+		->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+		->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+		->where($where);
+		$query = $this->db->get('booking');
+		return $query->result();
+
+	}
+
+	function getBarberBookingHistory($id)
+	{
+		$where = "status_queue.Q_ID='2' AND barber.B_ID='$id'";
+
+		$this->db->select('*')
+		->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+		->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+		->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+		->where($where);
+		$query = $this->db->get('booking');
+		return $query->result();
+
+	}
+
+	function getCustomerBooking($id)
+	{
+		$where = "status_queue.Q_ID='1' AND customer.C_ID='$id'";
+
+		$this->db->select('*')
+		->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+		->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+		->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+		->where($where);
+		$query = $this->db->get('booking');
+		return $query->result();
+
+	}
+
+	function getCustomerBookingHistory($id)
+	{
+		$where = "status_queue.Q_ID='2' AND customer.C_ID='$id'";
+
+		$this->db->select('*')
+		->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+		->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+		->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+		->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+		->where($where);
+		$query = $this->db->get('booking');
+		return $query->result();
+
+	}
+
+	function getTotal()
+	{
+		$this->db->where('Q_ID', '2')
+			->from('booking');
+		$query = $this->db->get()->num_rows();
+		return $query;
 	}
 }

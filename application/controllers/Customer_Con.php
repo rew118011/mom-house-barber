@@ -157,7 +157,7 @@ class Customer_Con extends CI_Controller
 
         );
         $this->CM->setProfile($data);
-        redirect('Customer_Con/getProfile', 'refresh'); //ไปหน้า customer_view
+        redirect('Customer_Con/setProfile', 'refresh'); //ไปหน้า customer_view
     }
 
     function save_Image() //ฟังก์ชั่น update customer
@@ -174,7 +174,7 @@ class Customer_Con extends CI_Controller
             $this->load->library('upload', $config);
             if ( ! $this->upload->do_upload('C_Img')) {
                
-                redirect('Customer_Con/setImage','refresh');
+                redirect('Customer_Con/setProfile','refresh');
           }
           else{
              $image = $this->upload->data('file_name');
@@ -184,17 +184,7 @@ class Customer_Con extends CI_Controller
         }
         $this->CM->setProfile($data);
         
-        
-        $sess =  $this->session->userdata('Username');
-        $data1['CUSTOMER'] = $this->CM->getProfile($sess);
-
-        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-
-        $this->load->view('Customer/Header');
-        $this->load->view('Customer/Navbar', $datasess);
-        $this->load->view('Customer/Banner1');
-        $this->load->view('Customer/EditProfile', $data1);          //นำข้อมูลที่ได้ส่งไปที่หน้า EditProfile
-        $this->load->view('Customer/Footer');
+        redirect('Customer_Con/setProfile', 'refresh'); //ไปหน้า Admin_Con
     }
 
     function setImage() //ฟังก์ชั่น แก้ไขรูปโปรไฟล์ customer

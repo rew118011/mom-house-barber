@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
 :root {
+    --main-color-super-light: #fff4eb;
+    --main-color-light: #cc9768;
     --main-color: #b07c4d;
     --main-color-dark: #925a2a;
     --main-color-super-dark: #754419;
@@ -9,11 +11,29 @@
     --grey-light: #d8d8d8;
     --dark-grey: #3f3f3f;
     --text-grey: #7a7c80;
-    --text-grey-light: #a5a5a5;
+    --background: #fafafa;
     --background--white: #fffefe;
     --background--dark--white: #f3f3f3;
     --text--color--dark: #291f1d;
     --text--color--light: #ffffff;
+    --yellow-dark: #f79b31;
+    --yellow-light: #e5f89e;
+    --green-light: #48c148;
+    --dark-body: #4d4c5a;
+    --dark-main: #141529;
+    --dark-second: #79788c;
+    --dark-hover: #323048;
+    --dark-text: #f8fbff;
+    --light-body: #f3f8fe;
+    --light-main: #fdfdfd;
+    --light-second: #c3c2c8;
+    --light-hover: #edf0f5;
+    --light-text: #151426;
+    --blue: #0000ff;
+    --white: #fff;
+    --shadow--light: rgba(0, 50, 100, 0.1) 2px 2px 8px 4px;
+    --shadow--dark: rgba(0, 0, 0, 0.2) 2px 2px 8px 4px;
+    --font-family: cursive;
 }
 
 * {
@@ -23,6 +43,46 @@
     list-style-type: none;
     text-decoration: none;
     font-family: "Poppins", sans-serif;
+}
+
+.ST_ID1::after {
+    content: " - 10:59 ";
+}
+
+.ST_ID2::after {
+    content: " - 11:59 ";
+}
+
+.ST_ID3::after {
+    content: " - 12:59 ";
+}
+
+.ST_ID4::after {
+    content: " - 13:59 ";
+}
+
+.ST_ID5::after {
+    content: " - 14:59 ";
+}
+
+.ST_ID6::after {
+    content: " - 16:29 ";
+}
+
+.ST_ID7::after {
+    content: " - 17:29 ";
+}
+
+.ST_ID8::after {
+    content: " - 18:29 ";
+}
+
+.ST_ID9::after {
+    content: " - 19:29 ";
+}
+
+.ST_ID10::after {
+    content: " - 20:29 ";
 }
 
 a:hover {
@@ -211,6 +271,7 @@ header label span {
 
 .user-wrapper h4 {
     margin-bottom: 0rem !important;
+    color: var(--color-dark);
 }
 
 .user-wrapper small {
@@ -342,11 +403,23 @@ main {
 }
 
 .recent-grid.create-barber {
-    margin-top: 2.5rem;
-    margin-left: 7.5%;
+    margin-top: 0;
+    margin-left: 0;
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: 90% auto;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.edit-barber {
+    margin-top: 0;
+    margin-left: 0;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.edit-barber .projects .card {
+    padding: 3rem 5rem;
 }
 
 .card {
@@ -439,6 +512,57 @@ main {
     width: 100%;
 }
 
+.card-body.manage-booking form .field {
+    height: 2.5rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-body.manage-booking form .field input {
+    height: 100%;
+    width: 80%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card-body.manage-booking form .dropdown-barber {
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    width: 80%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+    font-family: "Prompt", sans-serif;
+}
+
+.card-body.manage-booking form .field .submitOffWork {
+    margin: 0;
+    font-family: "Prompt", sans-serif;
+    color: #ffffff;
+    background-color: #48c148;
+}
+
+.card-body.manage-booking form .field .submitOffWork:hover {
+    background-color: #349034;
+}
+
+.card-body.manage-booking form .field .submitOffWork:focus {
+    background-color: #125a12;
+}
+
 .card-body.manage-booking p {
     font-family: "Prompt", sans-serif;
     padding: 0;
@@ -511,6 +635,7 @@ td {
     align-items: center;
     justify-content: center;
     text-align: center;
+    cursor: pointer;
 }
 
 .barber-queue .td-barber-queue .queue-complete {
@@ -592,7 +717,7 @@ td {
 }
 
 .td-barber-queue.status {
-    color: var(--text-grey);
+    color: var(--yellow-dark);
 }
 
 .td-barber-queue.status_all_orders {
@@ -733,135 +858,6 @@ tr td:last-child {
 /* --------------! barber queue finish --------------- */
 
 
-/*------- ! barber off work ----------*/
-
-.form-inner form .field {
-    height: 50px;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.form-inner form .field input {
-    margin-left: 5%;
-    height: 100%;
-    width: 90%;
-    outline: none;
-    padding-left: 15px;
-    border-radius: 5px;
-    border: 1px solid lightgrey;
-    border-bottom-width: 2px;
-    font-size: 17px;
-    transition: all 0.3s ease;
-}
-
-.form-inner form .dropdown-barber {
-    margin-bottom: 5%;
-    margin-left: 5%;
-    height: 50px;
-    width: 90%;
-    outline: none;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 5px;
-    border: 1px solid lightgrey;
-    border-bottom-width: 2px;
-    font-size: 17px;
-    transition: all 0.3s ease;
-    font-family: "Prompt", sans-serif;
-}
-
-.form-inner form .dropdown-barber .selectBarber {
-    font-family: "Prompt", sans-serif;
-}
-
-.form-inner form .field .submitOffWork {
-    font-family: "Prompt", sans-serif;
-    color: #ffffff;
-    background-color: #48c148;
-}
-
-.form-inner form .field .submitOffWork:hover {
-    background-color: #349034;
-}
-
-.form-inner form .field .submitOffWork:focus {
-    background-color: #125a12;
-}
-
-.recent-grid.barber-off-work {
-    margin-top: 2.5rem;
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: 100% auto;
-}
-
-.main-content.barber-off-work .cards .barber-profile .img {
-    display: flex;
-    align-items: center;
-}
-
-.main-content.barber-off-work .cards .barber-profile a {
-    display: flex;
-    justify-content: space-between;
-    background: var(--background--white);
-    padding: 1.9rem;
-    border-radius: 5px;
-}
-
-.main-content.barber-off-work .cards .barber-profile .img img {
-    width: 4rem;
-    height: 4rem;
-}
-
-.main-content.barber-off-work .cards .barber-profile p {
-    padding: 0rem;
-    margin-bottom: -0.625rem;
-}
-
-.main-content.barber-off-work .cards .barber-profile .count-off-work {
-    line-height: 1.8rem;
-}
-
-.main-content.barber-off-work .cards .barber-profile .date-off-work {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.625rem;
-    border-radius: 1.5rem;
-    color: var(--text--color--light);
-    background: var(--main-color);
-}
-
-.main-content.barber-off-work .recent-grid.barber-off-work .card {
-    margin: 1.125rem;
-    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
-}
-
-.recent-grid.barber-off-work .card-header img {
-    margin-left: 1rem;
-}
-
-.recent-grid.barber-off-work .th-barber-queue span {
-    font-family: "Prompt", sans-serif;
-    font-weight: 500;
-    font-size: 1.055rem;
-}
-
-.recent-grid.barber-off-work .tr-barber-queue .off-work {
-    border-radius: 1.25rem;
-    padding: 0.5rem 1rem;
-    background: var(--main-color);
-    color: var(--text--color--light);
-    font-weight: 500;
-    font-size: 1.055rem;
-}
-
-.recent-grid.barber-off-work .tr-barber-queue .off-work i {
-    margin: 0 0.625rem;
-}
-
-
-/*---------- ! end barber off work ------*/
-
-
 /*---------- ! create barber & edit barber ------------*/
 
 .card-body-create-barber .card-header p {
@@ -974,6 +970,7 @@ tr td:last-child {
     border-radius: 10px;
     background-color: #646464;
     color: var(--text--color--light);
+    cursor: pointer;
 }
 
 .flexbox .item .field.flex p:hover {
@@ -1005,6 +1002,11 @@ tr td:last-child {
     font-family: "Prompt", sans-serif;
     color: #ffffff;
     background-color: #48c148;
+    cursor: pointer;
+}
+
+.projects .card .field .submit.editBarber {
+    margin-top: 5.5rem;
 }
 
 .projects .card .field .submit:hover {
@@ -1491,94 +1493,216 @@ tr td:last-child {
     color: #5f5f5f;
 }
 
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid {
-    margin: 1em 0;
+.tabs_area .container .tabs_content .gallery_grid {
+    margin: 0em 0;
     width: 100%;
 }
 
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box {
-    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px 2.5%;
-    border-radius: 5px;
-    width: 95%;
-}
-
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .item {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+.container .tabs_content .gallery_grid .posts {
     width: 100%;
-    margin: 0;
-    padding: 10px 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: stretch;
+    align-items: stretch;
 }
 
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment {
+.container .tabs_content .gallery_grid .post {
+    width: 90%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.container .tabs_content .post:hover .post-image {
+    transform: scale(1.05);
+    transition-duration: 0.5s;
+}
+
+.container .tabs_content .gallery_grid .post .post-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.container .tabs_content .gallery_grid .post .owner {
+    margin-top: 10px;
+    display: flex;
     align-items: center;
 }
 
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment p {
-    padding: 10px 20px;
-    font-weight: 500;
-    font-family: "Poppins", sans-serif;
-    width: 80%;
+.container .tabs_content .gallery_grid .post .owner .ownerImage {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    background-image: linear-gradient(70deg, var(--yellow-dark), var(--main-color-light));
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 350ms all ease;
 }
 
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment p span {
-    font-family: "Prompt", sans-serif;
-    font-weight: 300;
+.container .tabs_content .gallery_grid .post .owner .ownerImage:hover {
+    -webkit-animation: storyAnimation 0.6s linear;
+    animation: storyAnimation 0.6s linear;
 }
 
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-edit,
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-cancel {
-    border-radius: 25px;
+.container .tabs_content .gallery_grid .post .owner .ownerImage img {
+    width: 30.2px;
+    height: 30.2px;
+    border-radius: 100%;
+    margin: 2.5px;
+    border: 2px solid var(--text--color--dark);
+}
+
+.container .tabs_content .gallery_grid .post .owner .name {
+    color: var(--text--color--dark);
+    font-weight: 600;
     text-decoration: none;
-    color: #fff;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
+
+.container .tabs_content .gallery_grid .post .owner .name span {
     font-weight: 500;
-    font-size: 14px;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: "Prompt", sans-serif;
+}
+
+@-webkit-keyframes storyAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes storyAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@-webkit-keyframes buttonAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes buttonAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* -------------- ! barber booking start -------------------------------------*/
+
+.recent-grid.create-barber .tabs_area .container .tabs .tab-item.active {
+    border-top: 1px solid #000000;
+    padding-top: 10px;
+    z-index: 1;
+    transition-duration: .5s;
+}
+
+.recent-grid.create-barber .tabs .tab-item.active a span {
+    color: var(--dark-grey);
+    font-weight: 400;
+}
+
+.recent-grid.create-barber .tabs_area .container {
+    overflow: hidden;
+    margin: 0.5em auto 0 auto;
+}
+
+.recent-grid.create-barber .tabs_area .container>a {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    text-decoration: none;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    margin: 0 5px;
+    border-radius: 50%;
+    margin: 0 0 0.5rem 0;
+    position: relative;
 }
 
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-edit {
+.recent-grid.create-barber .tabs_area .container .tabs {
+    margin-bottom: .625rem;
+}
+
+.recent-grid.create-barber .tabs_area .container .slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.recent-grid.create-barber .tabs_area .slides::-webkit-scrollbar {
+    display: none;
+}
+
+.recent-grid.create-barber .tabs_area .slides .tabs_content {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    margin: 0;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 100px;
+}
+
+.recent-grid.create-barber .tabs_area .slides .tabs_content table {
+    width: 100%;
+    padding: 0;
+}
+
+.recent-grid.create-barber .tabs_area .slides .tabs_content table thead {
+    border-top: 1px solid #f0f0f0;
+}
+
+.recent-grid.create-barber .td-barber-queue .queue-cancel {
     margin-top: 0px;
-    padding: 10px 14px;
-    background-color: #f1c840;
-}
-
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-edit:hover {
-    background-color: #e1b936;
-}
-
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-cancel {
-    margin-top: 0px;
-    padding: 10px 13px;
+    padding: 13px 13px;
     background-color: #df3c37;
 }
 
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .gallery-box .comment .menu .queue-cancel:hover {
+.recent-grid.create-barber .td-barber-queue .queue-cancel:hover {
     background-color: #ac2e29;
 }
 
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .grid-img {
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    overflow: hidden;
-}
 
-.tabs_area .container .tabs_content .tabs_content--item .gallery_grid .grid-img img {
-    width: 100%;
-}
+/* --------------- ! barber booking finish ----------------------------*/
 
 
 /* -----------! end barber profile ---------------------------*/
@@ -1597,27 +1721,6 @@ tr td:last-child {
 
 
 /* ---------------! end all orders ---------------------------*/
-
-
-/* ---------------! customer profile start ------------------- */
-
-.recent-grid.customer-profile {
-    margin-top: 2.5rem;
-    margin-left: 7.5%;
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: 90% auto;
-}
-
-.recent-grid.customer-profile .profile_area .container p {
-    text-transform: none;
-    margin: 0 0 10px;
-    padding: 0;
-    letter-spacing: 1px;
-}
-
-
-/* ---------------! customer profile finish ------------------ */
 
 
 /* ---------------! manage booking start ----------------------- */
@@ -2332,5 +2435,547 @@ tr td:last-child {
     padding-top: 0.75rem;
 }
 
+.recent-grid.add-hairstyle {
+    margin-top: 0;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.add-hairstyle .cards {
+    padding: 1rem 5rem;
+}
+
+.recent-grid.add-hairstyle .cards .card-single {
+    padding: 0.1rem 0.09rem;
+    border-radius: .625rem;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: var(--main-color-dark);
+}
+
+.recent-grid.add-hairstyle .cards .image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: .625rem;
+}
+
+.recent-grid.add-hairstyle .cards .image img {
+    width: 100%;
+}
+
+.recent-grid.add-hairstyle .card-body .content {
+    display: flex;
+    justify-content: center;
+}
+
+.recent-grid.add-hairstyle .card-body .item:first-child {
+    box-sizing: border-box;
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    font-family: "Prompt", sans-serif;
+}
+
+.recent-grid.add-hairstyle .card-body .item:last-child {
+    box-sizing: border-box;
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    font-family: "Prompt", sans-serif;
+}
+
+.recent-grid.add-hairstyle .card-body .item.image {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    font-family: "Prompt", sans-serif;
+}
+
+.recent-grid.add-hairstyle .card-body .item.image .field {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.recent-grid.add-hairstyle .card-body .item .field {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.recent-grid.add-hairstyle .card-body .item .field p {
+    margin-left: 2rem;
+    font-family: "Prompt", sans-serif;
+    color: var(--dark-grey);
+    font-weight: 400;
+}
+
+.recent-grid.add-hairstyle .card-body .item .field textarea,
+.recent-grid.add-hairstyle .card-body .item .field input {
+    margin-left: 5%;
+    height: 100%;
+    width: 90%;
+    outline: none;
+    padding-left: 15px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid lightgrey;
+    font-size: 16px;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    font-family: "Prompt", sans-serif;
+    color: var(--text-grey-light);
+}
+
+.recent-grid.add-hairstyle .card-body .item .field textarea:focus,
+.recent-grid.add-hairstyle .card-body .item .field input:focus {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    color: var(--text-grey);
+    font-weight: 400;
+}
+
+.recent-grid.add-hairstyle .card-body .item .field textarea {
+    padding-top: 0.75rem;
+}
+
+.recent-grid.add-hairstyle .card-body .submit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recent-grid.add-hairstyle .card-body .submit .save {
+    padding: 0.625rem;
+    width: 40%;
+    font-size: 1rem;
+    font-family: "Prompt", sans-serif;
+    border: none;
+    border-radius: 0.625rem;
+    color: #ffffff;
+    background: var(--green-light);
+    cursor: pointer;
+}
+
+.recent-grid.add-hairstyle .card-body .submit .save:hover {
+    background: #349034;
+}
+
 
 /* ----------------! manage hairstyle finish --------------------- */
+
+
+/* ------------------! manage off work start ----------------------*/
+
+.recent-grid.manage-off-work {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.manage-off-work:first-child {
+    margin-top: 0;
+}
+
+.recent-grid.manage-off-work .cards {
+    padding: 1rem 2rem;
+}
+
+.recent-grid.manage-off-work .cards .barber {
+    padding: 0.1rem 0.5rem;
+    border-radius: .625rem;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recent-grid.manage-off-work .cards .dataBarber {
+    padding: 1.25rem 2rem 0.313rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.recent-grid.manage-off-work .cards .dataBarber img {
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: pointer;
+}
+
+.recent-grid.manage-off-work .cards .dataBarber a {
+    font-family: "Prompt", sans-serif;
+    color: var(--text--color--dark);
+    font-weight: 400;
+}
+
+.recent-grid.manage-off-work .cards .dataBarber p {
+    font-family: "Prompt", sans-serif;
+    color: var(--text--color--dark);
+    font-weight: 400;
+}
+
+.recent-grid.manage-off-work .cards .dataBarber a:hover {
+    color: var(--main-color-dark);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.recent-grid.manage-off-work form .field {
+    height: 2.5rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.recent-grid.manage-off-work form .field input {
+    height: 100%;
+    width: 80%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.recent-grid.manage-off-work form .dropdown-barber {
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    width: 80%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+    font-family: "Prompt", sans-serif;
+}
+
+.recent-grid.manage-off-work form .field .submitOffWork {
+    margin: 0;
+    font-family: "Prompt", sans-serif;
+    color: #ffffff;
+    background-color: #48c148;
+}
+
+.recent-grid.manage-off-work form .field .submitOffWork:hover {
+    background-color: #349034;
+}
+
+.recent-grid.manage-off-work form .field .submitOffWork:focus {
+    background-color: #125a12;
+}
+
+.recent-grid.manage-off-work:last-child .card-body .card-single {
+    display: flex;
+    background: var(--background--white);
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.recent-grid.manage-off-work .cards .barber .field.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recent-grid.manage-off-work .cards .barber .field.btn a {
+    color: #ffffff;
+    background: var(--main-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.313rem;
+    transition-duration: .3s;
+}
+
+.recent-grid.manage-off-work .cards .barber .field.btn a:hover {
+    background: var(--main-color-dark);
+}
+
+.recent-grid.manage-off-work .cards .barber .field.btn a:focus {
+    background: var(--main-color-super-dark);
+}
+
+.recent-grid.manage-off-work .cards .barber .field .card-single div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recent-grid.manage-off-work .cards .barber .field .card-single span {
+    color: var(--main-color-dark);
+}
+
+
+/* ------------------! manage off work finish ---------------------*/
+
+
+/*------- ! barber off work ----------*/
+
+.recent-grid.barber-off-work {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.barber-off-work .cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2rem;
+    margin-top: 0.5rem;
+}
+
+.cards.barber-off-work .barber-profile .img {
+    display: flex;
+    align-items: center;
+}
+
+.cards.barber-off-work .barber-profile a {
+    display: flex;
+    justify-content: space-between;
+    background: var(--background--white);
+    padding: 1.9rem;
+    border-radius: 5px;
+}
+
+.cards.barber-off-work .barber-profile .img img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.cards.barber-off-work .barber-profile p {
+    padding: 0rem;
+    margin-bottom: -0.625rem;
+}
+
+.cards.barber-off-work .barber-profile .count-off-work {
+    line-height: 1.8rem;
+}
+
+.cards.barber-off-work .barber-profile .date-off-work {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 1.5rem;
+    color: var(--text--color--light);
+    background: var(--main-color);
+}
+
+.recent-grid.barber-off-work .card {
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recent-grid.barber-off-work .card-header img {
+    margin-left: 1rem;
+}
+
+.recent-grid.barber-off-work .th-barber-queue span {
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    font-size: 1.055rem;
+}
+
+.recent-grid.barber-off-work .tr-barber-queue .off-work {
+    border-radius: 1.25rem;
+    padding: 0.5rem 1rem;
+    background: var(--main-color);
+    color: var(--text--color--light);
+    font-weight: 500;
+    font-size: 1.055rem;
+}
+
+.recent-grid.barber-off-work .tr-barber-queue .off-work i {
+    margin: 0 0.625rem;
+}
+
+.recent-grid.barber-off-work {
+    margin-top: 0;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.barber-off-work:last-child {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.barber-off-work .card-header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.recent-grid.barber-off-work .card-body {
+    padding: 2rem 3rem;
+}
+
+.recent-grid.barber-off-work .card-body i {
+    color: #349034;
+    font-size: 1.3rem;
+}
+
+.recent-grid.barber-off-work .card-body:last-child i {
+    color: #df3c37;
+    font-size: 1.3rem;
+}
+
+.recent-grid.barber-off-work .card-body .card-single {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background--white);
+    box-shadow: 2px 2px 7px 1px rgba(52, 144, 52, 0.25);
+    padding: .7rem 1rem;
+    border-radius: 5px;
+}
+
+.recent-grid.barber-off-work .card-body:last-child .card-single {
+    box-shadow: 2px 2px 7px 1px rgba(223, 60, 55, 0.25);
+}
+
+.recent-grid.barber-off-work .card-single:last-child strong {
+    font-size: 26px;
+    font-weight: 600;
+    font-family: "Prompt", sans-serif;
+    color: var(--background--white);
+}
+
+.recent-grid.barber-off-work .card-single div span,
+.recent-grid.barber-off-work .card-single div:first-child span,
+.recent-grid.barber-off-work .card-single div:last-child span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark-grey);
+}
+
+
+/*---------- ! end barber off work ------*/
+
+
+/* ---------------! customer profile start ------------------- */
+
+.recent-grid.customer-profile {
+    margin-top: 0;
+    margin-left: 0;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 100% auto;
+}
+
+.recent-grid.customer-profile .profile_area .container p {
+    text-transform: none;
+    margin: 0 0 10px;
+    padding: 0;
+    letter-spacing: 1px;
+}
+
+.recent-grid.customer-profile .tabs_area .container .tabs .tab-item.active {
+    border-top: 1px solid #000000;
+    padding-top: 10px;
+    z-index: 1;
+    transition-duration: .5s;
+}
+
+.recent-grid.customer-profile .tabs .tab-item.active a span {
+    color: var(--dark-grey);
+    font-weight: 400;
+}
+
+.recent-grid.customer-profile .tabs_area .container {
+    overflow: hidden;
+    margin: 0.5em auto 0 auto;
+}
+
+.recent-grid.customer-profile .tabs_area .container>a {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 0 0.5rem 0;
+    position: relative;
+}
+
+.recent-grid.customer-profile .tabs_area .container .tabs {
+    margin-bottom: .625rem;
+}
+
+.recent-grid.customer-profile .tabs_area .container .slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.recent-grid.customer-profile .tabs_area .slides::-webkit-scrollbar {
+    display: none;
+}
+
+.recent-grid.customer-profile .tabs_area .slides .tabs_content {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    margin: 0;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 100px;
+}
+
+.recent-grid.customer-profile .tabs_area .slides .tabs_content table {
+    width: 100%;
+    padding: 0;
+}
+
+.recent-grid.customer-profile .tabs_area .slides .tabs_content table thead {
+    border-top: 1px solid #f0f0f0;
+}
+
+.recent-grid.customer-profile .td-barber-queue .queue-cancel {
+    margin-top: 0px;
+    padding: 13px 13px;
+    background-color: #df3c37;
+}
+
+.recent-grid.customer-profile .td-barber-queue .queue-cancel:hover {
+    background-color: #ac2e29;
+}
+
+
+/* ---------------! customer booking start -------------------- */
+
+
+/* ---------------! customer booking finish ------------------- */
+
+
+/* ---------------! customer profile finish ------------------ */

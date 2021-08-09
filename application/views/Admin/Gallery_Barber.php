@@ -1,45 +1,87 @@
-<div class="tabs_content">
-    <div id="tb_1" class="tabs_content--item">
-        <div class="gallery_grid">
-            <?php
-            foreach ($HS->result_array() as $row) {
-            ?>
-                <div class="gallery-box">
-                    <div class="item">
-                        <div class="grid-img">
-                            <img src="<?php echo base_url(); ?>img/<?= $row['H_Img1']; ?>" alt="H_Img1" />
-                        </div>
-                        <div class="grid-img">
-                            <img src="<?php echo base_url(); ?>img/<?= $row['H_Img2']; ?>" alt="H_Img2" />
-                        </div>
-                        <div class="grid-img">
-                            <img src="<?php echo base_url(); ?>img/<?= $row['H_Img3']; ?>" alt="H_Img3" />
-                        </div>
-                        <div class="grid-img">
-                            <img src="<?php echo base_url(); ?>img/<?= $row['H_Img4']; ?>" alt="H_Img4" />
-                        </div>
-                    </div>
-                    <div class="comment">
-                        <p><?php echo $ID->Username; ?> : <span> <?= $row['H_Detail'] ?></span></p>
-                        <!--
-                        <div class="menu">
-                            <a class="queue-edit" href="<?php echo site_url('UserManagement_Con/admin_editbarber/'); ?>"><i class="fas fa-pen-square"></i></a>
-                            <a class="queue-cancel" href="<?php echo site_url('Hair_Con/del_hair_style/' . $row['H_ID']); ?>"><i class="fas fa-window-close"></i></a>
-                        </div>
-            -->
-                    </div>
+<div class="tabs_content portfolio" id="portfolio">
+    <div class="gallery_grid">
+        <!--   #posts start -->
+        <div class="posts">
+            <!-- .post start -->
+            <div class="post">
+                <div class="image-item">
+                    <img src="https://cdn.dribbble.com/users/63407/screenshots/7045292/media/ef035b19f992c84e9f17e75a350c35b5.png" class="post-image" alt="">
                 </div>
-            <?php
-            }
-            ?>
+                <div class="owner">
+                    <div class="ownerImage">
+                        <img src="https://api.adorable.io/avatars/30/g" alt="">
+                    </div>
+                    <p href="" class="name">_nazifcan <span> I don't know who you are</span></p>
+                </div>
+            </div>
+            <!-- .post finish -->
+            <!-- .post start -->
+            <div class="post">
+                <div class="image-item">
+                    <img src="https://cdn.dribbble.com/users/63407/screenshots/7456840/media/d03ec38ac6cd166dc54811a69189e3ed.png" class="post-image" alt="">
+                </div>
+                <div class="owner">
+                    <div class="ownerImage">
+                        <img src="https://api.adorable.io/avatars/30/f" alt="">
+                    </div>
+                    <p href="" class="name">_nazifcan <span> I don't know who you are</span></p>
+                </div>
+            </div>
+            <!-- .post finish -->
+            <!-- .post start -->
+            <div class="post">
+                <div class="image-item">
+                    <img src="https://cdn.dribbble.com/users/63407/screenshots/11019884/media/1e5753bfcdb79e010185a9aae0a68c4a.png" class="post-image" alt="">
+                </div>
+                <div class="owner">
+                    <div class="ownerImage">
+                        <img src="https://api.adorable.io/avatars/30/b" alt="">
+                    </div>
+                    <p href="" class="name">_nazifcan <span> I don't know who you are</span></p>
+                </div>
+            </div>
+            <!-- .post finish -->
+            <!-- .post start -->
+            <div class="post">
+                <div class="image-item">
+                    <img src="https://cdn.dribbble.com/users/63407/screenshots/10749842/media/c4dc04f82f6bb3297197d297270d5db9.png" class="post-image" alt="">
+                </div>
+                <div class="owner">
+                    <div class="ownerImage">
+                        <img src="https://api.adorable.io/avatars/30/c" alt="">
+                    </div>
+                    <p href="" class="name">_nazifcan <span> I don't know who you are</span></p>
+                </div>
+            </div>
+            <!-- .post finish -->
+            <!-- .post start -->
+            <div class="post">
+                <div class="image-item">
+                    <img src="https://cdn.dribbble.com/users/664063/screenshots/8682970/media/625ff9442c6d4e84dd214f10820197a0.gif" class="post-image" alt="">
+                </div>
+                <div class="owner">
+                    <div class="ownerImage">
+                        <img src="https://api.adorable.io/avatars/30/d" alt="">
+                    </div>
+                    <p href="" class="name">_nazifcan <span> I don't know who you are</span></p>
+                </div>
+            </div>
+            <!-- .post finish -->
+            <!-- .post start -->
+            <div class="post">
+                <div class="image-item">
+                    <img src="https://cdn.dribbble.com/users/63407/screenshots/7898120/media/60e79e45abbf5088fdc617ee3bd2ba3e.png" class="post-image" alt="">
+                </div>
+                <div class="owner">
+                    <div class="ownerImage">
+                        <img src="https://api.adorable.io/avatars/30/e" alt="">
+                    </div>
+                    <p href="" class="name">_nazifcan <span> I don't know who you are</span></p>
+                </div>
+            </div>
+            <!-- .post finish -->
         </div>
+        <!--   #posts finish -->
     </div>
 </div>
 </div>
-</section>
-</div>
-</div>
-</div>
-</main>
-</div>
-
