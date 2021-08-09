@@ -31,15 +31,13 @@ class OffBranch_Model extends CI_Model
     }
     function getClose()
     {
-        $this->db->select('*');
-        $query = $this->db->get('close_branch');
-        return $query->result();
+        $query = $this->db->query("SELECT * FROM close_branch WHERE OB_DATE > CURRENT_DATE ORDER BY OB_DATE ASC");
+		return $query->result();
     }
 
     function getHistoryClose(){
-        $this->db->where('SOB_ID','2');
-        $query = $this->db->get('close_branch');
-        return $query->result();
+        $query = $this->db->query("SELECT * FROM close_branch WHERE OB_DATE <= CURRENT_DATE ORDER BY OB_DATE DESC");
+		return $query->result();
     }
 
 }
