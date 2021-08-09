@@ -16,6 +16,7 @@ class Admin_Con extends CI_Controller
 
     function index()
     {
+        $data['TOTALOFMONTH'] = $this->AM->getTotalOfMonth();
         $data['BOOKING'] = $this->AM->getBooking();
         $data['BOOKING_SUCCESS'] = $this->AM->getBookingSuccess();
 

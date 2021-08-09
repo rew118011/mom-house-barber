@@ -29,7 +29,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         <div class="card-single">
             <div>
-                <p>29700 <strong>฿</strong></p>
+                <p><?php 
+                $price = 150;
+                echo $TOTALOFMONTH*$price;
+                ?> <strong>฿</strong></p>
                 <span>รายได้เดือนนี้</span>
             </div>
             <div>
