@@ -39,5 +39,9 @@ class OffBranch_Model extends CI_Model
         $query = $this->db->query("SELECT * FROM close_branch WHERE OB_DATE <= CURRENT_DATE ORDER BY OB_DATE DESC");
 		return $query->result();
     }
+    function getCloseALL(){
+        $query = $this->db->query("SELECT * FROM close_branch WHERE OB_DATE = CURRENT_DATE AND SOB_ID = 2");
+		return $query->result();
+    }
 
 }

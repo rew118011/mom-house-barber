@@ -185,7 +185,13 @@ class Admin_Con extends CI_Controller
     function InsertQueue()
     {
         if ($this->input->post('btnBooking')) //มีการคลิกปุ่ม สมัครสมาชิก
-        { {
+        {
+            if ($this->input->post('BK_Year') == '' || $this->input->post('BK_Month') == '' || $this->input->post('BK_Day') == '' ||  $this->input->post('ST_ID') == '') {
+                echo "<script language=\"JavaScript\">";
+                echo "alert('กรุณาเลือกข้อมูลที่กำหนดไว้ค่ะ !')";
+                echo "</script>";
+                redirect('Admin_Con/manageBooking', 'refresh');
+            } else {
                 $id = $this->BK->GenerateId();
                 $data = array(
                     'BK_ID' => $id,
