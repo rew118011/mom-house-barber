@@ -2,7 +2,7 @@
     <div class="cards">
         <div class="card-single">
             <div>
-                <p>38 <strong>คิว</strong></p>
+                <p><?php echo $TOTALOFDAY; ?> <strong>คิว</strong></p>
                 <span>คิวในวั้นนี้</span>
             </div>
             <div>
@@ -14,7 +14,7 @@
 
         <div class="card-single">
             <div>
-                <p>237 <strong>คิว</strong></p>
+                <p><?php echo $TOTALOFWEEK; ?> <strong>คิว</strong></p>
                 <span>คิวในสัปดาห์นี้</span>
             </div>
             <div>
@@ -26,7 +26,7 @@
 
         <div class="card-single">
             <div>
-                <p>558 <strong>คิว</strong></p>
+                <p><?php echo $TOTALOFMONTH; ?> <strong>คิว</strong></p>
                 <span>คิวในเดือนนี้</span>
             </div>
             <div>
@@ -38,7 +38,7 @@
 
         <div class="card-single">
             <div>
-                <p>689 <strong>คิว</strong></p>
+                <p><?php echo $TOTAL; ?> <strong>คิว</strong></p>
                 <span>คิวทั้งหมด</span>
             </div>
             <div>
@@ -47,6 +47,7 @@
                 </span>
             </div>
         </div>
+
     </div>
 
     <div class="recent-grid barber-income">
@@ -76,11 +77,13 @@
                                     <td class="th-barber-queue">ตัดกับ</td>
                                     <td class="th-barber-queue">สถานะ</td>
                                     <td class="th-barber-queue">ราคา</td>
+                                    <td class="th-barber-queue">ชำระเงินแล้ว</td>
+                                    <td class="th-barber-queue">ยกเลิก</td>
                                     <td></td>
                                 </tr>
                             </thead>
                             <?php
-                            foreach ($BOOK_HISTRORY as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                            foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
                             ?>
                                 <tbody>
                                     <tr class="tr-barber-queue">
@@ -95,8 +98,16 @@
                                         <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
                                         <td class="td-barber-queue"><?php echo $row->ST_Time; ?></td>
                                         <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/getBarberProfile/' . $row->B_ID); ?>">ช่างเอิร์ธ</a></td>
-                                        <td class="td-barber-queue status_all_orders"><?php echo $row->Q_Status; ?></td>
+                                        <td class="td-barber-queue status"><?php echo $row->Q_Status; ?></td>
                                         <td class="td-barber-queue">150 ฿</td>
+                                        <td class="td-barber-queue">
+                                            <button id="btnPay" data-id="<?php echo $row->BK_ID; ?>" name="BK_ID" class="queue-complete" value="<?php echo $row->BK_ID; ?>"><i class="fas fa-check-square"></i></button>
+                                        </td>
+                                        <td class="td-barber-queue">
+                                            <a id="btnCancel" data-id="<?php echo $row->BK_ID; ?>" class="queue-cancel" value="<?php echo $row->BK_ID; ?>">
+                                                <i class="fas fa-window-close"></i>
+                                            </a>
+                                        </td>
                                         <td></td>
                                     </tr>
                                 </tbody>
@@ -113,3 +124,55 @@
     </div>
 </main>
 </div>
+<script>
+    $(document).ready(function() {
+        $('button[data-id]').click(function(event) {
+            var BK_ID = $(this).val();
+
+            $.ajax({
+                url: "<?php echo base_url(); ?>index.php/Booking_Con/dynamically_KeepQueue",
+                method: "POST",
+                dataType: 'json',
+                data: {
+                    BK_ID: BK_ID,
+
+                },
+                success: function(response) {
+                    $("#<?php echo $row->BK_ID; ?>").html(response);
+                    $('#<?php echo $row->BK_ID; ?> tr').remove();
+                    if (response == true) {
+                        location.reload();
+                    } else {
+                        alert("Error");
+                    }
+                }
+            });
+
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('a[data-id]').click(function() {
+            var BK_ID = $(this).attr("data-id")
+            $.ajax({
+                url: "<?php echo base_url(); ?>index.php/Booking_Con/dynamically_DeleteQueue",
+                method: "POST",
+                dataType: 'json',
+                data: {
+                    BK_ID: BK_ID,
+
+                },
+                success: function(response) {
+                    $("#<?php echo $row->BK_ID; ?>").html(response);
+                    $('#<?php echo $row->BK_ID; ?> tr').remove();
+                    if (response == true) {
+                        location.reload();
+                    } else {
+                        alert("Error");
+                    }
+                }
+            });
+        });
+    });
+</script>

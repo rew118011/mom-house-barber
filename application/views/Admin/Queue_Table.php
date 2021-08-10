@@ -5,8 +5,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="cards">
         <div class="card-single">
             <div>
-                <p>1278 <strong>คิว</strong></p>
-                <span>ชำระเงินแล้วทั้งหมด</span>
+                <p><?php
+                    foreach ($TOTALOFQUEUE as $row) {
+                        echo $row->Total;
+                    }
+                    ?> <strong>คิว</strong></p>
+                <span>ยังไม่ชำระเงินทั้งหมด</span>
             </div>
             <div>
                 <span>
@@ -17,23 +21,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         <div class="card-single">
             <div>
-                <p>198 <strong>คิว</strong></p>
-                <span>ชำระเงินแล้วเดือนนี้</span>
+                <p><?php
+                    foreach ($TOTALOFQUEUEMONTH as $row) {
+                        echo $row->B_Total;
+                    }
+                    ?> <strong>คิว</strong></p>
+                <span>ยังไม่ชำระเงินเดือนนี้</span>
             </div>
             <div>
                 <span>
-                    <i class="las la-user-check"></i>
+                    <i class="las la-calendar-day"></i>
                 </span>
             </div>
         </div>
 
         <div class="card-single">
             <div>
-                <p><?php 
-                $price = 150;
-                echo $TOTALOFMONTH*$price;
-                ?> <strong>฿</strong></p>
+                <p><?php
+                    foreach ($TOTALOFMONTH as $row) {
+                        echo $row->B_Total;
+                    }
+                    ?> <strong>฿</strong></p>
                 <span>รายได้เดือนนี้</span>
+
+
+
             </div>
             <div>
                 <span>
@@ -44,7 +56,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         <div class="card-single">
             <div>
-                <p><?php echo $TOTAL*150;?> <strong>฿</strong></p>
+                <p><?php
+                    foreach ($TOTAL as $row) {
+                        echo $row->Total;
+                    }
+                    ?> <strong>฿</strong></p>
                 <span>รายได้ทั้งหมด</span>
             </div>
             <div>

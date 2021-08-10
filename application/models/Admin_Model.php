@@ -36,8 +36,11 @@ class Admin_Model extends CI_Model
 		$query = $this->db->get('booking');
 		return $query->result();
 	}
-	function getBookingSuccess()
+
+	function getBookingCurdate()
 	{
+		$where = "status_queue.Q_ID=1 and BK_Year = YEAR(CURDATE()) and BK_Month = MONTH(CURDATE()) and BK_Day = DAY(CURDATE())";
+
 		$this->db->select('*')
 			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
 			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
@@ -47,14 +50,45 @@ class Admin_Model extends CI_Model
 			->order_by('booking.BK_Month', "ASC")
 			->order_by('booking.BK_Day', "ASC")
 			->order_by('booking.ST_ID', "ASC")
+			->where($where);
+
+		$query = $this->db->get('booking');
+		return $query->result();
+	}
+
+	function getBookingSuccess()
+	{
+		$this->db->select('*')
+			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->order_by('booking.BK_Year', "DESC")
+			->order_by('booking.BK_Month', "DESC")
+			->order_by('booking.BK_Day', "DESC")
+			->order_by('booking.ST_ID', "ASC")
 			->where('status_queue.Q_ID', '2');
 		$query = $this->db->get('booking');
 		return $query->result();
 	}
-	function getTotalOfMonth()
+
+	function getBookingSuccessCurdate()
 	{
-		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 2");
-		return $query->num_rows();
+		$where = "status_queue.Q_ID=2 and BK_Year = YEAR(CURDATE()) and BK_Month = MONTH(CURDATE()) and BK_Day = DAY(CURDATE())";
+
+		$this->db->select('*')
+			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->order_by('booking.BK_Year', "ASC")
+			->order_by('booking.BK_Month', "ASC")
+			->order_by('booking.BK_Day', "ASC")
+			->order_by('booking.ST_ID', "ASC")
+			->where($where);
+
+		$query = $this->db->get('booking');
+		return $query->result();
 	}
 
 	function get_HairStyle()
@@ -152,11 +186,91 @@ class Admin_Model extends CI_Model
 		return $query->result();
 	}
 
+	/*-------- ! Dashbord Home Start ----------*/
+
 	function getTotal()
 	{
-		$this->db->where('Q_ID', '2')
-			->from('booking');
-		$query = $this->db->get()->num_rows();
-		return $query;
+		$query = $this->db->query("SELECT SUM(150*( Q_ID = 2))  as Total FROM booking");
+		return $query->result();
 	}
+
+
+	function getTotalOfMonth()
+	{
+		$query = $this->db->query("SELECT SUM(150*( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 2))  as B_Total FROM booking");
+		return $query->result();
+	}
+
+	function getTotalQueue()
+	{
+		$query = $this->db->query("SELECT SUM(150*( Q_ID = 1))  as Total FROM booking");
+		return $query->result();
+	}
+
+
+	function getTotalQueueOfMonth()
+	{
+		$query = $this->db->query("SELECT SUM(150*( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 1))  as B_Total FROM booking");
+		return $query->result();
+	}
+
+	/*-------- ! Dasbord Home Finish -----------*/
+
+	/*-------- ! Dashbord getQueueAll Start ----------*/
+
+	function getTotalQueueDay()
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND BK_Day = DAY(CURDATE()) AND Q_ID = 1");
+		return $query->num_rows();
+	}
+
+
+	function getTotalQueueWeek()
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND BK_Day = DAY(CURDATE()) AND Q_ID = 1");
+		return $query->num_rows();
+	}
+
+	function getTotalQueueMonth()
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 1");
+		return $query->num_rows();
+	}
+
+	function getTotalQueueAll()
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE Q_ID = 1");
+		return $query->num_rows();
+	}
+
+	/*-------- ! Dasbord getQueueAll Finish -----------*/
+
+	/*-------- ! Dashbord getSuccessfulQueue Start ----------*/
+
+	function getTotalSuccessDay()
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND BK_Day = DAY(CURDATE()) AND Q_ID = 2");
+		return $query->num_rows();
+	}
+
+
+	function getTotalSuccessWeek()
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND BK_Day = DAY(CURDATE()) AND Q_ID = 2");
+		return $query->num_rows();
+	}
+
+	function getTotalSuccessMonth()
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 2");
+		return $query->num_rows();
+	}
+
+	function getTotalSuccessAll()
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE Q_ID = 2");
+		return $query->num_rows();
+	}
+
+	/*-------- ! Dasbord getSuccessfulQueue Finish -----------*/
 }

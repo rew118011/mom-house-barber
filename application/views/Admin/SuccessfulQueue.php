@@ -2,7 +2,7 @@
     <div class="cards">
         <div class="card-single">
             <div>
-                <p>38 <strong>คิว</strong></p>
+                <p><?php echo $TOTALOFDAY; ?> <strong>คิว</strong></p>
                 <span>ชำระเงินในวั้นนี้</span>
             </div>
             <div>
@@ -14,7 +14,7 @@
 
         <div class="card-single">
             <div>
-                <p>237 <strong>คิว</strong></p>
+                <p><?php echo $TOTALOFWEEK; ?> <strong>คิว</strong></p>
                 <span>ชำระเงินในสัปดาห์นี้</span>
             </div>
             <div>
@@ -26,7 +26,7 @@
 
         <div class="card-single">
             <div>
-                <p>558 <strong>คิว</strong></p>
+                <p><?php echo $TOTALOFMONTH; ?> <strong>คิว</strong></p>
                 <span>ชำระเงินในเดือนนี้</span>
             </div>
             <div>
@@ -38,7 +38,7 @@
 
         <div class="card-single">
             <div>
-                <p>689 <strong>คิว</strong></p>
+                <p><?php echo $TOTAL; ?> <strong>คิว</strong></p>
                 <span>ชำระเงินทั้งหมด</span>
             </div>
             <div>
@@ -47,6 +47,7 @@
                 </span>
             </div>
         </div>
+
     </div>
 
     <div class="recent-grid barber-income">

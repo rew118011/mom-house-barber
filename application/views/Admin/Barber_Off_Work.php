@@ -68,23 +68,13 @@
         <div class="card-body">
           <div class="cards">
 
-            <div class="card-single">
-              <div>
-                <span><i class="las la-calendar-day"></i> 22 / 6 / 2021</span>
+            <?php foreach ($OFFWORK as $row) { ?>
+              <div class="card-single">
+                <div>
+                  <span><i class="las la-calendar-day"></i> 22 / 6 / 2021</span>
+                </div>
               </div>
-            </div>
-
-            <div class="card-single">
-              <div>
-                <span><i class="las la-calendar-day"></i> 13 / 7 / 2021</span>
-              </div>
-            </div>
-
-            <div class="card-single">
-              <div>
-                <span><i class="las la-calendar-day"></i> 29 / 8 / 2021</span>
-              </div>
-            </div>
+            <?php } ?>
 
           </div>
         </div>
@@ -96,35 +86,13 @@
         <div class="card-body">
           <div class="cards">
 
-            <div class="card-single">
-              <div>
-                <span><i class="las la-calendar-day"></i> 27 / 5 / 2021</span>
+            <?php foreach ($OFFWORKHISTORY as $row) { ?>
+              <div class="card-single">
+                <div>
+                  <span><i class="las la-calendar-day"></i> 27 / 5 / 2021</span>
+                </div>
               </div>
-            </div>
-
-            <div class="card-single">
-              <div>
-                <span><i class="las la-calendar-day"></i> 1 / 5 / 2021</span>
-              </div>
-            </div>
-
-            <div class="card-single">
-              <div>
-                <span><i class="las la-calendar-day"></i> 12 / 4 / 2021</span>
-              </div>
-            </div>
-
-            <div class="card-single">
-              <div>
-                <span><i class="las la-calendar-day"></i> 1 / 3 / 2021</span>
-              </div>
-            </div>
-
-            <div class="card-single">
-              <div>
-                <span><i class="las la-calendar-day"></i> 29 / 1 / 2021</span>
-              </div>
-            </div>
+            <?php } ?>
 
           </div>
         </div>
