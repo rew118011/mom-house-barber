@@ -13,8 +13,10 @@
 						<div class="flexbox">
 							<div class="item">
 								<div class="field flex">
-									<img class="img-barber-queue" name="B_Img" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" />
 									<input class="Display-non" type="text" name="B_Img" value="user.png" placeholder="BarberImg" required>
+									<div class="profile_image">
+										<img class="img-barber-queue" name="B_Img" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" />
+									</div>
 									<p>อัปโหลดภาพ</p>
 								</div>
 							</div>

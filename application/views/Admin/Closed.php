@@ -14,8 +14,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <?php foreach ($CLOSEALL as $row) { ?>
                             <div class="card-single">
                                 <div>
-                                    <p>12</p>
-                                    <span><?php echo $row->OB_DATE ?></span>
+                                    <p><span><?php echo $row->OB_DATE ?></span></p>
                                 </div>
                                 <div>
                                     <span>
@@ -44,8 +43,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <?php foreach ($CLOSEHISTORY as $row) { ?>
                             <div class="card-single">
                                 <div>
-                                    <p>12</p>
-                                    <span><?php echo $row->OB_DATE ?></span>
+                                    <p><span><?php echo $row->OB_DATE ?></span></p>
                                 </div>
                                 <div>
                                     <span>

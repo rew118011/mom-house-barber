@@ -14,7 +14,9 @@
     </div>
 
     <div class="user-wrapper">
-      <img src="<?php echo base_url(); ?>/img/zbew.jpg" alt="">
+      <div class="image-admin">
+        <img src="<?php echo base_url(); ?>/img/zbew.jpg" alt="">
+      </div>
       <div>
         <a href="<?php echo site_url('Admin_Con/getAdminProfile/C00000'); ?>">
           <h4><?php echo $this->session->userdata('Username'); ?></h4>

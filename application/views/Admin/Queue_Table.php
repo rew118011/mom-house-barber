@@ -9,8 +9,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     foreach ($TOTALOFQUEUE as $row) {
                         echo $row->Total;
                     }
-                    ?> <strong>คิว</strong></p>
-                <span>ยังไม่ชำระเงินทั้งหมด</span>
+                    ?> <strong>฿</strong></p>
+                <span>ยังไม่ชำระทั้งหมด</span>
             </div>
             <div>
                 <span>
@@ -25,8 +25,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     foreach ($TOTALOFQUEUEMONTH as $row) {
                         echo $row->B_Total;
                     }
-                    ?> <strong>คิว</strong></p>
-                <span>ยังไม่ชำระเงินเดือนนี้</span>
+                    ?> <strong>฿</strong></p>
+                <span>ยังไม่ชำระเดือนนี้</span>
             </div>
             <div>
                 <span>
@@ -107,7 +107,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <tbody>
                                     <tr id="<?php echo $row->BK_ID; ?>" class="tr-barber-queue">
                                         <td></td>
-                                        <td class="td-barber-queue"><img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="" /></td>
+                                        <td class="td-barber-queue img"><img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="" /></td>
                                         <td class="td-barber-queue customer-name">
                                             <a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>"><?php echo $row->C_Nickname; ?></a>
                                         </td>
@@ -154,7 +154,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     ?>
                         <div class="customer">
                             <div class="info">
-                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="" />
+                                <div class="image-customer">
+                                    <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="" />
+                                </div>
                                 <div>
                                     <h4><a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>"><?php echo $row->C_Nickname; ?></a></h4>
                                     <small><?php echo $row->C_Phone; ?></small>

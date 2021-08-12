@@ -22,7 +22,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <form action="<?php echo site_url('OffWork_Con/insert_offWork') ?>" class="login" method="post">
                     <div class="dataBarber">
                       <input class="B_ID" type="text" name="B_ID" value="<?php echo $row->B_ID; ?>" hidden />
-                      <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
+                      <div class="image">
+                        <img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
+                      </div>
                       <a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $row->B_ID; ?>">ช่าง<?php echo $row->B_Nickname; ?></a>
                     </div>
                     <div class="field">
@@ -64,7 +66,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <form class="login" method="post">
                     <div class="dataBarber">
                       <input class="B_ID" type="text" name="B_ID" value="<?php echo $row->B_ID; ?>" hidden />
-                      <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
+                      <div class="image">
+                        <img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
+                      </div>
                       <a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $row->B_ID; ?>">
                         ช่าง<?php echo $row->B_Nickname; ?>
                       </a>
@@ -81,7 +85,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="field <?php echo $row->B_ID; ?>">
                         <div class="card-single">
                           <div>
-                            <span><i class="las la-calendar-day"></i><?php echo $row->Date; ?></span>
+                            <span><i class="las la-calendar-day"></i> <?php echo $row->Date; ?></span>
                           </div>
                         </div>
                       </div>

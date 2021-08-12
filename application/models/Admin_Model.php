@@ -26,6 +26,7 @@ class Admin_Model extends CI_Model
 			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
 			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
 			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('hair_style', 'booking.H_ID = hair_style.H_ID', 'left')
 			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
 			->order_by('booking.BK_Year', "ASC")
 			->order_by('booking.BK_Month', "ASC")
@@ -62,6 +63,7 @@ class Admin_Model extends CI_Model
 			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
 			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
 			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('hair_style', 'booking.H_ID = hair_style.H_ID', 'left')
 			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
 			->order_by('booking.BK_Year', "DESC")
 			->order_by('booking.BK_Month', "DESC")
@@ -190,27 +192,27 @@ class Admin_Model extends CI_Model
 
 	function getTotal()
 	{
-		$query = $this->db->query("SELECT SUM(150*( Q_ID = 2))  as Total FROM booking");
+		$query = $this->db->query("SELECT SUM(hair_style.Price*( Q_ID = 2))  as Total FROM booking,hair_style");
 		return $query->result();
 	}
 
 
 	function getTotalOfMonth()
 	{
-		$query = $this->db->query("SELECT SUM(150*( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 2))  as B_Total FROM booking");
+		$query = $this->db->query("SELECT SUM(hair_style.Price*( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 2))  as B_Total FROM booking,hair_style");
 		return $query->result();
 	}
 
 	function getTotalQueue()
 	{
-		$query = $this->db->query("SELECT SUM(150*( Q_ID = 1))  as Total FROM booking");
+		$query = $this->db->query("SELECT SUM(hair_style.Price*( Q_ID = 1))  as Total FROM booking,hair_style");
 		return $query->result();
 	}
 
 
 	function getTotalQueueOfMonth()
 	{
-		$query = $this->db->query("SELECT SUM(150*( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 1))  as B_Total FROM booking");
+		$query = $this->db->query("SELECT SUM(hair_style.Price*( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 1))  as B_Total FROM booking,hair_style");
 		return $query->result();
 	}
 
@@ -224,16 +226,15 @@ class Admin_Model extends CI_Model
 		return $query->num_rows();
 	}
 
-
-	function getTotalQueueWeek()
-	{
-		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND BK_Day = DAY(CURDATE()) AND Q_ID = 1");
-		return $query->num_rows();
-	}
-
 	function getTotalQueueMonth()
 	{
 		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 1");
+		return $query->num_rows();
+	}
+
+	function getTotalQueueYear()
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND Q_ID = 1");
 		return $query->num_rows();
 	}
 
@@ -253,16 +254,15 @@ class Admin_Model extends CI_Model
 		return $query->num_rows();
 	}
 
-
-	function getTotalSuccessWeek()
-	{
-		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND BK_Day = DAY(CURDATE()) AND Q_ID = 2");
-		return $query->num_rows();
-	}
-
 	function getTotalSuccessMonth()
 	{
 		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 2");
+		return $query->num_rows();
+	}
+
+	function getTotalSuccessYear()
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND Q_ID = 2");
 		return $query->num_rows();
 	}
 
@@ -273,4 +273,266 @@ class Admin_Model extends CI_Model
 	}
 
 	/*-------- ! Dasbord getSuccessfulQueue Finish -----------*/
+
+	/*-------- ! Dasbord manageBooking Finish -----------*/
+
+	function getClose()
+	{
+		$query = $this->db->query("SELECT *
+		FROM close_branch
+		WHERE OB_DATE > CURRENT_DATE
+		ORDER BY ABS( DATEDIFF(OB_DATE, CURDATE()) )
+		LIMIT 3;");
+		return $query->result();
+	}
+
+	function getNumClose()
+	{
+		$query = $this->db->query("SELECT * FROM `close_branch` WHERE `OB_DATE` > CURRENT_DATE");
+		return $query->num_rows();
+	}
+
+
+	/*-------- ! Dasbord manageBooking Finish -----------*/
+
+	/*-------- ! Dasbord getBarberAll Start -----------*/
+
+	function getBarberIncome()
+	{
+		$query = $this->db->query("SELECT barber.*,
+		cast((hair_style.Price*barber.B_Percent/100*
+		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='B00001' and Q_ID=2 )+barber.B_Salary )
+		as decimal(18,0)) AS B_Total
+		FROM booking,hair_style,barber
+		WHERE barber.B_ID='B00001'
+		UNION ALL
+		SELECT  barber.*,
+		cast((hair_style.Price*barber.B_Percent/100*
+		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='B00002' and Q_ID=2 )+barber.B_Salary )
+		as decimal(18,0)) AS B_Total
+		FROM booking,hair_style,barber
+		WHERE barber.B_ID='B00002'
+		UNION ALL
+		SELECT  barber.*,
+		cast((hair_style.Price*barber.B_Percent/100*
+		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='B00003' and Q_ID=2 )+barber.B_Salary )
+		as decimal(18,0)) AS B_Total
+		FROM booking,hair_style,barber
+		WHERE barber.B_ID='B00003'
+		UNION ALL
+		SELECT  barber.*,
+		cast((hair_style.Price*barber.B_Percent/100*
+		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='B00004' and Q_ID=2 )+barber.B_Salary )
+		as decimal(18,0)) AS B_Total
+		FROM booking,hair_style,barber
+		WHERE barber.B_ID='B00004'");
+		return $query->result();
+	}
+
+	/*-------- ! Dasbord getBarberAll Finish -----------*/
+
+	/*-------- ! getBarberProfile/B_ID Start -----------*/
+
+	function getBarberProfileIncome($id)
+	{
+		$query = $this->db->query("SELECT barber.*,
+			hair_style.Price*barber.B_Percent/100*
+			SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='$id' and Q_ID=2 )+barber.B_Salary 
+			as B_Total
+			FROM booking,hair_style,barber
+			WHERE barber.B_ID='$id'
+			");
+		return $query->result();
+	}
+
+	/*-------- ! getBarberProfile/B_ID Finish -----------*/
+
+	/*-------- ! Dasbord getBarberIncome/B_ID Start -----------*/
+
+	function getTotalSuccessDayByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND BK_Day = DAY(CURDATE()) AND Q_ID = 2 AND B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getTotalSuccessMonthByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 2 AND B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getTotalSuccessAllByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE Q_ID = 2 AND B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getBarberIncomeByID($id)
+	{
+		$query = $this->db->query("SELECT barber.*,
+		cast((hair_style.Price*barber.B_Percent/100*
+		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='$id' and Q_ID=2 )+barber.B_Salary )
+		as decimal(18,0)) AS B_Total
+		FROM booking,hair_style,barber
+		WHERE barber.B_ID='$id'");
+		return $query->result();
+	}
+
+	/*-------- ! Dasbord getBarberIncome/B_ID Finish -----------*/
+
+	/*-------- ! Dasbord getBarberQueue/B_ID Start -----------*/
+
+	function getSuccessAllByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE Q_ID = 2 AND B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getQueueAllByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE Q_ID = 1 AND B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getQueueDayByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND BK_Day = DAY(CURDATE()) AND B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getSuccessDayByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND BK_Day = DAY(CURDATE()) AND Q_ID = 2 AND B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getBookingCurdateByID($id)
+	{
+		$where = "booking.B_ID = '$id' AND status_queue.Q_ID=1 and BK_Year = YEAR(CURDATE()) and BK_Month = MONTH(CURDATE()) and BK_Day = DAY(CURDATE())";
+
+		$this->db->select('*')
+			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->order_by('booking.BK_Year', "ASC")
+			->order_by('booking.BK_Month', "ASC")
+			->order_by('booking.BK_Day', "ASC")
+			->order_by('booking.ST_ID', "ASC")
+			->where($where);
+
+		$query = $this->db->get('booking');
+		return $query->result();
+	}
+
+	function getSuccessCurdateByID($id)
+	{
+		$where = "booking.B_ID = '$id' AND status_queue.Q_ID=2 and BK_Year = YEAR(CURDATE()) and BK_Month = MONTH(CURDATE()) and BK_Day = DAY(CURDATE())";
+
+		$this->db->select('*')
+			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->order_by('booking.BK_Year', "ASC")
+			->order_by('booking.BK_Month', "ASC")
+			->order_by('booking.BK_Day', "ASC")
+			->order_by('booking.ST_ID', "ASC")
+			->where($where);
+
+		$query = $this->db->get('booking');
+		return $query->result();
+	}
+
+	/*-------- ! Dasbord getBarberQueue/B_ID Finish -----------*/
+
+	/*-------- ! Dasbord getBarberAllQueue/B_ID Start -----------*/
+
+	function getQueueAllDayByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND BK_Day = DAY(CURDATE()) AND B_ID = '$id' AND Q_ID = 1");
+		return $query->num_rows();
+	}
+
+	function getQueueAllMonthByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND B_ID = '$id' AND Q_ID = 1");
+		return $query->num_rows();
+	}
+
+	function getQueueAllYearByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE BK_Year = YEAR(CURDATE()) AND B_ID = '$id' AND Q_ID = 1");
+		return $query->num_rows();
+	}
+
+	function getQueueAllAllByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM booking WHERE  B_ID = '$id' AND Q_ID = 1");
+		return $query->num_rows();
+	}
+
+	/*-------- ! Dasbord getBarberAllQueue/B_ID Finish -----------*/
+
+	/*-------- ! Dasbord getBarberOffWork/B_ID Start -----------*/
+
+	function getBarberOffWorkEverAll($id)
+	{
+		$query = $this->db->query("SELECT * FROM `offwork` WHERE Date <= CURRENT_DATE AND B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getBarberOffWorkLastedMonth($id)
+	{
+		$query = $this->db->query("SELECT * FROM `offwork` WHERE YEAR(Date) = YEAR(CURRENT_DATE()) AND MONTH(Date) BETWEEN MONTH(now())-1 AND MONTH(now()) AND MONTH(Date) < MONTH(CURRENT_DATE()) AND B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getBarberOffWorkMonth($id)
+	{
+		$query = $this->db->query("SELECT * FROM `offwork` WHERE YEAR(Date) = YEAR(CURRENT_DATE()) AND MONTH(Date) = MONTH(CURRENT_DATE()) AND B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getBarberOffWorkAll($id)
+	{
+		$query = $this->db->query("SELECT * FROM `offwork` WHERE B_ID = '$id'");
+		return $query->num_rows();
+	}
+
+	function getBarberOffWorkAllByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM `offwork` WHERE Date > CURRENT_DATE AND B_ID = '$id'");
+		return $query->result();
+	}
+
+	function getBarberOffWorkEverAllByID($id)
+	{
+		$query = $this->db->query("SELECT * FROM `offwork` WHERE Date <= CURRENT_DATE AND B_ID = '$id'");
+		return $query->result();
+	}
+
+	/*-------- ! Dasbord getBarberOffWork/B_ID Finish -----------*/
+
+	/*-------- ! Dasbord getCustomerAll Start -----------*/
+
+	function getCustomerAll()
+	{
+		$query = $this->db->query("SELECT * FROM `customer`");
+		return $query->num_rows();
+	}
+
+	function getCustomerMale()
+	{
+		$query = $this->db->query("SELECT * FROM `customer` WHERE C_Sex = 'ชาย'");
+		return $query->num_rows();
+	}
+
+	function getCustomerFemale()
+	{
+		$query = $this->db->query("SELECT * FROM `customer` WHERE C_Sex = 'หญิง'");
+		return $query->num_rows();
+	}
+
+	/*-------- ! Dasbord getCustomerAll Finish -----------*/
 }

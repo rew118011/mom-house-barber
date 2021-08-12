@@ -16,7 +16,7 @@
                                     </div>
                                 </div>
                                 <div class="profile_info--center">
-                                <p><?php echo $ID->B_Nickname; ?> <span>&nbsp;|&nbsp;</span> <?php echo $ID->B_Name; ?> &nbsp; <?php echo $ID->B_Lname; ?></p><br>
+                                    <p><?php echo $ID->B_Nickname; ?> <span>&nbsp;|&nbsp;</span> <?php echo $ID->B_Name; ?> &nbsp; <?php echo $ID->B_Lname; ?></p><br>
                                 </div>
                                 <div class="profile_info--bottom">
                                     <p>
@@ -53,6 +53,7 @@
                         </div>
                         <div class="saraly">
                             <div class="cards">
+
                                 <div class="card-single">
                                     <div class="skill-album">
                                         <ul>
@@ -78,13 +79,30 @@
                                         </ul>
                                     </div>
                                 </div>
+                                
+                                <div class="card-single">
+                                    <div class="skill-album">
+                                        <ul>
+                                            <li>
+                                                <div class="item">
+                                                    <span><?php echo $MONTH; ?>คิว</span>
+                                                </div>
+                                                <span>ตัดแล้วเดือนนี้</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
 
                                 <div class="card-single">
                                     <div class="skill-album">
                                         <ul>
                                             <li>
                                                 <div class="item">
-                                                    <span>9000฿</span>
+                                                    <span><?php
+                                                            foreach ($INCOME as $row) {
+                                                                echo $row->B_Total;
+                                                            }
+                                                            ?>฿</span>
                                                 </div>
                                                 <span>รายได้เดือนนี้</span>
                                             </li>
@@ -92,18 +110,6 @@
                                     </div>
                                 </div>
 
-                                <div class="card-single">
-                                    <div class="skill-album">
-                                        <ul>
-                                            <li>
-                                                <div class="item">
-                                                    <span>6500฿</span>
-                                                </div>
-                                                <span>รายได้ทั้งหมด</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

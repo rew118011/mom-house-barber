@@ -14,8 +14,8 @@
 
         <div class="card-single">
             <div>
-                <p><?php echo $TOTALOFWEEK; ?> <strong>คิว</strong></p>
-                <span>ชำระเงินในสัปดาห์นี้</span>
+                <p><?php echo $TOTALOFMONTH; ?> <strong>คิว</strong></p>
+                <span>ชำระเงินในเดือนนี้</span>
             </div>
             <div>
                 <span>
@@ -23,11 +23,11 @@
                 </span>
             </div>
         </div>
-
+        
         <div class="card-single">
             <div>
-                <p><?php echo $TOTALOFMONTH; ?> <strong>คิว</strong></p>
-                <span>ชำระเงินในเดือนนี้</span>
+                <p><?php echo $TOTALOFYEAR; ?> <strong>คิว</strong></p>
+                <span>ชำระเงินในปีนี้</span>
             </div>
             <div>
                 <span>
@@ -86,7 +86,7 @@
                                 <tbody>
                                     <tr class="tr-barber-queue">
                                         <td></td>
-                                        <td class="td-barber-queue">
+                                        <td class="td-barber-queue img">
                                             <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
                                         </td>
                                         <td class="td-barber-queue"><a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>"><?php echo $row->C_Nickname; ?></a></td>
@@ -95,9 +95,9 @@
                                         <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
                                         <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
                                         <td class="td-barber-queue"><?php echo $row->ST_Time; ?></td>
-                                        <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/getBarberProfile/' . $row->B_ID); ?>">ช่างเอิร์ธ</a></td>
+                                        <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/getBarberProfile/' . $row->B_ID); ?>">ช่างช่าง<?php echo $row->B_Nickname ;?></a></td>
                                         <td class="td-barber-queue status_all_orders"><?php echo $row->Q_Status; ?></td>
-                                        <td class="td-barber-queue">150 ฿</td>
+                                        <td class="td-barber-queue"><?php echo $row->Price?> ฿</td>
                                         <td></td>
                                     </tr>
                                 </tbody>

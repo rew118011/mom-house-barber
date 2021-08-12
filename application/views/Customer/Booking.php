@@ -5,62 +5,62 @@ if (count($CLOSEALL) == $check) {
 ?>
 
 <?php
-}else{
+} else {
 ?>
-<div class="booking-form-inner">
-	<form name="form1" id="form1" method="POST" action="ins_Booking">
-		<?php
-		foreach ($CUSTOMER as $row) {
-		?>
-			<input type="hidden" name="C_ID" value="<?php echo $row->C_ID ?>">
-		<?php
-		}
-		?>
-		<div class="select date">
-			<p>จองคิวตัดผม</p>
-			<p>กรุณาเลือกวัน ช่างตัดผม และเวลาที่คุณต้องการหลังจากนั้นกด "ตกลก"</p>
+	<div class="booking-form-inner">
+		<form name="form1" id="form1" method="POST" action="ins_Booking">
+			<?php
+			foreach ($CUSTOMER as $row) {
+			?>
+				<input type="hidden" name="C_ID" value="<?php echo $row->C_ID ?>">
+			<?php
+			}
+			?>
+			<div class="select date">
+				<p>จองคิวตัดผม</p>
+				<p>กรุณาเลือกวัน ช่างตัดผม และเวลาที่คุณต้องการหลังจากนั้นกด "ตกลก"</p>
 
-			<div class="in-select">
-				<select class="dropdown-date" name="BK_Year" id="year">
-					<option value="BK_Year" selected="selected"> กรุณาเลือกปี... </option>
-				</select>
-				<select class="dropdown-date" name="BK_Month" id="month">
-					<option value="BK_Month" selected="selected"> กรุณาเลือกเดือน... </option>
-				</select>
-				<select class="dropdown-date" name="BK_Day" id="day">
-					<option value="BK_Day" selected="selected"> กรุณาเลือกวัน... </option>
-				</select>
+				<div class="in-select">
+					<select class="dropdown-date" name="BK_Year" id="year">
+						<option value="BK_Year" selected="selected"> กรุณาเลือกปี... </option>
+					</select>
+					<select class="dropdown-date" name="BK_Month" id="month">
+						<option value="BK_Month" selected="selected"> กรุณาเลือกเดือน... </option>
+					</select>
+					<select class="dropdown-date" name="BK_Day" id="day">
+						<option value="BK_Day" selected="selected"> กรุณาเลือกวัน... </option>
+					</select>
 
-			</div>
-
-		</div>
-
-		<div class="select barber">
-			<div name="B_ID" id="barber" class="in-select">
+				</div>
 
 			</div>
-		</div>
 
-		<!-- select barber start -->
-		<div class="select slottime">
-			<div class="in-select">
-				<div id="Time_Slot" class="card-slottime">
+			<div class="select barber">
+				<div name="B_ID" id="barber" class="in-select">
 
 				</div>
 			</div>
-		</div>
-		<!-- select barber finish -->
 
-		<input style="display: none;" type="text" name="Q_ID" value="1" required>
+			<!-- select barber start -->
+			<div class="select slottime">
+				<div class="in-select">
+					<div id="Time_Slot" class="card-slottime">
 
-		<!-- select slot time start -->
-		<div class="field btn">
-			<input class="booking" type="submit" name="btnBooking" value="ตกลง">
-		</div>
-		<!-- select slot time finish -->
+					</div>
+				</div>
+			</div>
+			<!-- select barber finish -->
+			<input style="display: none;" type="text" name="H_ID" value="H00001" required>
+			<input style="display: none;" type="text" name="Q_ID" value="1" required>
 
-	</form>
-</div>
+			<!-- select slot time start -->
+			<div class="field btn">
+				<input class="booking" type="submit" name="btnBooking" value="ตกลง">
+			</div>
+			<!-- select slot time finish -->
+
+		</form>
+	</div>
 <?php
 }
 ?>

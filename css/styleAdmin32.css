@@ -262,11 +262,20 @@ header label span {
     align-items: center;
 }
 
-.user-wrapper img {
-    border-radius: 50%;
+.user-wrapper .image-admin {
     margin-right: 1rem;
     width: 40px;
     height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.user-wrapper .image-admin img {
+    height: 100%;
 }
 
 .user-wrapper h4 {
@@ -307,7 +316,7 @@ main {
 }
 
 .card-single strong {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 600;
     font-family: "Prompt", sans-serif;
     color: #646464;
@@ -382,10 +391,19 @@ main {
     color: var(--text-grey);
 }
 
-.barber-profile .img-barber-queue {
-    border-radius: 50%;
+.barber-profile .image-card {
     height: 58px;
     width: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.barber-profile .img-barber-queue {
+    height: 100%;
 }
 
 .recent-grid {
@@ -419,6 +437,10 @@ main {
 }
 
 .recent-grid.edit-barber .projects .card {
+    padding: 3rem 5rem;
+}
+
+.recent-grid.create-barber .projects .card {
     padding: 3rem 5rem;
 }
 
@@ -495,9 +517,19 @@ main {
 }
 
 .img-barber-profile-small {
-    border-radius: 50%;
     height: 40px;
     width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.img-barber-profile-small img {
+    height: 100%;
 }
 
 .card-header button:hover {
@@ -606,13 +638,30 @@ td {
     color: var(--color-dark);
     font-family: "Prompt", sans-serif;
     font-weight: 500;
+}
+
+.barber-queue .td-barber-queue a:hover {
+    color: var(--main-color-dark);
     text-decoration: underline;
 }
 
-.img-barber-queue {
-    border-radius: 50%;
+.customer .info .image-customer,
+.barber-queue .td-barber-queue.img {
     height: 40px;
     width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    margin: .5rem;
+}
+
+.img-barber-queue {
+    height: 100%;
+    border-radius: 0;
 }
 
 .barber-queue .td-barber-queue,
@@ -649,6 +698,7 @@ td {
 
 .barber-queue .td-barber-queue .queue-complete:hover {
     background-color: #349034;
+    color: #ffffff;
 }
 
 .barber-queue .td-barber-queue .queue-edit {
@@ -659,6 +709,7 @@ td {
 
 .barber-queue .td-barber-queue .queue-edit:hover {
     background-color: #e1b936;
+    color: #ffffff;
 }
 
 .barber-queue .td-barber-queue .queue-cancel {
@@ -669,6 +720,7 @@ td {
 
 .barber-queue .td-barber-queue .queue-cancel:hover {
     background-color: #ac2e29;
+    color: #ffffff;
 }
 
 .barber-queue .td-barber-queue .queue-check {
@@ -680,6 +732,7 @@ td {
 
 .barber-queue .td-barber-queue .queue-check:hover {
     background-color: var(--main-color-dark);
+    color: #ffffff;
 }
 
 .barber-queue .td-barber-queue .queue-income {
@@ -691,6 +744,7 @@ td {
 
 .barber-queue .td-barber-queue .queue-income:hover {
     background-color: #8d8d8d;
+    color: #ffffff;
 }
 
 .barber-queue .td-barber-queue .barber-offWork {
@@ -702,18 +756,18 @@ td {
 
 .barber-queue .td-barber-queue .barber-offWork:hover {
     background-color: var(--main-color-dark);
+    color: #ffffff;
 }
 
 .td-barber-queue.customer-name a {
     font-family: "Prompt", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--color-dark);
-    text-decoration: underline;
 }
 
 .td-barber-queue.customer-name a:hover {
-    font-weight: 500;
     color: var(--main-color);
+    text-decoration: underline;
 }
 
 .td-barber-queue.status {
@@ -726,14 +780,13 @@ td {
 
 .td-barber-queue.booking-with a {
     font-family: "Prompt", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--color-dark);
-    text-decoration: underline;
 }
 
 .td-barber-queue.booking-with a:hover {
-    font-weight: 500;
     color: var(--main-color);
+    text-decoration: underline;
 }
 
 td .status {
@@ -786,9 +839,8 @@ tr td:last-child {
     align-items: center;
 }
 
-.info img {
-    border-radius: 50%;
-    margin-right: 1rem;
+.info div {
+    margin-left: 0.5rem;
 }
 
 .info h4 {
@@ -802,6 +854,10 @@ tr td:last-child {
     font-family: "Prompt", sans-serif;
     font-weight: 500;
     color: var(--color-dark);
+}
+
+.info h4 a:hover {
+    color: var(--main-color-dark);
     text-decoration: underline;
 }
 
@@ -840,11 +896,6 @@ tr td:last-child {
     margin-top: 5px;
     color: #444444;
     text-decoration: underline;
-}
-
-.recent-grid .card .card-header.barber-queue img {
-    margin-left: 15px;
-    width: 2.5rem;
 }
 
 .recent-grid .card .card-body.success-queue a {
@@ -954,12 +1005,21 @@ tr td:last-child {
     margin-top: 15%;
 }
 
-.flexbox .item .field.flex .img-barber-queue {
+.flexbox .item .field.flex .profile_image {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     border-radius: 50%;
     border: 1px solid var(--dark-light);
-    height: 150px;
-    width: 150px;
+    cursor: pointer;
     margin-right: 30px;
+}
+
+.flexbox .item .field.flex img {
+    height: 100%;
 }
 
 .flexbox .item .field.flex p {
@@ -1153,19 +1213,23 @@ tr td:last-child {
 .profile_area .container .profile {
     display: flex;
     justify-content: center;
+    padding: 0 7.5rem;
 }
 
 .profile_area .container .profile .profile_image {
-    margin: 3em;
-    width: 30%;
+    width: 150px;
+    height: 150px;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 3em;
 }
 
 .profile_area .container .profile .profile_image img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    height: 100%;
 }
 
 .profile_area .container .profile .profile_info {
@@ -2217,6 +2281,12 @@ tr td:last-child {
     border-radius: 5px;
 }
 
+.recent-grid.closed .card-body .card-single div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .recent-grid.closed:last-child .card-body .card-single {
     box-shadow: 2px 2px 7px 1px rgba(223, 60, 55, 0.25);
 }
@@ -2229,7 +2299,9 @@ tr td:last-child {
 }
 
 .recent-grid.closed .card-single div:first-child span {
-    color: var(--text-grey);
+    color: var(--dark-hover);
+    font-size: 1.4rem;
+    font-weight: 500;
 }
 
 .recent-grid.closed .card-single div:last-child span {
@@ -2246,7 +2318,9 @@ tr td:last-child {
 }
 
 .recent-grid.closed .card-single:last-child div:first-child span {
-    color: var(--text-grey);
+    color: var(--dark-hover);
+    font-size: 1.4rem;
+    font-weight: 500;
 }
 
 
@@ -2607,10 +2681,19 @@ tr td:last-child {
     justify-content: space-between;
 }
 
-.recent-grid.manage-off-work .cards .dataBarber img {
+.recent-grid.manage-off-work .cards .dataBarber .image {
     width: 3.5rem;
     height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
     cursor: pointer;
+}
+
+.recent-grid.manage-off-work .cards .dataBarber img {
+    height: 100%;
 }
 
 .recent-grid.manage-off-work .cards .dataBarber a {
@@ -2684,6 +2767,7 @@ tr td:last-child {
 
 .recent-grid.manage-off-work:last-child .card-body .card-single {
     display: flex;
+    justify-content: center;
     background: var(--background--white);
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.2);
     padding: 1rem;

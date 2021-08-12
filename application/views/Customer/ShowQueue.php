@@ -9,7 +9,9 @@
                         <div class="controls">
                             <a href="<?php echo site_url('Customer_Con/getBarberByCustomer/' . $row->B_ID); ?>">ช่าง<?php echo $row->B_Nickname; ?></a>
                         </div>
-                        <img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" alt="green apple slice">
+                        <div class="image-barber">
+                            <img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" alt="green apple slice">
+                        </div>
                     </div>
                     <div class="skill-album">
                         <ul>

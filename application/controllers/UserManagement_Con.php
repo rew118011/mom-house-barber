@@ -18,6 +18,7 @@ class UserManagement_Con extends CI_Controller
     function createBarber() //ฟังก์ชั่น เพิมชาง
     {
         $this->load->view('Admin/Header');
+        $this->load->view('Admin/Navbar');
         $this->load->view('Admin/Create_Barber'); //เรียกใช้งานหน้า เพิมชาง
         $this->load->view('Admin/Footer');
     }
@@ -83,7 +84,7 @@ class UserManagement_Con extends CI_Controller
                 redirect('Admin_Con/getBarberAll', 'refresh');
             } else { //กรอกข้อมูลไม่ถูกต้องตามกฏ
                 $this->session->set_flashdata('msg_error', 'กรุณากรอกข้อมูลครบค่ะ !');
-                $this->load->view('Create_Barber.php');
+                $this->load->view('Admin/Create_Barber.php');
             }
         } else { //กลับไปหน้าช่างทั้งหมด
             redirect('Admin_Con/getBarberAll', 'refresh');
