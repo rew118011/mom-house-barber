@@ -15,7 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <div class="card-single">
                                 <div>
                                     <p>12</p>
-                                    <span><?php echo $row->OB_DATE?></span>
+                                    <span><?php echo $row->OB_DATE ?></span>
                                 </div>
                                 <div>
                                     <span>
@@ -41,11 +41,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="card-body">
                     <div class="cards">
 
-                    <?php foreach ($CLOSEHISTORY as $row) { ?>
+                        <?php foreach ($CLOSEHISTORY as $row) { ?>
                             <div class="card-single">
                                 <div>
                                     <p>12</p>
-                                    <span><?php echo $row->OB_DATE?></span>
+                                    <span><?php echo $row->OB_DATE ?></span>
                                 </div>
                                 <div>
                                     <span>

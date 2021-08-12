@@ -172,7 +172,6 @@ if (count($CLOSEALL) == $check) {
 		function AdjustDays() {
 			var year = BK_Year.val();
 			var month = parseInt(BK_Month.val()); //parseInt แปลงตัวเลข
-
 			BK_Day.empty();
 
 

@@ -16,11 +16,13 @@ class Admin_Con extends CI_Controller
 
     function index()
     {
-        $data['TOTALOFMONTH'] = $this->AM->getTotalOfMonth();
-        $data['BOOKING'] = $this->AM->getBooking();
-        $data['BOOKING_SUCCESS'] = $this->AM->getBookingSuccess();
+        $data['BOOKING'] = $this->AM->getBookingCurdate();
+        $data['BOOKING_SUCCESS'] = $this->AM->getBookingSuccessCurdate();
 
         $data['TOTAL'] = $this->AM->getTotal();
+        $data['TOTALOFMONTH'] = $this->AM->getTotalOfMonth();
+        $data['TOTALOFQUEUE'] = $this->AM->getTotalQueue();
+        $data['TOTALOFQUEUEMONTH'] = $this->AM->getTotalQueueOfMonth();
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
@@ -86,6 +88,11 @@ class Admin_Con extends CI_Controller
     {
         $data['BOOK_HISTRORY'] = $this->AM->getBookingSuccess();
 
+        $data['TOTALOFDAY'] = $this->AM->getTotalSuccessDay();
+        $data['TOTALOFWEEK'] = $this->AM->getTotalSuccessWeek();
+        $data['TOTALOFMONTH'] = $this->AM->getTotalSuccessMonth();
+        $data['TOTAL'] = $this->AM->getTotalSuccessAll();
+
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
         $this->load->view('Admin/SuccessfulQueue', $data);
@@ -94,7 +101,12 @@ class Admin_Con extends CI_Controller
 
     public function getQueueAll()
     {
-        $data['BOOK_HISTRORY'] = $this->AM->getBookingSuccess();
+        $data['BOOKING'] = $this->AM->getBooking();
+
+        $data['TOTALOFDAY'] = $this->AM->getTotalQueueDay();
+        $data['TOTALOFWEEK'] = $this->AM->getTotalQueueWeek();
+        $data['TOTALOFMONTH'] = $this->AM->getTotalQueueMonth();
+        $data['TOTAL'] = $this->AM->getTotalQueueAll();
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
@@ -158,8 +170,9 @@ class Admin_Con extends CI_Controller
 
     public function getBarberOffWork($id)
     {
-        $data['BARBER'] = $this->AM->getBarberAll();
         $data['ID'] = $this->AM->getBarberByAdmin($id);
+        $data['OFFWORK'] = $this->OW->getOffWork_BarberByID($id);
+        $data['OFFWORKHISTORY'] = $this->OW->getHistoryOffWork_BarberByID($id);
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');

@@ -37,10 +37,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
               }
               ?>
 
-
-
-
-
             </div>
 
           </div>
@@ -62,7 +58,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
             <div class="cards">
               <?php
-              foreach ($OFFWORK as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+              foreach ($BARBER as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
               ?>
                 <div class="barber">
                   <form class="login" method="post">
@@ -79,13 +75,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <i class="fas fa-calendar-times"></i> ดูวันหยุดทั้งหมด
                       </a>
                     </div>
-                      <div class="field">
+                    <?php
+                    foreach ($OFFWORK as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                    ?>
+                      <div class="field <?php echo $row->B_ID; ?>">
                         <div class="card-single">
                           <div>
                             <span><i class="las la-calendar-day"></i><?php echo $row->Date; ?></span>
                           </div>
                         </div>
                       </div>
+                    <?php
+                    }
+                    ?>
                   </form>
                 </div>
               <?php

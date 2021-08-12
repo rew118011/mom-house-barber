@@ -44,6 +44,15 @@ class OffWork_Model extends CI_Model
 		return $query->result();
 	}
 
+	function getHistoryOffWork_BarberByID($id){
+        $query = $this->db->query("SELECT * FROM `offwork` WHERE B_ID='$id' and DATE <= CURRENT_DATE");
+		return $query->result();
+    }
+    function getOffWork_BarberByID($id){
+        $query = $this->db->query("SELECT * FROM `offwork` WHERE B_ID='$id' and DATE > CURRENT_DATE");
+		return $query->result();
+    }
+
 	function getOffWork()
 	{
 		$this->db->select('*');
