@@ -2,7 +2,19 @@
   <div class="cards">
     <div class="card-single">
       <div>
-        <p>9 <strong>คิว</strong></p>
+        <p><?php echo $DAY; ?> <strong>คิว</strong></p>
+        <span>ตัดแล้วในวันนี้</span>
+      </div>
+      <div>
+        <span>
+          <i class="las la-users"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="card-single">
+      <div>
+        <p><?php echo $MONTH; ?> <strong>คิว</strong></p>
         <span>ตัดแล้วในเดือนนี้</span>
       </div>
       <div>
@@ -14,31 +26,7 @@
 
     <div class="card-single">
       <div>
-        <p>57 <strong>คิว</strong></p>
-        <span>ตัดแล้วในสัปดาห์นี้</span>
-      </div>
-      <div>
-        <span>
-          <i class="las la-users"></i>
-        </span>
-      </div>
-    </div>
-
-    <div class="card-single">
-      <div>
-        <p>198 <strong>คิว</strong></p>
-        <span>ตัดแล้วในเดือนนี้</span>
-      </div>
-      <div>
-        <span>
-          <i class="las la-users"></i>
-        </span>
-      </div>
-    </div>
-
-    <div class="card-single">
-      <div>
-        <p>326 <strong>คิว</strong></p>
+        <p><?php echo $All; ?> <strong>คิว</strong></p>
         <span>ตัดแล้วทั้งหมด</span>
       </div>
       <div>
@@ -47,6 +35,23 @@
         </span>
       </div>
     </div>
+
+    <div class="card-single">
+      <div>
+        <p><?php
+            foreach ($INCOME as $row) {
+              echo $row->B_Total;
+            }
+            ?> <strong>฿</strong></p>
+        <span>รายได้เดือนนี้</span>
+      </div>
+      <div>
+        <span>
+          <i class="las la-coins"></i>
+        </span>
+      </div>
+    </div>
+
   </div>
 
   <div class="recent-grid barber-income">
@@ -54,7 +59,9 @@
       <div class="card">
         <div class="card-header barber-income">
           <h3>รายละเอียดการตัดผมของ<a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $ID->B_ID; ?>"><span class="span">ช่าง<?php echo $ID->B_Nickname; ?></span></a></h3>
-          <img class="img-barber-profile-small" src="<?php echo base_url(); ?>img/<?php echo $ID->B_Img; ?>" alt="BarberProfile">
+          <div class="img-barber-profile-small">
+            <img src="<?php echo base_url(); ?>img/<?php echo $ID->B_Img; ?>" alt="BarberProfile">
+          </div>
         </div>
 
         <div class="card-body">
@@ -80,7 +87,7 @@
                 <tbody>
                   <tr class="tr-barber-queue">
                     <td></td>
-                    <td class="td-barber-queue">
+                    <td class="td-barber-queue img">
                       <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
                     </td>
                     <td class="td-barber-queue"><a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>"><?php echo $row->C_Nickname; ?></a></td>

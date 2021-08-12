@@ -2533,21 +2533,29 @@ form .btn input[type="submit"] {
     border: 2px solid var(--yellow-dark);
 }
 
-.container.yourQueue .queue .barber__photo .photo-container .photo-main img {
+.container.yourQueue .queue .barber__photo .photo-container .photo-main .image-barber {
     position: absolute;
     left: -2.5em;
     top: 4em;
-    max-width: 97%;
-    filter: saturate(150%) contrast(120%) hue-rotate(10deg) drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.container.yourQueue .queue .barber__photo .photo-container .photo-main img:hover {
+.container.yourQueue .queue .barber__photo .photo-container .photo-main .image-barber:hover {
     box-shadow: 0 0 20px var(--yellow-dark);
     -webkit-transform: scale(0.98);
     transform: scale(0.98);
     transition-duration: 0.2s;
+}
+
+.container.yourQueue .queue .barber__photo .photo-container .photo-main img {
+    height: 100%;
 }
 
 .container.yourQueue .queue .barber__photo .photo-container .photo-main img:after {
@@ -2823,19 +2831,38 @@ form .btn input[type="submit"] {
 .profile_area .container .profile {
     display: flex;
     justify-content: center;
+    padding: 0 5rem;
+}
+
+.all-braber .center-card .card .additional .user-card .image-barber {
+    width: 175px;
+    height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.all-braber .center-card .card .additional .user-card img {
+    height: 100%;
 }
 
 .profile_area .container .profile .profile_image {
-    margin: 3em;
-    width: 30%;
+    width: 150px;
+    height: 150px;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 3em;
 }
 
 .profile_area .container .profile .profile_image img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    height: 100%;
 }
 
 .profile_area .container .profile .profile_info {
@@ -3639,10 +3666,19 @@ form .btn input[type="submit"] {
     border-left: 2px solid rgba(0, 0, 0, 0.025);
 }
 
-.all-braber .center-card .card .additional .user-card img {
+.all-braber .center-card .card .additional .user-card .image-barber {
     width: 175px;
     height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.all-braber .center-card .card .additional .user-card img {
+    height: 100%;
 }
 
 .all-braber .center-card .card .additional .user-card .level,

@@ -3,46 +3,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <main>
     <div class="cards">
-        <div class="card-single">
-            <div>
-                <p><span>วันที่ </span> 12</p>
-                <span>เดือน 8 ปี 2021</span>
+
+        <?php foreach ($CLOSEALL as $row) { ?>
+            <div class="card-single">
+                <div>
+                    <p> <strong><?php echo $row->OB_DATE ?></strong></p>
+                    <span>วันที่ร้านปิด</span>
+                </div>
+                <div>
+                    <span>
+                        <i class="las la-calendar-day"></i>
+                    </span>
+                </div>
             </div>
-            <div>
-                <span>
-                    <i class="las la-calendar-day"></i>
-                </span>
-            </div>
-        </div>
+        <?php } ?>
 
         <div class="card-single">
             <div>
-                <p><span>วันที่ </span> 24</p>
-                <span>เดือน 9 ปี 2021</span>
-            </div>
-            <div>
-                <span>
-                    <i class="las la-calendar-day"></i>
-                </span>
-            </div>
-        </div>
-
-        <div class="card-single">
-            <div>
-                <p><span>วันที่ </span> 17</p>
-                <span>เดือน 11 ปี 2021</span>
-            </div>
-            <div>
-                <span>
-                    <i class="las la-calendar-day"></i>
-                </span>
-            </div>
-        </div>
-
-        <div class="card-single">
-            <div>
-                <p>3 <strong>วัน</strong></p>
-                <span>วันปิดร้านทั้งหมด</span>
+                <p><?php echo $NUMCLOSE ;?> <strong>วัน</strong></p>
+                <span>วันที่จะปิดร้านทั้งหมด</span>
             </div>
             <div>
                 <span>
@@ -93,6 +72,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <!-- select barber finish -->
 
                         <input style="display: none;" type="text" name="Q_ID" value="2" required>
+                        <input style="display: none;" type="text" name="H_ID" value="H00001" required>
                         <input style="display: none;" type="text" name="C_ID" value="C00000" required>
 
                         <!-- select slot time start -->
@@ -183,12 +163,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <div class="card-body manage-booking">
                     <div class="form-inner">
-                        <form action="<?php echo site_url('OffBranch_Con/ins_close');?>" class="login" method="post">
+                        <form action="<?php echo site_url('OffBranch_Con/ins_close'); ?>" class="login" method="post">
                             <div class="field btn">
                                 <input class="dropdown-barber" type="date" id="selectDate" name="OB_DATE">
                             </div>
                             <div class="field btn">
-                            <input hidden name="SOB_ID" value="2">
+                                <input hidden name="SOB_ID" value="2">
                                 <input class="submitOffWork" type="submit" name="btnCloseBranch" value="ยืนยัน">
                             </div>
                         </form>

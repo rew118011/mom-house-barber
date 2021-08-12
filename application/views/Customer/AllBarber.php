@@ -9,8 +9,9 @@
                 <div class="additional">
                     <div class="user-card">
 
-                        <img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>">
-                        <br><br>
+                        <div class="image-barber">
+                            <img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>">
+                        </div>
                         <div class="points center">
                             <a href="<?php echo site_url('Customer_Con/getBarberByCustomer/' . $row->B_ID); ?>">ช่าง<?php echo $row->B_Nickname; ?></a>
                         </div>

@@ -16,7 +16,9 @@
                             <div class="flexbox">
                                 <div class="item">
                                     <div class="field flex">
-                                        <img class="img-barber-queue" name="B_Img" src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
+                                        <div class="profile_image">
+                                            <img name="B_Img" src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
+                                        </div>
                                         <p>อัปโหลดภาพ</p>
                                     </div>
                                 </div>
@@ -170,4 +172,3 @@
     </div>
 </main>
 </div>
-

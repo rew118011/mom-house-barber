@@ -13,12 +13,12 @@
                                     <h1><?php echo $ID->Username; ?></h1>
                                 </div>
                                 <div class="profile_info--center">
-                                    <p><i class="las la-signature"></i> <?php echo $ID->C_Nickname; ?> <span>&nbsp;|&nbsp;</span> <?php echo $ID->C_Name; ?> &nbsp; <?php echo $ID->C_Lname; ?></p><br>
+                                    <p><i class="las la-signature"></i> <?php echo $ID->A_Nickname; ?> <span>&nbsp;|&nbsp;</span> <?php echo $ID->C_Name; ?> &nbsp; <?php echo $ID->C_Lname; ?></p><br>
                                 </div>
                                 <div class="profile_info--bottom">
                                     <p>
                                         <i class="las la-transgender"></i> : <?php echo $ID->C_Sex; ?> <br>
-                                        <i class="las la-phone-volume"></i> : <?php echo $ID->C_Phone; ?> <br>
+                                        <i class="las la-phone-volume"></i> : <?php echo $ID->A_Phone; ?> <br>
                                         <i class="lab la-facebook"></i> : <?php echo $ID->C_Facebook; ?>
                                     </p>
                                 </div>
@@ -32,7 +32,7 @@
                             <div class="tab-item active">
                                 <a href="#history" class="history">
                                     <i class="las la-border-all"></i>
-                                    <span> ประวัติการเพิ่มคิวย้อนหลังของ<?php echo $ID->C_Nickname; ?></span>
+                                    <span> ประวัติการเพิ่มคิวย้อนหลังของแอดมิน<?php echo $ID->C_Nickname; ?></span>
                                 </a>
                             </div>
                         </div>

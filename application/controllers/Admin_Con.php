@@ -36,6 +36,9 @@ class Admin_Con extends CI_Controller
         $data['BOOKING'] = $this->AM->getBooking();
         $data['BOOKING_SUCCESS'] = $this->AM->getBookingSuccess();
 
+        $data['CLOSEALL'] = $this->AM->getClose();
+        $data['NUMCLOSE'] = $this->AM->getNumClose();
+
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
         $this->load->view('Admin/Manage_Booking', $data);
@@ -44,7 +47,7 @@ class Admin_Con extends CI_Controller
 
     public function getBarberAll()
     {
-        $data['BARBER'] = $this->AM->getBarberAll();
+        $data['BARBERINCOME'] = $this->AM->getBarberIncome();
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
@@ -66,6 +69,10 @@ class Admin_Con extends CI_Controller
     public function getCustomerAll()
     {
         $data['CUSTOMER'] = $this->AM->getCustomer();
+
+        $data['ALL'] = $this->AM->getCustomerAll();
+        $data['MALE'] = $this->AM->getCustomerMale();
+        $data['FEMALE'] = $this->AM->getCustomerFemale();
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
@@ -89,8 +96,8 @@ class Admin_Con extends CI_Controller
         $data['BOOK_HISTRORY'] = $this->AM->getBookingSuccess();
 
         $data['TOTALOFDAY'] = $this->AM->getTotalSuccessDay();
-        $data['TOTALOFWEEK'] = $this->AM->getTotalSuccessWeek();
         $data['TOTALOFMONTH'] = $this->AM->getTotalSuccessMonth();
+        $data['TOTALOFYEAR'] = $this->AM->getTotalSuccessYear();
         $data['TOTAL'] = $this->AM->getTotalSuccessAll();
 
         $this->load->view('Admin/Header');
@@ -104,8 +111,8 @@ class Admin_Con extends CI_Controller
         $data['BOOKING'] = $this->AM->getBooking();
 
         $data['TOTALOFDAY'] = $this->AM->getTotalQueueDay();
-        $data['TOTALOFWEEK'] = $this->AM->getTotalQueueWeek();
         $data['TOTALOFMONTH'] = $this->AM->getTotalQueueMonth();
+        $data['TOTALOFYEAR'] = $this->AM->getTotalQueueYear();
         $data['TOTAL'] = $this->AM->getTotalQueueAll();
 
         $this->load->view('Admin/Header');
@@ -117,6 +124,9 @@ class Admin_Con extends CI_Controller
     public function getBarberProfile($id)
     {  //ฟังก์ชั่น detail_profilebarber โดยรับ object $id มาจาก show_barber
         $data['ID'] = $this->AM->getBarberByAdmin($id); //ดึงข้อมูลมาจาก Admin_Model จากนั้นเรียกใช้ฟังก์ชั่น getBarberAll ใน Admin_Model
+
+        $data['INCOME'] = $this->AM->getBarberIncomeByID($id);
+        $data['MONTH'] = $this->AM->getTotalSuccessMonthByID($id);
 
         $result['HS'] = $this->AM->get_HairStyle();  //เรียกใช้งานฟังก์ชั่น model แล้วดึงค่า result เก็บข้อมูลในตัวแปรชื่อว่า HS
 
@@ -137,6 +147,11 @@ class Admin_Con extends CI_Controller
     {
         $data['BH'] = $this->AM->getBarberBookingHistory($id);
         $data['ID'] = $this->AM->getBarberByAdmin($id);
+        
+        $data['INCOME'] = $this->AM->getBarberIncomeByID($id);
+        $data['All'] = $this->AM->getTotalSuccessAllByID($id);
+        $data['MONTH'] = $this->AM->getTotalSuccessMonthByID($id);
+        $data['DAY'] = $this->AM->getTotalSuccessDayByID($id);
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
@@ -146,10 +161,15 @@ class Admin_Con extends CI_Controller
 
     public function getBarberQueue($id)
     {
-        $data['BOOKING'] = $this->AM->getBarberBooking($id);
-        $data['BH'] = $this->AM->getBarberBookingHistory($id);
+        $data['BOOKING'] = $this->AM->getBookingCurdateByID($id);
+        $data['BH'] = $this->AM->getSuccessCurdateByID($id);
 
         $data['ID'] = $this->AM->getBarberByAdmin($id);
+
+        $data['SALL'] = $this->AM->getSuccessAllByID($id);
+        $data['QALL'] = $this->AM->getQueueAllByID($id);
+        $data['QDAY'] = $this->AM->getQueueDayByID($id);
+        $data['SDAY'] = $this->AM->getSuccessDayByID($id);
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
@@ -162,6 +182,11 @@ class Admin_Con extends CI_Controller
         $data['BOOKING'] = $this->AM->getBarberBooking($id);
         $data['ID'] = $this->AM->getBarberByAdmin($id);
 
+        $data['QDAY'] = $this->AM->getQueueAllDayByID($id);
+        $data['QMONTH'] = $this->AM->getQueueAllMonthByID($id);
+        $data['QYEAR'] = $this->AM->getQueueAllYearByID($id);
+        $data['QALL'] = $this->AM->getQueueAllAllByID($id);
+
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
         $this->load->view('Admin/Barber_All_Queue', $data);
@@ -171,8 +196,13 @@ class Admin_Con extends CI_Controller
     public function getBarberOffWork($id)
     {
         $data['ID'] = $this->AM->getBarberByAdmin($id);
-        $data['OFFWORK'] = $this->OW->getOffWork_BarberByID($id);
-        $data['OFFWORKHISTORY'] = $this->OW->getHistoryOffWork_BarberByID($id);
+        $data['OFFWORK'] = $this->AM->getBarberOffWorkAllByID($id);
+        $data['OFFWORKHISTORY'] = $this->AM->getBarberOffWorkEverAllByID($id);
+
+        $data['EVERALL'] = $this->AM->getBarberOffWorkEverAll($id);
+        $data['LASTEDMONTH'] = $this->AM->getBarberOffWorkLastedMonth($id);
+        $data['MONTH'] = $this->AM->getBarberOffWorkMonth($id);
+        $data['ALL'] = $this->AM->getBarberOffWorkAll($id);
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
@@ -214,6 +244,7 @@ class Admin_Con extends CI_Controller
                     'BK_Month' => $this->input->post('BK_Month'),
                     'BK_Year' => $this->input->post('BK_Year'),
                     'ST_ID' => $this->input->post('ST_ID'),
+                    'H_ID' => $this->input->post('H_ID'),
                     'Q_ID' => $this->input->post('Q_ID')
                 );
                 $check = $this->BK->createBookingQueueByCustomer($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล

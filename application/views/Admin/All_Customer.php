@@ -2,7 +2,7 @@
   <div class="cards">
     <div class="card-single">
       <div>
-        <p>292 <strong>คน</strong></p>
+        <p><?php echo $ALL; ?> <strong>คน</strong></p>
         <span>ลูกค้าทั้งหมด</span>
       </div>
       <div>
@@ -14,7 +14,7 @@
 
     <div class="card-single">
       <div>
-        <p>256 <strong>คน</strong></p>
+        <p><?php echo $MALE; ?> <strong>คน</strong></p>
         <span>ลูกค้าเพศชาย</span>
       </div>
       <div>
@@ -26,7 +26,7 @@
 
     <div class="card-single">
       <div>
-        <p>36 <strong>คน</strong></p>
+        <p><?php echo $FEMALE; ?> <strong>คน</strong></p>
         <span>ลูกค้าเพศหญิง</span>
       </div>
       <div>
@@ -84,7 +84,7 @@
                 <tbody>
                   <tr class="tr-barber-queue">
                     <td></td>
-                    <td class="td-barber-queue">
+                    <td class="td-barber-queue img">
                       <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
                     </td>
                     <td class="td-barber-queue">

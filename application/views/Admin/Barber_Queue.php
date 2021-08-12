@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="cards">
         <div class="card-single">
             <div>
-                <p>326 <strong>คิว</strong></p>
+                <p><?php echo $SALL; ?> <strong>คิว</strong></p>
                 <span>คิวที่ตัดไปแล้ว</span>
             </div>
             <div>
@@ -17,7 +17,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         <div class="card-single">
             <div>
-                <p>267 <strong>คิว</strong></p>
+                <p><?php echo $QALL; ?> <strong>คิว</strong></p>
                 <span>คิวที่ยังไม่ได้ตัด</span>
             </div>
             <div>
@@ -29,7 +29,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         <div class="card-single">
             <div>
-                <p>9 <strong>คิว</strong></p>
+                <p><?php echo $QDAY; ?> <strong>คิว</strong></p>
                 <span>คิวทั้งหมดในวันนี้</span>
             </div>
             <div>
@@ -41,12 +41,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         <div class="card-single">
             <div>
-                <p>6 <strong>คิว</strong></p>
+                <p><?php echo $SDAY; ?> <strong>คิว</strong></p>
                 <span>ตัดไปแล้วในวันนี้</span>
             </div>
             <div>
                 <span>
-                    <i class="las la-user-clock"></i>
+                    <i class="las la-user-check"></i>
                 </span>
             </div>
         </div>
@@ -57,11 +57,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="card">
                 <div class="card-header barber-queue">
                     <div class="title">
-                        <h3>ตารางคิวที่รอตัดในวันนี้กับช่าง
+                        <h3>ตารางคิวที่รอตัดในวันนี้กับ
                             <a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $ID->B_ID; ?>">
-                                <?php echo $ID->B_Nickname; ?></a>
+                                ช่าง<?php echo $ID->B_Nickname; ?></a>
                         </h3>
-                        <img class="img-barber-profile-small" src="<?php echo base_url(); ?>img/<?php echo $ID->B_Img; ?>" alt="BarberProfile">
+                        <div class="img-barber-profile-small">
+                            <img src="<?php echo base_url(); ?>img/<?php echo $ID->B_Img; ?>" alt="BarberProfile">
+                        </div>
                     </div>
                     <div>
                         <a href="<?php echo site_url('Admin_Con/getBarberAllQueue/') . $ID->B_ID; ?>">
@@ -94,7 +96,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <tbody>
                                     <tr id="<?php echo $row->BK_ID; ?>" class="tr-barber-queue">
                                         <td></td>
-                                        <td class="td-barber-queue"><img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" /></td>
+                                        <td class="td-barber-queue img"><img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" /></td>
                                         <td class="td-barber-queue customer-name"><a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>"><?php echo $row->C_Nickname; ?></a></td>
                                         <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
                                         <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
@@ -137,7 +139,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     ?>
                         <div class="customer">
                             <div class="info">
-                                <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="" />
+                                <div class="image-customer">
+                                    <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="" />
+                                </div>
                                 <div>
                                     <h4>
                                         <a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>">คุณ<?php echo $row->C_Nickname; ?></a>

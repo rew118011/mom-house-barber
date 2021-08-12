@@ -2,7 +2,7 @@
   <div class="cards barber-off-work">
     <div class="card-single">
       <div>
-        <p>13 <strong>วัน</strong></p>
+        <p><?php echo $EVERALL; ?> <strong>วัน</strong></p>
         <span>เคยลาทั้งหมด</span>
       </div>
       <div>
@@ -14,7 +14,7 @@
 
     <div class="card-single">
       <div>
-        <p>1 <strong>วัน</strong></p>
+        <p><?php echo $LASTEDMONTH; ?> <strong>วัน</strong></p>
         <span>ลาเดือนที่แล้ว</span>
       </div>
       <div>
@@ -26,7 +26,7 @@
 
     <div class="card-single">
       <div>
-        <p>2 <strong>วัน</strong></p>
+        <p><?php echo $MONTH; ?> <strong>วัน</strong></p>
         <span>ลาเดือนนี้</span>
       </div>
       <div>
@@ -38,7 +38,7 @@
 
     <div class="card-single">
       <div>
-        <p>5 <strong>วัน</strong></p>
+        <p><?php echo $ALL; ?> <strong>วัน</strong></p>
         <span>ลาทั้งหมด</span>
       </div>
       <div>
@@ -59,7 +59,9 @@
               <span class="span">ช่าง<?php echo $ID->B_Nickname; ?></span>
             </a>
           </h3>
-          <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $ID->B_Img; ?>" />
+          <div class="img-barber-profile-small">
+            <img src="<?php echo base_url(); ?>img/<?php echo $ID->B_Img; ?>" alt="BarberProfile">
+          </div>
         </div>
         <div class="card-header title">
           <h3>ตารางการลา</h3>
@@ -71,7 +73,7 @@
             <?php foreach ($OFFWORK as $row) { ?>
               <div class="card-single">
                 <div>
-                  <span><i class="las la-calendar-day"></i> 22 / 6 / 2021</span>
+                  <span><i class="las la-calendar-day"></i> <?php echo $row->Date;?></span>
                 </div>
               </div>
             <?php } ?>
@@ -89,7 +91,7 @@
             <?php foreach ($OFFWORKHISTORY as $row) { ?>
               <div class="card-single">
                 <div>
-                  <span><i class="las la-calendar-day"></i> 27 / 5 / 2021</span>
+                  <span><i class="las la-calendar-day"></i> <?php echo $row->Date;?></span>
                 </div>
               </div>
             <?php } ?>
