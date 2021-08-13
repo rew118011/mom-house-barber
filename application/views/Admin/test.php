@@ -79,55 +79,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <i class="fas fa-calendar-times"></i> ดูวันหยุดทั้งหมด
                       </a>
                     </div>
+                    <?php
+                    foreach ($OFFWORK as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                    ?>
+                      <div class="field <?php echo $row->B_ID; ?>">
+                        <div class="card-single">
+                          <div>
+                            <span><i class="las la-calendar-day"></i> <?php echo $row->Date; ?></span>
+                          </div>
+                        </div>
+                      </div>
+                    <?php
+                    }
+                    ?>
                   </form>
                 </div>
               <?php
               }
               ?>
+
             </div>
 
-          </div>
-          <div class="history">
-            <p>วันลาหยุดของช่างที่กำลังจะมาถึง</p>
-          </div>
-          <div class="wrapper-date">
-            <?php
-            foreach ($OFFWORK as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
-            ?>
-              <div class="item">
-                <a href="<?php echo site_url('Admin_Con/getBarberOffWork/') . $row->B_ID; ?>">
-                  <div class="content">
-                    <div class="image">
-                      <img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
-                    </div>
-                    <span><?php echo $row->Date; ?></span>
-                  </div>
-                </a>
-              </div>
-            <?php
-            }
-            ?>
-          </div>
-          <div class="history">
-            <p>ประวัติการลา</p>
-          </div>
-          <div class="wrapper-date">
-            <?php
-            foreach ($OFFWORKHISTORY as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
-            ?>
-              <div class="item">
-                <a href="<?php echo site_url('Admin_Con/getBarberOffWork/') . $row->B_ID; ?>">
-                  <div class="content">
-                    <div class="image">
-                      <img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
-                    </div>
-                    <span><?php echo $row->Date; ?></span>
-                  </div>
-                </a>
-              </div>
-            <?php
-            }
-            ?>
           </div>
         </div>
 

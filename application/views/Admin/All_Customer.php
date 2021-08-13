@@ -1,5 +1,5 @@
 <main>
-  <div class="cards">
+  <div class="cards all-customer">
     <div class="card-single">
       <div>
         <p><?php echo $ALL; ?> <strong>คน</strong></p>
@@ -36,17 +36,24 @@
       </div>
     </div>
 
-    <div class="card-single">
-      <div>
-        <p>?????? <strong>?</strong></p>
-        <span>????????????</span>
+    <?php foreach ($MOST as $row) { ?>
+      <div class="card-single">
+        <div>
+          <p><?php echo $row->C_Num; ?> <strong>ครั้ง</strong></p>
+          <span>
+            <a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>">คุณ<?php echo $row->C_Nickname; ?></a>
+          </span>
+        </div>
+        <a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>">
+          <div class="image-card">
+            <span>
+              <img src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="">
+            </span>
+          </div>
+        </a>
       </div>
-      <div>
-        <span>
-          <i class="las la-coins"></i>
-        </span>
-      </div>
-    </div>
+    <?php } ?>
+
   </div>
 
   <div class="recent-grid barber-income">
@@ -78,11 +85,11 @@
                   <td></td>
                 </tr>
               </thead>
-              <?php
-              foreach ($CUSTOMER as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
-              ?>
-                <tbody>
-                  <tr class="tr-barber-queue">
+              <tbody>
+                <?php
+                foreach ($CUSTOMER as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                ?>
+                  <tr class="tr-barber-queue c_id_<?php echo $row->C_ID; ?>">
                     <td></td>
                     <td class="td-barber-queue img">
                       <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
@@ -96,13 +103,37 @@
                     <td class="td-barber-queue"><?php echo $row->C_Sex; ?></td>
                     <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
                     <td class="td-barber-queue"><?php echo $row->C_Facebook; ?></td>
-                    <td class="td-barber-queue">2 ครั้ง</td>
+                    <td class="td-barber-queue"><?php echo $row->C_Num; ?> ครั้ง</td>
                     <td></td>
                   </tr>
-                </tbody>
-              <?php
-              }
-              ?>
+                <?php
+                }
+                ?>
+                <?php
+                foreach ($CUSTOMERN as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                ?>
+                  <tr class="tr-barber-queue c_id_<?php echo $row->C_ID; ?>">
+                    <td></td>
+                    <td class="td-barber-queue img">
+                      <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
+                    </td>
+                    <td class="td-barber-queue">
+                      <a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>"><?php echo $row->Username; ?></a>
+                    </td>
+                    <td class="td-barber-queue"><?php echo $row->C_Nickname; ?></td>
+                    <td class="td-barber-queue"><?php echo $row->C_Name; ?></td>
+                    <td class="td-barber-queue"><?php echo $row->C_Lname; ?></td>
+                    <td class="td-barber-queue"><?php echo $row->C_Sex; ?></td>
+                    <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
+                    <td class="td-barber-queue"><?php echo $row->C_Facebook; ?></td>
+                    <td class="td-barber-queue">0 ครั้ง</td>
+                    <td></td>
+                  </tr>
+                <?php
+                }
+                ?>
+              </tbody>
+
             </table>
           </div>
         </div>

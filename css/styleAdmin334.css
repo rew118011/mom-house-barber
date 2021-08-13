@@ -402,6 +402,34 @@ main {
     cursor: pointer;
 }
 
+.cards.all-customer .image-card {
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--text--color--light);
+}
+
+.cards.all-customer .image-card:hover {
+    box-shadow: 0 0 20px var(--yellow-dark);
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+}
+
+.cards.all-customer .card-single a {
+    color: var(--text--color--light);
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+}
+
+.cards.all-customer .image-card img {
+    height: 100%;
+}
+
 .barber-profile .img-barber-queue {
     height: 100%;
 }
@@ -668,6 +696,11 @@ td {
 .barber-queue .tr-barber-queue {
     text-align: center;
     vertical-align: middle;
+}
+
+.barber-queue .tr-barber-queue.c_id_C00000 {
+    display: none;
+    position: absolute;
 }
 
 .barber-queue .td-barber-queue .queue-complete,
@@ -2682,8 +2715,8 @@ tr td:last-child {
 }
 
 .recent-grid.manage-off-work .cards .dataBarber .image {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3.75rem;
+    height: 3.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2699,6 +2732,7 @@ tr td:last-child {
 .recent-grid.manage-off-work .cards .dataBarber a {
     font-family: "Prompt", sans-serif;
     color: var(--text--color--dark);
+    font-size: 1.25rem;
     font-weight: 400;
 }
 
@@ -2765,16 +2799,6 @@ tr td:last-child {
     background-color: #125a12;
 }
 
-.recent-grid.manage-off-work:last-child .card-body .card-single {
-    display: flex;
-    justify-content: center;
-    background: var(--background--white);
-    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    border-radius: 5px;
-    width: 80%;
-}
-
 .recent-grid.manage-off-work .cards .barber .field.btn {
     display: flex;
     align-items: center;
@@ -2789,22 +2813,77 @@ tr td:last-child {
     transition-duration: .3s;
 }
 
-.recent-grid.manage-off-work .cards .barber .field.btn a:hover {
-    background: var(--main-color-dark);
+.recent-grid.manage-off-work .history {
+    padding: 0.5rem 2rem;
 }
 
-.recent-grid.manage-off-work .cards .barber .field.btn a:focus {
-    background: var(--main-color-super-dark);
+.recent-grid.manage-off-work .history p {
+    padding: 0.75rem 1rem;
+    font-family: "Prompt", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--dark-hover);
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.recent-grid.manage-off-work .cards .barber .field .card-single div {
+.recent-grid.manage-off-work .wrapper-date {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    box-sizing: border-box;
+    margin: 0px -10px;
+    padding: 1rem 2rem;
+}
+
+.recent-grid.manage-off-work .wrapper-date .item {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 18%;
+    margin: 1%;
+    background: #ffffff;
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.recent-grid.manage-off-work .wrapper-date a {
+    color: var(--main-color-dark);
+    font-weight: 500;
+    width: 100%;
+}
+
+.recent-grid.manage-off-work .wrapper-date .content {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 600;
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
 }
 
-.recent-grid.manage-off-work .cards .barber .field .card-single span {
-    color: var(--main-color-dark);
+.recent-grid.manage-off-work .wrapper-date .content span {
+    margin-left: 0.625rem;
+}
+
+.recent-grid.manage-off-work .wrapper-date .content .image {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.recent-grid.manage-off-work .wrapper-date .content .image img {
+    height: 100%;
 }
 
 

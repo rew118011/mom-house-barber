@@ -5,7 +5,30 @@ class Admin_Model extends CI_Model
 {
 	function getCustomer()
 	{
-		$query = $this->db->query("SELECT * FROM `customer` WHERE C_ID NOT IN (SELECT C_ID FROM customer WHERE `C_ID` = 'c00000')");
+		$query = $this->db->query("SELECT customer.*, count(booking.C_ID)  AS C_Num
+		FROM booking, customer
+		where booking.C_ID = customer.C_ID AND  booking.Q_ID=2
+		group by booking.c_ID
+		ORDER BY C_Num DESC, customer.C_ID ASC");
+		return $query->result();
+	}
+
+	function getCustomerMost()
+	{
+		$query = $this->db->query("SELECT customer.*, count(booking.C_ID)  AS C_Num
+		FROM booking, customer
+		where booking.C_ID = customer.C_ID AND  booking.Q_ID=2
+		group by booking.c_ID
+		ORDER BY C_Num DESC, customer.C_ID ASC
+		LIMIT 1;");
+		return $query->result();
+	}
+
+	function getCustomerNotInQ_ID2()
+	{
+		$query = $this->db->query("SELECT * 
+		FROM customer
+		WHERE C_ID NOT IN (SELECT C_ID FROM booking WHERE Q_ID = 2)");
 		return $query->result();
 
 		$this->db->select('*');
@@ -299,34 +322,26 @@ class Admin_Model extends CI_Model
 
 	function getBarberIncome()
 	{
-		$query = $this->db->query("SELECT barber.*,
-		cast((hair_style.Price*barber.B_Percent/100*
-		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='B00001' and Q_ID=2 )+barber.B_Salary )
-		as decimal(18,0)) AS B_Total
-		FROM booking,hair_style,barber
-		WHERE barber.B_ID='B00001'
-		UNION ALL
-		SELECT  barber.*,
-		cast((hair_style.Price*barber.B_Percent/100*
-		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='B00002' and Q_ID=2 )+barber.B_Salary )
-		as decimal(18,0)) AS B_Total
-		FROM booking,hair_style,barber
-		WHERE barber.B_ID='B00002'
-		UNION ALL
-		SELECT  barber.*,
-		cast((hair_style.Price*barber.B_Percent/100*
-		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='B00003' and Q_ID=2 )+barber.B_Salary )
-		as decimal(18,0)) AS B_Total
-		FROM booking,hair_style,barber
-		WHERE barber.B_ID='B00003'
-		UNION ALL
-		SELECT  barber.*,
-		cast((hair_style.Price*barber.B_Percent/100*
-		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='B00004' and Q_ID=2 )+barber.B_Salary )
-		as decimal(18,0)) AS B_Total
-		FROM booking,hair_style,barber
-		WHERE barber.B_ID='B00004'");
-		return $query->result();
+		$select = "SELECT barber.*, cast((hair_style.Price*barber.B_Percent/100* SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID=";
+		$calculate = "and Q_ID=2 )+barber.B_Salary ) as decimal(18,0)) AS B_Total FROM booking,hair_style,barber WHERE barber.B_ID=";
+		$union = "UNION ALL";
+		$id = "B0000";
+		for ($x = 1; $x <= 1; $x++) {
+			$sql1 = "$select'$id$x'$calculate'$id$x'$union";
+		}
+		for ($x = 1; $x <= 2; $x++) {
+			$sql2 = "$select'$id$x'$calculate'$id$x'$union";
+		}
+		for ($x = 1; $x <= 3; $x++) {
+			$sql3 = "$select'$id$x'$calculate'$id$x'$union";
+		}
+		for ($x = 1; $x <= 4; $x++) {
+			$sql4 = "$select'$id$x'$calculate'$id$x'";
+		}
+		$sql = "$sql1 $sql2 $sql3 $sql4";
+		$query = $this->db->query($sql);
+		return  $query->result();
+
 	}
 
 	/*-------- ! Dasbord getBarberAll Finish -----------*/
@@ -518,7 +533,7 @@ class Admin_Model extends CI_Model
 
 	function getCustomerAll()
 	{
-		$query = $this->db->query("SELECT * FROM `customer`");
+		$query = $this->db->query("SELECT * FROM `customer` WHERE C_ID NOT IN (SELECT C_ID FROM `customer` WHERE C_ID = 'C00000')");
 		return $query->num_rows();
 	}
 
@@ -535,4 +550,20 @@ class Admin_Model extends CI_Model
 	}
 
 	/*-------- ! Dasbord getCustomerAll Finish -----------*/
+
+	function GenerateHId()
+	{
+		$query = $this->db->select('H_ID') //เลือกฟิลด์ C_ID โดยเก็บคำสั่งไว้ในตัวแปร query
+			->from('hair_style') //จากตาราง customer
+			->order_by('H_ID', "ASC") //เรียงจากน้อยไปมาก
+			->get();    //เลือกหรือค้น
+		$row = $query->last_row();    //นำ query มาหาแถวสุดท้าย จากนั้นเก็บค่าไว้ในตัวแปล row
+		if ($row) {    //เมื่อ row สำเร็จ
+			$idPostfix = (int)substr($row->H_ID, 2) + 1; //นำตัวเลขมาตัดสติง จากนั้นเฟด B_ID ขึ้นมาตำแหน่งปัจจุบันและให้ + 1
+			$nextId = 'H' . STR_PAD((string)$idPostfix, 6, "0", STR_PAD_LEFT); //เติมตัว BK เข้าไปในตำแหน่งที่แก้ไข และเติม 0 ไป 6 ตำแหน่งจากฝั่งซ้าย
+		} else {
+			$nextId = 'H000001';
+		} //ถ้าไม่ใช่ ให้เริ่มต้นที่ BK00001
+		return $nextId;    //คืนค่า nextId
+	}
 }

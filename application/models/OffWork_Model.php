@@ -38,9 +38,15 @@ class OffWork_Model extends CI_Model
 
 	function getOffWork_Barber()
 	{
-		$this->db->select('*')
-		->join('offwork', 'barber.B_ID = offwork.B_ID', 'left');
-		$query = $this->db->get('barber');
+		$query = $this->db->query("SELECT * FROM `barber` LEFT JOIN `offwork` ON `barber`.`B_ID` = `offwork`.`B_ID` 
+		WHERE `DATE` > CURRENT_DATE ORDER BY Date ASC");
+		return $query->result();
+	}
+
+	function getOffWork_BarberHistory()
+	{
+		$query = $this->db->query("SELECT * FROM `barber` LEFT JOIN `offwork` ON `barber`.`B_ID` = `offwork`.`B_ID` 
+		WHERE `DATE` <= CURRENT_DATE ORDER BY Date DESC");
 		return $query->result();
 	}
 

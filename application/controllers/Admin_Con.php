@@ -55,10 +55,18 @@ class Admin_Con extends CI_Controller
         $this->load->view('Admin/Footer');
     }
 
+    public function test()
+    {
+        $data['BARBERINCOME'] = $this->AM->getBarberIncome();
+
+        $this->load->view('Admin/test', $data);
+    }
+
     public function ManageOffWork()
     {
         $data['BARBER'] = $this->AM->getBarberAll();
         $data['OFFWORK'] = $this->OW->getOffWork_Barber();
+        $data['OFFWORKHISTORY'] = $this->OW->getOffWork_BarberHistory();
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
@@ -69,10 +77,12 @@ class Admin_Con extends CI_Controller
     public function getCustomerAll()
     {
         $data['CUSTOMER'] = $this->AM->getCustomer();
+        $data['CUSTOMERN'] = $this->AM->getCustomerNotInQ_ID2();
 
         $data['ALL'] = $this->AM->getCustomerAll();
         $data['MALE'] = $this->AM->getCustomerMale();
         $data['FEMALE'] = $this->AM->getCustomerFemale();
+        $data['MOST'] = $this->AM->getCustomerMost();
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
