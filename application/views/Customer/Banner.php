@@ -1,4 +1,4 @@
-<div class="banner" style="background: url(<?php echo base_url(); ?>img/bgBarber.png) ; background-size: cover; background-position: center; ">
+<div class="banner" style="background: url(<?php echo base_url(); ?>img/bgBarber.jpeg) ; background-size: cover; background-position: center; ">
     <div class="banner-container">
         <img class="banner-container-logo" src="<?php echo base_url(); ?>/img/Logo.png">
         <div class="banner-left">
@@ -6,7 +6,9 @@
             <a class="banner-link" href="#" id="banner-link">ก็จองดิวะ!</a>
         </div>
         <div class="banner-right">
-            <img class="banner-logo" src="<?php echo base_url(); ?>/img/Logo.png">
+            <div class="image-logo">
+                <img class="banner-logo" src="<?php echo base_url(); ?>/img/Logo.png">
+            </div>
         </div>
     </div>
 </div>

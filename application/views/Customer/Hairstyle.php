@@ -1,3 +1,17 @@
+<div class="title">
+    <div class="wrapper-txt hairstyle-txt">
+        <ul class="dynamic-txts">
+            <li><span>ทรงผมที่ร้านแนะนำ</span></li>
+            <li><span>ทรงผมที่ร้านแนะนำ</span></li>
+            <li><span>ทรงผมที่ร้านแนะนำ</span></li>
+            <li><span>ทรงผมที่ร้านแนะนำ</span></li>
+        </ul>
+    </div>
+    <div class="description hair">
+        <p>ทรงผมชายสุดฮิตที่ลูกค้านิยมมาตัดที่ร้านของเรา Mom House Barber</p>
+    </div>
+</div>
+
 <?php
 foreach ($HS->result_array() as $row) {
 ?>
@@ -47,7 +61,7 @@ foreach ($HS->result_array() as $row) {
 
                 <div class="product-detail">
                     <p>ผมทรง <?= $row['H_Name'] ?></p>
-                    
+
                     <p><?= $row['H_Detail'] ?></p>
                 </div>
 

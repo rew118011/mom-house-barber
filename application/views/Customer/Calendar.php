@@ -1,3 +1,16 @@
+<div class="title">
+    <div class="wrapper-txt calendar-txt">
+        <ul class="dynamic-txts">
+            <li><span>ปฏิทินคิวของร้าน</span></li>
+            <li><span>ปฏิทินคิวของร้าน</span></li>
+            <li><span>ปฏิทินคิวของร้าน</span></li>
+            <li><span>ปฏิทินคิวของร้าน</span></li>
+        </ul>
+    </div>
+    <div class="description hair">
+        <p>ปฏิทินนี้ คือปฏิทินที่มีไว้สำหรับดูวันว่าวันไหนมีคิวเต็มแล้ว วันไหนมีคิวว่าง</p>
+    </div>
+</div>
 <div class="contianer calendar-booking light">
     <div class="calendar">
         <div class="calendar-header">
@@ -84,7 +97,7 @@
                 if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
                     day.classList.add('curr-date')
                 }
-                if (i - first_day.getDay() + 1 === booking){
+                if (i - first_day.getDay() + 1 === booking) {
                     day.classList.add('classTest')
                 }
             }

@@ -9,6 +9,8 @@
         <a href="#"><i class="fas fa-map-marked-alt icon-footer"></i></a>
     </div>
 </footer>
+
+<script src="<?php echo base_url(); ?>js/NavbarActive.js"></script>
 </body>
 
 </html>
