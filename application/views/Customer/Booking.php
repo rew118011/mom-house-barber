@@ -75,7 +75,10 @@ if (count($CLOSEALL) == $check) {
 					var BK_Year = $('#year').val();
 					var BK_Month = $('#month').val();
 					var BK_Day = $('#day').val();
-					$.ajax({
+					var BK_Date = $('#year').val()+ "-"+('0' + $('#month').val()).slice(-2)+ "-" + $('#day').val();
+					today = new Date().toISOString().split('T')[0];
+					if(BK_Date > today){
+						$.ajax({
 						url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_Barber",
 						method: "POST",
 						dataType: 'json',
@@ -123,6 +126,10 @@ if (count($CLOSEALL) == $check) {
 							});
 						}
 					});
+					}else{
+						alert("ขออภัยคุณไม่สามารถเลือกวันที่ผ่านมาแล้วได้ค่ะ !");
+						return;
+					}
 				});
 			});
 		});
