@@ -1,4 +1,4 @@
-<div class="title">
+<div class="title-txt">
     <div class="wrapper-txt calendar-txt">
         <ul class="dynamic-txts">
             <li><span>ปฏิทินคิวของร้าน</span></li>

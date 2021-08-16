@@ -1,4 +1,19 @@
 <div class="all-braber">
+
+    <div class="title-txt">
+        <div class="wrapper-txt calendar-txt">
+            <ul class="dynamic-txts">
+                <li><span>ช่างฝีมือในร้านของเรา</span></li>
+                <li><span>ช่างฝีมือในร้านของเรา</span></li>
+                <li><span>ช่างฝีมือในร้านของเรา</span></li>
+                <li><span>ช่างฝีมือในร้านของเรา</span></li>
+            </ul>
+        </div>
+        <div class="description hair">
+            <p>ในร้านของเรา มีช่างตัดผมฝีมือดีให้ท่านได้เลือกตัดมากมาย หากต้องการดูโปรไฟล์ของช่าง คลิก! ที่ชื่อช่างใต้รูปได้เลย</p>
+        </div>
+    </div>
+
     <div class="center-card">
         <?php
         foreach ($Barber as $row) {

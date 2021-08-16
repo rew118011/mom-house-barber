@@ -618,24 +618,24 @@ form .btn input[type="submit"] {
 
 /* ---------------------------------------! calendar start ------------------------------------- */
 
-.title {
+.title-txt {
     padding: 4rem 0 2.5rem 0;
 }
 
-.title .wrapper-txt {
+.title-txt .wrapper-txt {
     display: inline-flex;
     width: 100%;
     justify-content: center;
 }
 
-.title .wrapper-txt .dynamic-txts {
+.title-txt .wrapper-txt .dynamic-txts {
     margin-left: 15px;
     height: 90px;
     line-height: 90px;
     overflow: hidden;
 }
 
-.title .wrapper-txt .dynamic-txts li {
+.title-txt .wrapper-txt .dynamic-txts li {
     list-style: none;
     font-size: 2rem;
     font-weight: 500;
@@ -651,12 +651,16 @@ form .btn input[type="submit"] {
     }
 }
 
-.title .wrapper-txt .dynamic-txts li span {
+.title-txt .wrapper-txt .dynamic-txts li span {
     position: relative;
     font-family: "Prompt", sans-serif;
 }
 
-.title .wrapper-txt .dynamic-txts li span::after {
+.booking-form-inner .title-txt .wrapper-txt .dynamic-txts li span::after {
+    background: #ffffff;
+}
+
+.title-txt .wrapper-txt .dynamic-txts li span::after {
     content: "";
     position: absolute;
     left: 0;
@@ -666,6 +670,11 @@ form .btn input[type="submit"] {
     background: #fafafa;
     border-left: 2px solid var(--color-dark);
     animation: typing 2.5s steps(10) infinite;
+}
+
+.booking-form-inner .select .title-txt .description p {
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 @keyframes typing {
@@ -692,14 +701,12 @@ form .btn input[type="submit"] {
 }
 
 .contianer.calendar-booking .calendar {
-    height: max-content;
-    width: max-content;
+    transform: scale(1.15);
     background-color: var(--bg-main);
     border-radius: 15px;
     padding: 20px 75px;
     position: relative;
     overflow: hidden;
-    transform: scale(1.15);
     animation: trabsitionInYourQueueTable 1s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
 }
 
@@ -963,9 +970,9 @@ form .btn input[type="submit"] {
 
 .booking-form-inner {
     margin: 7.5% 15%;
-    padding: 4% 1.5% 1% 1.5%;
+    padding: 1% 1.5%;
     box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    border-radius: 1.5rem;
     background: #ffffff;
     animation-name: trabsitionInBookingForm;
     animation-duration: 0.5s;
@@ -2144,10 +2151,10 @@ form .btn input[type="submit"] {
 /*----------------------------------- Hair Style Start ------------------------------------*/
 
 .card-wrapper.hairstyle {
-    max-width: 950px;
+    max-width: 850px;
     box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
-    padding: 30px 95px;
-    margin: 30px auto 50px auto;
+    padding: 30px 55px;
+    margin: 0 auto 5rem auto;
     border-radius: 3px;
     position: relative;
     animation: trabsitionInYourQueueTable 1s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
@@ -3668,7 +3675,17 @@ form .btn input[type="submit"] {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 50px 0;
+}
+
+.booking-form-inner {
+    margin: 7.5% 15%;
+    padding: 1% 1.5%;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 1.5rem;
+    background: #ffffff;
+    animation-name: trabsitionInBookingForm;
+    animation-duration: 0.5s;
+    transition-duration: 0.9s;
 }
 
 .all-braber .center-card {
@@ -3678,6 +3695,7 @@ form .btn input[type="submit"] {
     justify-content: center;
     align-items: center;
     position: relative;
+    margin-bottom: 5rem;
     animation: trabsitionInYourQueueTable 1s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
 }
 
