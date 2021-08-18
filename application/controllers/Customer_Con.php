@@ -10,20 +10,32 @@ class Customer_Con extends CI_Controller
         $this->load->model('Barber_Model', 'BM');
         $this->load->model('Admin_Model', 'AM');
         $this->load->model('Booking_Model', 'BKM');
+        $this->load->model('OffBranch_Model', 'OBM');
     }
     function index()
     {
-        $result['HS'] = $this->AM->get_HairStyle();
 
         $sess =  $this->session->userdata('Username');
-        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
+        $data['CUSTOMER'] = $this->CM->getProfile($sess);
+
+        $data['BARBER'] = $this->BKM->getBarber();
+        $data['CLOSEALL'] = $this->OBM->getCloseALL();
+
+        $data['BOOKING'] = $this->CM->getBookingQueue($sess);
+
+        $data['Barber'] = $this->AM->getBarberAll();
+
+        // $result['HS'] = $this->AM->get_HairStyle();
+
 
 
         $this->load->view('Customer/Header');
-        $this->load->view('Customer/Navbar', $datasess);
-        $this->load->view('Customer/Banner');
+        $this->load->view('Customer/Navbar', $data);
+        $this->load->view('Customer/Booking', $data);
+        $this->load->view('Customer/ShowQueue', $data);
         $this->load->view('Customer/Calendar');
-        $this->load->view('Customer/Hairstyle', $result);
+        $this->load->view('Customer/AllBarber', $data);
+        $this->load->view('Customer/Hairstyle'/*, $result*/);
         $this->load->view('Customer/Footer');
     }
 
@@ -124,7 +136,7 @@ class Customer_Con extends CI_Controller
         $this->load->view('Customer/Header');
         $this->load->view('Customer/Navbar', $datasess);
         $this->load->view('Customer/Banner1');
-        $this->load->view('Customer/Profile', $data);   
+        $this->load->view('Customer/Profile', $data);
         $this->load->view('Customer/Footer');
     }
 
@@ -162,28 +174,28 @@ class Customer_Con extends CI_Controller
 
     function save_Image() //ฟังก์ชั่น update customer
     {
-       
-            $config['upload_path'] = 'img/';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size']  = 10024; 
-            $config['max_width'] = 3000; 
-            $config['max_height'] = 3000;	
-            $config['encrypt_name'] = true;  
-            
 
-            $this->load->library('upload', $config);
-            if ( ! $this->upload->do_upload('C_Img')) {
-               
-                redirect('Customer_Con/setProfile','refresh');
-          }
-          else{
-             $image = $this->upload->data('file_name');
-             $data = array (
+        $config['upload_path'] = 'img/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size']  = 10024;
+        $config['max_width'] = 3000;
+        $config['max_height'] = 3000;
+        $config['encrypt_name'] = true;
+
+
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('C_Img')) {
+
+            redirect('Customer_Con/setProfile', 'refresh');
+        } else {
+            $image = $this->upload->data('file_name');
+            $data = array(
                 'C_ID' => $this->input->post("C_ID"),
-                'C_Img' => $image);
+                'C_Img' => $image
+            );
         }
         $this->CM->setProfile($data);
-        
+
         redirect('Customer_Con/setProfile', 'refresh'); //ไปหน้า Admin_Con
     }
 
@@ -200,7 +212,6 @@ class Customer_Con extends CI_Controller
         $this->load->view('Customer/Banner1');
         $this->load->view('Customer/EditProfile', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า EditProfile
         $this->load->view('Customer/Footer');
-        
     }
 
 
@@ -247,19 +258,5 @@ class Customer_Con extends CI_Controller
         $this->load->view('Customer/Banner1');
         $this->load->view('Customer/ShowQueue', $data);
         $this->load->view('Customer/Footer');
-    }
-    function del_booking($id)
-    {
-        $check = $this->CM->cancelBooking($id);
-        if ($check) {
-            echo "<script language=\"JavaScript\">";
-            echo "alert('ลบคิวที่คุณจองเรียบร้อยแล้วค่ะ')";
-            echo "</script>";
-            redirect('Booking_Con/Booking', 'refresh');
-        } else {
-            echo "<script language=\"JavaScript\">";
-            echo "alert('ไม่สามารถลบข้อมูลได้ค่ะ !')";
-            echo "</script>";
-        }
     }
 }

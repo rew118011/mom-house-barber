@@ -45,12 +45,35 @@ class Admin_Con extends CI_Controller
         $this->load->view('Admin/Footer');
     }
 
-    public function getBarberAll()
+    public function getBarberAllTest()
     {
         $data['BARBERINCOME'] = $this->AM->getBarberIncome();
 
         $this->load->view('Admin/Header');
         $this->load->view('Admin/Navbar');
+        $this->load->view('Admin/All_Barber', $data);
+        $this->load->view('Admin/Footer');
+    }
+
+    public function getBarberAll()
+    {
+        $dataBaber = $this->AM->getBarberBID();
+        $income = array();
+        $this->load->view('Admin/Header');
+        $this->load->view('Admin/Navbar');
+        $this->load->view('Admin/Dashbord_Barber_Income_Head');
+
+        // foreach Dashbord Barber Income Start
+        for ($i = 0; $i < count($dataBaber); $i++) {
+            $income = $dataBaber;
+            $income = $income[$i]->B_ID;
+            $data['BARBERINCOME'] = $this->AM->getBarberIncome($income);
+            
+            $this->load->view('Admin/Dashbord_Barber_Income_Content', $data);
+        }
+        // foreach Dashbord Barber Income Finish
+
+        $data['BARBER'] = $this->AM->getBarberAll();
         $this->load->view('Admin/All_Barber', $data);
         $this->load->view('Admin/Footer');
     }
@@ -157,7 +180,7 @@ class Admin_Con extends CI_Controller
     {
         $data['BH'] = $this->AM->getBarberBookingHistory($id);
         $data['ID'] = $this->AM->getBarberByAdmin($id);
-        
+
         $data['INCOME'] = $this->AM->getBarberIncomeByID($id);
         $data['All'] = $this->AM->getTotalSuccessAllByID($id);
         $data['MONTH'] = $this->AM->getTotalSuccessMonthByID($id);

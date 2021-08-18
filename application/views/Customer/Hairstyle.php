@@ -1,100 +1,50 @@
-<div class="hair-style">
-    <div class="title-txt">
-        <div class="wrapper-txt hairstyle-txt">
-            <ul class="dynamic-txts">
-                <li><span>ทรงผมที่ร้านแนะนำ</span></li>
-                <li><span>ทรงผมที่ร้านแนะนำ</span></li>
-                <li><span>ทรงผมที่ร้านแนะนำ</span></li>
-                <li><span>ทรงผมที่ร้านแนะนำ</span></li>
-            </ul>
-        </div>
-        <div class="description hair">
-            <p>ทรงผมชายสุดฮิตที่ลูกค้านิยมมาตัดที่ร้านของเรา Mom House Barber</p>
-        </div>
-    </div>
-
-    <?php
-    foreach ($HS->result_array() as $row) {
-    ?>
-        <div class="card-wrapper hairstyle">
-            <div class="card">
-                <!-- card left -->
-                <div class="product-imgs">
-                    <div class="img-display">
-                        <div class="img-showcase">
-                            <img src="<?php echo base_url(); ?>img/<?= $row['H_Img1']; ?>" alt="<?= $row['H_Img1']; ?>">
-                            <img src="<?php echo base_url(); ?>img/<?= $row['H_Img2']; ?>" alt="<?= $row['H_Img2']; ?>">
-                            <img src="<?php echo base_url(); ?>img/<?= $row['H_Img3']; ?>" alt="<?= $row['H_Img3']; ?>">
-                            <img src="<?php echo base_url(); ?>img/<?= $row['H_Img4']; ?>" alt="<?= $row['H_Img4']; ?>">
-                        </div>
-                    </div>
-                    <div class="img-select">
-                        <div class="img-item">
-                            <a href="#" data-id="1">
-                                <img src="<?php echo base_url(); ?>img/<?= $row['H_Img1']; ?>" alt="<?= $row['H_Img1']; ?>">
-                            </a>
-                        </div>
-                        <div class="img-item">
-                            <a href="#" data-id="2">
-                                <img src="<?php echo base_url(); ?>img/<?= $row['H_Img2']; ?>" alt="<?= $row['H_Img2']; ?>">
-                            </a>
-                        </div>
-                        <div class="img-item">
-                            <a href="#" data-id="3">
-                                <img src="<?php echo base_url(); ?>img/<?= $row['H_Img3']; ?>" alt="<?= $row['H_Img3']; ?>">
-                            </a>
-                        </div>
-                        <div class="img-item">
-                            <a href="#" data-id="4">
-                                <img src="<?php echo base_url(); ?>img/<?= $row['H_Img4']; ?>" alt="<?= $row['H_Img4']; ?>">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- card right -->
-                <div class="product-content">
-                    <h2 class="product-title"><?= $row['H_Name'] ?></h2>
-                    <a href="#" class="product-link">Mom House Barber</a>
-
-                    <div class="product-price">
-                        <p class="price">ราคา: <span>150.00 ฿</span></p>
-                    </div>
-
-                    <div class="product-detail">
-                        <p>ผมทรง <?= $row['H_Name'] ?></p>
-
-                        <p><?= $row['H_Detail'] ?></p>
-                    </div>
-
-                    <div class="purchase-info">
-                        <a href="#" class="btn">จองเลย !</a>
-                    </div>
-                </div>
+<!-- Hairstyle -->
+<section id="hairstyle" class="main special">
+    <header class="major">
+        <div class="title">
+            <div class="wrapper-txt calendar-txt">
+                <ul class="dynamic-txts">
+                    <li><span>ทรงผมที่ร้านแนะนำ</span></li>
+                    <li><span>ทรงผมที่ร้านแนะนำ</span></li>
+                    <li><span>ทรงผมที่ร้านแนะนำ</span></li>
+                    <li><span>ทรงผมที่ร้านแนะนำ</span></li>
+                </ul>
+            </div>
+            <div class="description">
+                <p>ทรงผมชายสุดฮิตที่ลูกค้านิยมมาตัดที่ร้านของเรา Mom House Barber</p>
             </div>
         </div>
-    <?php
-    }
-    ?>
-</div>
-
-<script>
-    const imgs = document.querySelectorAll('.img-select a');
-    const imgBtns = [...imgs];
-    let imgId = 1;
-
-    imgBtns.forEach((imgItem) => {
-        imgItem.addEventListener('click', (event) => {
-            event.preventDefault();
-            imgId = imgItem.dataset.id;
-            slideImage();
-        });
-    });
-
-    function slideImage() {
-        const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
-
-        document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
-    }
-
-    window.addEventListener('resize', slideImage);
-</script>
+    </header>
+    <ul class="statistics">
+        <li class="style1">
+            <span class="icon solid fa-code-branch"></span>
+            <strong>5,120</strong> Etiam
+        </li>
+        <li class="style2">
+            <span class="icon fa-folder-open"></span>
+            <strong>8,192</strong> Magna
+        </li>
+        <li class="style3">
+            <span class="icon solid fa-signal"></span>
+            <strong>2,048</strong> Tempus
+        </li>
+        <li class="style4">
+            <span class="icon solid fa-laptop"></span>
+            <strong>4,096</strong> Aliquam
+        </li>
+        <li class="style5">
+            <span class="icon fa-gem"></span>
+            <strong>1,024</strong> Nullam
+        </li>
+    </ul>
+    <p class="content">
+        Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam
+        porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed
+        ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.
+    </p>
+    <footer class="major">
+        <ul class="actions special">
+            <li><a href="generic.html" class="button">Learn More</a></li>
+        </ul>
+    </footer>
+</section>

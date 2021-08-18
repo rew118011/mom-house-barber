@@ -1,32 +1,63 @@
-<nav class="navbar">
-  <div class="content">
-    <div class="logo">
-      <img class="header-logo" src="<?php echo base_url(); ?>/img/Logo.png">
-      <a href="<?php echo site_url('Customer_Con'); ?>">Mom House Barber</a>
-    </div>
-    <ul class="menu-list">
-      <div class="icon cancel-btn">
-        <i class="fas fa-times"></i>
-      </div>
-      <li><a class="item" href="<?php echo site_url('Booking_Con/Booking'); ?>">Booking</a></li>
-      <li><a class="item" href="<?php echo site_url('Customer_Con/getAllBarberByCustomer'); ?>">Barber</a></li>
-      <li><a class="item" href="<?php echo site_url('Customer_Con/getHairStyle'); ?>">HairStyle</a></li>
-      <?php
-      foreach ($CUSTOMER as $row) { ?>
-        <li><a class="item" href="<?php echo site_url('Customer_Con/show_bookingqueue/' . $row->C_ID); ?>">My booking</a></li>
-      <?php } ?>
+<!-- Nav -->
+<nav id="nav" class="nav">
+  <ul>
+    <li><a href="#header" class="active">Mom House Barber</a></li>
+  </ul>
+  <ul>
+    <li><a href="#booking">จองคิว</a></li>
+    <li><a href="#my-booking">การจองของฉัน</a></li>
+    <li><a href="#calendar">ปฏิทินร้าน</a></li>
+    <li><a href="#barber-all">ช่างตัดผม</a></li>
+    <li><a href="#hairstyle">ทรงผม</a></li>
+    <?php foreach ($CUSTOMER as $row) { ?>
       <li>
-        <p>|</p>
+        <a href="#profile" class="drop-btn" id="btn-profile">
+          <div class="image">
+            <img src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" alt="" />
+          </div><?php echo $this->session->userdata('Username'); ?> <span class="fas fa-caret-down"></span>
+        </a>
       </li>
-      <li class="username-container">
-        <img class="profile_img--nav" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>"  onerror="this.src='<?php echo base_url(); ?>img/user.png'">
-        <a class="item button username" href="<?php echo site_url('Customer_Con/getProfile'); ?>">Hi ' <?php echo $this->session->userdata('Username'); ?></a>
-      </li>
-      <li><a class="item button logout" href="<?php echo site_url('Login_Con/logout'); ?>">Log out</a></li>
-    </ul>
-    <div class="icon menu-btn">
-      <i class="fas fa-bars"></i>
+    <?php } ?>
+    <div class="drop-profile">
+      <ul class="menu-bar">
+        <li>
+          <a href="#">
+            <div class="icon">
+              <i class="las la-user-circle"></i>
+            </div>
+            โปรไฟล์
+          </a>
+        </li>
+        <li class="setting-item">
+          <a href="#">
+            <div class="icon">
+              <i class="las la-user-cog"></i>
+            </div>
+            แก้ไขโปรไฟล์
+          </a>
+        </li>
+        <li class="help-item">
+          <a href="<?php echo site_url('Login_Con/logout'); ?>">
+            <div class="icon">
+              <i class="las la-sign-out-alt"></i>
+            </div>
+            ออกจากระบบ
+          </a>
+        </li>
+      </ul>
     </div>
-  </div>
+  </ul>
 </nav>
+<script>
+  const drop_btn = document.querySelector(".drop-btn span");
+  const tooltip = document.querySelector(".tooltip");
+  const menu_profile = document.querySelector(".drop-profile");
+  const menu_bar = document.querySelector(".menu-bar");
 
+  drop_btn.onclick = (() => {
+    menu_profile.classList.toggle("show");
+    tooltip.classList.toggle("show");
+  });
+</script>
+<!-- Main -->
+<div id="main">

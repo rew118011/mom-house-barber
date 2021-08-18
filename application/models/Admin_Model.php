@@ -318,30 +318,43 @@ class Admin_Model extends CI_Model
 
 	/*-------- ! Dasbord manageBooking Finish -----------*/
 
+	function getBarberBID()
+	{
+		$this->db->select('B_ID')	//ค้นหาจากฟิลด์ทั้งหมด
+				 ->order_by('B_ID', "ASC");
+		$query = $this->db->get('barber');	//โดยค้นจากตาราง barber จากนั้นให้ $query เก็บฟังก์ชั่นไว้
+		return $query->result(); //จากนั้นนำ $query ส่งค่าเป็น object ซึ่งอยู่ในรูปแบบ array กลับไปที่ Customer_Con
+	}
+
+	function CountBarberBID()
+	{
+		$query = $this->db->query("SELECT * FROM `barber`");
+		return $query->result(); //จากนั้นนำ $query ส่งค่าเป็น object ซึ่งอยู่ในรูปแบบ array กลับไปที่ Customer_Con
+	}
+
 	/*-------- ! Dasbord getBarberAll Start -----------*/
 
-	function getBarberIncome()
+	function getBarberIncome($income)
 	{
-		$select = "SELECT barber.*, cast((hair_style.Price*barber.B_Percent/100* SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID=";
-		$calculate = "and Q_ID=2 )+barber.B_Salary ) as decimal(18,0)) AS B_Total FROM booking,hair_style,barber WHERE barber.B_ID=";
-		$union = "UNION ALL";
-		$id = "B0000";
-		for ($x = 1; $x <= 1; $x++) {
-			$sql1 = "$select'$id$x'$calculate'$id$x'$union";
-		}
-		for ($x = 1; $x <= 2; $x++) {
-			$sql2 = "$select'$id$x'$calculate'$id$x'$union";
-		}
-		for ($x = 1; $x <= 3; $x++) {
-			$sql3 = "$select'$id$x'$calculate'$id$x'$union";
-		}
-		for ($x = 1; $x <= 4; $x++) {
-			$sql4 = "$select'$id$x'$calculate'$id$x'";
-		}
-		$sql = "$sql1 $sql2 $sql3 $sql4";
+		$sql = "SELECT barber.*,
+		cast((hair_style.Price*barber.B_Percent/100*
+		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='$income' and Q_ID=2 )+barber.B_Salary )
+		as decimal(18,0)) AS B_Total
+		FROM booking,hair_style,barber
+		WHERE barber.B_ID='$income'";
 		$query = $this->db->query($sql);
 		return  $query->result();
+	}
 
+	function getBarberIncomeByBID($id)
+	{
+		$query = $this->db->query("SELECT  barber.*,
+		cast((hair_style.Price*barber.B_Percent/100*
+		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='$id' and Q_ID=2 )+barber.B_Salary )
+		as decimal(18,0)) AS B_Total
+		FROM booking,hair_style,barber
+		WHERE barber.B_ID='$id'");
+		return $query->result();
 	}
 
 	/*-------- ! Dasbord getBarberAll Finish -----------*/

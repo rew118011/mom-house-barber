@@ -79,9 +79,9 @@ class Customer_Model extends CI_Model
 			->get('barber'); //ให้ทำการค้นหาจากตาราง barber
 		return $query->row(); //จากนั้นนำค่า $query ส่งค่าเป็น object โดยจะส่งข้อมูลออกมาเพียง เรคอร์ดเดียว กลับไปที่ Customer_Con
 	}
-	function getBookingQueue($c_id)
+	function getBookingQueue($sess)
 	{
-		$where = "customer.C_ID='$c_id' AND Q_ID=1";
+		$where = "customer.Username='$sess' AND Q_ID=1";
 		$this->db->select('*')
 			->from('booking')
 			->join('customer', 'booking.C_ID = customer.C_ID', 'left')

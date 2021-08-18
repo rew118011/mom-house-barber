@@ -7,75 +7,78 @@ if (count($CLOSEALL) == $check) {
 <?php
 } else {
 ?>
-	<div class="booking-form-inner">
-		<form name="form1" id="form1" method="POST" action="ins_Booking">
-			<?php
-			foreach ($CUSTOMER as $row) {
-			?>
-				<input type="hidden" name="C_ID" value="<?php echo $row->C_ID ?>">
-			<?php
-			}
-			?>
-			<div class="select date">
-				<div class="title-txt">
-					<div class="wrapper-txt calendar-txt">
-						<ul class="dynamic-txts">
-							<li><span>จองคิวตัดผม</span></li>
-							<li><span>จองคิวตัดผม</span></li>
-							<li><span>จองคิวตัดผม</span></li>
-							<li><span>จองคิวตัดผม</span></li>
-						</ul>
+	<!-- Booking -->
+	<section id="booking" class="main">
+		<div class="booking-form-inner">
+			<form name="form1" id="form1" method="POST" action="Booking_Con/ins_Booking">
+				<?php
+				foreach ($CUSTOMER as $row) {
+				?>
+					<input type="hidden" name="C_ID" value="<?php echo $row->C_ID ?>">
+				<?php
+				}
+				?>
+				<div class="select date">
+					<header class="major">
+						<div class="title">
+							<div class="wrapper-txt calendar-txt">
+								<ul class="dynamic-txts">
+									<li><span>จองคิวตัดผม</span></li>
+									<li><span>จองคิวตัดผม</span></li>
+									<li><span>จองคิวตัดผม</span></li>
+									<li><span>จองคิวตัดผม</span></li>
+								</ul>
+							</div>
+							<div class="description">
+								<p>
+									กรุณาเลือกวัน ช่างตัดผม และเวลาที่คุณต้องการหลังจากนั้นกด "ตกลก"
+								</p>
+							</div>
+						</div>
+					</header>
+					<div class="in-select">
+						<select class="dropdown-date" name="BK_Year" id="year">
+							<option value="BK_Year" selected="selected">กรุณาเลือกปี...</option>
+						</select>
+						<select class="dropdown-date" name="BK_Month" id="month">
+							<option value="BK_Month" selected="selected">กรุณาเลือกเดือน...</option>
+						</select>
+						<select class="dropdown-date" name="BK_Day" id="day">
+							<option value="BK_Day" selected="selected">กรุณาเลือกวัน...
+							</option>
+						</select>
 					</div>
-					<div class="description">
-						<p>กรุณาเลือกวัน ช่างตัดผม และเวลาที่คุณต้องการหลังจากนั้นกด "ตกลก"</p>
-					</div>
 				</div>
-
-				<div class="in-select">
-					<select class="dropdown-date" name="BK_Year" id="year">
-						<option value="BK_Year" selected="selected"> กรุณาเลือกปี... </option>
-					</select>
-					<select class="dropdown-date" name="BK_Month" id="month">
-						<option value="BK_Month" selected="selected"> กรุณาเลือกเดือน... </option>
-					</select>
-					<select class="dropdown-date" name="BK_Day" id="day">
-						<option value="BK_Day" selected="selected"> กรุณาเลือกวัน... </option>
-					</select>
-
-				</div>
-
-			</div>
-
-			<div class="select barber">
-				<div name="B_ID" id="barber" class="in-select">
-
-				</div>
-			</div>
-
-			<!-- select barber start -->
-			<div class="select slottime">
-				<div class="in-select">
-					<div id="Time_Slot" class="card-slottime">
+				<!-- select barber start -->
+				<div class="select barber">
+					<div name="B_ID" id="barber" class="in-select">
 
 					</div>
 				</div>
-			</div>
-			<!-- select barber finish -->
-			<input style="display: none;" type="text" name="H_ID" value="H00001" required>
-			<input style="display: none;" type="text" name="Q_ID" value="1" required>
 
-			<!-- select slot time start -->
-			<div class="field btn">
-				<input class="booking" type="submit" name="btnBooking" value="ตกลง">
-			</div>
-			<!-- select slot time finish -->
+				<!-- select slottime start -->
+				<div class="select slottime">
+					<div class="in-select">
+						<div id="Time_Slot" class="card-slottime">
 
-		</form>
-	</div>
+						</div>
+					</div>
+				</div>
+				<!-- select barber finish -->
+				<input style="display: none;" type="text" name="H_ID" value="H00001" required>
+				<input style="display: none;" type="text" name="Q_ID" value="1" required>
+
+				<!-- select slot time start -->
+				<div class="field btn">
+					<input class="booking" type="submit" name="btnBooking" value="ตกลง">
+				</div>
+				<!-- select slot time finish -->
+			</form>
+		</div>
+	</section>
 <?php
 }
 ?>
-
 
 
 <script>

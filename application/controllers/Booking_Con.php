@@ -75,7 +75,7 @@ class Booking_Con extends CI_Controller
                 echo "<script language=\"JavaScript\">";
                 echo "alert('กรุณาเลือกข้อมูลที่กำหนดไว้ค่ะ !')";
                 echo "</script>";
-                redirect('Booking_Con/Booking','refresh');
+                redirect('Customer_Con', 'refresh');
             } else {
                 $id = $this->BKM->GenerateId();
                 $data = array(
@@ -92,21 +92,24 @@ class Booking_Con extends CI_Controller
                 $check = $this->BKM->createBookingQueueByCustomer($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
                 $c_id = $this->input->post('C_ID');
                 if ($check == TRUE) {
-                    $data['BOOKING'] = $this->CM->getBookingQueue($c_id);
-
-                    $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
-                    $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
-
-                    $sess =  $this->session->userdata('Username');
-                    $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-
-                    $this->load->view('Customer/Header');
-                    $this->load->view('Customer/Navbar', $datasess);
-                    $this->load->view('Customer/Banner1');
-                    $this->load->view('Customer/ShowQueue', $data);
-                    $this->load->view('Customer/Footer');
+                    redirect('Customer_Con', 'refresh');
                 }
             }
+        }
+    }
+
+    function del_booking($id)
+    {
+        $check = $this->CM->cancelBooking($id);
+        if ($check) {
+            echo "<script language=\"JavaScript\">";
+            echo "alert('ลบคิวที่คุณจองเรียบร้อยแล้วค่ะ')";
+            echo "</script>";
+            redirect('Customer_Con', 'refresh');
+        } else {
+            echo "<script language=\"JavaScript\">";
+            echo "alert('ไม่สามารถลบข้อมูลได้ค่ะ !')";
+            echo "</script>";
         }
     }
 }
