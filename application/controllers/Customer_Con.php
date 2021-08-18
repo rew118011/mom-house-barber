@@ -19,7 +19,6 @@ class Customer_Con extends CI_Controller
         $data['CUSTOMER'] = $this->CM->getProfile($sess);
 
         $data['BARBER'] = $this->BKM->getBarber();
-        $data['CLOSEALL'] = $this->OBM->getCloseALL();
 
         $data['BOOKING'] = $this->CM->getBookingQueue($sess);
 

@@ -32,6 +32,24 @@ class Booking_Con extends CI_Controller
         $this->load->view('Customer/Footer');
     }
 
+    public function check_CloseShop()
+    {
+       
+        $BK_Date = $this->input->post('BK_Date');
+        // get data 
+        $data = $this->OBM->getCloseALL($BK_Date);
+        echo json_encode($data);
+    }
+    public function fetch_Barber()
+    {
+        $BK_Year = $this->input->post('BK_Year');
+        $BK_Month = $this->input->post('BK_Month');
+        $BK_Day = $this->input->post('BK_Day');
+        // get data 
+        $data = $this->BKM->getBarberBy_YearMonthDay($BK_Year, $BK_Month, $BK_Day);
+        echo json_encode($data);
+    }
+
     public function fetch_TimeSlot()
     {
         $BK_Year = $this->input->post('BK_Year');
@@ -40,16 +58,6 @@ class Booking_Con extends CI_Controller
         $B_ID = $this->input->post('B_ID');
         // get data 
         $data = $this->BKM->getTimeSlotByBarberID($BK_Year, $BK_Month, $BK_Day, $B_ID);
-        echo json_encode($data);
-    }
-
-    public function fetch_Barber()
-    {
-        $BK_Year = $this->input->post('BK_Year');
-        $BK_Month = $this->input->post('BK_Month');
-        $BK_Day = $this->input->post('BK_Day');
-        // get data 
-        $data = $this->BKM->getBarberBy_YearMonthDay($BK_Year, $BK_Month, $BK_Day);
         echo json_encode($data);
     }
 

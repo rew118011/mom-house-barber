@@ -1,85 +1,72 @@
-<?php
-$check = 1;
-if (count($CLOSEALL) == $check) {
-	echo "วันนี้ร้านปิดค่ะ";
-?>
-
-<?php
-} else {
-?>
-	<!-- Booking -->
-	<section id="booking" class="main">
-		<div class="booking-form-inner">
-			<form name="form1" id="form1" method="POST" action="Booking_Con/ins_Booking">
-				<?php
-				foreach ($CUSTOMER as $row) {
-				?>
-					<input type="hidden" name="C_ID" value="<?php echo $row->C_ID ?>">
-				<?php
-				}
-				?>
-				<div class="select date">
-					<header class="major">
-						<div class="title">
-							<div class="wrapper-txt calendar-txt">
-								<ul class="dynamic-txts">
-									<li><span>จองคิวตัดผม</span></li>
-									<li><span>จองคิวตัดผม</span></li>
-									<li><span>จองคิวตัดผม</span></li>
-									<li><span>จองคิวตัดผม</span></li>
-								</ul>
-							</div>
-							<div class="description">
-								<p>
-									กรุณาเลือกวัน ช่างตัดผม และเวลาที่คุณต้องการหลังจากนั้นกด "ตกลก"
-								</p>
-							</div>
+<!-- Booking -->
+<section id="booking" class="main">
+	<div class="booking-form-inner">
+		<form name="form1" id="form1" method="POST" action="Booking_Con/ins_Booking">
+			<?php
+			foreach ($CUSTOMER as $row) {
+			?>
+				<input type="hidden" name="C_ID" value="<?php echo $row->C_ID ?>">
+			<?php
+			}
+			?>
+			<div class="select date">
+				<header class="major">
+					<div class="title">
+						<div class="wrapper-txt calendar-txt">
+							<ul class="dynamic-txts">
+								<li><span>จองคิวตัดผม</span></li>
+								<li><span>จองคิวตัดผม</span></li>
+								<li><span>จองคิวตัดผม</span></li>
+								<li><span>จองคิวตัดผม</span></li>
+							</ul>
 						</div>
-					</header>
-					<div class="in-select">
-						<select class="dropdown-date" name="BK_Year" id="year">
-							<option value="BK_Year" selected="selected">กรุณาเลือกปี...</option>
-						</select>
-						<select class="dropdown-date" name="BK_Month" id="month">
-							<option value="BK_Month" selected="selected">กรุณาเลือกเดือน...</option>
-						</select>
-						<select class="dropdown-date" name="BK_Day" id="day">
-							<option value="BK_Day" selected="selected">กรุณาเลือกวัน...
-							</option>
-						</select>
-					</div>
-				</div>
-				<!-- select barber start -->
-				<div class="select barber">
-					<div name="B_ID" id="barber" class="in-select">
-
-					</div>
-				</div>
-
-				<!-- select slottime start -->
-				<div class="select slottime">
-					<div class="in-select">
-						<div id="Time_Slot" class="card-slottime">
-
+						<div class="description">
+							<p>
+								กรุณาเลือกวัน ช่างตัดผม และเวลาที่คุณต้องการหลังจากนั้นกด "ตกลก"
+							</p>
 						</div>
 					</div>
+				</header>
+				<div class="in-select">
+					<select class="dropdown-date" name="BK_Year" id="year">
+						<option value="BK_Year" selected="selected">กรุณาเลือกปี...</option>
+					</select>
+					<select class="dropdown-date" name="BK_Month" id="month">
+						<option value="BK_Month" selected="selected">กรุณาเลือกเดือน...</option>
+					</select>
+					<select class="dropdown-date" name="BK_Day" id="day">
+						<option value="BK_Day" selected="selected">กรุณาเลือกวัน...
+						</option>
+					</select>
 				</div>
-				<!-- select barber finish -->
-				<input style="display: none;" type="text" name="H_ID" value="H00001" required>
-				<input style="display: none;" type="text" name="Q_ID" value="1" required>
+			</div>
+			<!-- select barber start -->
+			<div class="select barber">
+				<div name="B_ID" id="barber" class="in-select">
 
-				<!-- select slot time start -->
-				<div class="field btn">
-					<input class="booking" type="submit" name="btnBooking" value="ตกลง">
 				</div>
-				<!-- select slot time finish -->
-			</form>
-		</div>
-	</section>
-<?php
-}
-?>
+			</div>
 
+			<!-- select slottime start -->
+			<div class="select slottime">
+				<div class="in-select">
+					<div id="Time_Slot" class="card-slottime">
+
+					</div>
+				</div>
+			</div>
+			<!-- select barber finish -->
+			<input style="display: none;" type="text" name="H_ID" value="H00001" required>
+			<input style="display: none;" type="text" name="Q_ID" value="1" required>
+
+			<!-- select slot time start -->
+			<div class="field btn">
+				<input class="booking" type="submit" name="btnBooking" value="ตกลง">
+			</div>
+			<!-- select slot time finish -->
+		</form>
+	</div>
+</section>
 
 <script>
 	$(document).ready(function() {
@@ -92,14 +79,13 @@ if (count($CLOSEALL) == $check) {
 					var BK_Date = $('#year').val() + "-" + ('0' + $('#month').val()).slice(-2) + "-" + $('#day').val();
 					today = new Date().toISOString().split('T')[0];
 					if (BK_Date >= today) {
+						//check Closed Date
 						$.ajax({
-							url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_Barber",
+							url: "<?php echo base_url(); ?>index.php/Booking_Con/check_CloseShop",
 							method: "POST",
 							dataType: 'json',
 							data: {
-								BK_Year: BK_Year,
-								BK_Month: BK_Month,
-								BK_Day: BK_Day
+								BK_Date: BK_Date
 							},
 
 							success: function(response) {
@@ -109,41 +95,67 @@ if (count($CLOSEALL) == $check) {
 								$('#Time_Slot').find('.input.slottime').remove();
 								$('#Time_Slot').find('.option.slottime').remove();
 								$('#Time_Slot').find('.option.slottime').remove();
-								$.each(response, function(index, data) {
-									$('#barber').append('<div class="item barber"><div class="content"><input class="bb" type="radio" name="B_ID" value="' + data['B_ID'] + '" id="' + data['B_ID'] + '" class"barber_slottime" /><label class="Nbarber" for="' + data['B_ID'] + '"><div class="image"><img src="http://localhost/Mom_House_Barber/img/' + data['B_Img'] + '"></div><div class="data-barber"><div class="name"><p>ช่าง' + data['B_Nickname'] + '</p></div></div><div class="skill"><p>ความชำนาญในแต่ละด้าน</p><div class="skillBox"><p>' + data['B_Skill1'] + '</p><p>' + data['B_Skill_Score1'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score1'] + '%;"></div></div></div><div class="skillBox"><p>' + data['B_Skill2'] + '</p><p>' + data['B_Skill_Score2'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score2'] + '%;"></div></div></div><div class="skillBox"><p>' + data['B_Skill3'] + '</p><p>' + data['B_Skill_Score3'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score3'] + '%;"></div></div></div></div></label></div></div>');
-								});
-
-								$('input[type="radio"]').change(function() {
-									var B_ID = $(this).val();
+								if (!$.trim(response)) {
 									$.ajax({
-										url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_TimeSlot",
+										url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_Barber",
 										method: "POST",
 										dataType: 'json',
 										data: {
 											BK_Year: BK_Year,
 											BK_Month: BK_Month,
-											BK_Day: BK_Day,
-											B_ID: B_ID
+											BK_Day: BK_Day
 										},
 
 										success: function(response) {
-											$('#Time_Slot').find('.content').remove();
+											$('#barber').find('input[type="radio"]').remove();
+											$('#barber').find('.item.barber').remove();
 											$('#Time_Slot').find('input[type="radio"]').remove();
 											$('#Time_Slot').find('.input.slottime').remove();
 											$('#Time_Slot').find('.option.slottime').remove();
+											$('#Time_Slot').find('.option.slottime').remove();
 											$.each(response, function(index, data) {
-												$('#Time_Slot').append('<div class="content"><input class="input slottime" type="radio" name="ST_ID" id="option-' + data['ST_ID'] + '" value="' + data['ST_ID'] + '"><label for="option-' + data['ST_ID'] + '" class="option option-' + data['ST_ID'] + ' slottime"><div class="dot"></div><span>' + data['ST_Time'] + '</span></label></div> ');
+												$('#barber').append('<div class="item barber"><div class="content"><input class="bb" type="radio" name="B_ID" value="' + data['B_ID'] + '" id="' + data['B_ID'] + '" class"barber_slottime" /><label class="Nbarber" for="' + data['B_ID'] + '"><div class="image"><img src="http://localhost/Mom_House_Barber/img/' + data['B_Img'] + '"></div><div class="data-barber"><div class="name"><p>ช่าง' + data['B_Nickname'] + '</p></div></div><div class="skill"><p>ความชำนาญในแต่ละด้าน</p><div class="skillBox"><p>' + data['B_Skill1'] + '</p><p>' + data['B_Skill_Score1'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score1'] + '%;"></div></div></div><div class="skillBox"><p>' + data['B_Skill2'] + '</p><p>' + data['B_Skill_Score2'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score2'] + '%;"></div></div></div><div class="skillBox"><p>' + data['B_Skill3'] + '</p><p>' + data['B_Skill_Score3'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score3'] + '%;"></div></div></div></div></label></div></div>');
 											});
 
+											$('input[type="radio"]').change(function() {
+												var B_ID = $(this).val();
+												$.ajax({
+													url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_TimeSlot",
+													method: "POST",
+													dataType: 'json',
+													data: {
+														BK_Year: BK_Year,
+														BK_Month: BK_Month,
+														BK_Day: BK_Day,
+														B_ID: B_ID
+													},
+
+													success: function(response) {
+														$('#Time_Slot').find('.content').remove();
+														$('#Time_Slot').find('input[type="radio"]').remove();
+														$('#Time_Slot').find('.input.slottime').remove();
+														$('#Time_Slot').find('.option.slottime').remove();
+														$.each(response, function(index, data) {
+															$('#Time_Slot').append('<div class="content"><input class="input slottime" type="radio" name="ST_ID" id="option-' + data['ST_ID'] + '" value="' + data['ST_ID'] + '"><label for="option-' + data['ST_ID'] + '" class="option option-' + data['ST_ID'] + ' slottime"><div class="dot"></div><span>' + data['ST_Time'] + '</span></label></div> ');
+														});
+
+													}
+												});
+											});
 										}
 									});
-								});
+								} else {
+									alert("วันที่" + " " + BK_Date + " " + "ร้านปิดค่ะ");
+									return;
+								}
+
 							}
 						});
 					} else {
 						alert("ขออภัยคุณไม่สามารถเลือกวันที่ผ่านมาแล้วได้ค่ะ !");
 						return;
 					}
+
 				});
 			});
 		});
