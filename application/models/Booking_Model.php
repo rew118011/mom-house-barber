@@ -96,23 +96,29 @@ class Booking_Model extends CI_Model
         return $query->result();
     }
 
+    
+    function getBarberBy_YearMonthDay($BK_Year,$BK_Month,$BK_Day)
+    {
+        $response  = array();
+        $query = $this->db->query("SELECT * 
+        FROM barber 
+        WHERE B_ID NOT IN(
+                    SELECT B_ID FROM booking WHERE (BK_Year = '$BK_Year' and BK_Month = '$BK_Month' and BK_Day = '$BK_Day')
+                    group by b_id
+                    having (count(B_ID) = 10) 
+                    UNION ALL
+                    SELECT B_ID FROM offwork WHERE Date = '$BK_Year-$BK_Month-$BK_Day'
+        )");
+        $response  = $query->result_array();
+        return  $response ;
+    }
+
     function getTimeSlotByBarberID($BK_Year,$BK_Month,$BK_Day,$B_ID)
     {
 
         //$query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE BK_Year = '$BK_Year' & BK_Month = '$BK_Month' & BK_Day = '$BK_Day' & B_ID = '$B_ID')");
         $response  = array();
         $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN( SELECT ST_ID FROM booking WHERE (BK_Year = '$BK_Year' and BK_Month = '$BK_Month' and BK_Day = '$BK_Day' AND B_ID = '$B_ID'))");
-        $response  = $query->result_array();
-        return  $response ;
-    }
-
-    function getBarberBy_YearMonthDay($BK_Year,$BK_Month,$BK_Day)
-    {
-        $response  = array();
-        $query = $this->db->query("SELECT * FROM barber WHERE B_ID NOT IN(
-            SELECT B_ID FROM booking WHERE (BK_Year = '$BK_Year' and BK_Month = '$BK_Month' and BK_Day = '$BK_Day')
-            group by b_id
-            having (count(B_ID) = 10))");
         $response  = $query->result_array();
         return  $response ;
     }

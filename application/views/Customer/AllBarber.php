@@ -18,16 +18,18 @@
         </div>
     </header>
     <ul class="features">
-    <?php
+        <?php
         foreach ($Barber as $row) {
         ?>
-        <li>
-            <span class="icon major"><img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" alt="" /></span>
-            <h3>ช่าง<?php echo $row->B_Nickname; ?></h3>
-            <p>
-                <a href="<?php echo site_url('Customer_Con/getBarberByCustomer/' . $row->B_ID); ?>">ดูโปรไฟล์</a>
-            </p>
-        </li>
+            <li>
+                <div class="image-barber">
+                    <span class="icon major"><img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" alt="" /></span>
+                </div>
+                <h3>ช่าง<?php echo $row->B_Nickname; ?></h3>
+                <p>
+                    <a href="<?php echo site_url('Customer_Con/getBarberByCustomer/' . $row->B_ID); ?>">ดูโปรไฟล์</a>
+                </p>
+            </li>
         <?php
         }
         ?>

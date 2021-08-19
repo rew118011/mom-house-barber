@@ -8,8 +8,8 @@
         <div class="icon cancel-btn">
           <i class="fas fa-times"></i>
         </div>
-        <li><a class="item" href="<?php echo site_url('Page_Con/calendar');?>">Calendar</a></li>
-        <li><a class="item" href="<?php echo site_url('Page_Con/hair_page');?>">HairStyle</a></li>
+        <li><a class="item" href="<?php echo site_url('Page_Con/calendar'); ?>">Calendar</a></li>
+        <li><a class="item" href="<?php echo site_url('Page_Con/hair_page'); ?>">HairStyle</a></li>
         <li>
           <p>|</p>
         </li>
@@ -53,7 +53,7 @@
             }
             ?>
             <div class="form-inner">
-              <form action="<?php echo site_url('Login_Con/check_login');?>" class="login" method="post">
+              <form action="<?php echo site_url('Login_Con/check_login'); ?>" class="login" method="post">
                 <div class="field">
                   <input type="text" name="Username" placeholder="Username" require>
                 </div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="signup-link">Not a member? <a href="">Signup now</a></div>
               </form>
-              <form action="<?php echo site_url('Customer_Con/insert_regis');?>" class="signup" method="post">
+              <form action="<?php echo site_url('Customer_Con/insert_regis'); ?>" class="signup" method="post">
                 <div class="field">
                   <input type="text" name="Username" placeholder="Username (At least 6)" maxlength="20" minlength="6" required>
                 </div>

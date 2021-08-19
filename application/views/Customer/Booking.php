@@ -76,7 +76,7 @@
 					var BK_Year = $('#year').val();
 					var BK_Month = $('#month').val();
 					var BK_Day = $('#day').val();
-					var BK_Date = $('#year').val() + "-" + ('0' + $('#month').val()).slice(-2) + "-" + $('#day').val();
+					var BK_Date = $('#year').val() + "-" + ('0' + $('#month').val()).slice(-2) + "-" + ('0' + $('#day').val()).slice(-2);
 					today = new Date().toISOString().split('T')[0];
 					if (BK_Date >= today) {
 						//check Closed Date

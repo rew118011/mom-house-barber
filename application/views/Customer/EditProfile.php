@@ -98,7 +98,7 @@
         </div>
     </div>
 </div>
-!-- End Modal save_Image -->
+<!-- End Modal save_Image -->
 
 <!-- The Modal button-submit -->
 <div id="box" class="popup2">
