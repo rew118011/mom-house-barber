@@ -78,13 +78,6 @@ class Admin_Con extends CI_Controller
         $this->load->view('Admin/Footer');
     }
 
-    public function test()
-    {
-        $data['BARBERINCOME'] = $this->AM->getBarberIncome();
-
-        $this->load->view('Admin/test', $data);
-    }
-
     public function ManageOffWork()
     {
         $data['BARBER'] = $this->AM->getBarberAll();
@@ -123,6 +116,64 @@ class Admin_Con extends CI_Controller
         $this->load->view('Admin/Manage_Hairstyle', $data);
         $this->load->view('Admin/Footer');
     }
+
+    public function save_Image()
+	{
+        $this->load->library('upload');
+        $dataInfo = array();
+        $files = $_FILES;
+        $cpt = count($_FILES['userfile']['name']);
+        for($i=0; $i<$cpt; $i++)
+        {           
+            $_FILES['userfile']['name']= $files['userfile']['name'][$i];
+            $_FILES['userfile']['type']= $files['userfile']['type'][$i];
+            $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
+            $_FILES['userfile']['error']= $files['userfile']['error'][$i];
+            $_FILES['userfile']['size']= $files['userfile']['size'][$i];    
+    
+            $this->upload->initialize($this->set_upload_options());
+            $this->upload->do_upload();
+            $dataInfo[] = $this->upload->data();
+        }
+        $id = $this->AM->GenerateHId();
+        $data = array(
+            'H_ID' => $id,
+            'H_Name' => $this->input->post("H_Name"),
+            'H_Detail' => $this->input->post("H_Detail"),
+            'H_Img1' => $dataInfo[0]['file_name'],
+            'H_Img2' => $dataInfo[1]['file_name'],
+            'H_Img3' => $dataInfo[2]['file_name'],
+            'H_Img4' => $dataInfo[3]['file_name'],
+            'Price' => $this->input->post("Price"),
+
+         );
+        $check =  $this->AM->create_proto($data);
+        if($check == true){
+            echo "<script language=\"JavaScript\">";
+            echo "alert('เพิ่มข้อมูลสำเร็จแล้วค่ะ')";
+            echo "</script>";
+            redirect('Admin_Con/manageHairstyle','refresh');
+        }else{
+            echo "<script language=\"JavaScript\">";
+            echo "alert('เพิ่มข้อมูลไม่สำเร็จแล้วค่ะ')";
+            echo "</script>";
+            redirect('Admin_Con/manageHairstyle','refresh');
+        }
+        
+    }
+
+    private function set_upload_options()
+{   
+    $config = array();
+    $config['upload_path'] = 'img/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size']  = 10024;
+        $config['max_width'] = 3000;
+        $config['max_height'] = 3000;
+        $config['encrypt_name'] = true;
+
+    return $config;
+}
 
     public function getSuccessfulQueue()
     {

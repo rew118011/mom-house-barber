@@ -3,21 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Barber_Model extends CI_Model
 {
-	function getBarber()
-	{
-		$this->db->select('*');	//ค้นหาจากฟิลด์ทั้งหมด
-		$query = $this->db->get('barber');	//โดยค้นจากตาราง barber จากนั้นให้ $query เก็บฟังก์ชั่นไว้
-		return $query->result(); //จากนั้นนำ $query ส่งค่าเป็น object ซึ่งอยู่ในรูปแบบ array กลับไปที่ Customer_Con
-	}
-	function getBarberByID($barber)
-	{
-		$this->db->select('*')
-			->from('barber')
-			->where('barber.B_ID', $barber);
 
-		$query = $this->db->get();
-		return $query->result();
-	}
 	function getProfileBarber($sess)
 	{
 		$this->db->select('*')
@@ -41,4 +27,88 @@ class Barber_Model extends CI_Model
 		}
 	}
 	
+	function getAdminProfile($id) 
+	{
+		$query = $this->db->where('C_ID', $id) 
+			->get('customer'); 
+		return $query->row(); 
+	}
+
+	function getBarberBooking($sess)
+	{
+		$where = "status_queue.Q_ID='1' AND barber.Username='$sess'and BK_Year = YEAR(CURDATE()) and BK_Month = MONTH(CURDATE()) and BK_Day = DAY(CURDATE())";
+
+		$this->db->select('*')
+			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->order_by('slot_time.ST_ID', "ASC")
+			->order_by('booking.BK_Year', "ASC")
+			->order_by('booking.BK_Month', "ASC")
+			->order_by('booking.BK_Day', "ASC")
+			->where($where);
+		$query = $this->db->get('booking');
+		return $query->result();
+	}
+
+	function getBarberBookingHistory($sess)
+	{
+		$where = "status_queue.Q_ID='2' AND barber.Username='$sess'";
+
+		$this->db->select('*')
+			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->where($where);
+		$query = $this->db->get('booking');
+		return $query->result();
+	}
+
+	function getBarberBookingHistoryCurdate($sess)
+	{
+		$where = "status_queue.Q_ID=2 and BK_Year = YEAR(CURDATE()) and BK_Month = MONTH(CURDATE()) and BK_Day = DAY(CURDATE()) AND barber.Username='$sess'";
+
+		$this->db->select('*')
+			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->order_by('booking.BK_Year', "DESC")
+			->order_by('booking.BK_Month', "DESC")
+			->order_by('booking.BK_Day', "DESC")
+			->order_by('booking.ST_ID', "DESC")
+			->where($where);
+
+		$query = $this->db->get('booking');
+		return $query->result();
+	}
+
+	function getPortfolio()
+	{
+		$this->db->select('*')
+		->join('barber', 'portfolio.B_ID = barber.B_ID', 'left');
+		$query = $this->db->get('portfolio');
+		return $query->result();
+	}
+	function addPortfolio($data)
+	{
+		$sess =  $this->session->userdata('Username'); //นำข้อมูล session เก็บไว้ในตัวแปร $id
+		$query = $this->db->where('portfolio.B_ID', $sess) //ค้นหาจาก C_ID ถ้าตรงกับ $id ให้เก็บค่าไว้ใน $query
+			->update('portfolio', $data); //จากนั้นอัปเดรตข้อมูล
+		if ($query) //เมื่อ query สำเร็จ
+		{
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	function getCustomerShow($id) 
+	{
+		$query = $this->db->where('C_ID', $id) 
+			->get('customer'); 
+		return $query->row(); 
+	}
 }

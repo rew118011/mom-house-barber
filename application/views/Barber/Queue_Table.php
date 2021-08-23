@@ -1,261 +1,43 @@
-<?php $Queue=[
-  ['img'=>"https://randomuser.me/api/portraits/lego/6.jpg",
-
-],
-] ?>
 <!--   #posts start -->
 <div class="posts queue">
   <!-- .post start -->
   <div class="container queue">
-    <div class="item queue">
-      <div class="content Slot_time_1">
-        <div class="card">
-          <div class="firstinfo">
-            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
-            <div class="profileinfo">
-              <div class="date">
-                <p>24/07/2021</p>
-                <p>12:00 - 13:00</p>
-              </div>
-              <div class="data">
-                <p>ชื่อเล่น : โนช</p>
-                <p><i class="far fa-clock"></i> กำลังรอ...</p>
+    <div class="text-title">
+      ตารางคิวที่รอตัด / วันนี้
+    </div>
+    <?php
+    foreach ($BOOKING as $row) {
+    ?>
+      <div class="item queue">
+        <div class="content Slot_time_<?php echo $row->ST_ID; ?>" id="<?php echo $row->BK_ID; ?>">
+          <div class="card">
+            <div class="firstinfo">
+              <a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>">
+                <img src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" alt="" />
+              </a>
+              <div class="profileinfo">
+                <div class="date">
+                  <tr id="<?php echo $row->BK_ID; ?>" class="tr-barber-queue">
+                    <p><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></p>
+                    <p><?php echo $row->ST_Time; ?></p>
+                </div>
+                <div class="data">
+                  <a href="<?php echo site_url('Barber_Con/getCustomerProfile/') . $row->C_ID; ?>">ชื่อเล่น : <?php echo $row->C_Nickname; ?></a>
+                  <p value="<?php echo $row->Q_ID; ?>"><i class="far fa-clock"></i> <?php echo $row->Q_Status; ?></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="badgescard">
-          <div class="phone">
-            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item queue">
-      <div class="content Slot_time_2">
-        <div class="card">
-          <div class="firstinfo">
-            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
-            <div class="profileinfo">
-              <div class="date">
-                <p>24/07/2021</p>
-                <p>12:00 - 13:00</p>
-              </div>
-              <div class="data">
-                <p>ชื่อเล่น : เอิร์ธ</p>
-                <p><i class="far fa-clock"></i> กำลังรอ...</p>
-              </div>
+          <div class="badgescard">
+            <div class="phone">
+              <i class="fas fa-mobile-alt"></i><span><?php echo $row->C_Phone; ?></span>
             </div>
           </div>
         </div>
-        <div class="badgescard">
-          <div class="phone">
-            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
-          </div>
-        </div>
       </div>
-    </div>
-
-    <div class="item queue">
-      <div class="content Slot_time_3">
-        <div class="card">
-          <div class="firstinfo">
-            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
-            <div class="profileinfo">
-              <div class="date">
-                <p>24/07/2021</p>
-                <p>12:00 - 13:00</p>
-              </div>
-              <div class="data">
-                <p>ชื่อเล่น : บิว</p>
-                <p><i class="far fa-clock"></i> กำลังรอ...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="badgescard">
-          <div class="phone">
-            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item queue">
-      <div class="content Slot_time_4">
-        <div class="card">
-          <div class="firstinfo">
-            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
-            <div class="profileinfo">
-              <div class="date">
-                <p>24/07/2021</p>
-                <p>12:00 - 13:00</p>
-              </div>
-              <div class="data">
-                <p>ชื่อเล่น : ริว</p>
-                <p><i class="far fa-clock"></i> กำลังรอ...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="badgescard">
-          <div class="phone">
-            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item queue">
-      <div class="content Slot_time_5">
-        <div class="card">
-          <div class="firstinfo">
-            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
-            <div class="profileinfo">
-              <div class="date">
-                <p>24/07/2021</p>
-                <p>12:00 - 13:00</p>
-              </div>
-              <div class="data">
-                <p>ชื่อเล่น : มิ้ว</p>
-                <p><i class="far fa-clock"></i> กำลังรอ...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="badgescard">
-          <div class="phone">
-            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item queue">
-      <div class="content Slot_time_6">
-        <div class="card">
-          <div class="firstinfo">
-            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
-            <div class="profileinfo">
-              <div class="date">
-                <p>24/07/2021</p>
-                <p>12:00 - 13:00</p>
-              </div>
-              <div class="data">
-                <p>ชื่อเล่น : เดฟ</p>
-                <p><i class="far fa-clock"></i> กำลังรอ...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="badgescard">
-          <div class="phone">
-            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item queue">
-      <div class="content Slot_time_7">
-        <div class="card">
-          <div class="firstinfo">
-            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
-            <div class="profileinfo">
-              <div class="date">
-                <p>24/07/2021</p>
-                <p>12:00 - 13:00</p>
-              </div>
-              <div class="data">
-                <p>ชื่อเล่น : เปา</p>
-                <p><i class="far fa-clock"></i> กำลังรอ...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="badgescard">
-          <div class="phone">
-            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item queue">
-      <div class="content Slot_time_8">
-        <div class="card">
-          <div class="firstinfo">
-            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
-            <div class="profileinfo">
-              <div class="date">
-                <p>24/07/2021</p>
-                <p>12:00 - 13:00</p>
-              </div>
-              <div class="data">
-                <p>ชื่อเล่น : โด้</p>
-                <p><i class="far fa-clock"></i> กำลังรอ...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="badgescard">
-          <div class="phone">
-            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item queue">
-      <div class="content Slot_time_9">
-        <div class="card">
-          <div class="firstinfo">
-            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
-            <div class="profileinfo">
-              <div class="date">
-                <p>24/07/2021</p>
-                <p>12:00 - 13:00</p>
-              </div>
-              <div class="data">
-                <p>ชื่อเล่น : กาย</p>
-                <p><i class="far fa-clock"></i> กำลังรอ...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="badgescard">
-          <div class="phone">
-            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item queue">
-      <div class="content Slot_time_10">
-        <div class="card">
-          <div class="firstinfo">
-            <img src="https://randomuser.me/api/portraits/lego/6.jpg" />
-            <div class="profileinfo">
-              <div class="date">
-                <p>24/07/2021</p>
-                <p>12:00 - 13:00</p>
-              </div>
-              <div class="data">
-                <p>ชื่อเล่น : บาส</p>
-                <p><i class="far fa-clock"></i> กำลังรอ...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="badgescard">
-          <div class="phone">
-            <i class="fas fa-mobile-alt"></i><span>0651134910</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php
+    }
+    ?>
   </div>
   <!-- .post finish -->
 </div>

@@ -24,7 +24,7 @@ class Customer_Con extends CI_Controller
 
         $data['Barber'] = $this->AM->getBarberAll();
 
-        // $result['HS'] = $this->AM->get_HairStyle();
+        $result['HS'] = $this->CM->get_HairStyle();
 
 
 
@@ -34,7 +34,7 @@ class Customer_Con extends CI_Controller
         $this->load->view('Customer/ShowQueue', $data);
         $this->load->view('Customer/Calendar');
         $this->load->view('Customer/AllBarber', $data);
-        $this->load->view('Customer/Hairstyle'/*, $result*/);
+        $this->load->view('Customer/Hairstyle', $result);
         $this->load->view('Customer/Footer');
     }
 
@@ -82,7 +82,7 @@ class Customer_Con extends CI_Controller
 
         );
         $this->CM->setProfile($data);
-        redirect('Customer_Con/setProfile', 'refresh'); //ไปหน้า customer_view
+        redirect('Customer_Con'); //ไปหน้า customer_view
     }
 
     function save_Image() //ฟังก์ชั่น update customer
@@ -109,7 +109,7 @@ class Customer_Con extends CI_Controller
         }
         $this->CM->setProfile($data);
 
-        redirect('Customer_Con/setProfile', 'refresh'); //ไปหน้า Admin_Con
+        redirect('Customer_Con'); //ไปหน้า Admin_Con
     }
 
     function setImage() //ฟังก์ชั่น แก้ไขรูปโปรไฟล์ customer
@@ -211,5 +211,13 @@ class Customer_Con extends CI_Controller
         } else { //กลับไปหน้าล็อคอิน
             redirect('');
         }
+    }
+
+    public function popupHair()
+    {
+        $H_ID = $this->input->post('H_ID');
+        // get data 
+        $data = $this->CM->get_HairStyleByID($H_ID);
+        echo json_encode($data);
     }
 }

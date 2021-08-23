@@ -984,7 +984,6 @@ tr td:last-child {
 .flexbox .item .field textarea,
 .flexbox .item .field input {
     margin-left: 5%;
-    height: 100%;
     width: 90%;
     outline: none;
     padding-left: 15px;

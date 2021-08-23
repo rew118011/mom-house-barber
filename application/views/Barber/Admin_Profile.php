@@ -1,30 +1,40 @@
-<div class="barber_admin_portfolio">แอดมิน "Zbew"</div> 
-<div class="barber_admin_container">
-    <div class="barber_admin">
-      <div class="barber_admin_image">
-        <img class="barber_admin_image_img" src="<?php echo base_url(); ?>img/zbew.jpg"  onerror="this.src='<?php echo base_url(); ?>img/user.png'">
-      </div>
-      <div class="barber_admin_info">
-        <div class="barber_admin_info_top">
-          <h1 class="barber_admin_info_top-h1">Username Admin</h1>
-        </div>
-        <div class="barber_admin_info_center">
-          <div>
-            <font size=3>ชื่อเล่น : </font>
-          </div>
-          <div>
-            <font size=3>ชื่อ-นามสกุล : </font>
-          </div>
-          <div>
-            <font size=3>เพศ : </font>
-          </div>
-          <div>
-            <font size=3>เบอร์โทร : </font>
-          </div>
-          <div>
-            <font size=3>Facebook : </font>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="recent-grid customer-profile">
+    <div class="projects">
+        <div class="card barberProfile">
+            <div class="text-title">
+                โปรไฟล์แอดมิน
+            </div>
+            <section class="profile_area">
+                <div class="containers">
+                    <div class="profile">
+                        <div class="profile_image">
+                            <img src="<?php echo base_url(); ?>img/<?= $ID->C_Img; ?>" alt="" />
+                        </div>
+                        <div class="profile_info">
+                            <div class="profile_info--top">
+                                <h1><?php echo $ID->Username; ?></h1>
+                            </div>
+                            <div class="profile_info--center">
+                                <p><i class="las la-signature"></i> <?php echo $ID->C_Nickname; ?> <span>&nbsp;|&nbsp;</span> <?php echo $ID->C_Name; ?> &nbsp; <?php echo $ID->C_Lname; ?></p><br>
+                            </div>
+                            <div class="profile_info--bottom">
+                                <p>
+                                    <i class="las la-transgender"></i> : <?php echo $ID->C_Sex; ?> <br>
+                                    <i class="las la-phone-volume"></i> : <?php echo $ID->C_Phone; ?> <br>
+                                    <i class="lab la-facebook"></i> : <?php echo $ID->C_Facebook; ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="tabs_area">
+                <div class="containers">
+                    <div class="tabs">
+                        <div class="tab-item active">
+                            <i class="las la-border-all"></i>
+                            <span> ประวัติการเพิ่มคิวย้อนหลังของ<?php echo $ID->C_Nickname; ?></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slides">

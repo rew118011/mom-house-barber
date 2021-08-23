@@ -10,28 +10,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
 
                 <div class="card-body">
-                    <form action="save_Image" method="POST" enctype="multipart/form-data">
+                    <form action="<?php echo site_url('Admin_Con/save_Image') ?>" method="POST" enctype="multipart/form-data">
                         <div class="cards">
                             <div class="card-single">
                                 <div class="image">
+                                    <input type="file" name="userfile[]" multiple="multiple">
                                     <img src="<?php echo base_url(); ?>img/upload1.png" alt="H_Img1">
                                 </div>
                             </div>
 
                             <div class="card-single">
                                 <div class="image">
+                                    <input type="file" name="userfile[]" multiple="multiple">
                                     <img src="<?php echo base_url(); ?>img/upload1.png" alt="H_Img2">
                                 </div>
                             </div>
 
                             <div class="card-single">
                                 <div class="image">
+                                    <input type="file" name="userfile[]" multiple="multiple">
                                     <img src="<?php echo base_url(); ?>img/upload1.png" alt="H_Img3">
                                 </div>
                             </div>
 
                             <div class="card-single">
                                 <div class="image">
+                                    <input type="file" name="userfile[]" multiple="multiple">
                                     <img src="<?php echo base_url(); ?>img/upload1.png" alt="H_Img4">
                                 </div>
                             </div>
@@ -50,6 +54,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
                         </div>
                         <div class="submit">
+                            <input style="display: none;" type="text" name="Price" value="150" required>
                             <button type="submit" name="btnUpload" class="save">ยืนยัน</button>
                         </div>
                     </form>

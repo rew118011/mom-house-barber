@@ -24,6 +24,8 @@
     --text--color--dark: #291f1d;
     --text--color--light: #ffffff;
     --yellow-dark: #f79b31;
+    --yellow-dark-hover: #cc7b1e;
+    --yellow: #ffdbb3;
     --yellow-light: #e5f89e;
     --green-light: #48c148;
     --dark-body: #4d4c5a;
@@ -1839,7 +1841,7 @@ input[type="reset"].primary,
 input[type="button"].primary,
 button.primary,
 .button.primary {
-    background-color: #8cc9f0;
+    background-color: var(--yellow-dark);
     color: #ffffff !important;
     box-shadow: none;
 }
@@ -1849,7 +1851,7 @@ input[type="reset"].primary:hover,
 input[type="button"].primary:hover,
 button.primary:hover,
 .button.primary:hover {
-    background-color: #9acff2;
+    background-color: var(--yellow-dark);
 }
 
 input[type="submit"].primary:active,
@@ -1857,7 +1859,7 @@ input[type="reset"].primary:active,
 input[type="button"].primary:active,
 button.primary:active,
 .button.primary:active {
-    background-color: #7ec3ee;
+    background-color: var(--yellow-dark);
 }
 
 input[type="submit"].primary.icon:before,
@@ -1992,15 +1994,6 @@ textarea {
     border-color: rgba(255, 255, 255, 0.35);
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-select:focus,
-textarea:focus {
-    border-color: #8cc9f0;
-    box-shadow: 0 0 0 1px #8cc9f0;
-}
-
 select {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.35)' /%3E%3C/svg%3E");
 }
@@ -2017,8 +2010,8 @@ input[type="radio"]+label {
 
 input[type="checkbox"]:focus+label:before,
 input[type="radio"]:focus+label:before {
-    border-color: #8cc9f0;
-    box-shadow: 0 0 0 1px #8cc9f0;
+    border-color: var(--yellow);
+    box-shadow: 0 0 1px 1px var(--yellow);
 }
 
 ::-webkit-input-placeholder {
@@ -2482,6 +2475,7 @@ article.special header.major h2:after {
 header.major p {
     font-size: 1.125rem;
     letter-spacing: -0.025em;
+    font-weight: 300 !important;
 }
 
 header.major.special {
@@ -2692,11 +2686,557 @@ table.alt tbody tr td {
 
 /* Statistics */
 
+
+/*------------------------------------- edit profile finish ------------------------------------*/
+
+
+/* -- The Modal save_Image -- */
+
+@keyframes popup {
+    0% {
+        transform: scale(0.1, 0.1);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal .modal-content {
+    padding: 17px;
+    width: 55%;
+    height: 500px;
+    background: #ffffff;
+    border-radius: 25px;
+    animation-name: popup;
+    animation-duration: 0.5s;
+    transition-duration: 0.5s;
+    position: relative;
+}
+
+.modal .modal-content .closetimes {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    background: var(--yellow-dark);
+    height: 51px;
+    width: 58px;
+    line-height: 40px;
+    color: white;
+    font-size: 26px;
+    border-radius: 0 10px 2px 50px;
+    padding-left: 13px;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px 0 0 5px;
+}
+
+.modal .modal-content .closetimes:hover,
+.modal .modal-content .closetimes:focus {
+    background: var(--yellow-dark-hover);
+}
+
+.modal .modal-content .box {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 0 0;
+    padding: 0;
+}
+
+.modal-content .box form .img {
+    width: 30rem;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #fff;
+    margin: 1.25rem;
+    border: 1px solid #291f1d;
+}
+
+.modal-content .box form .img.noneBorder {
+    width: 20rem;
+    height: 20rem;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-content .box form .img.noneBorder .img {
+    border-radius: 50%;
+    background: #00000000;
+}
+
+.modal-content .box form .img .in-img {
+    width: 20rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.modal-content .box form img.imgShow {
+    height: 100%;
+    cursor: pointer;
+}
+
+.box form .input {
+    width: 100%;
+    text-align: center;
+}
+
+.box form .submit {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.box form .submit .save {
+    border: 0.095rem solid transparent;
+    color: #fff;
+    background: var(--yellow-dark);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    outline: none;
+    font-family: "Prompt", sans-serif;
+    box-shadow: none;
+}
+
+.box form .submit .save:hover {
+    background: var(--yellow-dark-hover);
+}
+
+.popup-content.hairStyle {
+    display: flex;
+}
+
+.popup-content.hairStyle .photo-content {
+    background: transparent;
+    width: 60%;
+    height: 100%;
+}
+
+.popup-content.hairStyle .detail-content {
+    background: transparent;
+    width: 40%;
+    height: 100%;
+    padding: 1.5rem;
+}
+
+.popup-content.hairStyle .photo-content .mySlides {
+    display: none
+}
+
+
+/* Slideshow container */
+
+.popup-content.hairStyle .photo-content .slideshow-container {
+    max-width: 618px;
+    position: relative;
+    margin: auto;
+}
+
+
+/* Next & previous buttons */
+
+.popup-content.hairStyle .photo-content .prev,
+.popup-content.hairStyle .photo-content .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+    border-bottom: none;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 50%;
+    line-height: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/* Position the "next button" to the right */
+
+.popup-content.hairStyle .photo-content .next {
+    right: 0.5rem;
+}
+
+.popup-content.hairStyle .photo-content .prev {
+    left: 0.5rem;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+
+.popup-content.hairStyle .photo-content .prev:hover,
+.popup-content.hairStyle .photo-content .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    transform: scale(1.1);
+}
+
+.popup-content.hairStyle .photo-content .next:hover {
+    margin-right: 0.5rem;
+}
+
+.popup-content.hairStyle .photo-content .prev:hover {
+    margin-left: 0.5rem;
+}
+
+
+/* Caption text */
+
+.popup-content.hairStyle .photo-content .text {
+    color: #f2f2f2;
+    background: #0000006e;
+    font-size: 1.125rem;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Number text (1/3 etc) */
+
+.popup-content.hairStyle .photo-content .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+}
+
+.popup-content.hairStyle .photo-content .image {
+    width: 534px;
+    height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0;
+    border-radius: 0.5rem;
+}
+
+.popup-content.hairStyle .photo-content .image img {
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+
+/* The dots/bullets/indicators */
+
+.popup-content.hairStyle .photo-content .dot-box {
+    background: #0000006e;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    bottom: 0;
+    width: 100%;
+    height: 2rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.popup-content.hairStyle .photo-content .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 99;
+    transition: background-color 0.3s ease;
+}
+
+.popup-content.hairStyle .photo-content .active,
+.popup-content.hairStyle .photo-content .dot:hover {
+    background-color: #717171;
+}
+
+
+/* Fading animation */
+
+.popup-content.hairStyle .photo-content .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: .3s;
+    animation-name: fade;
+    animation-duration: .3s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+/* On smaller screens, decrease text size */
+
+@media only screen and (max-width: 300px) {
+    .prev,
+    .next,
+    .text {
+        font-size: 11px
+    }
+}
+
+.popup-content.hairStyle .product-content {
+    text-align: left;
+}
+
+.popup-content.hairStyle .product-content .product-title {
+    font-size: 32px;
+    text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    color: var(--dark-grey) !important;
+    margin: 15px 0;
+}
+
+.popup-content.hairStyle .product-content .product-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 80px;
+    background: var(--color-dark);
+}
+
+.popup-content.hairStyle .product-content .product-link,
+.popup-content.hairStyle .product-content #product-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 18px;
+    display: inline-block;
+    background: var(--yellow-dark);
+    color: #fff;
+    padding: 0 3px;
+    transition: all 0.5s ease;
+    border-bottom: none;
+}
+
+.popup-content.hairStyle .product-content .product-link:hover,
+.popup-content.hairStyle .product-content #product-link:hover {
+    opacity: 0.9;
+}
+
+.popup-content.hairStyle .product-content .product-price {
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.popup-content.hairStyle .product-content .product-price .price span {
+    color: var(--yellow-dark);
+}
+
+.popup-content.hairStyle .product-content .product-detail p:nth-child(1) {
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--dark-grey);
+}
+
+.popup-content.hairStyle .product-content .product-detail p:nth-child(2) {
+    font-size: 14px;
+    font-weight: 300;
+    padding: 3px;
+    opacity: 0.8;
+}
+
+.popup-content.hairStyle .product-content .product-detail p:nth-child(2) .space {
+    margin-right: 2rem;
+}
+
+
+/* 
+.popup-content.hairStyle .product-content .purchase-info {
+    margin: 15px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popup-content.hairStyle .product-content .purchase-info .btn {
+    border: 1.5px solid #ddd;
+    border-radius: 25px;
+    text-align: center;
+    padding: 5px 8px;
+    outline: 0;
+    margin-right: 2px;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.popup-content.hairStyle .product-content .purchase-info .btn {
+    cursor: pointer;
+    color: #fff;
+    padding: 5px 25px;
+    font-size: 18px;
+}
+
+.popup-content.hairStyle .product-content .purchase-info .btn:first-of-type {
+    background: #256eff;
+}
+
+.popup-content.hairStyle .product-content .purchase-info .btn:last-of-type {
+    background: #f64749;
+}
+
+.popup-content.hairStyle .product-content .purchase-info .btn:hover {
+    opacity: 0.9;
+}
+
+@media screen and (min-width: 992px) {
+    .card-wrapper.hairstyle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .popup-content.hairStyle {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+    }
+    .popup-content.hairStyle .product-imgs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .popup-content.hairStyle .product-content {
+        padding-top: 0;
+    }
+}
+ */
+
+
+/* -- End Modal Hair style -- */
+
+
+/*----------------------------------------- * Hair Style Start ------------------------------------------*/
+
+.main.special figure {
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.main.special .img-container:hover .img-content-hover {
+    display: block;
+}
+
+.main.special .image-box {
+    width: 325px;
+    height: 325px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.main.special figure .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+}
+
+.main.special img:hover {
+    transform: scale(1.05);
+}
+
+.main.special .img-content-hover {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    display: none;
+    padding: 1rem;
+    background: #fff;
+    font-weight: 400;
+    margin-top: 1.25rem;
+    margin-left: -2rem;
+}
+
+.main.special .img-content {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .main.special img:hover {
+        transform: none;
+    }
+    .main.special .img-container {
+        height: 100%;
+    }
+    .main.special .img-container:hover .img-content-hover {
+        display: none;
+    }
+    .main.special .img-content {
+        display: block;
+        padding: 1rem 0;
+    }
+}
+
 .statistics {
     display: -moz-flex;
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     width: 100%;
     margin: 0 0 3em 0;
     padding: 0;
@@ -2708,59 +3248,12 @@ table.alt tbody tr td {
     -moz-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
+    width: 30%;
     flex: 1;
-    padding: 1.5em;
+    padding: 0em;
     color: #ffffff;
     text-align: center;
-}
-
-.statistics li.style1 {
-    background-color: #efa8b0;
-}
-
-.statistics li.style2 {
-    background-color: #c79cc8;
-}
-
-.statistics li.style3 {
-    background-color: #a89cc8;
-}
-
-.statistics li.style4 {
-    background-color: #9bb2e1;
-}
-
-.statistics li.style5 {
-    background-color: #8cc9f0;
-}
-
-.statistics li strong,
-.statistics li b {
-    display: block;
-    font-size: 2em;
-    line-height: 1.1;
-    color: inherit !important;
-    font-weight: 300;
-    letter-spacing: -0.025em;
-}
-
-.statistics li:first-child {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-}
-
-.statistics li:last-child {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-.statistics li .icon {
-    display: inline-block;
-}
-
-.statistics li .icon:before {
-    font-size: 2.75rem;
-    line-height: 1.3;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 980px) {
@@ -2793,6 +3286,55 @@ table.alt tbody tr td {
         font-size: 2.5em;
     }
 }
+
+.popupHair {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.4s;
+    z-index: 99;
+    overflow: hidden;
+}
+
+.popupHair .popup-content.hairStyle {
+    height: 85%;
+    width: 60%;
+}
+
+.closeHair .fa-times {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    background: var(--yellow-dark);
+    height: 51px;
+    width: 58px;
+    line-height: 40px;
+    color: white;
+    font-size: 26px;
+    border-radius: 0 10px 2px 50px;
+    padding-left: 13px;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px 0 0 5px;
+}
+
+.closeHair .fa-times:hover {
+    background: var(--yellow-dark-hover);
+}
+
+
+/*----------------------------------------- * Hair Style Finish ------------------------------------------*/
 
 
 /* Spotlight */
@@ -3383,7 +3925,7 @@ nav .drop-profile.show {
 #main input[type="button"].primary,
 #main button.primary,
 #main .button.primary {
-    background-color: #8cc9f0;
+    background-color: var(--yellow-dark);
     color: #ffffff !important;
     box-shadow: none;
 }
@@ -3401,7 +3943,7 @@ nav .drop-profile.show {
 #main input[type="button"].primary:active,
 #main button.primary:active,
 #main .button.primary:active {
-    background-color: #7ec3ee;
+    background-color: var(--yellow-dark);
 }
 
 #main input[type="submit"].primary.icon:before,
@@ -3428,10 +3970,9 @@ nav .drop-profile.show {
 #main input[type="text"]:focus,
 #main input[type="password"]:focus,
 #main input[type="email"]:focus,
-#main select:focus,
 #main textarea:focus {
-    border-color: #8cc9f0;
-    box-shadow: 0 0 0 1px #8cc9f0;
+    border-color: var(--yellow);
+    box-shadow: 0 0 1px 1px var(--yellow);
 }
 
 #main select {
@@ -5134,7 +5675,7 @@ nav .drop-profile.show {
     position: absolute;
     top: 0px;
     right: 0;
-    background: #cea043;
+    background: var(--yellow-dark);
     height: 51px;
     width: 58px;
     line-height: 40px;
@@ -5145,6 +5686,14 @@ nav .drop-profile.show {
     cursor: pointer;
     text-align: center;
     padding: 5px 0 0 5px;
+}
+
+.close .fa-times:hover {
+    background: var(--yellow-dark-hover);
+}
+
+.popup .popup-content .profile-content form {
+    margin: 0;
 }
 
 
@@ -5262,14 +5811,15 @@ nav .drop-profile.show {
 }
 
 .profile_area .container .profile .profile_info .profile_info--bottom a {
-    color: #0672dd;
+    color: var(--yellow-dark);
     text-decoration: none;
     font-weight: 300;
     border-bottom: none !important;
 }
 
 .profile_area .container .profile .profile_info .profile_info--bottom a:hover {
-    color: #0c66c0;
+    color: var(--yellow-dark-hover);
+    text-decoration: underline;
 }
 
 .profile_area .container .profile .profile_info .profile_info--bottom a i {
@@ -5526,5 +6076,338 @@ nav .drop-profile.show {
 
 /*------------------------------------- edit profile start ------------------------------------*/
 
+.profile-content:last-child {
+    padding: 1rem 0;
+}
 
-/*------------------------------------- edit profile finish ------------------------------------*/
+.edit-profile input {
+    font-family: "Prompt", sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.edit-profile {
+    font-family: "Prompt", sans-serif;
+}
+
+.edit-profile .screen {
+    background: #ffffff;
+    border-radius: 15px;
+    display: flex;
+}
+
+.edit-profile .screen:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    z-index: -1;
+}
+
+.edit-profile .screen-body {
+    display: flex;
+    width: 100%;
+    padding: 1.5rem 5rem;
+    position: relative;
+}
+
+.edit-profile .screen-body .btn-slide {
+    color: var(--yellow-dark);
+    left: 3rem;
+    top: 0;
+    font-size: 2.5rem;
+    position: absolute;
+    border-bottom: none;
+}
+
+.edit-profile .screen-body .btn-slide:hover {
+    color: var(--yellow-dark-hover);
+}
+
+.edit-profile .screen-body-item {
+    padding: 1.125rem 0;
+    width: 65%;
+}
+
+.edit-profile .screen-body-item:last-child {
+    border-left: 1px solid lightgrey;
+}
+
+.edit-profile .screen-body-item.left {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 35%;
+    padding: 3.125rem 3.5rem;
+}
+
+.edit-profile .app-title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: var(--yellow-dark);
+    font-size: 26px;
+}
+
+.edit-profile .app-title a {
+    width: 170px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0.2rem solid var(--yellow-dark);
+    position: relative;
+    transition: .5s ease;
+    background-color: #6d3e0796;
+}
+
+.edit-profile .app-title a:hover img {
+    opacity: 0.8;
+}
+
+.edit-profile .app-title a img {
+    height: 100%;
+    transition: .5s ease;
+}
+
+.edit-profile .app-title .imgEdit {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 1.5rem;
+    top: 7rem;
+    color: var(--text--color--light);
+    background: var(--yellow-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .8rem;
+    cursor: pointer;
+}
+
+.edit-profile .app-title .imgEdit:hover {
+    background: var(--yellow-dark-hover);
+}
+
+.edit-profile .app-title .imgEdit i {
+    font-size: 1.5rem;
+}
+
+.edit-profile .app-title span {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.edit-profile .app-title span input {
+    font-weight: 400;
+}
+
+.edit-profile .app-contact {
+    margin-top: auto;
+    font-size: 8px;
+    color: #888;
+}
+
+.edit-profile .app-form {
+    padding: 0 3.5rem;
+}
+
+.edit-profile .app-form-group {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.edit-profile .app-form-group.sex .app-form-control {
+    border-bottom: none;
+}
+
+.edit-profile .app-form-group span {
+    margin-right: 1.5rem;
+}
+
+.edit-profile .app-form-group.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.edit-profile .app-form-.buttons {
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.edit-profile .app-form-control {
+    width: 65%;
+    padding: 0.5rem 1.5rem;
+    margin: .5rem 0;
+    resize: none;
+    outline: none;
+    padding-left: 15px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid var(--light-second);
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: 300;
+    transition: border-color .2s;
+}
+
+.edit-profile .app-form-control:focus {
+    border: 1px solid var(--light-second);
+    border-radius: 5px;
+    color: var(--dark-main);
+    font-weight: 400;
+}
+
+.edit-profile .app-form-button {
+    border: 0.095rem solid transparent;
+    color: #fff;
+    background: var(--yellow-dark);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    outline: none;
+    font-family: "Prompt", sans-serif;
+    box-shadow: none;
+}
+
+.edit-profile .app-form-button:hover {
+    background: var(--yellow-dark-hover) !important;
+}
+
+.edit-profile .dribbble {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+
+/* radio button */
+
+.edit-profile .app-form-group .sex-radio-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 !important;
+}
+
+.edit-profile .app-form-group .sex-radio-container .sex-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+
+.edit-profile .app-form-group .sex-radio-container .option {
+    background: #fff;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0 1rem;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+}
+
+.edit-profile .app-form-group .sex-radio-container .option .sex-dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.edit-profile .app-form-group .sex-radio-container .option-1 .sex-dot::before {
+    position: absolute;
+    content: "";
+    top: 1.6px;
+    left: 1.6px;
+    width: 8.5px;
+    height: 9px;
+    background: var(--yellow-dark);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.edit-profile .app-form-group .sex-radio-container .option-2 .sex-dot::before {
+    position: absolute;
+    content: "";
+    top: 1.6px;
+    left: 1.6px;
+    width: 8.5px;
+    height: 9px;
+    background: var(--yellow-dark);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.edit-profile .app-form-group .sex-radio-container .option-3 .sex-dot:before {
+    position: absolute;
+    content: "";
+    top: 1.6px;
+    left: 1.6px;
+    width: 9px;
+    height: 9px;
+    background: var(--yellow-dark);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.radio-sex {
+    display: none;
+}
+
+#option-1:checked:checked~.option-1,
+#option-2:checked:checked~.option-2,
+#option-3:checked:checked~.option-3 {
+    border-color: var(--yellow-dark);
+    background: var(--yellow-dark);
+}
+
+#option-1:checked:checked~.option-1 .sex-dot,
+#option-2:checked:checked~.option-2 .sex-dot,
+#option-3:checked:checked~.option-3 .sex-dot {
+    background: #fff;
+}
+
+#option-1:checked:checked~.option-1 .sex-dot::before,
+#option-2:checked:checked~.option-2 .sex-dot::before,
+#option-3:checked:checked~.option-3 .sex-dot::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.edit-profile .app-form-group .sex-radio-container .option span {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: "Prompt", sans-serif;
+    color: #808080;
+    margin: 0;
+    padding: 0;
+}
+
+#option-1:checked:checked~.option-1 span,
+#option-2:checked:checked~.option-2 span,
+#option-3:checked:checked~.option-3 span {
+    color: #fff;
+}
+
+
+/* end radio button */
