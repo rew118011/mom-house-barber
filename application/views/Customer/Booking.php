@@ -1,5 +1,5 @@
 <!-- Booking -->
-<section id="booking" class="main">
+<section id="booking-queue" class="main">
 	<div class="booking-form-inner">
 		<form name="form1" id="form1" method="POST" action="Booking_Con/ins_Booking">
 			<?php
@@ -114,10 +114,10 @@
 											$('#Time_Slot').find('.option.slottime').remove();
 											$('#Time_Slot').find('.option.slottime').remove();
 											$.each(response, function(index, data) {
-												$('#barber').append('<div class="item barber"><div class="content"><input class="bb" type="radio" name="B_ID" value="' + data['B_ID'] + '" id="' + data['B_ID'] + '" class"barber_slottime" /><label class="Nbarber" for="' + data['B_ID'] + '"><div class="image"><img src="http://localhost/Mom_House_Barber/img/' + data['B_Img'] + '"></div><div class="data-barber"><div class="name"><p>ช่าง' + data['B_Nickname'] + '</p></div></div><div class="skill"><p>ความชำนาญในแต่ละด้าน</p><div class="skillBox"><p>' + data['B_Skill1'] + '</p><p>' + data['B_Skill_Score1'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score1'] + '%;"></div></div></div><div class="skillBox"><p>' + data['B_Skill2'] + '</p><p>' + data['B_Skill_Score2'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score2'] + '%;"></div></div></div><div class="skillBox"><p>' + data['B_Skill3'] + '</p><p>' + data['B_Skill_Score3'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score3'] + '%;"></div></div></div></div></label></div></div>');
+												$('#barber').append('<div class="item barber"><div class="content"><input class="barber_slottime" type="radio" name="B_ID" value="' + data['B_ID'] + '" id="' + data['B_ID'] + '" /><label class="Nbarber" for="' + data['B_ID'] + '"><div class="image"><img src="http://localhost/Mom_House_Barber/img/' + data['B_Img'] + '"></div><div class="data-barber"><div class="name"><p>ช่าง' + data['B_Nickname'] + '</p></div></div><div class="skill"><p>ความชำนาญในแต่ละด้าน</p><div class="skillBox"><p>' + data['B_Skill1'] + '</p><p>' + data['B_Skill_Score1'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score1'] + '%;"></div></div></div><div class="skillBox"><p>' + data['B_Skill2'] + '</p><p>' + data['B_Skill_Score2'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score2'] + '%;"></div></div></div><div class="skillBox"><p>' + data['B_Skill3'] + '</p><p>' + data['B_Skill_Score3'] + '%</p><div class="skill"><div class="skill_level" style="width: ' + data['B_Skill_Score3'] + '%;"></div></div></div></div></label></div></div>');
 											});
 
-											$('input[type="radio"]').change(function() {
+											$('input[class="barber_slottime"]').change(function() {
 												var B_ID = $(this).val();
 												$.ajax({
 													url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_TimeSlot",

@@ -1,6 +1,5 @@
 <!-- Hairstyle -->
 
-<input class="H00001" type="radio" name="H_ID" value="H00001">
 <section id="hairstyle" class="main special">
   <header class="major">
     <div class="title">
@@ -17,25 +16,22 @@
       </div>
     </div>
   </header>
-  <ul class="statistics">
+  <div class="container-hairstyle">
     <?php foreach ($HS as $row) { ?>
-      <li>
-        <figure class="img-container">
-          <div class="image-box">
+      <div class="card">
+        <figure class="card__thumb">
+          <div class="image-box-hairstyle">
             <input id="hair-style" class="input<?php echo $row->H_ID; ?>" type="radio" name="H_ID" value="<?php echo $row->H_ID; ?>">
-            <img class="img<?php echo $row->H_ID; ?> btn<?php echo $row->H_ID; ?>" src="<?php echo base_url(); ?>img/<?php echo $row->H_Img1; ?>" />
+            <img src="<?php echo base_url(); ?>img/<?php echo $row->H_Img1; ?>" />
           </div>
-          <figcaption class="img-content">
-            <h2 class="title"><?php echo $row->H_Name; ?></h2>
-            <h3 class="category"><?php echo $row->H_Detail; ?></h3>
+          <figcaption class="card__caption">
+            <h2 class="card__title"><?php echo $row->H_Name; ?></h2>
+            <p class="card__button img<?php echo $row->H_ID; ?> btn<?php echo $row->H_ID; ?>">ดูข้อมูลเพิ่มเติม</p>
           </figcaption>
-          <span class="img-content-hover">
-            <h2 class="title"><?php echo $row->H_Name; ?></h2>
-          </span>
         </figure>
-      </li>
+      </div>
     <?php } ?>
-  </ul>
+  </div>
 </section>
 <!-- The Modal save_Image -->
 <div class="popupHair">
@@ -57,8 +53,8 @@
         <div class="mySlides fade">
           <div class="numbertext">2 / 4</div>
           <div class="image image-H_Img2">
-            <div class="text text2"></div>
           </div>
+          <div class="text text2"></div>
         </div>
 
         <div class="mySlides fade">
@@ -102,8 +98,7 @@
   </div>
 </div>
 <!-- End Modal save_Image -->
-<script src="<?php echo base_url(); ?>js/Galery.js"></script>
-<!-- The Modal script-save_Image -->
+<!-- popup -->
 <script>
   document.querySelector(".btnH00001").addEventListener("click", function() {
     document.querySelector(".popupHair").style.display = "flex";
@@ -114,23 +109,52 @@
   document.querySelector(".btnH00003").addEventListener("click", function() {
     document.querySelector(".popupHair").style.display = "flex";
   })
+  document.querySelector(".btnH00004").addEventListener("click", function() {
+    document.querySelector(".popupHair").style.display = "flex";
+  })
+  document.querySelector(".btnH00005").addEventListener("click", function() {
+    document.querySelector(".popupHair").style.display = "flex";
+  })
+  document.querySelector(".btnH00006").addEventListener("click", function() {
+    document.querySelector(".popupHair").style.display = "flex";
+  })
+
 
 
   document.querySelector(".closeHair").addEventListener("click", function() {
-    document.querySelector(".popupHair").style.display = "none"
+    document.querySelector(".popupHair").style.display = "none";
   })
   document.querySelector(".closePopHair").addEventListener("click", function() {
     document.querySelector(".popupHair").style.display = "none"
   })
+
+  // count element in html
+  // var parent = document.getElementById("parentId");
+  // var nodesSameClass = parent.getElementsByClassName("test");
+  // console.log(nodesSameClass.length);
 </script>
+
 <script>
   // when click image = click input
   const input1 = document.querySelector(".inputH00001");
   const input2 = document.querySelector(".inputH00002");
   const input3 = document.querySelector(".inputH00003");
+  const input4 = document.querySelector(".inputH00004");
+  const input5 = document.querySelector(".inputH00005");
+  const input6 = document.querySelector(".inputH00006");
+  const input7 = document.querySelector(".inputH00007");
+  const input8 = document.querySelector(".inputH00008");
+  const input9 = document.querySelector(".inputH00009");
   const img1 = document.querySelector(".imgH00001");
   const img2 = document.querySelector(".imgH00002");
   const img3 = document.querySelector(".imgH00003");
+  const img4 = document.querySelector(".imgH00004");
+  const img5 = document.querySelector(".imgH00005");
+  const img6 = document.querySelector(".imgH00006");
+  const img7 = document.querySelector(".imgH00007");
+  const img8 = document.querySelector(".imgH00008");
+  const img9 = document.querySelector(".imgH00009");
+
   img1.onclick = () => {
     input1.click();
   }
@@ -143,8 +167,23 @@
   img4.onclick = () => {
     input4.click();
   }
+  img5.onclick = () => {
+    input5.click();
+  }
+  img6.onclick = () => {
+    input6.click();
+  }
+  img7.onclick = () => {
+    input7.click();
+  }
+  img8.onclick = () => {
+    input8.click();
+  }
+  img9.onclick = () => {
+    input9.click();
+  }
 </script>
-<!-- End Modal script-UpImage -->
+<!-- slide img -->
 <script>
   var slideIndex = 1;
   showSlides(slideIndex);
@@ -177,7 +216,7 @@
     dots[slideIndex - 1].className += " active";
   }
 </script>
-
+<!-- jquery ajax hair style -->
 <script>
   $(document).ready(function() {
     $('input[id="hair-style"]').change(function() {

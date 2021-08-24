@@ -17,54 +17,25 @@ class Customer_Con extends CI_Controller
 
         $sess =  $this->session->userdata('Username');
         $data['CUSTOMER'] = $this->CM->getProfile($sess);
-
+        // customer queue - query by username
         $data['BARBER'] = $this->BKM->getBarber();
-
+        // customer queue - query by username
         $data['BOOKING'] = $this->CM->getBookingQueue($sess);
-
+        // all barber
         $data['Barber'] = $this->AM->getBarberAll();
-
+        // hairstyle
         $result['HS'] = $this->CM->get_HairStyle();
-
-
 
         $this->load->view('Customer/Header');
         $this->load->view('Customer/Navbar', $data);
+        $this->load->view('Customer/Profile', $data);
+        $this->load->view('Customer/EditProfile', $data);
+        $this->load->view('Customer/Navbar_End', $data);
         $this->load->view('Customer/Booking', $data);
         $this->load->view('Customer/ShowQueue', $data);
         $this->load->view('Customer/Calendar');
         $this->load->view('Customer/AllBarber', $data);
         $this->load->view('Customer/Hairstyle', $result);
-        $this->load->view('Customer/Footer');
-    }
-
-    function getProfile() //ฟังก์ชั่นดู โปรไฟล์ customer 
-    {
-        $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
-        $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
-
-        $sess =  $this->session->userdata('Username');
-        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-
-        $this->load->view('Customer/Header');
-        $this->load->view('Customer/Navbar', $datasess);
-        $this->load->view('Customer/Banner1');
-        $this->load->view('Customer/Profile', $data);
-        $this->load->view('Customer/Footer');
-    }
-
-    function setProfile() //ฟังก์ชั่น แก้ไขโปรไฟล์ customer
-    {
-        $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
-        $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
-
-        $sess =  $this->session->userdata('Username');
-        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-
-        $this->load->view('Customer/Header');
-        $this->load->view('Customer/Navbar', $datasess);
-        $this->load->view('Customer/Banner1');
-        $this->load->view('Customer/EditProfile', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า profile_view
         $this->load->view('Customer/Footer');
     }
 
@@ -82,7 +53,7 @@ class Customer_Con extends CI_Controller
 
         );
         $this->CM->setProfile($data);
-        redirect('Customer_Con'); //ไปหน้า customer_view
+        redirect('Customer_Con', 'refresh'); //ไปหน้า customer_view
     }
 
     function save_Image() //ฟังก์ชั่น update customer
@@ -99,7 +70,7 @@ class Customer_Con extends CI_Controller
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload('C_Img')) {
 
-            redirect('Customer_Con/setProfile', 'refresh');
+            redirect('Customer_Con', 'refresh');
         } else {
             $image = $this->upload->data('file_name');
             $data = array(
@@ -109,36 +80,7 @@ class Customer_Con extends CI_Controller
         }
         $this->CM->setProfile($data);
 
-        redirect('Customer_Con'); //ไปหน้า Admin_Con
-    }
-
-    function setImage() //ฟังก์ชั่น แก้ไขรูปโปรไฟล์ customer
-    {
-        $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
-        $data['CUSTOMER'] = $this->CM->getProfile($sess);        //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
-
-        $sess =  $this->session->userdata('Username');
-        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-
-        $this->load->view('Customer/Header');
-        $this->load->view('Customer/Navbar', $datasess);
-        $this->load->view('Customer/Banner1');
-        $this->load->view('Customer/EditProfile', $data);          //นำข้อมูลที่ได้ส่งไปที่หน้า EditProfile
-        $this->load->view('Customer/Footer');
-    }
-
-    function getBarberByCustomer($id)
-    { //ฟังก์ชั่น detail_profilebarber โดยรับ object $id มาจาก show_barber
-        $data['ID'] = $this->CM->getBarberByCustomer($id); //ดึงข้อมูลมาจาก Admin_Model จากนั้นเรียกใช้ฟังก์ชั่น getBarberAll ใน Admin_Model
-
-        $sess =  $this->session->userdata('Username');
-        $datasess['CUSTOMER'] = $this->CM->getProfile($sess);
-
-        $this->load->view('Customer/Header');
-        $this->load->view('Customer/Navbar', $datasess);
-        $this->load->view('Customer/Banner1');
-        $this->load->view('Customer/BarberProfile', $data);
-        $this->load->view('Customer/Footer');
+        redirect('Customer_Con', 'refresh'); //ไปหน้า Admin_Con
     }
 
     function insert_regis() //ฟังก์ชั่น insert customer
