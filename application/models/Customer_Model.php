@@ -61,6 +61,36 @@ class Customer_Model extends CI_Model
 		return $query->result();
 	}
 
+	function getBooking($sess)
+	{
+		$where = "status_queue.Q_ID='1' AND customer.Username='$sess'";
+
+		$this->db->select('*')
+			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('hair_style', 'booking.H_ID = hair_style.H_ID', 'left')
+			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->where($where);
+		$query = $this->db->get('booking');
+		return $query->result();
+	}
+
+	function getBookingHistory($sess)
+	{
+		$where = "status_queue.Q_ID='2' AND customer.Username='$sess'";
+
+		$this->db->select('*')
+			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
+			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
+			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
+			->join('hair_style', 'booking.H_ID = hair_style.H_ID', 'left')
+			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->where($where);
+		$query = $this->db->get('booking');
+		return $query->result();
+	}
+
 	function setProfile($data)
 	{
 		$sess =  $this->session->userdata('Username'); //นำข้อมูล session เก็บไว้ในตัวแปร $id
@@ -79,6 +109,13 @@ class Customer_Model extends CI_Model
 			->get('barber'); //ให้ทำการค้นหาจากตาราง barber
 		return $query->row(); //จากนั้นนำค่า $query ส่งค่าเป็น object โดยจะส่งข้อมูลออกมาเพียง เรคอร์ดเดียว กลับไปที่ Customer_Con
 	}
+	function get_BarberByID($B_ID)
+    {
+        $response  = array();
+        $query = $this->db->query("SELECT * FROM `barber` WHERE B_ID = '$B_ID';");
+        $response  = $query->result_array();
+        return  $response ;
+    }
 	function getBookingQueue($sess)
 	{
 		$where = "customer.Username='$sess' AND Q_ID=1";
@@ -121,13 +158,4 @@ class Customer_Model extends CI_Model
         return  $response ;
     }
 
-	function getTimeSlotByBarberID1($B_ID)
-    {
-
-        //$query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE BK_Year = '$BK_Year' & BK_Month = '$BK_Month' & BK_Day = '$BK_Day' & B_ID = '$B_ID')");
-        $response  = array();
-        $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN( SELECT ST_ID FROM booking WHERE (BK_Year = '2021' and BK_Month = '09' and BK_Day = '11' AND B_ID = '$B_ID'))");
-        $response  = $query->result_array();
-        return  $response ;
-    }
 }

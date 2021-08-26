@@ -45,6 +45,12 @@
     font-family: "Poppins", sans-serif;
 }
 
+::selection {
+    background: var(--main-color);
+    color: #fff;
+    /* WebKit/Blink Browsers */
+}
+
 .ST_ID1::after {
     content: " - 10:59 ";
 }

@@ -16,24 +16,24 @@
       </div>
     </div>
   </header>
-  <div class="container-hairstyle">
+  <div class="container-hairstyle" id="card-HairStyle">
     <?php foreach ($HS as $row) { ?>
       <div class="card">
         <figure class="card__thumb">
           <div class="image-box-hairstyle">
-            <input id="hair-style" class="input<?php echo $row->H_ID; ?>" type="radio" name="H_ID" value="<?php echo $row->H_ID; ?>">
+            <input id="hair-style" class="input<?php echo $row->H_ID; ?> inputH" type="radio" name="H_ID" value="<?php echo $row->H_ID; ?>">
             <img src="<?php echo base_url(); ?>img/<?php echo $row->H_Img1; ?>" />
           </div>
           <figcaption class="card__caption">
             <h2 class="card__title"><?php echo $row->H_Name; ?></h2>
-            <p class="card__button img<?php echo $row->H_ID; ?> btn<?php echo $row->H_ID; ?>">ดูข้อมูลเพิ่มเติม</p>
+            <p class="card__button img<?php echo $row->H_ID; ?> btn<?php echo $row->H_ID; ?> btnH">ดูข้อมูลเพิ่มเติม</p>
           </figcaption>
         </figure>
       </div>
     <?php } ?>
   </div>
 </section>
-<!-- The Modal save_Image -->
+<!-- The Modal Hairstyle -->
 <div class="popupHair">
   <div class="popup-content hairStyle">
     <div class="closeHair">
@@ -100,89 +100,43 @@
 <!-- End Modal save_Image -->
 <!-- popup -->
 <script>
-  document.querySelector(".btnH00001").addEventListener("click", function() {
-    document.querySelector(".popupHair").style.display = "flex";
-  })
-  document.querySelector(".btnH00002").addEventListener("click", function() {
-    document.querySelector(".popupHair").style.display = "flex";
-  })
-  document.querySelector(".btnH00003").addEventListener("click", function() {
-    document.querySelector(".popupHair").style.display = "flex";
-  })
-  document.querySelector(".btnH00004").addEventListener("click", function() {
-    document.querySelector(".popupHair").style.display = "flex";
-  })
-  document.querySelector(".btnH00005").addEventListener("click", function() {
-    document.querySelector(".popupHair").style.display = "flex";
-  })
-  document.querySelector(".btnH00006").addEventListener("click", function() {
-    document.querySelector(".popupHair").style.display = "flex";
-  })
+  // count element in html
+  var cardHairStyle = document.getElementById("card-HairStyle");
+  var btnHairStyle = cardHairStyle.getElementsByClassName("btnH");
+  // var imgHairStyle = cardHairStyle.getElementsByClassName("imgH");
+  // var inputHairStyle = cardHairStyle.getElementsByClassName("inputH");
+  const btnH = "btnH0000";
+  const imgH = "imgH0000";
+  const inputH = "inputH0000";
+  // console.log(btnHairStyle.length);
+  // console.log(imgHairStyle.length);
+  // console.log(inputHairStyle.length);
 
+  // loop query.selectorClassList
+  for (let i = 1; i <= btnHairStyle.length; i++) {
+    document.querySelector(".btnH0000" + i).addEventListener("click", function() {
+      document.querySelector(".popupHair").style.display = "flex";
+    })
+    // build variable document.querySelector input radio and btn class imgID
+    const inputID = document.querySelector(".inputH0000" + i);
+    const img = document.querySelector(".imgH0000" + i);
+    // console.log(inputID);
+    // console.log(img);
 
-
+    // when click btn read more = click input radio
+    img.onclick = () => {
+      inputID.click();
+    }
+  }
+  // close popup hairstyle
   document.querySelector(".closeHair").addEventListener("click", function() {
     document.querySelector(".popupHair").style.display = "none";
   })
   document.querySelector(".closePopHair").addEventListener("click", function() {
     document.querySelector(".popupHair").style.display = "none"
   })
-
-  // count element in html
-  // var parent = document.getElementById("parentId");
-  // var nodesSameClass = parent.getElementsByClassName("test");
-  // console.log(nodesSameClass.length);
 </script>
 
-<script>
-  // when click image = click input
-  const input1 = document.querySelector(".inputH00001");
-  const input2 = document.querySelector(".inputH00002");
-  const input3 = document.querySelector(".inputH00003");
-  const input4 = document.querySelector(".inputH00004");
-  const input5 = document.querySelector(".inputH00005");
-  const input6 = document.querySelector(".inputH00006");
-  const input7 = document.querySelector(".inputH00007");
-  const input8 = document.querySelector(".inputH00008");
-  const input9 = document.querySelector(".inputH00009");
-  const img1 = document.querySelector(".imgH00001");
-  const img2 = document.querySelector(".imgH00002");
-  const img3 = document.querySelector(".imgH00003");
-  const img4 = document.querySelector(".imgH00004");
-  const img5 = document.querySelector(".imgH00005");
-  const img6 = document.querySelector(".imgH00006");
-  const img7 = document.querySelector(".imgH00007");
-  const img8 = document.querySelector(".imgH00008");
-  const img9 = document.querySelector(".imgH00009");
-
-  img1.onclick = () => {
-    input1.click();
-  }
-  img2.onclick = () => {
-    input2.click();
-  }
-  img3.onclick = () => {
-    input3.click();
-  }
-  img4.onclick = () => {
-    input4.click();
-  }
-  img5.onclick = () => {
-    input5.click();
-  }
-  img6.onclick = () => {
-    input6.click();
-  }
-  img7.onclick = () => {
-    input7.click();
-  }
-  img8.onclick = () => {
-    input8.click();
-  }
-  img9.onclick = () => {
-    input9.click();
-  }
-</script>
 <!-- slide img -->
 <script>
   var slideIndex = 1;

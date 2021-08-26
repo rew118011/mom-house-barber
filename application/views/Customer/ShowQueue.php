@@ -5,9 +5,9 @@
             <div class="wrapper-txt calendar-txt">
                 <ul class="dynamic-txts">
                     <li><span>คิวตัดผมที่คุณจอง</span></li>
-                    <li><span>จองคิวตัดผม</span></li>
-                    <li><span>จองคิวตัดผม</span></li>
-                    <li><span>จองคิวตัดผม</span></li>
+                    <li><span>คิวตัดผมที่คุณจอง</span></li>
+                    <li><span>คิวตัดผมที่คุณจอง</span></li>
+                    <li><span>คิวตัดผมที่คุณจอง</span></li>
                 </ul>
             </div>
             <div class="description">

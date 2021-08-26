@@ -11,7 +11,8 @@
             </div>
             <div class="description">
                 <p>
-                    ปฏิทินนี้ คือปฏิทินที่มีไว้สำหรับดูวันว่าวันไหนมีคิวเต็มแล้ว วันไหนมีคิวว่าง
+                    ปฏิทินนี้ คือปฏิทินที่มีไว้สำหรับดูวันว่าวันไหนมีคิวเต็มแล้ว วันไหนมีคิวว่าง 
+                    <span class="bracket">(</span> วันที่เต็มแล้วจะเป็น<span  class="text-color-red">สีแดง</span> <span class="bracket">)</span>
                 </p>
             </div>
         </div>
@@ -32,13 +33,13 @@
             </div>
             <div class="calendar-body">
                 <div class="calendar-week-day">
-                    <div>Sun</div>
-                    <div>Mon</div>
-                    <div>Tue</div>
-                    <div>Wed</div>
-                    <div>Thu</div>
-                    <div>Fri</div>
-                    <div>Sat</div>
+                    <div><span class="Sun">Sun</span></div>
+                    <div><span class="Mon">Mon</span></div>
+                    <div><span class="Tue">Tue</span></div>
+                    <div><span class="Wed">Wed</span></div>
+                    <div><span class="Thu">Thu</span></div>
+                    <div><span class="Fri">Fri</span></div>
+                    <div><span class="Sat">Sat</span></div>
                 </div>
                 <div class="calendar-days"></div>
             </div>

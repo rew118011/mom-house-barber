@@ -18,13 +18,14 @@ class Customer_Con extends CI_Controller
         $sess =  $this->session->userdata('Username');
         $data['CUSTOMER'] = $this->CM->getProfile($sess);
         // customer queue - query by username
-        $data['BARBER'] = $this->BKM->getBarber();
-        // customer queue - query by username
         $data['BOOKING'] = $this->CM->getBookingQueue($sess);
         // all barber
         $data['Barber'] = $this->AM->getBarberAll();
         // hairstyle
         $result['HS'] = $this->CM->get_HairStyle();
+        // booking and history booking in profile
+        $data['BOOKING'] = $this->CM->getBooking($sess);
+        $data['BH'] = $this->CM->getBookingHistory($sess);
 
         $this->load->view('Customer/Header');
         $this->load->view('Customer/Navbar', $data);
@@ -153,6 +154,14 @@ class Customer_Con extends CI_Controller
         } else { //กลับไปหน้าล็อคอิน
             redirect('');
         }
+    }
+
+    public function popupBarber()
+    {
+        $B_ID = $this->input->post('B_ID');
+        // get data 
+        $data = $this->CM->get_BarberByID($B_ID);
+        echo json_encode($data);
     }
 
     public function popupHair()

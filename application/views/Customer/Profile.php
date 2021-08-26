@@ -49,10 +49,72 @@ foreach ($CUSTOMER as $row) {
           <!-- booking -->
           <!-- booking history -->
           <div class="tabs_content booking" id="booking">
-            <p>booking</p>
+            <table class="barber-queue">
+              <thead>
+                <tr class="tr-barber-queue">
+                  <td></td>
+                  <td class="th-barber-queue">วันที่</td>
+                  <td class="th-barber-queue">เวลา</td>
+                  <td class="th-barber-queue">จองกับ</td>
+                  <td class="th-barber-queue">ราคา</td>
+                  <td class="th-barber-queue">สถานะ</td>
+                  <td></td>
+                </tr>
+              </thead>
+              <?php
+              foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+              ?>
+                <tbody>
+                  <tr id="<?php echo $row->BK_ID; ?>" class="tr-barber-queue">
+                    <td></td>
+                    <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
+                    <td class="td-barber-queue"><?php echo $row->ST_Time; ?></td>
+                    <td class="td-barber-queue booking-with">
+                      <p class="btn<?php echo $row->B_ID; ?> btnB">ช่าง<?php echo $row->B_Nickname; ?></p>
+                    </td>
+                    <td class="td-barber-queue"><?php echo $row->Price; ?> ฿</td>
+                    <td value="1" class="td-barber-queue status"><?php echo $row->Q_Status; ?></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              <?php
+              }
+              ?>
+            </table>
           </div>
           <div class="tabs_content history" id="history">
-            <p>history</p>
+            <table class="barber-queue">
+              <thead>
+                <tr class="tr-barber-queue">
+                  <td></td>
+                  <td class="th-barber-queue">วันที่</td>
+                  <td class="th-barber-queue">เวลา</td>
+                  <td class="th-barber-queue">จองกับ</td>
+                  <td class="th-barber-queue">ราคา</td>
+                  <td class="th-barber-queue">สถานะ</td>
+                  <td></td>
+                </tr>
+              </thead>
+              <?php
+              foreach ($BH as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+              ?>
+                <tbody>
+                  <tr id="<?php echo $row->BK_ID; ?>" class="tr-barber-queue">
+                    <td></td>
+                    <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
+                    <td class="td-barber-queue"><?php echo $row->ST_Time; ?></td>
+                    <td class="td-barber-queue booking-with">
+                      <p class="btn<?php echo $row->B_ID; ?> btnB">ช่าง<?php echo $row->B_Nickname; ?></p>
+                    </td>
+                    <td class="td-barber-queue"><?php echo $row->Price; ?> ฿</td>
+                    <td value="1" class="td-barber-queue status_all_orders"><?php echo $row->Q_Status; ?></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              <?php
+              }
+              ?>
+            </table>
           </div>
         </div>
       </div>

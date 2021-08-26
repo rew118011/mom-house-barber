@@ -32,21 +32,23 @@ generateCalendar = (month, year) => {
     let first_day = new Date(year, month, 1)
 
     for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
-        let booking = 2;
+        let booking = [1, 2, 3];
         let day = document.createElement('div')
         if (i >= first_day.getDay()) {
             day.classList.add('calendar-day-hover')
             day.id = "day";
             day.innerHTML = i - first_day.getDay() + 1
-            day.innerHTML += `<span></span>
-											<span></span>
-											<span></span>
-											<span></span>`
+            day.innerHTML += `<span class="line"></span>
+							  <span class="line"></span>
+							  <span class="line"></span>
+							  <span class="line"></span>
+                              <span class="tooltiptext">คิวเต็มแล้ว</span>
+                            `
             if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
                 day.classList.add('curr-date')
             }
-            if (i - first_day.getDay() + 1 === booking) {
-                day.classList.add('classTest')
+            if (i - first_day.getDay() + 1 === booking[0]) {
+                day.classList.add('FullQueue')
             }
         }
         calendar_days.appendChild(day)

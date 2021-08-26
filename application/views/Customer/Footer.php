@@ -3,44 +3,32 @@
 <!-- Footer -->
 <footer id="footer">
     <section>
-        <h2>Aliquam sed mauris</h2>
+        <h2>Mom House Barber</h2>
         <p>
-            Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.
+        ยินดีให้บริการอย่างมืออาชีพ โดยช่างที่ได้รับการฝึกฝนมาเป็นพิเศษ เข้าใจในการออกแบบทรงผมและเคราของผู้ชาย รวมถึงให้คำปรึกษา แนะนำทรงผมที่ตรงกับความต้องการและลักษณะเส้นผมของลูกค้าได้อย่างประทับใจ เก็บงานละเอียดมาก ๆ ด้วยอุปกรณ์คุณภาพอีกด้วยนะครับ
         </p>
-        <ul class="actions">
-            <li><a href="generic.html" class="button">Learn More</a></li>
-        </ul>
     </section>
     <section>
-        <h2>Etiam feugiat</h2>
+        <h2>ช่องทางติดต่อ</h2>
         <dl class="alt">
-            <dt>Address</dt>
-            <dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-            <dt>Phone</dt>
-            <dd>(000) 000-0000 x 0000</dd>
+            <dt>ที่อยู่</dt>
+            <dd>110 หมู่ 7 หนองปากโลง อำเภอเมืองนครปฐม นครปฐม 73000</dd>
+            <dt>เบอร์มือถือ</dt>
+            <dd>089 153 6345</dd>
             <dt>Email</dt>
-            <dd><a href="#">information@untitled.tld</a></dd>
+            <dd><a href="#">MomHouseBarber@gmail.com</a></dd>
         </dl>
         <ul class="icons">
             <li>
-                <a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a>
+                <a href="http://line.me/ti/p/~1412z" target="_blank"><i class="fab fa-line"></i></a>
             </li>
             <li>
-                <a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a>
-            </li>
-            <li>
-                <a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a>
-            </li>
-            <li>
-                <a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a>
-            </li>
-            <li>
-                <a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a>
+                <a href="https://www.facebook.com/profile.php?id=100070689433650" target="_blank"><i class="fab fa-facebook-square"></i></a>
             </li>
         </ul>
     </section>
     <p class="copyright">
-        &copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
+        &copy; Untitled. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>. and background image: <a href="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80" target="_blank">Unspash</a>.
     </p>
 </footer>
 <!-- Wrapper Finish -->
@@ -54,7 +42,7 @@
 <script src="<?php echo base_url(); ?>js/breakpoints.min.js"></script>
 <script src="<?php echo base_url(); ?>js/util.js"></script>
 <script src="<?php echo base_url(); ?>js/main.js"></script>
-<script src="<?php echo base_url(); ?>js/calendar.js"></script>
+<script src="<?php echo base_url(); ?>js/calendar2.js"></script>
 <script src="<?php echo base_url(); ?>js/NavbarActive.js"></script>
 </body>
 
