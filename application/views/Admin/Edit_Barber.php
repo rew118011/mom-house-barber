@@ -93,6 +93,30 @@
                                         <textarea type="text" name="B_Address"><?php echo $row->B_Address; ?></textarea>
                                     </div>
                                 </div>
+                                <div class="item">
+                                    <div class="field">
+                                        <p>ตำบล</p>
+                                        <input type="text" name="B_Sub_district" value="<?php echo $row->B_Sub_district; ?>" />
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="field">
+                                        <p>อำเภอ</p>
+                                        <textarea type="text" name="B_District"><?php echo $row->B_District; ?></textarea>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="field">
+                                        <p>จังหวัด</p>
+                                        <input type="text" name="B_Province" value="<?php echo $row->B_Province; ?>" />
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="field">
+                                        <p>รหัสไปรษณีย์</p>
+                                        <textarea type="text" name="B_Postal_Code"><?php echo $row->B_Postal_Code; ?></textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

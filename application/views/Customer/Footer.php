@@ -42,7 +42,7 @@
 <script src="<?php echo base_url(); ?>js/breakpoints.min.js"></script>
 <script src="<?php echo base_url(); ?>js/util.js"></script>
 <script src="<?php echo base_url(); ?>js/main.js"></script>
-<script src="<?php echo base_url(); ?>js/calendar2.js"></script>
+<script src="<?php echo base_url(); ?>js/calendar3.js"></script>
 <script src="<?php echo base_url(); ?>js/NavbarActive.js"></script>
 </body>
 

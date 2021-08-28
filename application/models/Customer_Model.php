@@ -69,7 +69,7 @@ class Customer_Model extends CI_Model
 			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
 			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
 			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
-			->join('hair_style', 'booking.H_ID = hair_style.H_ID', 'left')
+			->join('price', 'booking.P_ID = price.P_ID', 'left')
 			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
 			->where($where);
 		$query = $this->db->get('booking');
@@ -84,7 +84,7 @@ class Customer_Model extends CI_Model
 			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
 			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
 			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
-			->join('hair_style', 'booking.H_ID = hair_style.H_ID', 'left')
+			->join('price', 'booking.P_ID = price.P_ID', 'left')
 			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
 			->where($where);
 		$query = $this->db->get('booking');

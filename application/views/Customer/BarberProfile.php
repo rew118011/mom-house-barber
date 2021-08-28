@@ -1,56 +1,49 @@
-<section class="profile_area">
-    <div class="container">
-        <div class="profile">
-            <div class="profile_image">
-                <img src="<?php echo base_url(); ?>img/<?= $ID->B_Img; ?>">
-            </div>
-            <div class="profile_info">
-                <div class="profile_info--top">
-                    <h1><?php echo $ID->Username; ?></h1>
-                </div>
-                <div class="profile_info--center">
-                    <span>นาย <?php echo $ID->B_Name; ?> <?php echo $ID->B_Lname; ?></span>
-                    <span>เพศ <?php echo $ID->B_Sex; ?></span>
-                </div>
-                <div class="profile_info--bottom">
-                    <strong>☼" <?php echo $ID->B_Nickname; ?> "●</strong>
-                    <br />
-                    <p>
-                        [ "ธนายุทธ" ชื่อที่เเม่กูตั้ง มันคู่มากับ "สามสังข์" ที่พ่อกูให้
-                        ]<br />
-                        ◐" 𝙸 𝚑𝚊𝚟𝚎 𝚊 𝚍𝚛𝚎𝚊𝚖. 𝙰𝚗𝚍 𝚒 𝚠𝚒𝚕𝚕 𝚍𝚘 𝚒𝚝 " ◑<br />
-                    </p>
-                    <p>
-                        <a><i class="fas fa-mobile-alt"></i><?php echo $ID->B_Phone; ?></a>
-                    </p>
-                    <p>
-                        <?php echo $ID->B_Address; ?>
-                    </p>
-                </div>
-            </div>
+<!-- The Modal save_Image -->
+<div class="popupBarber">
+    <div class="popup-content barbar-all">
+        <div class="closeBarber">
+            <i class="fas fa-times"></i>
         </div>
-    </div>
-</section>
-
-<div class="profile_c_container_bottom">
-    <div class="skill">
-        <div class="skill-album">
-            <ul>
-                <li>
-                    <div class="progress-circle progress-<?= $ID->B_Skill_Score1; ?>"><span><?= $ID->B_Skill_Score1; ?></span></div><span>ตัดซอย</span>
-                </li>
-                <li>
-                    <div class="progress-circle progress-<?= $ID->B_Skill_Score2; ?>"><span><?= $ID->B_Skill_Score2; ?></span></div><span>ตัดมือ</span>
-                </li>
-                <li>
-                    <div class="progress-circle progress-<?= $ID->B_Skill_Score3; ?>"><span><?= $ID->B_Skill_Score3; ?></span></div><span>แต่งลาย</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="profile_c_tabs">
-        <div class="profile_c_icon active">
-            <i class="fas fa-bookmark sam"></i><span class="profile_c_strong">ผลงานของช่าง<?php echo $ID->B_Nickname; ?></span>
+        <div class="profile-content slide" id="profiles">
+            <section class="profile_area">
+                <div class="container">
+                    <div class="profile">
+                        <div class="profile_image profile_image-barber">
+                            <!-- img barber profile -->
+                        </div>
+                        <div class="profile_info">
+                            <div class="profile_info--top profile_info--top-barber">
+                                <h1>
+                                    <!-- username barber profile -->
+                                </h1>
+                            </div>
+                            <div class="profile_info--center profile_info--center-barber">
+                                <!-- nickname and name and lastname barber profile -->
+                            </div>
+                            <div class="profile_info--bottom profile_info--bottom-barber">
+                                <!-- sex barber profile -->
+                                <!-- phone barber profile -->
+                                <!-- facebook barber profile -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="tabs_area">
+                <div class="container">
+                    <div class="tabs">
+                        <div class="tab-item active barber-portfolio">
+                            <!-- portfolio barber profile -->
+                        </div>
+                    </div>
+                    <div class="slides">
+                        <!-- barber-booking -->
+                        <div class="tabs_content" id="barber-portfolio">
+                            <p>booking</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 </div>

@@ -141,7 +141,7 @@
                         $('.profile_info--center-barber').append('<p><i class="las la-signature"></i> <span>:</span> <span class="data">' + data['B_Nickname'] + ' <span>|</span> ' + data['B_Name'] + ' ' + data['B_Lname'] + '</span></p>');
                         $('.profile_info--bottom-barber').append('<p class="barber-sex"><i class="las la-transgender"></i> <span>:</span> <span class="data">' + data['B_Sex'] + '</span></p>');
                         $('.profile_info--bottom-barber').append('<p class="barber-phone"><i class="las la-phone-volume"></i> <span>:</span> <span class="data">' + data['B_Phone'] + '</span></p>');
-                        $('.profile_info--bottom-barber').append('<p class="barber-address"><i class="las la-map-marked-alt"></i> <span>:</span> <span class="data">' + data['B_Address'] + '</span></p>');
+                        $('.profile_info--bottom-barber').append('<p class="barber-address"><i class="las la-map-marked-alt"></i> <span>:</span> <span class="data">' + data['B_Address'] + ' ต.' + data['B_Sub_district'] + ' อ.' + data['B_District'] + ' จ.' + data['B_Province'] + '  รหัสไปรษณีย์ : ' + data['B_Postal_Code'] + '</span></p>');
                         $('.tabs_area .barber-portfolio').append('<a href="#barber-portfolio" class="portfolio"><i class="las la-bookmark"></i><span> ผลงานของช่าง' + data['B_Nickname'] + '</span></a>');
                     });
 

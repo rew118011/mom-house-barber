@@ -87,22 +87,22 @@
 							</div>
 							<div class="item">
 								<div class="field">
-									<input type="text" name="Tumbon" placeholder="ตำบล">
+									<input type="text" name="B_Sub_district" placeholder="ตำบล">
 								</div>
 							</div>
 							<div class="item">
 								<div class="field">
-									<input type="text" name="Aumpur" placeholder="อำเภอ">
+									<input type="text" name="B_District" placeholder="อำเภอ">
 								</div>
 							</div>
 							<div class="item">
 								<div class="field">
-									<input type="text" name="City" placeholder="จังหวัด">
+									<input type="text" name="B_Province" placeholder="จังหวัด">
 								</div>
 							</div>
 							<div class="item">
 								<div class="field">
-									<input type="text" name="Post_address" placeholder="รหัสไปรษณีย์">
+									<input type="text" name="B_Postal_Code" placeholder="รหัสไปรษณีย์">
 								</div>
 							</div>
 						</div>

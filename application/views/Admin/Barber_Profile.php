@@ -22,7 +22,7 @@
                                     <p>
                                         <i class="las la-transgender"></i> : <?php echo $ID->B_Sex; ?> <br>
                                         <i class="las la-phone-volume"></i> : <?php echo $ID->B_Phone; ?> <br>
-                                        <i class="las la-map-marked-alt"></i> : <?php echo $ID->B_Address; ?>
+                                        <i class="las la-map-marked-alt"></i> : <?php echo $ID->B_Address; ?> ต.<?php echo $ID->B_Sub_district; ?> อ.<?php echo $ID->B_District; ?> จ.<?php echo $ID->B_Province; ?> รหัสไปรษณีย์ : <?php echo $ID->B_Postal_Code; ?>
                                     </p>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                
+
                                 <div class="card-single">
                                     <div class="skill-album">
                                         <ul>

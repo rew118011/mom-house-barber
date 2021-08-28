@@ -198,20 +198,19 @@
           $('.price').find('span').remove();
 
           $.each(response, function(index, data) {
-            $('.image-H_Img1').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/<?php echo $row->H_Img1; ?>" />');
-            $('.image-H_Img2').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/<?php echo $row->H_Img2; ?>" />');
-            $('.image-H_Img3').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/<?php echo $row->H_Img3; ?>" />');
-            $('.image-H_Img4').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/<?php echo $row->H_Img4; ?>" />');
-            $('.text1').append('<span>ด้านขวา ของทรงผม ' + data['H_Name'] + '</span>');
-            $('.text2').append('<span>ด้านซ้าย ของทรงผม ' + data['H_Name'] + '</span>');
-            $('.text3').append('<span>ด้านหน้า ของทรงผม ' + data['H_Name'] + '</span>');
-            $('.text4').append('<span>ด้านบน ของทรงผม ' + data['H_Name'] + '</span>');
+            $('.image-H_Img1').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/' + data['H_Img1'] + '" />');
+            $('.image-H_Img2').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/' + data['H_Img2'] + '" />');
+            $('.image-H_Img3').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/' + data['H_Img3'] + '" />');
+            $('.image-H_Img4').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/' + data['H_Img4'] + '" />');
+            $('.text1').append('<span>' + data['H_Shooting1'] + '</span>');
+            $('.text2').append('<span>' + data['H_Shooting2'] + '</span>');
+            $('.text3').append('<span>' + data['H_Shooting3'] + '</span>');
+            $('.text4').append('<span>' + data['H_Shooting4'] + '</span>');
             $('.product-title').append('<span>' + data['H_Name'] + '</span>');
             $('.product-detail').append('<p class="Hname">ผมทรง' + data['H_Name'] + '</p>');
             $('.product-detail').append('<p class="Hprice"><span class="space"></span>' + data['H_Detail'] + '</p>');
             $('.price').append('<span>' + data['Price'] + '.00 ฿</span>');
           });
-
         }
       });
     });

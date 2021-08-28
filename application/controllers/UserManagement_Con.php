@@ -50,6 +50,10 @@ class UserManagement_Con extends CI_Controller
         $this->form_validation->set_rules('B_Phone', 'เบอร์โทร', 'required|is_natural|exact_length[10]');
         //สร้างกฏสำหรับ Username 'required'คือต้องไม่เป็นค่าว่าง หรือ มีตัวอักษรอย่างน้อย 6 ตัว หรือ ตัวอักษรและตัวเลข
         $this->form_validation->set_rules('B_Address', 'ที่อยู่', 'required');
+        $this->form_validation->set_rules('B_Sub_district', 'ที่อยู่', 'required');
+        $this->form_validation->set_rules('B_District', 'ที่อยู่', 'required');
+        $this->form_validation->set_rules('B_Province', 'ที่อยู่', 'required');
+        $this->form_validation->set_rules('B_Postal_Code', 'ที่อยู่', 'required');
         $this->form_validation->set_rules('Username', 'รหัสผู้ใช้', 'required|min_length[6]'); //สร้างกฏสำหรับ Username 'required'คือต้องไม่เป็นค่าว่าง
         $this->form_validation->set_rules('Password', 'รหัสผ่าน', 'required|min_length[6]');
         $this->form_validation->set_error_delimiters('<font color=red>', '</font>');
@@ -65,6 +69,10 @@ class UserManagement_Con extends CI_Controller
                     'B_Sex' => $this->input->post("B_Sex"),
                     'B_Phone' => $this->input->post("B_Phone"),
                     'B_Address' => $this->input->post("B_Address"),
+                    'B_Sub_district' => $this->input->post("B_Sub_district"),
+                    'B_District' => $this->input->post("B_District"),
+                    'B_Province' => $this->input->post("B_Province"),
+                    'B_Postal_Code' => $this->input->post("B_Postal_Code"),
                     'Username' => $this->input->post("Username"),
                     'B_Img' => $this->input->post("B_Img"),
                     'B_Skill1' => $this->input->post("B_Skill1"),
@@ -112,6 +120,10 @@ class UserManagement_Con extends CI_Controller
             'B_Sex' => $this->input->post("B_Sex"),
             'B_Phone' => $this->input->post("B_Phone"),
             'B_Address' => $this->input->post("B_Address"),
+            'B_Sub_district' => $this->input->post("B_Sub_district"),
+            'B_District' => $this->input->post("B_District"),
+            'B_Province' => $this->input->post("B_Province"),
+            'B_Postal_Code' => $this->input->post("B_Postal_Code"),
             'B_Skill1' => $this->input->post("B_Skill1"),
             'B_Skill_Score1' => $this->input->post("B_Skill_Score1"),
             'B_Skill2' => $this->input->post("B_Skill2"),

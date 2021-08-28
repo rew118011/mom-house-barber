@@ -49,7 +49,7 @@ class Admin_Model extends CI_Model
 			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
 			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
 			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
-			->join('hair_style', 'booking.H_ID = hair_style.H_ID', 'left')
+			->join('price', 'booking.P_ID = price.P_ID', 'left')
 			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
 			->order_by('booking.BK_Year', "ASC")
 			->order_by('booking.BK_Month', "ASC")
@@ -86,7 +86,7 @@ class Admin_Model extends CI_Model
 			->join('customer', 'booking.C_ID = customer.C_ID', 'left')
 			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
 			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
-			->join('hair_style', 'booking.H_ID = hair_style.H_ID', 'left')
+			->join('price', 'booking.P_ID = price.P_ID', 'left')
 			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
 			->order_by('booking.BK_Year', "DESC")
 			->order_by('booking.BK_Month', "DESC")
@@ -116,13 +116,6 @@ class Admin_Model extends CI_Model
 		return $query->result();
 	}
 
-	function get_HairStyle()
-	{
-		$this->db->select('*'); //เลือกจากตารางทั้งหมด
-		$result = $this->db->get('hair_style');   //result เก็บค่าที่ get หรือ select จากตาราง hair_style ไว้
-		return $result;
-	}
-
 	function getCustomerAndBooking()
 	{
 		$this->db->select('*');
@@ -135,17 +128,6 @@ class Admin_Model extends CI_Model
 		$query = $this->db->where('B_ID', $id) //จากนั้นทำการค้นหาแบบกำหนดเงื่อนไขจากฟิลด์ B_ID ถ้า $id ที่รับมาตรงกับ B_ID
 			->get('barber'); //ให้ทำการค้นหาจากตาราง barber
 		return $query->row(); //จากนั้นนำค่า $query ส่งค่าเป็น object โดยจะส่งข้อมูลออกมาเพียง เรคอร์ดเดียว กลับไปที่ Customer_Con
-	}
-
-	function deleteHairstyle($id)
-	{    //ฟังชั่น deleteBarber จากนั้น รับตัวแปร $id มา
-		$query = $this->db->where('H_ID', $id) // เรียกใช้ฟังชั่น where จากนั้น กำหนดเงื่อนไขจากฟิล B_ID แล้วทำการเช็กตัวแปร $id ว่าตรงกับข้อมูลในฟิลไหม
-			->delete('hair_style'); // เรียกใชฟังชั่น delete โดยลบจากตาราง barber
-		if ($query) {
-			return TRUE;
-		} else {
-			return FALSE;
-		}
 	}
 
 	function getCustomerByAdmin($id) //ฟังก์ชั่น getBarberByCustomer โดยรับค่าพารามิเตอร์ $id มาจาก Customer_Con
@@ -215,27 +197,27 @@ class Admin_Model extends CI_Model
 
 	function getTotal()
 	{
-		$query = $this->db->query("SELECT SUM(hair_style.Price*( Q_ID = 2))  as Total FROM booking,hair_style");
+		$query = $this->db->query("SELECT SUM(price.Price*( Q_ID = 2))  as Total FROM booking,price");
 		return $query->result();
 	}
 
 
 	function getTotalOfMonth()
 	{
-		$query = $this->db->query("SELECT SUM(hair_style.Price*( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 2))  as B_Total FROM booking,hair_style");
+		$query = $this->db->query("SELECT SUM(price.Price*( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 2))  as B_Total FROM booking,price");
 		return $query->result();
 	}
 
 	function getTotalQueue()
 	{
-		$query = $this->db->query("SELECT SUM(hair_style.Price*( Q_ID = 1))  as Total FROM booking,hair_style");
+		$query = $this->db->query("SELECT SUM(price.Price*( Q_ID = 1))  as Total FROM booking,price");
 		return $query->result();
 	}
 
 
 	function getTotalQueueOfMonth()
 	{
-		$query = $this->db->query("SELECT SUM(hair_style.Price*( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 1))  as B_Total FROM booking,hair_style");
+		$query = $this->db->query("SELECT SUM(price.Price*( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) AND Q_ID = 1))  as B_Total FROM booking,price");
 		return $query->result();
 	}
 
@@ -337,10 +319,10 @@ class Admin_Model extends CI_Model
 	function getBarberIncome($income)
 	{
 		$sql = "SELECT barber.*,
-		cast((hair_style.Price*barber.B_Percent/100*
+		cast((price.Price*barber.B_Percent/100*
 		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='$income' and Q_ID=2 )+barber.B_Salary )
 		as decimal(18,0)) AS B_Total
-		FROM booking,hair_style,barber
+		FROM booking,price,barber
 		WHERE barber.B_ID='$income'";
 		$query = $this->db->query($sql);
 		return  $query->result();
@@ -349,10 +331,10 @@ class Admin_Model extends CI_Model
 	function getBarberIncomeByBID($id)
 	{
 		$query = $this->db->query("SELECT  barber.*,
-		cast((hair_style.Price*barber.B_Percent/100*
+		cast((price.Price*barber.B_Percent/100*
 		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='$id' and Q_ID=2 )+barber.B_Salary )
 		as decimal(18,0)) AS B_Total
-		FROM booking,hair_style,barber
+		FROM booking,price,barber
 		WHERE barber.B_ID='$id'");
 		return $query->result();
 	}
@@ -364,10 +346,10 @@ class Admin_Model extends CI_Model
 	function getBarberProfileIncome($id)
 	{
 		$query = $this->db->query("SELECT barber.*,
-			hair_style.Price*barber.B_Percent/100*
+			price.Price*barber.B_Percent/100*
 			SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='$id' and Q_ID=2 )+barber.B_Salary 
 			as B_Total
-			FROM booking,hair_style,barber
+			FROM booking,price,barber
 			WHERE barber.B_ID='$id'
 			");
 		return $query->result();
@@ -398,10 +380,10 @@ class Admin_Model extends CI_Model
 	function getBarberIncomeByID($id)
 	{
 		$query = $this->db->query("SELECT barber.*,
-		cast((hair_style.Price*barber.B_Percent/100*
+		cast((price.Price*barber.B_Percent/100*
 		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='$id' and Q_ID=2 )+barber.B_Salary )
 		as decimal(18,0)) AS B_Total
-		FROM booking,hair_style,barber
+		FROM booking,price,barber
 		WHERE barber.B_ID='$id'");
 		return $query->result();
 	}
@@ -573,10 +555,54 @@ class Admin_Model extends CI_Model
 		$row = $query->last_row();    //นำ query มาหาแถวสุดท้าย จากนั้นเก็บค่าไว้ในตัวแปล row
 		if ($row) {    //เมื่อ row สำเร็จ
 			$idPostfix = (int)substr($row->H_ID, 2) + 1; //นำตัวเลขมาตัดสติง จากนั้นเฟด B_ID ขึ้นมาตำแหน่งปัจจุบันและให้ + 1
-			$nextId = 'H' . STR_PAD((string)$idPostfix, 6, "0", STR_PAD_LEFT); //เติมตัว BK เข้าไปในตำแหน่งที่แก้ไข และเติม 0 ไป 6 ตำแหน่งจากฝั่งซ้าย
+			$nextId = 'H' . STR_PAD((string)$idPostfix, 5, "0", STR_PAD_LEFT); //เติมตัว BK เข้าไปในตำแหน่งที่แก้ไข และเติม 0 ไป 6 ตำแหน่งจากฝั่งซ้าย
 		} else {
-			$nextId = 'H000001';
+			$nextId = 'H00001';
 		} //ถ้าไม่ใช่ ให้เริ่มต้นที่ BK00001
 		return $nextId;    //คืนค่า nextId
 	}
+
+	function get_HairStyle()
+	{
+		$this->db->select('*'); //เลือกจากตารางทั้งหมด
+		$result = $this->db->get('hair_style');   //result เก็บค่าที่ get หรือ select จากตาราง hair_style ไว้
+		return $result;
+	}
+
+	function get_HairStyleByID($H_ID)
+    {
+
+        $response  = array();
+        $query = $this->db->query("SELECT * FROM `hair_style` WHERE H_ID = '$H_ID';");
+        $response  = $query->result_array();
+        return  $response ;
+    }
+
+	function createHairstyle($data)
+	{
+		$this->db->insert('hair_style', $data);
+	}
+
+	function setHairstyle($data)
+	{
+		$query = $this->db->where('H_ID', $data['H_ID'])
+			->update('hair_style', $data);
+		if ($query) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	function deleteHairstyle($id)
+	{    //ฟังชั่น deleteBarber จากนั้น รับตัวแปร $id มา
+		$query = $this->db->where('H_ID', $id) // เรียกใช้ฟังชั่น where จากนั้น กำหนดเงื่อนไขจากฟิล B_ID แล้วทำการเช็กตัวแปร $id ว่าตรงกับข้อมูลในฟิลไหม
+			->delete('hair_style'); // เรียกใชฟังชั่น delete โดยลบจากตาราง barber
+		if ($query) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
 }
