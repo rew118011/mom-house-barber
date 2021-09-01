@@ -5,7 +5,8 @@
 				<div class="card-header">
 					<h3>เพิ่มช่างตัดผม</h3>
 				</div>
-				<form action="http://localhost/Mom_House_Barber/index.php/UserManagement_Con/insert_barber" method="post">
+				<!-- <form action="<?php echo site_url('UserManagement_Con/insert_barber'); ?>" method="POST" enctype="multipart/form-data"> -->
+				<form action="<?php echo site_url('UserManagement_Con/insert_barber'); ?>" method="POST">
 					<div class="card-body-create-barber">
 						<div class="card-header">
 							<p>ข้อมูลการผู้ใช้</p>
@@ -13,11 +14,13 @@
 						<div class="flexbox">
 							<div class="item">
 								<div class="field flex">
-									<input class="Display-non" type="text" name="B_Img" value="user.png" placeholder="BarberImg" required>
+
 									<div class="profile_image">
-										<img class="img-barber-queue" name="B_Img" src="<?php echo base_url(); ?>img/img_user_placeholder.jpg" />
+										<input class="Display-non" type="text" name="B_Img" value="user.png" placeholder="BarberImg" required>
+										<!-- <input class="inputB_Img" onchange="previewImgProfile()" type="file" name="B_Img" style="display: none;"> -->
+										<img class="img-barber-queue addB_Img" src="" onerror="this.src='<?php echo base_url(); ?>img/img_user_placeholder.jpg'">
 									</div>
-									<p>อัปโหลดภาพ</p>
+									<p class="upload-img">อัปโหลดภาพ</p>
 								</div>
 							</div>
 							<div class="item">
@@ -175,3 +178,30 @@
 	</div>
 </main>
 </div>
+
+<script>
+	const AddImgProfile = document.querySelector(".addB_Img");
+	const btnAddImgProfile = document.querySelector(".upload-img");
+	const inputB_Img = document.querySelector(".inputB_Img");
+	AddImgProfile.onclick = () => {
+		inputB_Img.click();
+	}
+	btnAddImgProfile.onclick = () => {
+		inputB_Img.click();
+	}
+
+	function previewImgProfile() {
+		const preview = document.querySelector('.addB_Img');
+		const file = document.querySelector('.inputB_Img').files[0];
+		const reader = new FileReader();
+
+		reader.addEventListener("load", function() {
+			// convert image file to base64 string
+			preview.src = reader.result;
+		}, false);
+
+		if (file) {
+			reader.readAsDataURL(file);
+		}
+	}
+</script>

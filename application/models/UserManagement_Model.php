@@ -50,10 +50,20 @@ class UserManagement_Model extends CI_Model
 		return $nextId;	//คืนค่า nextId
 	}
 
-	function deleteBarber($id)
+	function deleteBarber($username)
 	{    //ฟังชั่น deleteBarber จากนั้น รับตัวแปร $id มา
-		$query = $this->db->where('B_ID', $id) // เรียกใช้ฟังชั่น where จากนั้น กำหนดเงื่อนไขจากฟิล B_ID แล้วทำการเช็กตัวแปร $id ว่าตรงกับข้อมูลในฟิลไหม
+		$query = $this->db->where('Username', $username) // เรียกใช้ฟังชั่น where จากนั้น กำหนดเงื่อนไขจากฟิล B_ID แล้วทำการเช็กตัวแปร $id ว่าตรงกับข้อมูลในฟิลไหม
 			->delete('barber'); // เรียกใชฟังชั่น delete โดยลบจากตาราง barber
+		if ($query) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+	function deleteBarberLogin($username)
+	{    //ฟังชั่น deleteBarber จากนั้น รับตัวแปร $id มา
+		$query = $this->db->where('Username', $username) // เรียกใช้ฟังชั่น where จากนั้น กำหนดเงื่อนไขจากฟิล B_ID แล้วทำการเช็กตัวแปร $id ว่าตรงกับข้อมูลในฟิลไหม
+			->delete('login'); // เรียกใชฟังชั่น delete โดยลบจากตาราง barber
 		if ($query) {
 			return TRUE;
 		} else {

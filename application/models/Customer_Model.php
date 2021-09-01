@@ -140,10 +140,6 @@ class Customer_Model extends CI_Model
 	}
 	function get_HairStyle()
 	{
-		// $this->db->select('*'); //เลือกจากตารางทั้งหมด
-		// $result = $this->db->get('hair_style');   //result เก็บค่าที่ get หรือ select จากตาราง hair_style ไว้
-		// return $result;
-
 		$this->db->select('*');
 		$query = $this->db->get('hair_style');
 		return $query->result();
@@ -157,5 +153,42 @@ class Customer_Model extends CI_Model
         $response  = $query->result_array();
         return  $response ;
     }
+
+	function numClose()
+	{
+		$query = $this->db->query("SELECT OB_DATE FROM `close_branch`");
+		return $query->num_rows();
+	}
+	function numFullQueue()
+	{
+		$query = $this->db->query("SELECT BK_Year,BK_Month,BK_Day FROM `booking` WHERE BK_ID  in ('BK000001', 'BK000005', 'BK000010', 'BK000014')");
+		return $query->num_rows();
+	}
+	function FullQueue()
+	{
+		$query = $this->db->query("SELECT BK_Year,BK_Month,BK_Day FROM `booking` WHERE BK_ID  in ('BK000001', 'BK000005', 'BK000010', 'BK000014')");
+		return $query->result();
+	}
+	function CloseYear()
+	{
+		$query = $this->db->query("SELECT YEAR(OB_DATE) AS Year FROM `close_branch`");
+		return $query->result();
+	}
+	function CloseMonth()
+	{
+		$query = $this->db->query("SELECT MONTH(OB_DATE) AS Month FROM `close_branch`");
+		return $query->result();
+	}
+	function CloseDay()
+	{
+		$query = $this->db->query("SELECT DAY(OB_DATE) AS Day FROM `close_branch`");
+		return $query->result();
+	}
+
+	function Test()
+	{
+		$query = $this->db->query("SELECT YEAR(OB_DATE) AS Year FROM `close_branch` WHERE OB_ID = 'OB000008'");
+		return $query->result();
+	}
 
 }

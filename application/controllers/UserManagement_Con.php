@@ -50,10 +50,10 @@ class UserManagement_Con extends CI_Controller
         $this->form_validation->set_rules('B_Phone', 'เบอร์โทร', 'required|is_natural|exact_length[10]');
         //สร้างกฏสำหรับ Username 'required'คือต้องไม่เป็นค่าว่าง หรือ มีตัวอักษรอย่างน้อย 6 ตัว หรือ ตัวอักษรและตัวเลข
         $this->form_validation->set_rules('B_Address', 'ที่อยู่', 'required');
-        $this->form_validation->set_rules('B_Sub_district', 'ที่อยู่', 'required');
-        $this->form_validation->set_rules('B_District', 'ที่อยู่', 'required');
-        $this->form_validation->set_rules('B_Province', 'ที่อยู่', 'required');
-        $this->form_validation->set_rules('B_Postal_Code', 'ที่อยู่', 'required');
+        $this->form_validation->set_rules('B_Sub_district', 'ตำบล', 'required');
+        $this->form_validation->set_rules('B_District', 'อำเภอ', 'required');
+        $this->form_validation->set_rules('B_Province', 'จังหวัด', 'required');
+        $this->form_validation->set_rules('B_Postal_Code', 'รหัสไปรษณีย์', 'required');
         $this->form_validation->set_rules('Username', 'รหัสผู้ใช้', 'required|min_length[6]'); //สร้างกฏสำหรับ Username 'required'คือต้องไม่เป็นค่าว่าง
         $this->form_validation->set_rules('Password', 'รหัสผ่าน', 'required|min_length[6]');
         $this->form_validation->set_error_delimiters('<font color=red>', '</font>');
@@ -143,9 +143,10 @@ class UserManagement_Con extends CI_Controller
             redirect('Admin_Con/getBarberAll', 'refresh');
         }
     }
-    public function deleteBarber($id)
+    public function deleteBarber($username)
     {
-        $data['BARBER'] = $this->UMM->deleteBarber($id);
+        $data['BARBER'] = $this->UMM->deleteBarber($username);
+        $data['BARBER'] = $this->UMM->deleteBarberLogin($username);
         redirect('Admin_Con/getBarberAll', 'refresh');
     }
 }

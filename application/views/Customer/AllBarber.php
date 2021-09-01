@@ -91,7 +91,7 @@
     // var inputHairStyle = cardHairStyle.getElementsByClassName("inputH");
     const btnB = "btnB0000";
     const inputB = "inputH0000";
-    console.log("barber" + " " + btnBarber.length);
+    // console.log("barber" + " " + btnBarber.length);
 
     // loop query.selectorClassList
     for (let i = 1; i <= btnBarber.length; i++) {
@@ -102,11 +102,11 @@
         document.querySelector(".closeBarber").addEventListener("click", function() {
             document.querySelector(".popupBarber").style.display = "none";
         })
-        console.log(btnB + i);
+        // console.log(btnB + i);
         // build variable document.querySelector input radio and btn class imgID
         const inputBID = document.querySelector(".inputB0000" + i);
         const btnBarber = document.querySelector(".btnB0000" + i);
-        // console.log(inputID);
+        // console.log(inputBID);
         // console.log(img);
 
         // when click btn read more = click input radio

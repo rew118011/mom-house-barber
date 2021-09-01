@@ -22,7 +22,7 @@ generateCalendar = (month, year) => {
     let currDate = new Date()
     if (!month) month = currDate.getMonth()
     if (!year) year = currDate.getFullYear()
-    console.log(year);
+
     let curr_month = `${month_names[month]}`
     month_picker.innerHTML = curr_month
     calendar_header_year.innerHTML = year
@@ -32,34 +32,26 @@ generateCalendar = (month, year) => {
     let first_day = new Date(year, month, 1)
 
     for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
-
-        let bookingY = 2021;
-        let bookingM = 08;
-        let bookingD = 29;
-
+        let booking = 2;
         let day = document.createElement('div')
         if (i >= first_day.getDay()) {
             day.classList.add('calendar-day-hover')
             day.id = "day";
             day.innerHTML = i - first_day.getDay() + 1
-            day.innerHTML += `<span class="line"></span>
-							  <span class="line"></span>
-							  <span class="line"></span>
-							  <span class="line"></span>
-                              <span class="tooltiptext">คิวเต็มแล้ว</span>
-                            `
-            if (i - first_day.getDay() + 1 === currDate.getDate() && month === currDate.getMonth() && year === currDate.getFullYear()) {
+            day.innerHTML += `<span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>`
+            if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
                 day.classList.add('curr-date')
             }
-            if (i - first_day.getDay() + 1 === bookingD && month === bookingM - 1 && year === bookingY) {
-                day.classList.add('FullQueue')
+            if (i - first_day.getDay() + 1 === booking) {
+                day.classList.add('classTest')
             }
-
         }
         calendar_days.appendChild(day)
     }
 }
-
 
 let month_list = calendar.querySelector('.month-list')
 

@@ -94,7 +94,7 @@ class Booking_Con extends CI_Controller
                     'BK_Month' => $this->input->post('BK_Month'),
                     'BK_Year' => $this->input->post('BK_Year'),
                     'ST_ID' => $this->input->post('ST_ID'),
-                    'H_ID' => $this->input->post('H_ID'),
+                    'P_ID' => $this->input->post('P_ID'),
                     'Q_ID' => $this->input->post('Q_ID')
                 );
                 $check = $this->BKM->createBookingQueueByCustomer($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล

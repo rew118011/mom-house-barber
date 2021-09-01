@@ -14,7 +14,6 @@ class Customer_Con extends CI_Controller
     }
     function index()
     {
-
         $sess =  $this->session->userdata('Username');
         $data['CUSTOMER'] = $this->CM->getProfile($sess);
         // customer queue - query by username
@@ -27,6 +26,13 @@ class Customer_Con extends CI_Controller
         $data['BOOKING'] = $this->CM->getBooking($sess);
         $data['BH'] = $this->CM->getBookingHistory($sess);
 
+        $data['NUMFUULQUEUE'] = $this->CM->numFullQueue();
+        $data['NUMCLOSE'] = $this->CM->numClose();
+        $data['FULLQUEUE'] = $this->CM->FullQueue();
+        $data['CLOSEYEAR'] = $this->CM->CloseYear();
+        $data['CLOSEMONTH'] = $this->CM->CloseMonth();
+        $data['CLOSEDAY'] = $this->CM->CloseDay();
+
         $this->load->view('Customer/Header');
         $this->load->view('Customer/Navbar', $data);
         $this->load->view('Customer/Profile', $data);
@@ -37,7 +43,7 @@ class Customer_Con extends CI_Controller
         $this->load->view('Customer/Calendar');
         $this->load->view('Customer/AllBarber', $data);
         $this->load->view('Customer/Hairstyle', $result);
-        $this->load->view('Customer/Footer');
+        $this->load->view('Customer/Footer', $data);
     }
 
     function save_profile() //ฟังก์ชั่น update customer

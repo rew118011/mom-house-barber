@@ -52,7 +52,7 @@
                     <a class="queue-edit" href="<?php echo site_url('UserManagement_Con/setBarber/' . $row->B_ID); ?>"><i class="fas fa-pen-square"></i></a>
                   </td>
                   <td class="td-barber-queue">
-                    <a class="queue-cancel" href="<?php echo site_url('UserManagement_Con/deleteBarber/' . $row->B_ID); ?>" onclick="return confirm('ยืนยัน');"><i class="fas fa-window-close"></i></a>
+                    <a class="queue-cancel" href="<?php echo site_url('UserManagement_Con/deleteBarber/' . $row->Username); ?>" onclick="return confirm('ยืนยัน');"><i class="fas fa-window-close"></i></a>
                   </td>
                   <td></td>
                 </tr>

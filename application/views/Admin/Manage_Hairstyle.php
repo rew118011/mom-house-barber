@@ -262,7 +262,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         btnSet.onclick = () => {
             inputID.click();
         }
-        $(".btnEditH0000" + i).on("click", function() {
+        $(".btnEditH0000" + i   ).on("click", function() {
             $(window).scrollTop(0);
         });
     }

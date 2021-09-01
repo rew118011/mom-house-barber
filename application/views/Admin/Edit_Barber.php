@@ -8,7 +8,7 @@
                 <?php
                 foreach ($BARBER as $row) {
                 ?>
-                    <form action="http://localhost/Mom_House_Barber/index.php/UserManagement_Con/save_barber" method="post">
+                    <form action="<?php echo site_url('UserManagement_Con/save_barber'); ?>" method="POST" enctype="multipart/form-data">
                         <div class="card-body-create-barber">
                             <div class="card-header">
                                 <p>ข้อมูลการผู้ใช้</p>
@@ -17,9 +17,10 @@
                                 <div class="item">
                                     <div class="field flex">
                                         <div class="profile_image">
-                                            <img name="B_Img" src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
+                                            <input class="inputEditB_Img" onchange="previewImgProfile()" type="file" name="B_Img" value="<?php echo $row->B_Img ?>" accept="image/*" hidden>
+                                            <img class="EditB_Img" name="B_Img" src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" />
                                         </div>
-                                        <p>อัปโหลดภาพ</p>
+                                        <p class="edit-img">อัปโหลดภาพ</p>
                                     </div>
                                 </div>
                                 <div class="item">
@@ -196,3 +197,29 @@
     </div>
 </main>
 </div>
+<script>
+	const EditImgProfile = document.querySelector(".EditB_Img");
+	const btnEditImgProfile = document.querySelector(".edit-img");
+	const inputEditB_Img = document.querySelector(".inputEditB_Img");
+	EditImgProfile.onclick = () => {
+		inputEditB_Img.click();
+	}
+	btnEditImgProfile.onclick = () => {
+		inputEditB_Img.click();
+	}
+
+	function previewImgProfile() {
+		const preview = document.querySelector('.EditB_Img');
+		const file = document.querySelector('.inputEditB_Img').files[0];
+		const reader = new FileReader();
+
+		reader.addEventListener("load", function() {
+			// convert image file to base64 string
+			preview.src = reader.result;
+		}, false);
+
+		if (file) {
+			reader.readAsDataURL(file);
+		}
+	}
+</script>

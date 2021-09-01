@@ -56,7 +56,7 @@
 				</div>
 			</div>
 			<!-- select barber finish -->
-			<input style="display: none;" type="text" name="H_ID" value="H00001" required>
+			<input style="display: none;" type="text" name="P_ID" value="1" required>
 			<input style="display: none;" type="text" name="Q_ID" value="1" required>
 
 			<!-- select slot time start -->
@@ -148,7 +148,6 @@
 									alert("วันที่" + " " + BK_Date + " " + "ร้านปิดค่ะ");
 									return;
 								}
-
 							}
 						});
 					} else {

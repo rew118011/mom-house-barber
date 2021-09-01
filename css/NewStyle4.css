@@ -496,12 +496,6 @@ hr.major {
     text-align: right;
 }
 
-input,
-select,
-textarea {
-    color: #ffffff;
-}
-
 a:hover {
     color: #ffffff;
 }
@@ -1742,363 +1736,6 @@ hr {
 
 /* Button */
 
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button,
-.button {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    border-radius: 8px;
-    border: 0;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 300;
-    height: 2.75em;
-    line-height: 2.75em;
-    min-width: 9.25em;
-    padding: 0 1.5em;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-input[type="submit"].icon,
-input[type="reset"].icon,
-input[type="button"].icon,
-button.icon,
-.button.icon {
-    padding-left: 1.35em;
-}
-
-input[type="submit"].icon:before,
-input[type="reset"].icon:before,
-input[type="button"].icon:before,
-button.icon:before,
-.button.icon:before {
-    margin-right: 0.5em;
-}
-
-input[type="submit"].fit,
-input[type="reset"].fit,
-input[type="button"].fit,
-button.fit,
-.button.fit {
-    width: 100%;
-}
-
-input[type="submit"].small,
-input[type="reset"].small,
-input[type="button"].small,
-button.small,
-.button.small {
-    font-size: 0.8em;
-}
-
-input[type="submit"].large,
-input[type="reset"].large,
-input[type="button"].large,
-button.large,
-.button.large {
-    font-size: 1.35em;
-}
-
-input[type="submit"].disabled,
-input[type="submit"]:disabled,
-input[type="reset"].disabled,
-input[type="reset"]:disabled,
-input[type="button"].disabled,
-input[type="button"]:disabled,
-button.disabled,
-button:disabled,
-.button.disabled,
-.button:disabled {
-    pointer-events: none;
-    opacity: 0.25;
-}
-
-@media screen and (max-width: 736px) {
-    input[type="submit"],
-    input[type="reset"],
-    input[type="button"],
-    button,
-    .button {
-        min-width: 0;
-    }
-}
-
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button,
-.button {
-    background-color: transparent;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.856);
-    color: var(--text--color--light) !important;
-}
-
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
-button:hover,
-.button:hover {
-    background-color: rgba(255, 255, 255, 0.37);
-}
-
-input[type="submit"]:active,
-input[type="reset"]:active,
-input[type="button"]:active,
-button:active,
-.button:active {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-input[type="submit"].icon:before,
-input[type="reset"].icon:before,
-input[type="button"].icon:before,
-button.icon:before,
-.button.icon:before {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-input[type="submit"].primary,
-input[type="reset"].primary,
-input[type="button"].primary,
-button.primary,
-.button.primary {
-    background-color: var(--yellow-dark);
-    color: #ffffff !important;
-    box-shadow: none;
-}
-
-input[type="submit"].primary:hover,
-input[type="reset"].primary:hover,
-input[type="button"].primary:hover,
-button.primary:hover,
-.button.primary:hover {
-    background-color: var(--yellow-dark);
-}
-
-input[type="submit"].primary:active,
-input[type="reset"].primary:active,
-input[type="button"].primary:active,
-button.primary:active,
-.button.primary:active {
-    background-color: var(--yellow-dark);
-}
-
-input[type="submit"].primary.icon:before,
-input[type="reset"].primary.icon:before,
-input[type="button"].primary.icon:before,
-button.primary.icon:before,
-.button.primary.icon:before {
-    color: #ffffff !important;
-}
-
-
-/* Form */
-
-form {
-    margin: 0 0 2em 0;
-}
-
-label {
-    display: block;
-    font-size: 0.9em;
-    font-weight: 400;
-    margin: 0 0 1em 0;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-select,
-textarea {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    border-radius: 8px;
-    border: solid 1px;
-    color: inherit;
-    display: block;
-    outline: 0;
-    padding: 0 1em;
-    text-decoration: none;
-    width: 100%;
-}
-
-input[type="text"]:invalid,
-input[type="password"]:invalid,
-input[type="email"]:invalid,
-select:invalid,
-textarea:invalid {
-    box-shadow: none;
-}
-
-select {
-    background-size: 1.25rem;
-    background-repeat: no-repeat;
-    background-position: calc(100% - 1rem) center;
-    height: 2.75em;
-    padding-right: 2.75em;
-    text-overflow: ellipsis;
-}
-
-select:focus::-ms-value {
-    background-color: transparent;
-}
-
-select::-ms-expand {
-    display: none;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-select {
-    height: 2.75em;
-}
-
-textarea {
-    padding: 0.75em 1em;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    display: block;
-    float: left;
-    margin-right: -2em;
-    opacity: 0;
-    width: 1em;
-    z-index: -1;
-}
-
-input[type="checkbox"]+label,
-input[type="radio"]+label {
-    text-decoration: none;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1em;
-    font-weight: 300;
-    padding-left: 2.4em;
-    padding-right: 0.75em;
-    position: relative;
-}
-
-::-webkit-input-placeholder {
-    opacity: 1;
-}
-
-:-moz-placeholder {
-    opacity: 1;
-}
-
-::-moz-placeholder {
-    opacity: 1;
-}
-
-:-ms-input-placeholder {
-    opacity: 1;
-}
-
-label {
-    color: #ffffff;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-select,
-textarea {
-    background-color: rgba(255, 255, 255, 0.075);
-    border-color: rgba(255, 255, 255, 0.35);
-}
-
-select {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.35)' /%3E%3C/svg%3E");
-}
-
-select option {
-    color: #ffffff;
-    background: #935d8c;
-}
-
-input[type="checkbox"]+label,
-input[type="radio"]+label {
-    color: rgba(255, 255, 255, 0.65);
-}
-
-input[type="checkbox"]:focus+label:before,
-input[type="radio"]:focus+label:before {
-    border-color: var(--yellow);
-    box-shadow: 0 0 1px 1px var(--yellow);
-}
-
-::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.5) !important;
-}
-
-:-moz-placeholder {
-    color: rgba(255, 255, 255, 0.5) !important;
-}
-
-::-moz-placeholder {
-    color: rgba(255, 255, 255, 0.5) !important;
-}
-
-:-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.5) !important;
-}
-
-.formerize-placeholder {
-    color: rgba(255, 255, 255, 0.5) !important;
-}
-
-
-/* Icon */
-
-.icon {
-    text-decoration: none;
-    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    border-bottom: none;
-    position: relative;
-}
-
-.icon:before {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
-    text-transform: none !important;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 400;
-}
-
-.icon>.label {
-    display: none;
-}
-
-.icon:before {
-    line-height: solid;
-}
-
 .icon.solid:before {
     font-weight: 900;
 }
@@ -3202,6 +2839,10 @@ table th {
     cursor: pointer;
 }
 
+.main.special .image-box-hairstyle input {
+    display: block;
+}
+
 .main.special figure .image-box-hairstyle img {
     width: 100%;
     height: 100%;
@@ -3384,6 +3025,12 @@ table th {
 
 .popupBarber .popup-content.barbar-all {
     padding: 0 2rem !important;
+}
+
+.popupBarber .popup-content.barbar-all .profile-content.slide {
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .closeHair .fa-times,
@@ -3744,7 +3391,8 @@ body.is-preload #header.alt .logo {
     vertical-align: middle;
 }
 
-#nav ul li a {
+#nav ul li a,
+#nav ul li p {
     -moz-transition: font-size 0.2s ease;
     -webkit-transition: font-size 0.2s ease;
     -ms-transition: font-size 0.2s ease;
@@ -3760,26 +3408,40 @@ body.is-preload #header.alt .logo {
     font-weight: 300;
 }
 
-#nav ul li a {
+#nav ul li a,
+#nav ul li p {
     font-weight: 300;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid transparent;
     transition: ease-in-out 0.1s;
+    cursor: pointer;
+}
+
+#nav ul li p.line {
+    cursor: context-menu;
+    border: none;
+}
+
+#nav ul li p.line:hover {
+    color: var(--text--color--dark);
+    border: none;
 }
 
 #nav ul li #btn-profile {
     padding-left: 0.25rem !important;
 }
 
-#nav ul li a:hover {
+#nav ul li a:hover,
+#nav ul li p:hover {
     color: var(--yellow-dark);
     background-color: transparent;
     border: 1px solid var(--yellow-dark);
 }
 
-#nav ul li a.active {
+#nav ul li a.active,
+#nav ul li p.active {
     background-color: var(--yellow-dark);
     color: var(--text--color--light);
     box-shadow: none;
@@ -3821,66 +3483,10 @@ body.is-preload #header.alt .logo {
     margin: 0 0.175em;
 }
 
-#nav.alt ul li a {
+#nav.alt ul li a,
+#nav.alt ul li p {
     font-size: 0.9em;
     cursor: pointer;
-}
-
-#nav.alt ul li .drop-btn {
-    position: relative;
-}
-
-nav .drop-profile {
-    position: absolute;
-    padding-left: 2px !important;
-    top: 4.7rem;
-    right: 1.6rem;
-    display: flex;
-    border-radius: 5px;
-    background: #fff;
-    display: none;
-    box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.1);
-}
-
-nav.alt .drop-profile {
-    top: 3.45rem;
-    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.075);
-    padding: 0;
-    margin: 0;
-}
-
-nav .drop-profile::before {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 16px 16px 0 0;
-    border-color: #fff transparent transparent transparent;
-    transform: rotate(45deg);
-    box-shadow: -2px -2px 5px 0px rgba(75, 53, 53, 0.02);
-    right: 0.95rem;
-    top: -0.5rem;
-}
-
-nav.alt .drop-profile::before {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0.6rem 0.6rem 0 0;
-    border-color: #fff transparent transparent transparent;
-    transform: rotate(45deg);
-    box-shadow: -2px -2px 5px 0px rgba(75, 53, 53, 0.02);
-    right: 0.8rem;
-    top: -0.3rem;
-}
-
-nav .drop-profile.show {
-    display: block;
-    display: flex;
-    animation: DropProfile 0.1s;
 }
 
 @keyframes DropProfile {
@@ -5768,6 +5374,10 @@ nav .drop-profile.show {
 
 /* popup */
 
+.popupLoging {
+    position: fixed;
+}
+
 .popup {
     background: rgba(0, 0, 0, 0.6);
     width: 100%;
@@ -5796,7 +5406,6 @@ nav .drop-profile.show {
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
     background: #fff;
     border-radius: 10px;
-    padding: 10px;
 }
 
 .popup-content .content-slides {
@@ -6305,581 +5914,374 @@ td .status {
 /*------------------------------------- end profile --------------------------------------*/
 
 
-/*------------------------------------- edit profile start ------------------------------------*/
+/* popup */
 
-.profile-content:last-child {
-    padding: 1rem 0;
-}
-
-.edit-profile input {
-    font-family: "Prompt", sans-serif;
-    font-weight: 700;
-    letter-spacing: 1.4px;
-}
-
-.edit-profile {
-    font-family: "Prompt", sans-serif;
-}
-
-.edit-profile .screen {
-    background: #ffffff;
-    border-radius: 15px;
-    display: flex;
-}
-
-.edit-profile .screen:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 20px;
-    right: 20px;
-    bottom: 0;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    z-index: -1;
-}
-
-.edit-profile .screen-body {
-    display: flex;
+.popup {
+    background: rgba(0, 0, 0, 0.6);
     width: 100%;
-    padding: 1.5rem 5rem;
-    position: relative;
-}
-
-.edit-profile .screen-body .btn-slide {
-    color: var(--yellow-dark);
-    left: 3rem;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    border-radius: 5px;
     top: 0;
-    font-size: 2.5rem;
-    position: absolute;
-    border-bottom: none;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.4s;
+    z-index: 99;
 }
 
-.edit-profile .screen-body .btn-slide:hover {
-    color: var(--yellow-dark-hover);
-}
-
-.edit-profile .screen-body-item {
-    padding: 1.125rem 0;
-    width: 65%;
-}
-
-.edit-profile .screen-body-item:last-child {
-    border-left: 1px solid lightgrey;
-}
-
-.edit-profile .screen-body-item.left {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    width: 35%;
-    padding: 3.125rem 3.5rem;
-}
-
-.edit-profile .app-title {
-    display: flex;
-    flex-direction: column;
+.popup-content {
+    height: 620px;
+    width: 1050px;
+    border: none;
     position: relative;
-    color: var(--yellow-dark);
-    font-size: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    box-sizing: border-box;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
 }
 
-.edit-profile .app-title a {
-    width: 170px;
-    height: 170px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.fa-times:hover {
+    font-size: 20px;
+    background: #ba8b2d;
+    box-shadow: -1px 1px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.popup-left {
+    width: 55%;
+    height: 100%;
+    background: -webkit-linear-gradient(190deg, var(--yellow-dark), var(--yellow-dark-hover), #5d4513);
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.popup-left h1 {
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.popup-left-logo {
+    width: 70%;
+    margin-top: 15%;
+}
+
+.wrapper {
     overflow: hidden;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 0.2rem solid var(--yellow-dark);
-    position: relative;
-    transition: 0.5s ease;
-    background-color: #6d3e0796;
-}
-
-.edit-profile .app-title a:hover img {
-    opacity: 0.8;
-}
-
-.edit-profile .app-title a img {
+    width: 45%;
     height: 100%;
-    transition: 0.5s ease;
+    background: #ffffff;
+    padding: 45px 50px 45px 50px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.edit-profile .app-title .imgEdit {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    position: absolute;
-    right: 1.5rem;
-    top: 7rem;
-    color: var(--text--color--light);
-    background: var(--yellow-dark);
+.in-wrapper {
+    margin: 8% 0;
+}
+
+.wrapper .title-text {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.8rem;
-    cursor: pointer;
+    width: 200%;
 }
 
-.edit-profile .app-title .imgEdit:hover {
-    background: var(--yellow-dark-hover);
-}
-
-.edit-profile .app-title .imgEdit i {
-    font-size: 1.5rem;
-}
-
-.edit-profile .app-title span {
-    margin-top: 1.5rem;
+.wrapper .title {
+    width: 50%;
+    font-size: 35px;
+    font-weight: 600;
     text-align: center;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: var(--dark-grey);
 }
 
-.edit-profile .app-title span input {
-    font-weight: 400;
-}
-
-.edit-profile .app-contact {
-    margin-top: auto;
-    font-size: 8px;
-    color: #888;
-}
-
-.edit-profile .app-form {
-    padding: 0 3.5rem;
-}
-
-.edit-profile .app-form-group {
-    margin-bottom: 1rem;
+.wrapper .slide-controls {
+    position: relative;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    margin: 30px 0 10px 0;
+    justify-content: space-between;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
 }
 
-.edit-profile .app-form-group.sex .app-form-control {
-    border-bottom: none;
+.slide-controls .slide {
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 48px;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.6s ease;
 }
 
-.edit-profile .app-form-group span {
-    margin-right: 1.5rem;
+.slide-controls label.signup {
+    color: #000;
 }
 
-.edit-profile .app-form-group.buttons {
+.slide-controls .slider-tab {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    z-index: 0;
+    border-radius: 5px;
+    background: -webkit-linear-gradient(left, var(--yellow-dark), var(--yellow-dark-hover));
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.radio-slide {
+    display: none;
+}
+
+#signup:checked~.slider-tab {
+    left: 50%;
+}
+
+.time {
+    display: none;
+}
+
+#signup:checked~label.signup {
+    color: #fff;
+    cursor: default;
+    user-select: none;
+}
+
+#signup:checked~label.login {
+    color: var(--dark-grey);
+}
+
+#login:checked~label.signup {
+    color: var(--dark-grey);
+}
+
+#login:checked~label.login {
+    cursor: default;
+    user-select: none;
+}
+
+.wrapper .form-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.form-container .form-inner {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    width: 200%;
 }
 
-.edit-profile .app-form-.buttons {
-    margin-bottom: 0;
-    text-align: right;
+.form-container .form-inner form {
+    width: 50%;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    text-align: left;
 }
 
-.edit-profile .app-form-control {
-    width: 65%;
-    padding: 0.5rem 1.5rem;
-    margin: 0.5rem 0;
-    resize: none;
+.form-inner form .field {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-inner form .field input {
+    height: 100%;
+    width: 100%;
     outline: none;
     padding-left: 15px;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid var(--light-second);
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-radius: 0;
-    font-size: 16px;
-    font-weight: 300;
-    transition: border-color 0.2s;
-}
-
-.edit-profile .app-form-control:focus {
-    border: 1px solid var(--light-second);
     border-radius: 5px;
-    color: var(--dark-main);
-    font-weight: 400;
-}
-
-.edit-profile .app-form-button {
-    border: 0.095rem solid transparent;
-    color: #fff;
-    background: var(--yellow-dark);
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.5rem;
-    font-size: 16px;
-    font-weight: 400;
-    cursor: pointer;
-    outline: none;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
     font-family: "Prompt", sans-serif;
-    box-shadow: none;
-    margin-top: 3.5rem;
 }
 
-.edit-profile .app-form-button:hover {
-    background: var(--yellow-dark-hover) !important;
+.form-inner form .field input:focus {
+    border-color: #643b0f;
+    /* box-shadow: inset 0 0 3px #643B0F; */
 }
 
-.edit-profile .dribbble {
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
+.form-inner form .field input::placeholder {
+    color: #999;
+    transition: all 0.3s ease;
+}
+
+form .field input:focus::placeholder {
+    color: #b3b3b3;
+}
+
+.Display-non {
+    position: absolute;
+    display: none;
+}
+
+.form-inner form .pass-link {
+    margin-top: 5px;
+}
+
+.form-inner form .signup-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.form-inner form .pass-link a,
+.form-inner form .signup-link a {
+    color: var(--yellow-dark-hover);
+    text-decoration: none;
+}
+
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover {
+    border-bottom: 1px solid var(--yellow-dark-hover);
+}
+
+form .btn {
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+form .btn .btn-layer {
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    background: -webkit-linear-gradient( right, var(--yellow-dark), var(--yellow-dark-hover), var(--yellow-dark), var(--yellow-dark-hover));
+    border-radius: 5px;
+    transition: all 0.4s ease;
+}
+
+form .btn:hover .btn-layer {
+    left: 0;
+}
+
+form .btn input[type="submit"] {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    background: none;
+    border: none;
+    color: #fff;
+    padding-left: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 0px;
+    font-family: "Prompt", sans-serif;
 }
 
 
 /* radio button */
 
-.edit-profile .app-form-group .sex-radio-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 !important;
+.signup .field:nth-child(2) {
+    margin-bottom: 17px;
 }
 
-.edit-profile .app-form-group .sex-radio-container .sex-item {
+.input-sex {
+    font-size: 20px;
+    font-weight: 400;
+    width: 200px;
+    margin-right: 5%;
+    margin-left: 5%;
+    color: rgb(76, 76, 76);
+}
+
+.raido-sex-button {
+    position: absolute;
+    display: none;
+}
+
+.sex-radio-container {
     display: inline-flex;
     align-items: center;
     justify-content: space-evenly;
     border-radius: 5px;
+    height: 50px;
+    width: 400px;
 }
 
-.edit-profile .app-form-group .sex-radio-container .option {
+.sex-radio-container .option {
     background: #fff;
-    height: 30px;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin: 0 5px;
+    margin: 0 10px;
     border-radius: 5px;
     cursor: pointer;
-    padding: 0 1rem;
+    padding: 0 10px;
     border: 2px solid lightgrey;
     transition: all 0.3s ease;
 }
 
-.edit-profile .app-form-group .sex-radio-container .option .sex-dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
+.sex-radio-container .option .sex-dot {
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
     position: relative;
 }
 
-.edit-profile .app-form-group .sex-radio-container .option-male .sex-dot::before {
+.sex-radio-container .option .sex-dot::before {
     position: absolute;
     content: "";
-    top: 1.6px;
-    left: 1.6px;
-    width: 8.5px;
-    height: 9px;
-    background: var(--yellow-dark);
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: #643b0f;
     border-radius: 50%;
     opacity: 0;
-}
-
-.edit-profile .app-form-group .sex-radio-container .option-female .sex-dot::before {
-    position: absolute;
-    content: "";
-    top: 1.6px;
-    left: 1.6px;
-    width: 8.5px;
-    height: 9px;
-    background: var(--yellow-dark);
-    border-radius: 50%;
-    opacity: 0;
-}
-
-.edit-profile .app-form-group .sex-radio-container .option-other .sex-dot:before {
-    position: absolute;
-    content: "";
-    top: 1.6px;
-    left: 1.6px;
-    width: 9px;
-    height: 9px;
-    background: var(--yellow-dark);
-    border-radius: 50%;
-    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
 }
 
 .radio-sex {
     display: none;
 }
 
-.edit-profile #option-male:checked:checked~.option-male,
-.edit-profile #option-female:checked:checked~.option-female,
-.edit-profile #option-other:checked:checked~.option-other {
-    border-color: var(--yellow-dark);
-    background: var(--yellow-dark);
+#option-1:checked:checked~.option-1,
+#option-2:checked:checked~.option-2 {
+    border-color: #643b0f;
+    background: #643b0f;
 }
 
-.edit-profile #option-male:checked:checked~.option-male .sex-dot,
-.edit-profile #option-female:checked:checked~.option-female .sex-dot,
-.edit-profile #option-other:checked:checked~.option-other .sex-dot {
+#option-1:checked:checked~.option-1 .sex-dot,
+#option-2:checked:checked~.option-2 .sex-dot {
     background: #fff;
 }
 
-.edit-profile #option-male:checked:checked~.option-male .sex-dot::before,
-.edit-profile #option-female:checked:checked~.option-female .sex-dot::before,
-.edit-profile #option-other:checked:checked~.option-other .sex-dot::before {
+#option-1:checked:checked~.option-1 .sex-dot::before,
+#option-2:checked:checked~.option-2 .sex-dot::before {
     opacity: 1;
     transform: scale(1);
 }
 
-.edit-profile .app-form-group .sex-radio-container .option span {
-    font-size: 16px;
-    font-weight: 300;
-    font-family: "Prompt", sans-serif;
+.sex-radio-container .option span {
+    font-size: 20px;
     color: #808080;
-    margin: 0;
-    padding: 0;
 }
 
-.edit-profile #option-male:checked:checked~.option-male span,
-.edit-profile #option-female:checked:checked~.option-female span,
-.edit-profile #option-other:checked:checked~.option-other span {
+#option-1:checked:checked~.option-1 span,
+#option-2:checked:checked~.option-2 span {
     color: #fff;
 }
 
 
 /* end radio button */
 
-le a img {
-    height: 100%;
-    transition: 0.5s ease;
-}
 
-.edit-profile .app-title .imgEdit {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    position: absolute;
-    right: 1.5rem;
-    top: 7rem;
-    color: var(--text--color--light);
-    background: var(--yellow-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.8rem;
-    cursor: pointer;
-}
-
-.edit-profile .app-title .imgEdit:hover {
-    background: var(--yellow-dark-hover);
-}
-
-.edit-profile .app-title .imgEdit i {
-    font-size: 1.5rem;
-}
-
-.edit-profile .app-title span {
-    margin-top: 1.5rem;
-    text-align: center;
-}
-
-.edit-profile .app-title span input {
-    font-weight: 400;
-}
-
-.edit-profile .app-contact {
-    margin-top: auto;
-    font-size: 8px;
-    color: #888;
-}
-
-.edit-profile .app-form {
-    padding: 0 3.5rem;
-}
-
-.edit-profile .app-form-group {
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.edit-profile .app-form-group.sex .app-form-control {
-    border-bottom: none;
-}
-
-.edit-profile .app-form-group span {
-    margin-right: 1.5rem;
-}
-
-.edit-profile .app-form-group.buttons {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.edit-profile .app-form-.buttons {
-    margin-bottom: 0;
-    text-align: right;
-}
-
-.edit-profile .app-form-control {
-    width: 65%;
-    padding: 0.5rem 1.5rem;
-    margin: 0.5rem 0;
-    resize: none;
-    outline: none;
-    padding-left: 15px;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid var(--light-second);
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-radius: 0;
-    font-size: 16px;
-    font-weight: 300;
-    transition: border-color 0.2s;
-}
-
-.edit-profile .app-form-control:focus {
-    border: 1px solid var(--light-second);
-    border-radius: 5px;
-    color: var(--dark-main);
-    font-weight: 400;
-}
-
-.edit-profile .app-form-button {
-    border: 0.095rem solid transparent;
-    color: #fff;
-    background: var(--yellow-dark);
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.5rem;
-    font-size: 16px;
-    font-weight: 400;
-    cursor: pointer;
-    outline: none;
-    font-family: "Prompt", sans-serif;
-    box-shadow: none;
-    margin-top: 3.5rem;
-}
-
-.edit-profile .app-form-button:hover {
-    background: var(--yellow-dark-hover) !important;
-}
-
-.edit-profile .dribbble {
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
-}
-
-
-/* radio button */
-
-.edit-profile .app-form-group .sex-radio-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 !important;
-}
-
-.edit-profile .app-form-group .sex-radio-container .sex-item {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 5px;
-}
-
-.edit-profile .app-form-group .sex-radio-container .option {
-    background: #fff;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 0 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 0 1rem;
-    border: 2px solid lightgrey;
-    transition: all 0.3s ease;
-}
-
-.edit-profile .app-form-group .sex-radio-container .option .sex-dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
-    border-radius: 50%;
-    position: relative;
-}
-
-.edit-profile .app-form-group .sex-radio-container .option-male .sex-dot::before {
-    position: absolute;
-    content: "";
-    top: 1.6px;
-    left: 1.6px;
-    width: 8.5px;
-    height: 9px;
-    background: var(--yellow-dark);
-    border-radius: 50%;
-    opacity: 0;
-}
-
-.edit-profile .app-form-group .sex-radio-container .option-female .sex-dot::before {
-    position: absolute;
-    content: "";
-    top: 1.6px;
-    left: 1.6px;
-    width: 8.5px;
-    height: 9px;
-    background: var(--yellow-dark);
-    border-radius: 50%;
-    opacity: 0;
-}
-
-.edit-profile .app-form-group .sex-radio-container .option-other .sex-dot:before {
-    position: absolute;
-    content: "";
-    top: 1.6px;
-    left: 1.6px;
-    width: 9px;
-    height: 9px;
-    background: var(--yellow-dark);
-    border-radius: 50%;
-    opacity: 0;
-}
-
-.radio-sex {
-    display: none;
-}
-
-.edit-profile #option-male:checked:checked~.option-male,
-.edit-profile #option-female:checked:checked~.option-female,
-.edit-profile #option-other:checked:checked~.option-other {
-    border-color: var(--yellow-dark);
-    background: var(--yellow-dark);
-}
-
-.edit-profile #option-male:checked:checked~.option-male .sex-dot,
-.edit-profile #option-female:checked:checked~.option-female .sex-dot,
-.edit-profile #option-other:checked:checked~.option-other .sex-dot {
-    background: #fff;
-}
-
-.edit-profile #option-male:checked:checked~.option-male .sex-dot::before,
-.edit-profile #option-female:checked:checked~.option-female .sex-dot::before,
-.edit-profile #option-other:checked:checked~.option-other .sex-dot::before {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.edit-profile .app-form-group .sex-radio-container .option span {
-    font-size: 16px;
-    font-weight: 300;
-    font-family: "Prompt", sans-serif;
-    color: #808080;
-    margin: 0;
-    padding: 0;
-}
-
-.edit-profile #option-male:checked:checked~.option-male span,
-.edit-profile #option-female:checked:checked~.option-female span,
-.edit-profile #option-other:checked:checked~.option-other span {
-    color: #fff;
-}
-
-
-/* end radio button */
+/* end popup */
