@@ -45,16 +45,6 @@ class Admin_Con extends CI_Controller
         $this->load->view('Admin/Footer');
     }
 
-    public function getBarberAllTest()
-    {
-        $data['BARBERINCOME'] = $this->AM->getBarberIncome();
-
-        $this->load->view('Admin/Header');
-        $this->load->view('Admin/Navbar');
-        $this->load->view('Admin/All_Barber', $data);
-        $this->load->view('Admin/Footer');
-    }
-
     public function getBarberAll()
     {
         $dataBaber = $this->AM->getBarberBID();
@@ -146,8 +136,7 @@ class Admin_Con extends CI_Controller
             'H_Shooting1' => $this->input->post("H_Shooting1"),
             'H_Shooting2' => $this->input->post("H_Shooting2"),
             'H_Shooting3' => $this->input->post("H_Shooting3"),
-            'H_Shooting4' => $this->input->post("H_Shooting4"),
-            'Price' => $this->input->post("Price")
+            'H_Shooting4' => $this->input->post("H_Shooting4")
 
         );
         $check =  $this->AM->createHairstyle($data);
@@ -180,10 +169,29 @@ class Admin_Con extends CI_Controller
 
     function saveHairStyle()
     {
+        $this->load->library('upload');
+        $dataInfo = array();
+        $files = $_FILES;
+        $cpt = count($_FILES['userfile']['name']);
+        for ($i = 0; $i < $cpt; $i++) {
+            $_FILES['userfile']['name'] = $files['userfile']['name'][$i];
+            $_FILES['userfile']['type'] = $files['userfile']['type'][$i];
+            $_FILES['userfile']['tmp_name'] = $files['userfile']['tmp_name'][$i];
+            $_FILES['userfile']['error'] = $files['userfile']['error'][$i];
+            $_FILES['userfile']['size'] = $files['userfile']['size'][$i];
+
+            $this->upload->initialize($this->set_upload_options());
+            $this->upload->do_upload();
+            $dataInfo[] = $this->upload->data();
+        }
         $data = array(
             'H_ID' => $this->input->post("H_ID"),
             'H_Name	' => $this->input->post("H_Name"),
             'H_Detail' => $this->input->post("H_Detail"),
+            'H_Img1' => $dataInfo[0]['file_name'],
+            'H_Img2' => $dataInfo[1]['file_name'],
+            'H_Img3' => $dataInfo[2]['file_name'],
+            'H_Img4' => $dataInfo[3]['file_name'],
             'H_Shooting1' => $this->input->post("H_Shooting1"),
             'H_Shooting2' => $this->input->post("H_Shooting2"),
             'H_Shooting3' => $this->input->post("H_Shooting3"),
@@ -203,7 +211,7 @@ class Admin_Con extends CI_Controller
     private function set_upload_options()
     {
         $config = array();
-        $config['upload_path'] = 'img/';
+        $config['upload_path'] = 'img/HairStyle';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size']  = 10024;
         $config['max_width'] = 3000;
@@ -366,7 +374,7 @@ class Admin_Con extends CI_Controller
                     'BK_Month' => $this->input->post('BK_Month'),
                     'BK_Year' => $this->input->post('BK_Year'),
                     'ST_ID' => $this->input->post('ST_ID'),
-                    'H_ID' => $this->input->post('H_ID'),
+                    'P_ID' => $this->input->post('P_ID'),
                     'Q_ID' => $this->input->post('Q_ID')
                 );
                 $check = $this->BK->createBookingQueueByCustomer($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล

@@ -248,28 +248,58 @@ textarea {
     width: device-width;
 }
 
-
-/* Works on Firefox */
-
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--blue) var(--yellow-dark);
+::-webkit-scrollbar {
+    width: 0;
 }
 
-
-/* Works on Chrome, Edge, and Safari */
-
-*::-webkit-scrollbar {
-    width: 12px;
+#scollPart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: rgb(255, 255, 255, 0.05);
 }
 
-*::-webkit-scrollbar-track {
-    background: transparent;
+#progressbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animate 5s linear infinite;
 }
 
-*::-webkit-scrollbar-thumb {
-    background-color: var(--yellow-dark);
-    border-radius: 20px;
+@keyframes animate {
+    0%,
+    100% {
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+#progressbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(10px);
+}
+
+#progressbar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(30px);
 }
 
 body {
@@ -4710,7 +4740,7 @@ body.is-preload #header.alt .logo {
     justify-content: center;
     padding: 5px;
     position: relative;
-    cursor: pointer;
+    cursor: context-menu;
     animation: to-top 1s forwards;
     /* border-radius: 50%; */
 }
@@ -4786,14 +4816,19 @@ body.is-preload #header.alt .logo {
     border-radius: 50%;
 }
 
-.contianer.calendar-booking .calendar .calendar-body .calendar-days div.FullQueue {
-    background-color: #df3c37;
+.contianer.calendar-booking .calendar .calendar-body .calendar-days div.FullQueue,
+.contianer.calendar-booking .calendar .calendar-body .calendar-days div.Close,
+.contianer.calendar-booking .calendar .calendar-body .calendar-days div.FullQueue:hover,
+.contianer.calendar-booking .calendar .calendar-body .calendar-days div.Close:hover {
+    background-color: #df3c37 !important;
     color: var(--white);
     border-radius: 50%;
     position: relative;
+    cursor: context-menu;
 }
 
-.contianer.calendar-booking .calendar .calendar-body .calendar-days div .tooltiptext {
+.contianer.calendar-booking .calendar .calendar-body .calendar-days div .tooltipFullQueue,
+.contianer.calendar-booking .calendar .calendar-body .calendar-days div .tooltipClose {
     visibility: hidden;
     width: 120px;
     background: var(--red);
@@ -4809,11 +4844,13 @@ body.is-preload #header.alt .logo {
     margin-left: -60px;
 }
 
-.contianer.calendar-booking .calendar .calendar-body .calendar-days div.FullQueue:hover .tooltiptext {
+.contianer.calendar-booking .calendar .calendar-body .calendar-days div.FullQueue:hover .tooltipFullQueue,
+.contianer.calendar-booking .calendar .calendar-body .calendar-days div.Close:hover .tooltipClose {
     visibility: visible;
 }
 
-.contianer.calendar-booking .calendar .calendar-body .calendar-days div.FullQueue .line {
+.contianer.calendar-booking .calendar .calendar-body .calendar-days div.FullQueue .line,
+.contianer.calendar-booking .calendar .calendar-body .calendar-days div.Close .line {
     display: none;
 }
 
@@ -5388,7 +5425,7 @@ body.is-preload #header.alt .logo {
     align-items: center;
     text-align: center;
     padding: 0;
-    border-radius: 5px;
+    border-radius: 0;
     top: 0;
     left: 0;
     opacity: 1;
@@ -5925,7 +5962,6 @@ td .status {
     align-items: center;
     text-align: center;
     padding: 0;
-    border-radius: 5px;
     top: 0;
     opacity: 1;
     visibility: visible;

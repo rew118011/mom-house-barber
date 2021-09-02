@@ -16,6 +16,8 @@
 </script>
 <!-- Profile popup -->
 <script>
+  var modalProfile = document.getElementById("popup");
+
   document.getElementById("button-profile").addEventListener("click", function() {
     document.querySelector(".popup").style.display = "flex";
     time = 0;
@@ -50,6 +52,11 @@
     document.querySelector(".popup").style.display = "none"
   })
 
+  window.onclick = function(event) {
+    if (event.target == modalProfile) {
+      modalProfile.style.display = "none";
+    }
+  }
 </script>
 <!-- edit-profile -->
 <!-- The Modal script-save_Image -->

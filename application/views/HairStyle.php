@@ -21,7 +21,7 @@
                 <figure class="card__thumb">
                     <div class="image-box-hairstyle">
                         <input id="hair-style" class="input<?php echo $row->H_ID; ?> inputH" type="radio" name="H_ID" value="<?php echo $row->H_ID; ?>">
-                        <img src="<?php echo base_url(); ?>img/<?php echo $row->H_Img1; ?>" />
+                        <img src="<?php echo base_url(); ?>img/HairStyle/<?php echo $row->H_Img1; ?>" />
                     </div>
                     <figcaption class="card__caption">
                         <h2 class="card__title"><?php echo $row->H_Name; ?></h2>

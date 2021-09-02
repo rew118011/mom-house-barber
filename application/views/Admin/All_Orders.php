@@ -57,13 +57,13 @@
                     <h3>รายการการจองทั้งหมด</h3>
                     <div class="search-wrapper">
                         <span class="las la-search"></span>
-                        <input type="search" placeholder="ค้นหาที่นี่" />
+                        <input type="text" id="search" name="search" placeholder="ค้นหาที่นี่..." />
                     </div>
                 </div>
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="barber-queue">
+                        <table class="barber-queue table-sortable"  id="employee_table">
                             <thead>
                                 <tr class="tr-barber-queue">
                                     <td></td>
@@ -82,24 +82,24 @@
                                     <td></td>
                                 </tr>
                             </thead>
-                            <?php
-                            foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
-                            ?>
-                                <tbody>
-                                    <tr class="tr-barber-queue">
+                            <tbody>
+                                <?php
+                                foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                                ?>
+                                    <tr class="tr-barber-queue trbody">
                                         <td></td>
                                         <td class="td-barber-queue img">
                                             <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
                                         </td>
                                         <td class="td-barber-queue"><a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>"><?php echo $row->C_Nickname; ?></a></td>
-                                        <td class="td-barber-queue"><?php echo $row->C_Name; ?></td>
+                                        <td class="td-barber-queue td-name"><?php echo $row->C_Name; ?></td>
                                         <td class="td-barber-queue"><?php echo $row->C_Lname; ?></td>
                                         <td class="td-barber-queue"><?php echo $row->C_Phone; ?></td>
                                         <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
                                         <td class="td-barber-queue"><?php echo $row->ST_Time; ?></td>
-                                        <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/getBarberProfile/' . $row->B_ID); ?>">ช่าง<?php echo $row->B_Nickname ;?></a></td>
+                                        <td class="td-barber-queue booking-with"><a href="<?php echo site_url('Admin_Con/getBarberProfile/' . $row->B_ID); ?>">ช่าง<?php echo $row->B_Nickname; ?></a></td>
                                         <td class="td-barber-queue status"><?php echo $row->Q_Status; ?></td>
-                                        <td class="td-barber-queue"><?php echo $row->Price?> ฿</td>
+                                        <td class="td-barber-queue"><?php echo $row->Price ?> ฿</td>
                                         <td class="td-barber-queue">
                                             <button id="btnPay" data-id="<?php echo $row->BK_ID; ?>" name="BK_ID" class="queue-complete" value="<?php echo $row->BK_ID; ?>"><i class="fas fa-check-square"></i></button>
                                         </td>
@@ -110,10 +110,10 @@
                                         </td>
                                         <td></td>
                                     </tr>
-                                </tbody>
-                            <?php
-                            }
-                            ?>
+                                <?php
+                                }
+                                ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -176,3 +176,7 @@
         });
     });
 </script>
+<!-- search -->
+<script>  
+      
+ </script> 

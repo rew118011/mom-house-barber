@@ -43,6 +43,7 @@
 <script src="<?php echo base_url(); ?>js/util.js"></script>
 <script src="<?php echo base_url(); ?>js/main.js"></script>
 <script src="<?php echo base_url(); ?>js/NavbarActive.js"></script>
+<script src="<?php echo base_url();?>js/Scrollbar.js"></script>
 <script>
     let calendar = document.querySelector('.calendar')
 
@@ -80,9 +81,9 @@
 
 
         let numFullQueue = <?php echo $NUMFUULQUEUE; ?>;
-        console.log("numFullQueue " + numFullQueue);
+        // console.log("numFullQueue " + numFullQueue);
         let numClose = <?php echo $NUMCLOSE; ?>;
-        console.log("numClose " + numClose);
+        // console.log("numClose " + numClose);
 
         for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
 
@@ -120,9 +121,9 @@
                     var BK_Year = [<?php foreach ($FULLQUEUE as $row) { ?> <?php echo $row->BK_Year; ?>, <?php } ?>];
                     var BK_Month = [<?php foreach ($FULLQUEUE as $row) { ?> <?php echo $row->BK_Month; ?>, <?php } ?>];
                     var BK_Day = [<?php foreach ($FULLQUEUE as $row) { ?> <?php echo $row->BK_Day; ?>, <?php } ?>];
-                    console.log(BK_Year + " " + FullQueue)
-                    console.log(BK_Month + " " + FullQueue)
-                    console.log(BK_Day + " " + FullQueue)
+                    // console.log(BK_Year + " " + FullQueue)
+                    // console.log(BK_Month + " " + FullQueue)
+                    // console.log(BK_Day + " " + FullQueue)
                     if (i - first_day.getDay() + 1 === BK_Day[FullQueue] && month === BK_Month[FullQueue] - 1 && year === BK_Year[FullQueue]) {
                         day.classList.add('FullQueue')
                     }

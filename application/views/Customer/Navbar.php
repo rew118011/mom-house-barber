@@ -48,7 +48,7 @@
     </div>
   </ul>
 </nav>
-<div class="popup">
+<div class="popup" id="popup">
   <div class="popup-content">
     <div class="close">
       <i class="fas fa-times"></i>

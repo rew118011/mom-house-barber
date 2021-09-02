@@ -14,7 +14,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mom House Barber | Customer</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleCustomerN33.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleCustomerN34.css">
     <noscript>
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/noscript.css" />
     </noscript>
@@ -39,6 +39,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body style="background-image: url(<?php echo base_url(); ?>img/bgBarber.jpeg)">
+
+<div id="progressbar"></div>
+<div id="scollPart"></div>
 
     <!-- Wrapper -->
     <div id="wrapper">

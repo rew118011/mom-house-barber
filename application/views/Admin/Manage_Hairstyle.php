@@ -19,7 +19,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <div class="box-img">
                                 <div class="card-single">
                                     <div class="image">
-                                        <input class="inputH_Img1 inputH_Img" onchange="previewFile1()" type="file" name="userfile[]" multiple="multiple" style="display: none;">
+                                        <input id="inputH_Img1" class="inputH_Img1 inputH_Img" onchange="previewFile1()" type="file" name="userfile[]" multiple="multiple" style="display: none;">
                                         <img class="addH_Img1 addH_Img" src="" onerror="this.src='<?php echo base_url(); ?>img/upload1.png'" alt="H_Img1">
                                     </div>
                                 </div>
@@ -71,7 +71,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
                         </div>
                         <div class="submit">
-                            <input style="display: none;" type="text" name="Price" value="150" required>
                             <button type="submit" name="btnUpload" class="save">ยืนยัน</button>
                         </div>
                     </form>
@@ -129,11 +128,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <div class="box-img box-img4">
                                 <div class="card-single">
                                     <div class="image image4">
-                                        <input class="inpuSettH_Img4 inputSetH_Img" onchange="previewFileSet4()" type="file" name="userfile[]" multiple="multiple" style="display: none;">
+                                        <input class="inputSetH_Img4 inputSetH_Img" onchange="previewFileSet4()" type="file" name="userfile[]" multiple="multiple" style="display: none;">
 
                                     </div>
                                 </div>
-                                <input class="H_Shooting H_Shooting4" type="text" name="H_Shooting4" placeholder="มุมถ่าย" required>
                             </div>
 
                         </div>
@@ -150,6 +148,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="submit submit_edit">
                             <button type="submit" name="btnUpload" class="save">ยืนยัน</button>
                         </div>
@@ -183,16 +182,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="gallery-box">
                             <div class="item">
                                 <div class="grid-img">
-                                    <img src="<?php echo base_url(); ?>img/<?= $row['H_Img1']; ?>" alt="H_Img1" />
+                                    <img src="<?php echo base_url(); ?>img/HairStyle/<?= $row['H_Img1']; ?>" alt="H_Img1" />
                                 </div>
                                 <div class="grid-img">
-                                    <img src="<?php echo base_url(); ?>img/<?= $row['H_Img2']; ?>" alt="H_Img2" />
+                                    <img src="<?php echo base_url(); ?>img/HairStyle/<?= $row['H_Img2']; ?>" alt="H_Img2" />
                                 </div>
                                 <div class="grid-img">
-                                    <img src="<?php echo base_url(); ?>img/<?= $row['H_Img3']; ?>" alt="H_Img3" />
+                                    <img src="<?php echo base_url(); ?>img/HairStyle/<?= $row['H_Img3']; ?>" alt="H_Img3" />
                                 </div>
                                 <div class="grid-img">
-                                    <img src="<?php echo base_url(); ?>img/<?= $row['H_Img4']; ?>" alt="H_Img4" />
+                                    <img src="<?php echo base_url(); ?>img/HairStyle/<?= $row['H_Img4']; ?>" alt="H_Img4" />
                                 </div>
                             </div>
                             <div class="comment">
@@ -224,28 +223,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
     document.querySelector(".closeHair").addEventListener("click", function() {
         document.querySelector(".recent-grid.add-hairstyle").style.display = "none";
     })
-
-    // count element in html
-    var cardAddHairStyle = document.getElementById("card-AddHairStyle");
-    var btnAddH_Img = cardAddHairStyle.getElementsByClassName("addH_Img");
-    const btnH = "addH_Img";
-    const inputH_Img = "inputH_Img";
-    // console.log(btnAddH_Img.length);
-
-    // loop query.selectorClassList
-    for (let i = 1; i <= btnAddH_Img.length; i++) {
-        // build variable document.querySelector input radio and btn class imgID
-        const btnAddH_Img = document.querySelector(".addH_Img" + i);
-        const inputAddH_Img = document.querySelector(".inputH_Img" + i);
-        const btnSetH_Img = document.querySelector(".SetH_Img" + i);
-        const inputSetH_Img = document.querySelector(".inputSetH_Img" + i);
-
-        btnAddH_Img.onclick = () => {
-            inputAddH_Img.click();
-        }
-        btnSetH_Img.onclick = () => {
-            inputSetH_Img.click();
-        }
+</script>
+<script>
+    const btnAddH_Img1 = document.querySelector(".addH_Img1");
+    const inputAddH_Img1 = document.querySelector(".inputH_Img1");
+    const btnAddH_Img2 = document.querySelector(".addH_Img2");
+    const inputAddH_Img2 = document.querySelector(".inputH_Img2");
+    const btnAddH_Img3 = document.querySelector(".addH_Img3");
+    const inputAddH_Img3 = document.querySelector(".inputH_Img3");
+    const btnAddH_Img4 = document.querySelector(".addH_Img4");
+    const inputAddH_Img4 = document.querySelector(".inputH_Img4");
+    btnAddH_Img1.onclick = () => {
+        inputAddH_Img1.click();
+    }
+    btnAddH_Img2.onclick = () => {
+        inputAddH_Img2.click();
+    }
+    btnAddH_Img3.onclick = () => {
+        inputAddH_Img3.click();
+    }
+    btnAddH_Img4.onclick = () => {
+        inputAddH_Img4.click();
     }
 </script>
 <script>
@@ -262,7 +260,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         btnSet.onclick = () => {
             inputID.click();
         }
-        $(".btnEditH0000" + i   ).on("click", function() {
+        $(".btnEditH0000" + i).on("click", function() {
             $(window).scrollTop(0);
         });
     }
@@ -428,10 +426,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         $('.field_Hname').append('<input class="H_Name" type="text" name="H_Name" value="' + data['H_Name'] + '">');
                         $('.field_Hdetail').append('<textarea class="Detail" type="text" name="H_Detail">' + data['H_Detail'] + '</textarea>');
                         $('.submit_edit').append('<input style="display: none;" class="H_ID" type="text" name="H_ID" value="' + data['H_ID'] + '">');
-                        $('.image1').append('<img class="SetH_Img1 SetH_Img" src="<?php echo base_url(); ?>img/' + data['H_Img1'] + '">');
-                        $('.image2').append('<img class="SetH_Img2 SetH_Img" src="<?php echo base_url(); ?>img/' + data['H_Img2'] + '">');
-                        $('.image3').append('<img class="SetH_Img3 SetH_Img" src="<?php echo base_url(); ?>img/' + data['H_Img3'] + '">');
-                        $('.image4').append('<img class="SetH_Img4 SetH_Img" src="<?php echo base_url(); ?>img/' + data['H_Img4'] + '">');
+                        $('.image1').append('<img class="SetH_Img1 SetH_Img" src="<?php echo base_url(); ?>img/HairStyle/' + data['H_Img1'] + '">');
+                        $('.image2').append('<img class="SetH_Img2 SetH_Img" src="<?php echo base_url(); ?>img/HairStyle/' + data['H_Img2'] + '">');
+                        $('.image3').append('<img class="SetH_Img3 SetH_Img" src="<?php echo base_url(); ?>img/HairStyle/' + data['H_Img3'] + '">');
+                        $('.image4').append('<img class="SetH_Img4 SetH_Img" src="<?php echo base_url(); ?>img/HairStyle/' + data['H_Img4'] + '">');
+
 
                     });
                     var cardSetHairStyle = document.getElementById("card-SetHairStyle");
@@ -443,14 +442,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     // loop query.selectorClassList
                     for (let i = 1; i <= boxImg.length; i++) {
                         // build variable document.querySelector input radio and btn class imgID
-                        const btnSetH_Img = document.querySelector(".SetH_Img" + i);
-                        const inputSetH_Img = document.querySelector(".inputSetH_Img" + i);
+                        const btnSetH_Image = document.querySelector(".SetH_Img" + i);
+                        const inputSetH_Image = document.querySelector(".inputSetH_Img" + i);
 
-                        console.log(btnSetH_Img);
-                        btnSetH_Img.onclick = () => {
-                            inputSetH_Img.click();
+
+                        btnSetH_Image.onclick = () => {
+                            inputSetH_Image.click();
                         }
+
                     }
+
+
                 }
             });
         });

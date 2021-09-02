@@ -174,6 +174,10 @@ class Admin_Model extends CI_Model
 			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
 			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
 			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->order_by('booking.BK_Year', "ASC")
+			->order_by('booking.BK_Month', "ASC")
+			->order_by('booking.BK_Day', "ASC")
+			->order_by('booking.ST_ID', "ASC")
 			->where($where);
 		$query = $this->db->get('booking');
 		return $query->result();
@@ -188,6 +192,10 @@ class Admin_Model extends CI_Model
 			->join('barber', 'booking.B_ID = barber.B_ID', 'left')
 			->join('slot_time', 'booking.ST_ID = slot_time.ST_ID', 'left')
 			->join('status_queue', 'booking.Q_ID = status_queue.Q_ID', 'inner')
+			->order_by('booking.BK_Year', "DESC")
+			->order_by('booking.BK_Month', "DESC")
+			->order_by('booking.BK_Day', "DESC")
+			->order_by('booking.ST_ID', "ASC")
 			->where($where);
 		$query = $this->db->get('booking');
 		return $query->result();

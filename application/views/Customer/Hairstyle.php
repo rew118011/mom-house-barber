@@ -22,7 +22,7 @@
         <figure class="card__thumb">
           <div class="image-box-hairstyle">
             <input id="hair-style" class="input<?php echo $row->H_ID; ?> inputH" type="radio" name="H_ID" value="<?php echo $row->H_ID; ?>">
-            <img src="<?php echo base_url(); ?>img/<?php echo $row->H_Img1; ?>" />
+            <img src="<?php echo base_url(); ?>img/HairStyle/<?php echo $row->H_Img1; ?>" />
           </div>
           <figcaption class="card__caption">
             <h2 class="card__title"><?php echo $row->H_Name; ?></h2>
@@ -198,10 +198,10 @@
           $('.price').find('span').remove();
 
           $.each(response, function(index, data) {
-            $('.image-H_Img1').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/' + data['H_Img1'] + '" />');
-            $('.image-H_Img2').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/' + data['H_Img2'] + '" />');
-            $('.image-H_Img3').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/' + data['H_Img3'] + '" />');
-            $('.image-H_Img4').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/' + data['H_Img4'] + '" />');
+            $('.image-H_Img1').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/HairStyle/' + data['H_Img1'] + '" />');
+            $('.image-H_Img2').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/HairStyle/' + data['H_Img2'] + '" />');
+            $('.image-H_Img3').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/HairStyle/' + data['H_Img3'] + '" />');
+            $('.image-H_Img4').append('<img class="' + data['H_ID'] + '" src="<?php echo base_url(); ?>img/HairStyle/' + data['H_Img4'] + '" />');
             $('.text1').append('<span>' + data['H_Shooting1'] + '</span>');
             $('.text2').append('<span>' + data['H_Shooting2'] + '</span>');
             $('.text3').append('<span>' + data['H_Shooting3'] + '</span>');

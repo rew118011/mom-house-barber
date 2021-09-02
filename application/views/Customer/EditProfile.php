@@ -3,7 +3,7 @@ foreach ($CUSTOMER as $row) {
 ?>
     <div class="profile-content slide" id="edit-profile">
         <section class="profile_area">
-            <form action="<?php echo site_url('Customer_Con/save_profile'); ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo site_url('Customer_Con/save_profile'); ?>" method="POST">
                 <div class="edit-profile">
                     <div class="screen">
                         <div class="screen-body">

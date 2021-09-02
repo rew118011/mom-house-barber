@@ -2,7 +2,7 @@
   <div class="cards">
     <div class="card-single">
       <div>
-        <p><?php echo $QDAY ;?> <strong>คิว</strong></p>
+        <p><?php echo $QDAY; ?> <strong>คิว</strong></p>
         <span>คิวในวันนี้</span>
       </div>
       <div>
@@ -14,7 +14,7 @@
 
     <div class="card-single">
       <div>
-        <p><?php echo $QMONTH ;?> <strong>คิว</strong></p>
+        <p><?php echo $QMONTH; ?> <strong>คิว</strong></p>
         <span>คิวในเดือนนี้</span>
       </div>
       <div>
@@ -26,7 +26,7 @@
 
     <div class="card-single">
       <div>
-        <p><?php echo $QYEAR ;?> <strong>คิว</strong></p>
+        <p><?php echo $QYEAR; ?> <strong>คิว</strong></p>
         <span>คิวในปีนี้</span>
       </div>
       <div>
@@ -38,7 +38,7 @@
 
     <div class="card-single">
       <div>
-        <p><?php echo $QALL ;?> <strong>คิว</strong></p>
+        <p><?php echo $QALL; ?> <strong>คิว</strong></p>
         <span>คิวที่รอตัดทั้งหมด</span>
       </div>
       <div>
@@ -53,15 +53,21 @@
     <div class="projects">
       <div class="card">
         <div class="card-header barber-income">
-          <h3>ตารางคิวที่รอตัดกับ<a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $ID->B_ID; ?>"><span class="span">ช่าง<?php echo $ID->B_Nickname; ?></span></a></h3>
-          <div class="img-barber-profile-small">
-            <img src="<?php echo base_url(); ?>img/<?php echo $ID->B_Img; ?>" alt="BarberProfile">
+          <div class="title-content">
+            <h3>ตารางคิวที่รอตัดกับ<a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $ID->B_ID; ?>"><span class="span">ช่าง<?php echo $ID->B_Nickname; ?></span></a></h3>
+            <div class="img-barber-profile-small">
+              <img src="<?php echo base_url(); ?>img/<?php echo $ID->B_Img; ?>" alt="BarberProfile">
+            </div>
+          </div>
+          <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="text" id="search" name="search" placeholder="ค้นหาที่นี่..." />
           </div>
         </div>
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="barber-queue">
+            <table class="barber-queue table-sortable" id="employee_table">
               <thead>
                 <tr class="tr-barber-queue">
                   <td></td>
@@ -76,11 +82,11 @@
                   <td></td>
                 </tr>
               </thead>
-              <?php
-              foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
-              ?>
-                <tbody>
-                  <tr class="tr-barber-queue">
+              <tbody>
+                <?php
+                foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                ?>
+                  <tr class="tr-barber-queue trbody">
                     <td></td>
                     <td class="td-barber-queue img">
                       <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
@@ -93,11 +99,11 @@
                     <td class="td-barber-queue ST_ID<?php echo $row->ST_ID; ?>"><?php echo $row->ST_Time; ?></td>
                     <td class="td-barber-queue">150 ฿</td>
                     <td></td>
+                  <?php
+                }
+                  ?>
                   </tr>
-                </tbody>
-              <?php
-              }
-              ?>
+              </tbody>
             </table>
           </div>
         </div>

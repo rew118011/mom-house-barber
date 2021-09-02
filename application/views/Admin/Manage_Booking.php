@@ -20,7 +20,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         <div class="card-single">
             <div>
-                <p><?php echo $NUMCLOSE ;?> <strong>วัน</strong></p>
+                <p><?php echo $NUMCLOSE; ?> <strong>วัน</strong></p>
                 <span>วันที่จะปิดร้านทั้งหมด</span>
             </div>
             <div>
@@ -71,8 +71,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <!-- select barber finish -->
 
-                        <input style="display: none;" type="text" name="Q_ID" value="2" required>
-                        <input style="display: none;" type="text" name="H_ID" value="H00001" required>
+                        <input style="display: none;" type="text" name="P_ID" value="1" required>
+                        <input style="display: none;" type="text" name="Q_ID" value="1" required>
                         <input style="display: none;" type="text" name="C_ID" value="C00000" required>
 
                         <!-- select slot time start -->
@@ -80,71 +80,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <input class="booking" type="submit" name="btnBooking" value="ตกลง">
                         </div>
                         <!-- select slot time finish -->
-
                     </form>
-
-                    <script src="<?php echo base_url(); ?>js/DNMforBooking.js"></script>
-                    <script>
-                        $(document).ready(function() {
-                            $('#year').change(function() {
-                                $('#month').change(function() {
-                                    $('#day').change(function() {
-                                        var BK_Year = $('#year').val();
-                                        var BK_Month = $('#month').val();
-                                        var BK_Day = $('#day').val();
-                                        $.ajax({
-                                            url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_Barber",
-                                            method: "POST",
-                                            dataType: 'json',
-                                            data: {
-                                                BK_Year: BK_Year,
-                                                BK_Month: BK_Month,
-                                                BK_Day: BK_Day
-                                            },
-
-                                            success: function(response) {
-                                                $('#barber').find('input[type="radio"]').remove();
-                                                $('#barber').find('.item.barber').remove();
-                                                $('#Time_Slot').find('input[type="radio"]').remove();
-                                                $('#Time_Slot').find('.input.slottime').remove();
-                                                $('#Time_Slot').find('.option.slottime').remove();
-                                                $('#Time_Slot').find('.option.slottime').remove();
-                                                $.each(response, function(index, data) {
-                                                    $('#barber').append('<div class="item barber"><div class="content"><input class="bb" type="radio" name="B_ID" value="' + data['B_ID'] + '" id="' + data['B_ID'] + '" class"barber_slottime" /><label class="Nbarber" for="' + data['B_ID'] + '"><div class="image"><img src="http://localhost/Mom_House_Barber/img/' + data['B_Img'] + '"></div><div class="name"><p>ช่าง' + data['B_Nickname'] + '</p></div></label></div></div>');
-                                                });
-
-                                                $('input[type="radio"]').change(function() {
-                                                    var B_ID = $(this).val();
-                                                    $.ajax({
-                                                        url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_TimeSlot",
-                                                        method: "POST",
-                                                        dataType: 'json',
-                                                        data: {
-                                                            BK_Year: BK_Year,
-                                                            BK_Month: BK_Month,
-                                                            BK_Day: BK_Day,
-                                                            B_ID: B_ID
-                                                        },
-
-                                                        success: function(response) {
-                                                            $('#Time_Slot').find('.content').remove();
-                                                            $('#Time_Slot').find('input[type="radio"]').remove();
-                                                            $('#Time_Slot').find('.input.slottime').remove();
-                                                            $('#Time_Slot').find('.option.slottime').remove();
-                                                            $.each(response, function(index, data) {
-                                                                $('#Time_Slot').append('<div class="content"><input class="input slottime" type="radio" name="ST_ID" id="option-' + data['ST_ID'] + '" value="' + data['ST_ID'] + '"><label for="option-' + data['ST_ID'] + '" class="option option-' + data['ST_ID'] + ' slottime"><div class="dot"></div><span>' + data['ST_Time'] + '</span></label></div> ');
-                                                            });
-
-                                                        }
-                                                    });
-                                                });
-                                            }
-                                        });
-                                    });
-                                });
-                            });
-                        });
-                    </script>
                 </div>
             </div>
         </div>
@@ -179,3 +115,96 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
 </main>
 </div>
+
+<script src="<?php echo base_url(); ?>js/DNMforBooking.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#year').change(function() {
+            $('#month').change(function() {
+                $('#day').change(function() {
+                    var BK_Year = $('#year').val();
+                    var BK_Month = $('#month').val();
+                    var BK_Day = $('#day').val();
+                    var BK_Date = $('#year').val() + "-" + ('0' + $('#month').val()).slice(-2) + "-" + ('0' + $('#day').val()).slice(-2);
+                    today = new Date().toISOString().split('T')[0];
+                    if (BK_Date >= today) {
+                        //check Closed Date
+                        $.ajax({
+                            url: "<?php echo base_url(); ?>index.php/Booking_Con/check_CloseShop",
+                            method: "POST",
+                            dataType: 'json',
+                            data: {
+                                BK_Date: BK_Date
+                            },
+
+                            success: function(response) {
+                                $('#barber').find('input[type="radio"]').remove();
+                                $('#barber').find('.item.barber').remove();
+                                $('#Time_Slot').find('input[type="radio"]').remove();
+                                $('#Time_Slot').find('.input.slottime').remove();
+                                $('#Time_Slot').find('.option.slottime').remove();
+                                $('#Time_Slot').find('.option.slottime').remove();
+                                if (!$.trim(response)) {
+                                    $.ajax({
+                                        url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_Barber",
+                                        method: "POST",
+                                        dataType: 'json',
+                                        data: {
+                                            BK_Year: BK_Year,
+                                            BK_Month: BK_Month,
+                                            BK_Day: BK_Day
+                                        },
+
+                                        success: function(response) {
+                                            $('#barber').find('input[type="radio"]').remove();
+                                            $('#barber').find('.item.barber').remove();
+                                            $('#Time_Slot').find('input[type="radio"]').remove();
+                                            $('#Time_Slot').find('.input.slottime').remove();
+                                            $('#Time_Slot').find('.option.slottime').remove();
+                                            $('#Time_Slot').find('.option.slottime').remove();
+                                            $.each(response, function(index, data) {
+                                                $('#barber').append('<div class="item barber"><div class="content"><input class="bb" type="radio" name="B_ID" value="' + data['B_ID'] + '" id="' + data['B_ID'] + '" class"barber_slottime" /><label class="Nbarber" for="' + data['B_ID'] + '"><div class="image"><img src="http://localhost/Mom_House_Barber/img/' + data['B_Img'] + '"></div><div class="name"><p>ช่าง' + data['B_Nickname'] + '</p></div></label></div></div>');
+                                            });
+
+                                            $('input[type="radio"]').change(function() {
+                                                var B_ID = $(this).val();
+                                                $.ajax({
+                                                    url: "<?php echo base_url(); ?>index.php/Booking_Con/fetch_TimeSlot",
+                                                    method: "POST",
+                                                    dataType: 'json',
+                                                    data: {
+                                                        BK_Year: BK_Year,
+                                                        BK_Month: BK_Month,
+                                                        BK_Day: BK_Day,
+                                                        B_ID: B_ID
+                                                    },
+
+                                                    success: function(response) {
+                                                        $('#Time_Slot').find('.content').remove();
+                                                        $('#Time_Slot').find('input[type="radio"]').remove();
+                                                        $('#Time_Slot').find('.input.slottime').remove();
+                                                        $('#Time_Slot').find('.option.slottime').remove();
+                                                        $.each(response, function(index, data) {
+                                                            $('#Time_Slot').append('<div class="content"><input class="input slottime" type="radio" name="ST_ID" id="option-' + data['ST_ID'] + '" value="' + data['ST_ID'] + '"><label for="option-' + data['ST_ID'] + '" class="option option-' + data['ST_ID'] + ' slottime"><div class="dot"></div><span>' + data['ST_Time'] + '</span></label></div> ');
+                                                        });
+                                                    }
+                                                });
+                                            });
+                                        }
+                                    });
+                                } else {
+                                    alert("วันที่" + " " + BK_Date + " " + "ร้านปิดค่ะ");
+                                    return;
+                                }
+                            }
+                        });
+                    } else {
+                        alert("ขออภัยคุณไม่สามารถเลือกวันที่ผ่านมาแล้วได้ค่ะ !");
+                        return;
+                    }
+
+                });
+            });
+        });
+    });
+</script>

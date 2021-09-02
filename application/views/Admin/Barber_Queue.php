@@ -74,7 +74,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="barber-queue">
+                        <table class="barber-queue table-sortable" id="employee_table">
                             <thead>
                                 <tr class="tr-barber-queue">
                                     <td></td>
@@ -90,10 +90,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <td></td>
                                 </tr>
                             </thead>
-                            <?php
-                            foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
-                            ?>
-                                <tbody>
+                            <tbody>
+                                <?php
+                                foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                                ?>
                                     <tr id="<?php echo $row->BK_ID; ?>" class="tr-barber-queue">
                                         <td></td>
                                         <td class="td-barber-queue img"><img class="img-barber-queue" src="<?php echo base_url(); ?>img/me.jpg" alt="" /></td>
@@ -113,10 +113,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </td>
                                         <td></td>
                                     </tr>
-                                </tbody>
-                            <?php
-                            }
-                            ?>
+                                <?php
+                                }
+                                ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>

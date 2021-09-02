@@ -11,7 +11,7 @@
 
       <div class="card-body">
         <div class="table-responsive">
-          <table class="barber-queue">
+          <table class="barber-queue table-sortable" id="employee_table">
             <thead>
               <tr class="tr-barber-queue">
                 <td></td>
@@ -27,10 +27,10 @@
                 <td></td>
               </tr>
             </thead>
-            <?php
-            foreach ($BARBER as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
-            ?>
-              <tbody>
+            <tbody>
+              <?php
+              foreach ($BARBER as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+              ?>
                 <tr class="tr-barber-queue">
                   <td></td>
                   <td class="td-barber-queue img">
@@ -56,10 +56,10 @@
                   </td>
                   <td></td>
                 </tr>
-              </tbody>
-            <?php
-            }
-            ?>
+              <?php
+              }
+              ?>
+            </tbody>
           </table>
         </div>
       </div>

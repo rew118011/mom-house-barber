@@ -63,13 +63,13 @@
           <h3>ลูกค้าทั้งหมดที่เป็นสมาชิกทั้งหมด</h3>
           <div class="search-wrapper">
             <span class="las la-search"></span>
-            <input type="search" placeholder="ค้นหาที่นี่" />
+            <input type="text" id="search" name="search" placeholder="ค้นหาที่นี่..." />
           </div>
         </div>
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="barber-queue">
+          <table class="barber-queue table-sortable" id="employee_table">
               <thead>
                 <tr class="tr-barber-queue">
                   <td></td>
@@ -89,7 +89,7 @@
                 <?php
                 foreach ($CUSTOMER as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
                 ?>
-                  <tr class="tr-barber-queue c_id_<?php echo $row->C_ID; ?>">
+                  <tr class="tr-barber-queue c_id_<?php echo $row->C_ID; ?> trbody">
                     <td></td>
                     <td class="td-barber-queue img">
                       <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />
@@ -112,7 +112,7 @@
                 <?php
                 foreach ($CUSTOMERN as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
                 ?>
-                  <tr class="tr-barber-queue c_id_<?php echo $row->C_ID; ?>">
+                  <tr class="tr-barber-queue c_id_<?php echo $row->C_ID; ?> trbody">
                     <td></td>
                     <td class="td-barber-queue img">
                       <img class="img-barber-queue" src="<?php echo base_url(); ?>img/<?= $row->C_Img; ?>" />

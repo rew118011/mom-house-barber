@@ -22,7 +22,7 @@ generateCalendar = (month, year) => {
     let currDate = new Date()
     if (!month) month = currDate.getMonth()
     if (!year) year = currDate.getFullYear()
-
+        // console.log(year);
     let curr_month = `${month_names[month]}`
     month_picker.innerHTML = curr_month
     calendar_header_year.innerHTML = year
@@ -31,27 +31,73 @@ generateCalendar = (month, year) => {
 
     let first_day = new Date(year, month, 1)
 
+
+
+    let numFullQueue = <?php echo $NUMFUULQUEUE; ?>;
+    console.log("numFullQueue " + numFullQueue);
+    let numClose = <?php echo $NUMCLOSE; ?>;
+    console.log("numClose " + numClose);
+
     for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
-        let booking = 2;
+
         let day = document.createElement('div')
         if (i >= first_day.getDay()) {
             day.classList.add('calendar-day-hover')
             day.id = "day";
             day.innerHTML = i - first_day.getDay() + 1
-            day.innerHTML += `<span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>`
-            if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
+            day.innerHTML += `<span class="line"></span>
+                          <span class="line"></span>
+                          <span class="line"></span>
+                          <span class="line"></span>
+                          <span class="tooltipFullQueue">คิวเต็มแล้ว</span>
+                          <span class="tooltipClose">วันนี้ร้านปิด</span>
+                        `
+            if (i - first_day.getDay() + 1 === currDate.getDate() && month === currDate.getMonth() && year === currDate.getFullYear()) {
                 day.classList.add('curr-date')
             }
-            if (i - first_day.getDay() + 1 === booking) {
-                day.classList.add('classTest')
+            // else if (i - first_day.getDay() + 1 === BK_Day && month === BK_Month - 1 && year === BK_Year) {
+            //     day.classList.add('FullQueue')
+            // }
+
+            for (let close = 0; close < numClose; close++) {
+                var OB_Year = [<?php foreach ($CLOSEYEAR as $row) { ?>
+                    <?php echo $row->Year; ?>, <?php } ?>
+                ];
+                var OB_Month = [<?php foreach ($CLOSEMONTH as $row) { ?>
+                    <?php echo $row->Month; ?>, <?php } ?>
+                ];
+                var OB_Day = [<?php foreach ($CLOSEDAY as $row) { ?>
+                    <?php echo $row->Day; ?>, <?php } ?>
+                ];
+                // console.log(OB_Day[close] + " " + close);
+
+                if (i - first_day.getDay() + 1 === OB_Day[close] && month === OB_Month[close] - 1 && year === OB_Year[close]) {
+                    day.classList.add('Close')
+                }
+            }
+
+            for (let FullQueue = 0; FullQueue < numFullQueue; FullQueue++) {
+                var BK_Year = [<?php foreach ($FULLQUEUE as $row) { ?>
+                    <?php echo $row->BK_Year; ?>, <?php } ?>
+                ];
+                var BK_Month = [<?php foreach ($FULLQUEUE as $row) { ?>
+                    <?php echo $row->BK_Month; ?>, <?php } ?>
+                ];
+                var BK_Day = [<?php foreach ($FULLQUEUE as $row) { ?>
+                    <?php echo $row->BK_Day; ?>, <?php } ?>
+                ];
+                console.log(BK_Year + " " + FullQueue)
+                console.log(BK_Month + " " + FullQueue)
+                console.log(BK_Day + " " + FullQueue)
+                if (i - first_day.getDay() + 1 === BK_Day[FullQueue] && month === BK_Month[FullQueue] - 1 && year === BK_Year[FullQueue]) {
+                    day.classList.add('FullQueue')
+                }
             }
         }
         calendar_days.appendChild(day)
     }
 }
+
 
 let month_list = calendar.querySelector('.month-list')
 
