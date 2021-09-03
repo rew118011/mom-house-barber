@@ -75,7 +75,7 @@ class Booking_Model extends CI_Model
     {
         $response = $this->db->where('BK_ID', $id)
             ->delete('booking');
-            $this->db->where('BK_ID', $id)
+        $this->db->where('BK_ID', $id)
             ->delete('history_queue');
         return  $response;
     }
@@ -83,9 +83,9 @@ class Booking_Model extends CI_Model
     function setQueue($id)
     {
         //$response = $this->db->query("UPDATE booking SET Q_ID = '2' WHERE booking.`BK_ID` = '.$id.'");
-        $response = $this->db->where('BK_ID',$id)
-                     ->set('Q_ID','2')
-                    ->update('booking');
+        $response = $this->db->where('BK_ID', $id)
+            ->set('Q_ID', '2')
+            ->update('booking');
         return  $response;
     }
 
@@ -96,8 +96,8 @@ class Booking_Model extends CI_Model
         return $query->result();
     }
 
-    
-    function getBarberBy_YearMonthDay($BK_Year,$BK_Month,$BK_Day)
+
+    function getBarberBy_YearMonthDay($BK_Year, $BK_Month, $BK_Day)
     {
         $response  = array();
         $query = $this->db->query("SELECT * 
@@ -110,16 +110,71 @@ class Booking_Model extends CI_Model
                     SELECT B_ID FROM offwork WHERE Date = '$BK_Year-$BK_Month-$BK_Day'
         )");
         $response  = $query->result_array();
-        return  $response ;
+        return  $response;
     }
 
-    function getTimeSlotByBarberID($BK_Year,$BK_Month,$BK_Day,$B_ID)
+    function getTimeSlotByBarberID($BK_Year, $BK_Month, $BK_Day, $B_ID)
     {
 
         //$query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN(SELECT ST_ID FROM booking WHERE BK_Year = '$BK_Year' & BK_Month = '$BK_Month' & BK_Day = '$BK_Day' & B_ID = '$B_ID')");
         $response  = array();
         $query = $this->db->query("SELECT * FROM slot_time WHERE ST_ID NOT IN( SELECT ST_ID FROM booking WHERE (BK_Year = '$BK_Year' and BK_Month = '$BK_Month' and BK_Day = '$BK_Day' AND B_ID = '$B_ID'))");
         $response  = $query->result_array();
-        return  $response ;
+        return  $response;
+    }
+
+    function numClose()
+    {
+        $query = $this->db->query("SELECT OB_DATE FROM `close_branch`");
+        return $query->num_rows();
+    }
+    function numFullQueue()
+    {
+        $query = $this->db->query("SELECT 
+        BK_Day,COUNT(BK_Day),BK_Month,COUNT(BK_Month),BK_Year,COUNT(BK_Year)
+    FROM
+        booking
+    GROUP BY 
+        BK_Day , 
+        BK_Month , 
+        BK_Year
+    HAVING  COUNT(BK_Day) = 10*4
+        AND COUNT(BK_Month) = 10*4
+        AND COUNT(BK_Year) = 10*4;");
+        return $query->num_rows();
+    }
+    function FullQueue()
+    {
+        $queryBarber = $this->db->query("SELECT B_ID FROM barber");
+
+        $numBarber = $queryBarber->num_rows();
+
+        $query = $this->db->query("SELECT 
+        BK_Day,COUNT(BK_Day),BK_Month,COUNT(BK_Month),BK_Year,COUNT(BK_Year)
+    FROM
+        booking
+    GROUP BY 
+        BK_Day , 
+        BK_Month , 
+        BK_Year
+    HAVING  COUNT(BK_Day) = 10*$numBarber
+        AND COUNT(BK_Month) = 10*$numBarber
+        AND COUNT(BK_Year) = 10*$numBarber;");
+        return $query->result();
+    }
+    function CloseYear()
+    {
+        $query = $this->db->query("SELECT YEAR(OB_DATE) AS Year FROM `close_branch`");
+        return $query->result();
+    }
+    function CloseMonth()
+    {
+        $query = $this->db->query("SELECT MONTH(OB_DATE) AS Month FROM `close_branch`");
+        return $query->result();
+    }
+    function CloseDay()
+    {
+        $query = $this->db->query("SELECT DAY(OB_DATE) AS Day FROM `close_branch`");
+        return $query->result();
     }
 }

@@ -13,12 +13,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mom House Barber | Customer</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleCustomerN34.css">
+    <title>Mom House Barber | <?php foreach ($CUSTOMER as $row) { ?><?php } ?><?php echo $this->session->userdata('Username'); ?></title>
+    <link rel="icon" href="<?php echo base_url(); ?>img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleCustomerN37.css">
     <noscript>
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/noscript.css" />
     </noscript>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/progress-circle.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/progressCircle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
@@ -40,8 +41,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body style="background-image: url(<?php echo base_url(); ?>img/bgBarber.jpeg)">
 
-<div id="progressbar"></div>
-<div id="scollPart"></div>
+    <div id="progressbar"></div>
+    <div id="scollPart"></div>
 
     <!-- Wrapper -->
     <div id="wrapper">

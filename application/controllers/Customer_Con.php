@@ -26,14 +26,14 @@ class Customer_Con extends CI_Controller
         $data['BOOKING'] = $this->CM->getBooking($sess);
         $data['BH'] = $this->CM->getBookingHistory($sess);
 
-        $data['NUMFUULQUEUE'] = $this->CM->numFullQueue();
-        $data['NUMCLOSE'] = $this->CM->numClose();
-        $data['FULLQUEUE'] = $this->CM->FullQueue();
-        $data['CLOSEYEAR'] = $this->CM->CloseYear();
-        $data['CLOSEMONTH'] = $this->CM->CloseMonth();
-        $data['CLOSEDAY'] = $this->CM->CloseDay();
+        $data['NUMFUULQUEUE'] = $this->BKM->numFullQueue();
+        $data['NUMCLOSE'] = $this->BKM->numClose();
+        $data['FULLQUEUE'] = $this->BKM->FullQueue();
+        $data['CLOSEYEAR'] = $this->BKM->CloseYear();
+        $data['CLOSEMONTH'] = $this->BKM->CloseMonth();
+        $data['CLOSEDAY'] = $this->BKM->CloseDay();
 
-        $this->load->view('Customer/Header');
+        $this->load->view('Customer/Header', $data);
         $this->load->view('Customer/Navbar', $data);
         $this->load->view('Customer/Profile', $data);
         $this->load->view('Customer/EditProfile', $data);

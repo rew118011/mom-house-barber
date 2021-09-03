@@ -26,8 +26,8 @@
                     <span class="icon major"><img src="<?php echo base_url(); ?>img/<?= $row->B_Img; ?>" alt="" /></span>
                 </div>
                 <h3>ช่าง<?php echo $row->B_Nickname; ?></h3>
-                <input id="barberBtn" class="input<?php echo $row->B_ID; ?> inputB" type="radio" name="B_ID" value="<?php echo $row->B_ID; ?>">
-                <p class="btn<?php echo $row->B_ID; ?> btnB">ดูโปรไฟล์</p>
+                <input id="barberBtn" class="inputAllBarber<?php echo $row->B_ID; ?> inputB" type="radio" name="B_ID" value="<?php echo $row->B_ID; ?>">
+                <p class="btnAllBarber<?php echo $row->B_ID; ?> btnB">ดูโปรไฟล์</p>
             </li>
         <?php
         }
@@ -89,25 +89,26 @@
     var btnBarber = cardBarber.getElementsByClassName("inputB");
     // var imgHairStyle = cardHairStyle.getElementsByClassName("imgH");
     // var inputHairStyle = cardHairStyle.getElementsByClassName("inputH");
-    const btnB = "btnB0000";
-    const inputB = "inputH0000";
     // console.log("barber" + " " + btnBarber.length);
 
     // loop query.selectorClassList
     for (let i = 1; i <= btnBarber.length; i++) {
-        document.querySelector(".btnB0000" + i).addEventListener("click", function() {
+        document.querySelector(".btnAllBarberB0000" + i).addEventListener("click", function() {
             document.querySelector(".popupBarber").style.display = "flex";
         })
         // close popup hairstyle
         document.querySelector(".closeBarber").addEventListener("click", function() {
             document.querySelector(".popupBarber").style.display = "none";
         })
+        document.querySelector(".closeBarberQueue").addEventListener("click", function() {
+            document.querySelector(".popupBarber").style.display = "none";
+        })
         // console.log(btnB + i);
         // build variable document.querySelector input radio and btn class imgID
-        const inputBID = document.querySelector(".inputB0000" + i);
-        const btnBarber = document.querySelector(".btnB0000" + i);
+        const inputBID = document.querySelector(".inputAllBarberB0000" + i);
+        const btnBarber = document.querySelector(".btnAllBarberB0000" + i);
         // console.log(inputBID);
-        // console.log(img);
+        // console.log(btnBarber);
 
         // when click btn read more = click input radio
         btnBarber.onclick = () => {

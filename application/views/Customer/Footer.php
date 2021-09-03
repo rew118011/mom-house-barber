@@ -12,11 +12,15 @@
         <h2>ช่องทางติดต่อ</h2>
         <dl class="alt">
             <dt>ที่อยู่</dt>
-            <dd>110 หมู่ 7 หนองปากโลง อำเภอเมืองนครปฐม นครปฐม 73000</dd>
+            <dd>
+                <a href="https://www.google.com/maps/dir//%E0%B8%AB%E0%B8%AD%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AA%E0%B8%99%E0%B8%AA%E0%B8%B8%E0%B8%82+%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%9B%E0%B8%90%E0%B8%A1+110+%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B9%88+7+%E0%B8%AB%E0%B8%99%E0%B8%AD%E0%B8%87%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B9%82%E0%B8%A5%E0%B8%87+%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%9B%E0%B8%90%E0%B8%A1+%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%9B%E0%B8%90%E0%B8%A1+73000/@13.8339528,100.0241368,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30e2e44f90cd2369:0xf8065ad1493d0eb9!2m2!1d100.025844!2d13.8336537" target="blank">110 หมู่ 7 หนองปากโลง อำเภอเมืองนครปฐม นครปฐม 73000</a>
+            </dd>
             <dt>เบอร์มือถือ</dt>
-            <dd>089 153 6345</dd>
+            <dd>
+                <a href="tel:+66891536345" class="Blondie">089 153 6345</a>
+            </dd>
             <dt>Email</dt>
-            <dd><a href="#">MomHouseBarber@gmail.com</a></dd>
+            <dd><a href="mailto: MomHouseBarber@gmail.com">MomHouseBarber@gmail.com</a></dd>
         </dl>
         <ul class="icons">
             <li>
@@ -43,7 +47,7 @@
 <script src="<?php echo base_url(); ?>js/util.js"></script>
 <script src="<?php echo base_url(); ?>js/main.js"></script>
 <script src="<?php echo base_url(); ?>js/NavbarActive.js"></script>
-<script src="<?php echo base_url();?>js/Scrollbar.js"></script>
+<script src="<?php echo base_url(); ?>js/Scrollbar.js"></script>
 <script>
     let calendar = document.querySelector('.calendar')
 

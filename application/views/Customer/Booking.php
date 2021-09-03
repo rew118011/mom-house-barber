@@ -29,13 +29,13 @@
 				</header>
 				<div class="in-select">
 					<select class="dropdown-date" name="BK_Year" id="year">
-						<option value="BK_Year" selected="selected">กรุณาเลือกปี...</option>
+						<option selected disabled value="BK_Year" selected="selected">กรุณาเลือกปี...</option>
 					</select>
 					<select class="dropdown-date" name="BK_Month" id="month">
-						<option value="BK_Month" selected="selected">กรุณาเลือกเดือน...</option>
+						<option selected disabled value="BK_Month" selected="selected">กรุณาเลือกเดือน...</option>
 					</select>
 					<select class="dropdown-date" name="BK_Day" id="day">
-						<option value="BK_Day" selected="selected">กรุณาเลือกวัน...
+						<option selected disabled value="BK_Day" selected="selected">กรุณาเลือกวัน...
 						</option>
 					</select>
 				</div>

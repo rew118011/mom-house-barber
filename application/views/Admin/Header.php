@@ -8,7 +8,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1" />
   <meta name="theme-color" content="#999999" />
-  <title>Mom House Barber | Barber</title>
+  <title>Mom House Barber | Admin</title>
+  <link rel="icon" href="<?php echo base_url(); ?>img/logo.png" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleAdmin44.css">
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
   <script src="https://kit.fontawesome.com/fc529a0756.js" crossorigin="anonymous"></script>

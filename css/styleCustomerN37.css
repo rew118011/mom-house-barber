@@ -23,8 +23,11 @@
     --background--dark--white: #f3f3f3;
     --text--color--dark: #291f1d;
     --text--color--light: #ffffff;
+    --yellow: #f1c40f;
+    --yellow-light: #f39c12;
     --yellow-dark: #f79b31;
     --yellow-dark-hover: #cc7b1e;
+    --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
     --yellow: #ffdbb3;
     --red: #ee251e;
     --yellow-light: #e5f89e;
@@ -2045,15 +2048,6 @@ select,
 textarea {
     background-color: rgba(255, 255, 255, 0.075);
     border-color: rgba(255, 255, 255, 0.35);
-}
-
-select {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.35)' /%3E%3C/svg%3E");
-}
-
-select option {
-    color: #ffffff;
-    background: #935d8c;
 }
 
 input[type="checkbox"]+label,
@@ -4139,11 +4133,6 @@ nav .drop-profile.show {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='%23dddddd' /%3E%3C/svg%3E");
 }
 
-#main select option {
-    color: #636363;
-    background: #ffffff;
-}
-
 #main .icon.major {
     width: 7.5em;
     height: 7.5em;
@@ -4459,28 +4448,18 @@ nav .drop-profile.show {
     outline: none;
     padding: 0 20px;
     border-radius: 10px;
-    border: 1px solid lightgrey;
-    border-bottom-width: 2px;
+    border: 1px solid var(--yellow-dark);
+    color: var(--text--color--dark);
     font-size: 16px;
     font-family: "Prompt", sans-serif;
-    color: #474747;
     background-color: transparent !important;
+    box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.07);
     transition: all 0.3s ease;
     position: relative;
     cursor: pointer;
     animation-name: trabsitionInButton;
     animation-duration: 0.5s;
     transition-duration: 0.9s;
-}
-
-.booking-form-inner form .dropdown-date option {
-    cursor: pointer;
-    color: var(--main-color-super-dark);
-}
-
-.booking-form-inner form .dropdown-date option::before {
-    cursor: pointer;
-    background: var(--main-color-super-dark);
 }
 
 
@@ -5866,7 +5845,6 @@ nav .drop-profile.show {
 }
 
 .popup .popup-content .profile-content {
-    overflow-y: auto;
     height: 100%;
     border-radius: 10px;
     padding: 2.6rem 0 0 0;
@@ -5929,7 +5907,7 @@ nav .drop-profile.show {
     overflow: hidden;
     border-radius: 50%;
     cursor: pointer;
-    margin: 3rem 0;
+    margin: 0.75rem 0;
 }
 
 .profile_area .container .profile .profile_image img {
@@ -5937,7 +5915,6 @@ nav .drop-profile.show {
 }
 
 .profile_area .container .profile .profile_info {
-    margin-top: 2.25rem;
     padding-left: 5rem;
     width: 60%;
 }

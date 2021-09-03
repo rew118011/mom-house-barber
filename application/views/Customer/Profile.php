@@ -22,7 +22,7 @@ foreach ($CUSTOMER as $row) {
               <p><i class="las la-transgender"></i> <span>:</span> <?php echo $row->C_Sex; ?></p>
               <p><i class="las la-phone-volume"></i> <span>:</span> <?php echo $row->C_Phone; ?></p>
               <p><i class="lab la-facebook"></i> <span>:</span>
-                <a href="https://www.facebook.com/search/top/?q=<?php echo $row->C_Facebook; ?>"><?php echo $row->C_Facebook; ?></a>
+                <a href="https://www.facebook.com/search/top/?q=<?php echo $row->C_Facebook; ?>" target="_blank"><?php echo $row->C_Facebook; ?></a>
               </p>
             </div>
           </div>
@@ -61,10 +61,10 @@ foreach ($CUSTOMER as $row) {
                   <td></td>
                 </tr>
               </thead>
-              <?php
-              foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
-              ?>
-                <tbody>
+              <tbody>
+                <?php
+                foreach ($BOOKING as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                ?>
                   <tr id="<?php echo $row->BK_ID; ?>" class="tr-barber-queue">
                     <td></td>
                     <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
@@ -76,10 +76,10 @@ foreach ($CUSTOMER as $row) {
                     <td value="1" class="td-barber-queue status"><?php echo $row->Q_Status; ?></td>
                     <td></td>
                   </tr>
-                </tbody>
-              <?php
-              }
-              ?>
+                <?php
+                }
+                ?>
+              </tbody>
             </table>
           </div>
           <div class="tabs_content history" id="history">
@@ -95,10 +95,10 @@ foreach ($CUSTOMER as $row) {
                   <td></td>
                 </tr>
               </thead>
-              <?php
-              foreach ($BH as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
-              ?>
-                <tbody>
+              <tbody class="HistoryBooking-Tbody">
+                <?php
+                foreach ($BH as $row) {  //ทำการจนลูปโดนนำค่า $resuult ที่เก็บไว้ในตัวแปร barber แล้วทำการ as $row โดยให้ %row ดึงข้อมูลมาทีละฟิล
+                ?>
                   <tr id="<?php echo $row->BK_ID; ?>" class="tr-barber-queue">
                     <td></td>
                     <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
@@ -110,10 +110,10 @@ foreach ($CUSTOMER as $row) {
                     <td value="1" class="td-barber-queue status_all_orders"><?php echo $row->Q_Status; ?></td>
                     <td></td>
                   </tr>
-                </tbody>
-              <?php
-              }
-              ?>
+                <?php
+                }
+                ?>
+              </tbody>
             </table>
           </div>
         </div>
