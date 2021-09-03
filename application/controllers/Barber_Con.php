@@ -1,4 +1,4 @@
-  <?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Barber_Con extends CI_Controller {
@@ -16,6 +16,7 @@ class Barber_Con extends CI_Controller {
         $data['CH'] = $this->BM->getBarberBookingHistory($sess);  
         $data['BOOKING'] = $this->BM->getBarberBooking($sess);
         $data['BHC'] = $this->BM->getBarberBookingHistoryCurdate ($sess);
+        $data['INCOME'] = $this->BM->getBarberIncomeByID($sess);
 
 		$this->load->view('Barber/Header', $data);
         $this->load->view('Barber/ItemStories');
@@ -29,6 +30,7 @@ class Barber_Con extends CI_Controller {
         $data['BARBER'] = $this->BM->getProfileBarber($sess);
         $data['CH'] = $this->BM->getBarberBookingHistory($sess); 
         $data['BHC'] = $this->BM->getBarberBookingHistoryCurdate ($sess);
+        $data['INCOME'] = $this->BM->getBarberIncomeByID($sess);
 
         $this->load->view('Barber/Header', $data);
         $this->load->view('Barber/ItemStories', $data);
@@ -41,6 +43,7 @@ class Barber_Con extends CI_Controller {
         $sess =  $this->session->userdata('Username');              
         $data['BARBER'] = $this->BM->getProfileBarber($sess); 
         $data['BHC'] = $this->BM->getBarberBookingHistoryCurdate ($sess); 
+        $data['INCOME'] = $this->BM->getBarberIncomeByID($sess);
 
 		$this->load->view('Barber/Header', $data);
         $this->load->view('Barber/ItemStories', $data);
@@ -56,6 +59,7 @@ class Barber_Con extends CI_Controller {
         $data['BH'] = $this->AM->getCustomerBookingHistory($id);
         $data['CH'] = $this->BM->getBarberBookingHistory($sess);
         $data['BHC'] = $this->BM->getBarberBookingHistoryCurdate ($sess);
+        $data['INCOME'] = $this->BM->getBarberIncomeByID($sess);
 
 		$this->load->view('Barber/Header', $data);
         $this->load->view('Barber/ItemStories', $data);
@@ -65,14 +69,15 @@ class Barber_Con extends CI_Controller {
         $this->load->view('Barber/Footer');
     }
 
-    public function getProfileBarber()
+    public function getBarberProfile()
     {
         $sess =  $this->session->userdata('Username');              
         $data['BARBER'] = $this->BM->getProfileBarber($sess);   
         $data['CH'] = $this->BM->getBarberBookingHistory($sess);  
         $data['BOOKING'] = $this->BM->getBarberBooking($sess);
-        $data['FO'] = $this->BM->getPortfolio($sess);
+        $data['PFO'] = $this->BM->getPortfolio($sess);
         $data['BHC'] = $this->BM->getBarberBookingHistoryCurdate ($sess);
+        $data['INCOME'] = $this->BM->getBarberIncomeByID($sess);
 
 		$this->load->view('Barber/Header', $data);
         $this->load->view('Barber/ItemStories', $data);
@@ -89,6 +94,7 @@ class Barber_Con extends CI_Controller {
         $sess =  $this->session->userdata('Username');              //นำข้อมูล session เก็บไว้ในตัวแปร $sess
         $data['BARBER'] = $this->BM->getProfileBarber($sess);       //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
         $data['BHC'] = $this->BM->getBarberBookingHistoryCurdate ($sess);
+        $data['INCOME'] = $this->BM->getBarberIncomeByID($sess);
 
 		$this->load->view('Barber/Header', $data);
         $this->load->view('Barber/ItemStories', $data);
@@ -116,19 +122,16 @@ class Barber_Con extends CI_Controller {
             'B_Skill_Score2' => $this->input->post("B_Skill_Score2"),
             'B_Skill_Score3' => $this->input->post("B_Skill_Score3"),
             'B_Percent' => $this->input->post("B_Percent"),
-            'B_Salary' => $this->input->post("B_Salary"),
+            'B_Salary' => $this->input->post("B_Salary")
         );
         $check = $this->BM->setProfile($data);
         if($check == TRUE){
-        $sess =  $this->session->userdata('Username');      //นำข้อมูล session เก็บไว้ในตัวแปร $sess
-        $data1['BARBER'] = $this->BM->getProfileBarber($sess);
-        $this->load->view('profilebarber_view', $data1);
+            redirect('Barber_Con/setProfileBarber', 'refresh');
         }else{
             echo "<script language=\"JavaScript\">";
             echo "alert('ไม่สามารถแก้ไขข้อมูลได้ค่ะ !')";
             echo "</script>";
         }
-        
     }
 
     function save_Image() 
@@ -143,25 +146,17 @@ class Barber_Con extends CI_Controller {
             $this->load->library('upload', $config);
             if ( ! $this->upload->do_upload('PFLO_Img')) {
                
-                redirect('Barber_Con/setProfileBarber','refresh');
+                redirect('Barber_Con/addPortfolio','refresh');
           }
           else{
              $image = $this->upload->data('file_name');
              $data = array (
                 'B_ID' => $this->input->post("B_ID"),
-                'B_Img' => $image);
+                'Detail' => $this->input->post("Detail"),
+                'PFLO_Img' => $image);
         }
-        $this->BM->setProfile($data);
-        
-        
-        $sess =  $this->session->userdata('Username');              //นำข้อมูล session เก็บไว้ในตัวแปร $sess
-        $data['BARBER'] = $this->BM->getProfileBarber($sess);       //เก็บข้อมูลและฟังก์ชั่นไว้ตัวแปร data
-        $data['BHC'] = $this->BM->getBarberBookingHistoryCurdate ($sess);
-
-		$this->load->view('Barber/Header', $data);
-        $this->load->view('Barber/ItemStories', $data);
-        $this->load->view('Barber/Edit_Profile', $data);
-        $this->load->view('Barber/Footer');
+        $this->BM->addPortfolio($data);
+        redirect('Barber_Con/addPortfolio', 'refresh'); 
     }
     
 
@@ -173,6 +168,7 @@ class Barber_Con extends CI_Controller {
         $data['ID'] = $this->BM->getCustomerShow($id);
         $data['BOOKING'] = $this->BM->getBarberBooking($sess);
         $data['BHC'] = $this->BM->getBarberBookingHistoryCurdate ($sess);
+        $data['INCOME'] = $this->BM->getBarberIncomeByID($sess);
 
         $this->load->view('Barber/Header', $data);
         $this->load->view('Barber/ItemStories', $data);

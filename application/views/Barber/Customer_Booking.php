@@ -18,7 +18,7 @@
                     <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
                     <td class="td-barber-queue"><?php echo $row->ST_Time; ?></td>
                     <td class="td-barber-queue booking-with">
-                        <a href="<?php echo site_url('Admin_Con/getBarberProfile/') . $row->B_ID; ?>">ช่าง<?php echo $row->B_Nickname; ?></a>
+                        <a href="<?php echo site_url('Barber_Con/getBarberProfile/') . $row->B_ID; ?>">ช่าง<?php echo $row->B_Nickname; ?></a>
                     </td>
                     <td value="1" class="td-barber-queue status">กำลังรอ...</td>
                     <td class="td-barber-queue">

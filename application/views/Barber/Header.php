@@ -11,8 +11,8 @@ foreach ($BARBER as $row) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mom House Barber | Barber</title>
-  <link rel="icon" href="<?php echo base_url(); ?>img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleBarberb15.css">
+    <link rel="icon" href="<?php echo base_url(); ?>img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styleBarberb20.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
@@ -37,11 +37,11 @@ foreach ($BARBER as $row) {
         <!-- #profile start -->
         <div class="profile">
           <div class="image">
-            <a href="<?php echo site_url('Barber_Con/getProfileBarber'); ?>">
+            <a href="<?php echo site_url('Barber_Con/getBarberProfile'); ?>">
               <img src="<?php echo base_url(); ?>img/<?php echo  $row->B_Img; ?>" alt="" onerror="this.src='<?php echo base_url(); ?>img/user.png'" />
             </a>
           </div>
-          <a href="<?php echo site_url('Barber_Con/getProfileBarber'); ?>" class="username">ช่าง <?php echo $row->B_Nickname; ?></a>
+          <a href="<?php echo site_url('Barber_Con/getBarberProfile'); ?>" class="username">ช่าง <?php echo $row->B_Nickname; ?></a>
           <span class="name"><?php echo $row->B_Name; ?> &nbsp; <?php echo $row->B_Lname; ?></span>
           <ul class="info">
             <li>
@@ -51,7 +51,11 @@ foreach ($BARBER as $row) {
               <span><?= $row->B_Salary; ?>฿</span> <span>เงินเดือนหลัก</span>
             </li>
             <li>
-              <span><?= $row->B_Total; ?>฿</span> <span>รายได้เดือนนี้</span>
+              <span><?php
+                    foreach ($INCOME as $row) {
+                      echo $row->B_Total;
+                    }
+                    ?>฿</span> <span>รายได้เดือนนี้</span>
             </li>
           </ul>
         </div>

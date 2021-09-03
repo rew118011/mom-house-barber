@@ -26,12 +26,12 @@ class Barber_Model extends CI_Model
 			return FALSE;
 		}
 	}
-	
-	function getAdminProfile($id) 
+
+	function getAdminProfile($id)
 	{
-		$query = $this->db->where('C_ID', $id) 
-			->get('customer'); 
-		return $query->row(); 
+		$query = $this->db->where('C_ID', $id)
+			->get('customer');
+		return $query->row();
 	}
 
 	function getBarberBooking($sess)
@@ -88,27 +88,41 @@ class Barber_Model extends CI_Model
 	function getPortfolio()
 	{
 		$this->db->select('*')
-		->join('barber', 'portfolio.B_ID = barber.B_ID', 'left');
+			->join('barber', 'portfolio.B_ID = barber.B_ID', 'left');
 		$query = $this->db->get('portfolio');
 		return $query->result();
 	}
 	function addPortfolio($data)
 	{
-		$sess =  $this->session->userdata('Username'); //นำข้อมูล session เก็บไว้ในตัวแปร $id
-		$query = $this->db->where('portfolio.B_ID', $sess) //ค้นหาจาก C_ID ถ้าตรงกับ $id ให้เก็บค่าไว้ใน $query
-			->update('portfolio', $data); //จากนั้นอัปเดรตข้อมูล
-		if ($query) //เมื่อ query สำเร็จ
-		{
+		$sess =  $this->session->userdata('Username');
+		$query = $this->db->where('portfolio.Username', $sess)
+			->insert('portfolio', $data);
+		if ($query) {
 			return TRUE;
 		} else {
 			return FALSE;
 		}
 	}
 
-	function getCustomerShow($id) 
+	function getCustomerShow($id)
 	{
-		$query = $this->db->where('C_ID', $id) 
-			->get('customer'); 
-		return $query->row(); 
+		$query = $this->db->where('C_ID', $id)
+			->get('customer');
+		return $query->row();
+	}
+
+	function getBarberIncomeByID($sess)
+	{
+		$q = $this->db->query("SELECT B_ID FROM `barber` WHERE Username = '$sess'");
+
+		$id = $q->row('B_ID');
+
+		$query = $this->db->query("SELECT barber.*,
+		cast((price.Price*barber.B_Percent/100*
+		SUM( BK_Year = YEAR(CURDATE()) AND BK_Month = MONTH(CURDATE()) and booking.B_ID='$id' and Q_ID=2 )+barber.B_Salary )
+		as decimal(18,0)) AS B_Total
+		FROM booking,price,barber
+		WHERE barber.B_ID='$id'");
+		return $query->result();
 	}
 }

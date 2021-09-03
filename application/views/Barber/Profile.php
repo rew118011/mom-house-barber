@@ -4,11 +4,11 @@ foreach ($BARBER as $row) {
     <div class="recent-grid create-barber">
         <div class="projects">
             <div class="card barberProfile">
-            <div class="text-title">
-                โปรไฟล์ช่าง
-            </div>
                 <section class="profile_area">
                     <div class="containers">
+                        <div class="text-title">
+                            โปรไฟล์ช่าง
+                        </div>
                         <div class="profile">
                             <div class="profile_image">
                                 <img src="<?php echo base_url(); ?>img/<?php echo  $row->B_Img; ?>" alt="" />

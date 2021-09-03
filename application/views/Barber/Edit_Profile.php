@@ -9,43 +9,46 @@ foreach ($BARBER as $row) {
 						<div class="card-header">
 							<h3>แก้ไขข้อมูลส่วนตัว</h3>
 						</div>
-							<div class="card-body-create-barber">
-								<div class="card-header">
-									<p>ข้อมูลการผู้ใช้</p>
-								</div>
-								<div class="flexbox">
-									<div class="item">
-										<form action="save_Image" method="POST" enctype="multipart/form-data">
-											<div class="field flex">
+						<div class="card-body-create-barber">
+							<div class="card-header">
+								<p>ข้อมูลการผู้ใช้</p>
+							</div>
+							<div class="flexbox">
+								<div class="item">
+									<form action="<?php echo site_url('Barber_Con/save_Image') ?>" method="POST" enctype="multipart/form-data">
+										<div class="field flex">
 
-												<input style="display: none;" type="text" name="B_ID" value="<?php echo $row->B_ID; ?>" />
+											<input style="display: none;" type="text" name="B_ID" value="<?php echo $row->B_ID; ?>" />
 
+											<div class="img-profile">
 												<img class="img-barber-queue" id="imgShow" src="" height="200" alt="Image preview..." onerror="this.src='<?php echo base_url(); ?>img/<?php echo  $row->B_Img; ?>'">
-
-												<input class="Display-non" onchange="previewFile()" type="file" name="B_Img" value="<?php echo $row->B_Img ?>" accept="image/*" hidden>
-
-													<button type="submit" name="btnUpload" class="btnUpload">อัปโหลดภาพ</button>
-												
 											</div>
-										</form>
+
+											<input class="Display-non" onchange="previewFile()" type="file" name="B_Img" value="<?php echo $row->B_Img ?>" accept="image/*" hidden>
+
+											<button type="submit" name="btnUpload" class="btnUpload">อัปโหลดภาพ</button>
+
+										</div>
+									</form>
+								</div>
+								<div class="item">
+									<div class="field">
+										<input type="text" name="Username" placeholder="ชื่อผู้ใช้" value="<?php echo $row->Username; ?>" readonly>
 									</div>
-									<div class="item">
-										<div class="field">
-											<input type="text" name="Username" placeholder="ชื่อผู้ใช้" value="<?php echo $row->Username; ?>" readonly>
-										</div>
-										<div class="field">
-											<input type="password" name="Password" placeholder="Password" required style="display: none;">
-										</div>
+									<div class="field">
+										<input type="password" name="Password" placeholder="Password" required style="display: none;">
 									</div>
 								</div>
 							</div>
-							<form action="save_profileBarber" method="POST" enctype="multipart/form-data">
+						</div>
+						<form action="<?php echo site_url('Barber_Con/save_profileBarber') ?>" method="POST" enctype="multipart/form-data">
 							<div class="card-body-create-barber">
 								<div class="card-header">
 									<p>ข้อมูลส่วนตัว</ย>
 								</div>
 								<div class="flexbox">
 									<div class="item">
+										<input style="display: none;" type="text" name="B_ID" value="<?php echo $row->B_ID; ?>" />
 										<div class="field">
 											<input type="text" name="B_Name" placeholder="ชื่อ" value="<?php echo $row->B_Name; ?>">
 										</div>
@@ -95,7 +98,26 @@ foreach ($BARBER as $row) {
 											<input type="text" name="B_Address" placeholder="ที่อยู่" value="<?php echo $row->B_Address; ?>">
 										</div>
 									</div>
-
+									<div class="item">
+										<div class="field">
+											<input type="text" name="B_Sub_district" placeholder="ตำบล" value="<?php echo $row->B_Sub_district; ?>">
+										</div>
+									</div>
+									<div class="item">
+										<div class="field">
+											<input type="text" name="B_District" placeholder="อำเภอ" value="<?php echo $row->B_District; ?>">
+										</div>
+									</div>
+									<div class="item">
+										<div class="field">
+											<input type="text" name="B_Province" placeholder="จังหวัด" value="<?php echo $row->B_Province; ?>">
+										</div>
+									</div>
+									<div class="item">
+										<div class="field">
+											<input type="text" name="B_Postal_Code" placeholder="รหัสไปรษณีย์" value="<?php echo $row->B_Postal_Code; ?>">
+										</div>
+									</div>
 								</div>
 							</div>
 

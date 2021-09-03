@@ -1,11 +1,11 @@
 <div class="recent-grid customer-profile">
     <div class="projects">
         <div class="card barberProfile">
-            <div class="text-title">
-                โปรไฟล์แอดมิน
-            </div>
             <section class="profile_area">
                 <div class="containers">
+                    <div class="text-title">
+                        โปรไฟล์แอดมิน
+                    </div>
                     <div class="profile">
                         <div class="profile_image">
                             <img src="<?php echo base_url(); ?>img/<?= $ID->C_Img; ?>" alt="" />
@@ -36,5 +36,5 @@
                             <span> ประวัติการเพิ่มคิวย้อนหลังของ<?php echo $ID->C_Nickname; ?></span>
                         </div>
                     </div>
-                </div>
+                
                 <div class="slides">

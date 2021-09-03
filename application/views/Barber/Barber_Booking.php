@@ -18,7 +18,7 @@
                         <img src="<?php echo base_url(); ?>img/<?php echo $row->C_Img; ?>" />
                     </td>
                     <td class="td-barber-queue booking-with">
-                        <a href="<?php echo site_url('Admin_Con/getCustomerProfile/') . $row->C_ID; ?>">คุณ<?php echo $row->C_Nickname; ?></a>
+                        <a href="<?php echo site_url('Barber_Con/getCustomerProfile/') . $row->C_ID; ?>">คุณ<?php echo $row->C_Nickname; ?></a>
                     </td>
                     <td class="td-barber-queue"><?php echo $row->BK_Day; ?> / <?php echo $row->BK_Month; ?> / <?php echo $row->BK_Year; ?></td>
                     <td class="td-barber-queue"><?php echo $row->ST_Time; ?></td>
