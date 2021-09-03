@@ -20,12 +20,12 @@ class Page_Con extends CI_Controller
 		// hairstyle
 		$dataHairStyle['HS'] = $this->CM->get_HairStyle();
 
-		$dataCalendar['NUMFUULQUEUE'] = $this->CM->numFullQueue();
-        $dataCalendar['NUMCLOSE'] = $this->CM->numClose();
-        $dataCalendar['FULLQUEUE'] = $this->CM->FullQueue();
-        $dataCalendar['CLOSEYEAR'] = $this->CM->CloseYear();
-        $dataCalendar['CLOSEMONTH'] = $this->CM->CloseMonth();
-        $dataCalendar['CLOSEDAY'] = $this->CM->CloseDay();
+        $dataCalendar['NUMFUULQUEUE'] = $this->BKM->numFullQueue();
+        $dataCalendar['NUMCLOSE'] = $this->BKM->numClose();
+        $dataCalendar['FULLQUEUE'] = $this->BKM->FullQueue();
+        $dataCalendar['CLOSEYEAR'] = $this->BKM->CloseYear();
+        $dataCalendar['CLOSEMONTH'] = $this->BKM->CloseMonth();
+        $dataCalendar['CLOSEDAY'] = $this->BKM->CloseDay();
 
 		$this->load->view('Header');
 		$this->load->view('Navbar');
