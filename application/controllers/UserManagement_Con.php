@@ -92,6 +92,7 @@ class UserManagement_Con extends CI_Controller
         $config['max_width'] = 3000;
         $config['max_height'] = 3000;
         $config['encrypt_name'] = true;
+        
 
         return $config;
     }
