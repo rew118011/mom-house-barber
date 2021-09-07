@@ -9,14 +9,9 @@ class UserManagement_Model extends CI_Model
 		$query = $this->db->insert('barber', $data);
 		if ($query) //เมื่อ query สำเร็จ
 		{
-
-			echo "<script language=\"JavaScript\">";
-			echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว')";
-			echo "</script>";
+			return TRUE;
 		} else {
-			echo "<script language=\"JavaScript\">";
-			echo "alert('ไม่สามารถบันทึกข้อมูลได้ค่ะเกิดข้อผิดพลาด')";
-			echo "</script>";
+			return FALSE;
 		}
 	}
 	function createBarberlogin($data1)
@@ -24,14 +19,9 @@ class UserManagement_Model extends CI_Model
 		$query = $this->db->insert('login', $data1);
 		if ($query) //เมื่อ query สำเร็จ
 		{
-
-			echo "<script language=\"JavaScript\">";
-			echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว')";
-			echo "</script>";
+			return TRUE;
 		} else {
-			echo "<script language=\"JavaScript\">";
-			echo "alert('ไม่สามารถบันทึกข้อมูลได้ค่ะเกิดข้อผิดพลาด')";
-			echo "</script>";
+			return FALSE;
 		}
 	}
 	function GenerateId()

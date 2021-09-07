@@ -6,7 +6,7 @@
 					<h3>เพิ่มช่างตัดผม</h3>
 				</div>
 				<!-- <form action="<?php echo site_url('UserManagement_Con/insert_barber'); ?>" method="POST" enctype="multipart/form-data"> -->
-				<form action="<?php echo site_url('UserManagement_Con/insert_barber'); ?>" method="POST">
+				<form action="<?php echo site_url('UserManagement_Con/insert_barber'); ?>" enctype="multipart/form-data" method="POST">
 					<div class="card-body-create-barber">
 						<div class="card-header">
 							<p>ข้อมูลการผู้ใช้</p>
@@ -20,7 +20,8 @@
 										<!-- <input class="inputB_Img" onchange="previewImgProfile()" type="file" name="B_Img" style="display: none;"> -->
 										<img class="img-barber-queue addB_Img" src="" onerror="this.src='<?php echo base_url(); ?>img/img_user_placeholder.jpg'">
 									</div>
-									<p class="upload-img">อัปโหลดภาพ</p>
+									<!--<p class="upload-img">อัปโหลดภาพ</p>-->
+									<input class="" type="file" name="userfile[]" multiple="multiple">
 								</div>
 							</div>
 							<div class="item">

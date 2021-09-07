@@ -24,81 +24,77 @@ class UserManagement_Con extends CI_Controller
     }
     function insert_barber()
     {
-        //สร้างกฏสำหรับ C_Name 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Name', 'ชื่อ', 'required');
-        //สร้างกฏสำหรับ C_Lname 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Lname', 'นามสกุล', 'required');
-        //สร้างกฏสำหรับ C_Sex 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Nickname', 'ชื่อเล่น', 'required');
-        //สร้างกฏสำหรับ C_Sex 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Sex', 'เพศ', 'required');
-        //สร้างกฏสำหรับ B_Img 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Img', 'รูป', 'required');
-        //สร้างกฏสำหรับ B_Skill1 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Skill1', 'สกิล1', 'required');
-        //สร้างกฏสำหรับ B_Skill2 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Skill2', 'สกิล2', 'required');
-        //สร้างกฏสำหรับ B_Skill3 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Skill3', 'สกิล3', 'required');
-        //สร้างกฏสำหรับ B_Skill_Score1 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Skill_Score1', 'คะแนนสกิล1', 'required');
-        //สร้างกฏสำหรับ B_Skill_Score2 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Skill_Score2', 'คะแนนสกิล2', 'required');
-        //สร้างกฏสำหรับ B_Skill_Score3 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('B_Skill_Score3', 'คะแนนสกิล3', 'required');
-        //สร้างกฏสำหรับ C_Phone 'required|is_natural|exact_length[10]'คือต้องไม่เป็นค่าว่าง หรือ เป็นตัวเลขจำนวนเต็ม หรือ และต้องตัวอักษรเท่ากับ 10
-        $this->form_validation->set_rules('B_Phone', 'เบอร์โทร', 'required|is_natural|exact_length[10]');
-        //สร้างกฏสำหรับ Username 'required'คือต้องไม่เป็นค่าว่าง หรือ มีตัวอักษรอย่างน้อย 6 ตัว หรือ ตัวอักษรและตัวเลข
-        $this->form_validation->set_rules('B_Address', 'ที่อยู่', 'required');
-        $this->form_validation->set_rules('B_Sub_district', 'ตำบล', 'required');
-        $this->form_validation->set_rules('B_District', 'อำเภอ', 'required');
-        $this->form_validation->set_rules('B_Province', 'จังหวัด', 'required');
-        $this->form_validation->set_rules('B_Postal_Code', 'รหัสไปรษณีย์', 'required');
-        $this->form_validation->set_rules('Username', 'รหัสผู้ใช้', 'required|min_length[6]'); //สร้างกฏสำหรับ Username 'required'คือต้องไม่เป็นค่าว่าง
-        $this->form_validation->set_rules('Password', 'รหัสผ่าน', 'required|min_length[6]');
-        $this->form_validation->set_error_delimiters('<font color=red>', '</font>');
-        if ($this->input->post('btnRegister')) //มีการคลิกปุ่ม สมัครสมาชิก
-        {
-            if ($this->form_validation->run()) { //ตรวจสอบฟอร์มแล้วถูกต้องตามรูปแบบ
-                $id = $this->UMM->GenerateId();
-                $data = array(
-                    'B_ID' => $id,
-                    'B_Name' => $this->input->post("B_Name"),
-                    'B_Lname' => $this->input->post("B_Lname"),
-                    'B_Nickname' => $this->input->post("B_Nickname"),
-                    'B_Sex' => $this->input->post("B_Sex"),
-                    'B_Phone' => $this->input->post("B_Phone"),
-                    'B_Address' => $this->input->post("B_Address"),
-                    'B_Sub_district' => $this->input->post("B_Sub_district"),
-                    'B_District' => $this->input->post("B_District"),
-                    'B_Province' => $this->input->post("B_Province"),
-                    'B_Postal_Code' => $this->input->post("B_Postal_Code"),
-                    'Username' => $this->input->post("Username"),
-                    'B_Img' => $this->input->post("B_Img"),
-                    'B_Skill1' => $this->input->post("B_Skill1"),
-                    'B_Skill2' => $this->input->post("B_Skill2"),
-                    'B_Skill3' => $this->input->post("B_Skill3"),
-                    'B_Skill_Score1' => $this->input->post("B_Skill_Score1"),
-                    'B_Skill_Score2' => $this->input->post("B_Skill_Score2"),
-                    'B_Skill_Score3' => $this->input->post("B_Skill_Score3")
-                );
-                $data1 = array(
-                    'Username' => $this->input->post("Username"),
-                    'Password' => $this->input->post("Password"),
-                    'S_ID' => $this->input->post("S_ID"),
-                );
-                $this->UMM->createBarberlogin($data1);
-                $this->UMM->createBarber($data); //เรียกใช้ฟังชั่น insert ในฐานข้อมูล
-                redirect('Admin_Con/getBarberAll', 'refresh');
-            } else { //กรอกข้อมูลไม่ถูกต้องตามกฏ
-                $this->session->set_flashdata('msg_error', 'กรุณากรอกข้อมูลครบค่ะ !');
-                $this->load->view('Admin/Create_Barber.php');
-            }
-        } else { //กลับไปหน้าช่างทั้งหมด
+        $this->load->library('upload');
+        $dataInfo = array();
+        $files = $_FILES;
+        $cpt = count($_FILES['userfile']['name']);
+        for ($i = 0; $i < $cpt; $i++) {
+            $_FILES['userfile']['name'] = $files['userfile']['name'][$i];
+            $_FILES['userfile']['type'] = $files['userfile']['type'][$i];
+            $_FILES['userfile']['tmp_name'] = $files['userfile']['tmp_name'][$i];
+            $_FILES['userfile']['error'] = $files['userfile']['error'][$i];
+            $_FILES['userfile']['size'] = $files['userfile']['size'][$i];
+
+            $this->upload->initialize($this->set_upload_options());
+            $this->upload->do_upload();
+            $dataInfo[] = $this->upload->data();
+        }
+        $id = $this->UMM->GenerateId();
+        $data = array(
+            'B_ID' => $id,
+            'B_Name' => $this->input->post("B_Name"),
+            'B_Lname' => $this->input->post("B_Lname"),
+            'B_Nickname' => $this->input->post("B_Nickname"),
+            'B_Sex' => $this->input->post("B_Sex"),
+            'B_Phone' => $this->input->post("B_Phone"),
+            'B_Address' => $this->input->post("B_Address"),
+            'B_Sub_district' => $this->input->post("B_Sub_district"),
+            'B_District' => $this->input->post("B_District"),
+            'B_Province' => $this->input->post("B_Province"),
+            'B_Postal_Code' => $this->input->post("B_Postal_Code"),
+            'Username' => $this->input->post("Username"),
+            'B_Img' => $dataInfo[0]['file_name'],
+            'B_Skill1' => $this->input->post("B_Skill1"),
+            'B_Skill2' => $this->input->post("B_Skill2"),
+            'B_Skill3' => $this->input->post("B_Skill3"),
+            'B_Skill_Score1' => $this->input->post("B_Skill_Score1"),
+            'B_Skill_Score2' => $this->input->post("B_Skill_Score2"),
+            'B_Skill_Score3' => $this->input->post("B_Skill_Score3"),
+            'B_Percent' => $this->input->post("B_Percent"),
+            'B_Salary' => $this->input->post("B_Salary"),
+        );
+        $data1 = array(
+            'Username' => $this->input->post("Username"),
+            'Password' => $this->input->post("Password"),
+            'S_ID' => $this->input->post("S_ID"),
+        );
+        
+        $checkDataLogin = $this->UMM->createBarberlogin($data1);
+        $checkDataBarber = $this->UMM->createBarber($data);
+        if($checkDataLogin && $checkDataBarber == TRUE){
+            echo "<script language=\"JavaScript\">";
+            echo "alert('เพิ่มข้อมูลสำเร็จ')";
+            echo "</script>";
             redirect('Admin_Con/getBarberAll', 'refresh');
+        }else{
+            echo "<script language=\"JavaScript\">";
+            echo "alert('ไม่สามารถบันทึกข้อมูลได้ค่ะเกิดข้อผิดพลาด')";
+            echo "</script>";
+            redirect('UserManagement_Con/createBarber', 'refresh');
         }
     }
+    private function set_upload_options()
+    {
+        $config = array();
+        $config['upload_path'] = 'img';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size']  = 10024;
+        $config['max_width'] = 3000;
+        $config['max_height'] = 3000;
+        $config['encrypt_name'] = true;
 
+        return $config;
+    }
 
     function setBarber($id)
     {
